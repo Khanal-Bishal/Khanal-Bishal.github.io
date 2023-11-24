@@ -1,0 +1,105 @@
+.lady-banner-section
+{
+    width: 100%;
+    color: $black;
+    position: relative;
+    display: flex;
+    // margin: 10px;
+    flex-direction: column;
+    figure
+    {
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        margin:  39px 0 0 0;
+        img 
+        {
+            width: 100%;
+        }
+                @media screen and (min-width:1400px) {
+                    width: 80%;
+                    margin: auto;
+
+                }
+        
+    }
+
+        &__card {
+            margin: 0;
+            width: 60%;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: $white;
+            
+           
+
+                h2 
+                {
+                    font-size: $card-title-font-size;
+                    font-weight: 700;
+                    @media screen and (min-width:768px)
+                     {
+                        font-size: $heading-tablet-font-size;
+                    }
+                     @media screen and (min-width:1400px) 
+                     {
+                         font-size: $heading-desktop-font-size;
+                     }
+                }
+
+                p 
+                {
+                 
+                    @media screen and (min-width:768px) {
+                            font-size: calc($base-font-size - 2px)
+                        }
+                    
+                        @media screen and (min-width:1400px) {
+                            font-size: $base-font-size;
+                        }
+                }
+
+                .lady-banner-section__button
+                {
+                    display: flex;
+                    gap: 2%;
+                    justify-items: start;
+                   
+                    button 
+                    {
+                        margin-top: 20px;
+                        background-color: transparent;
+                        padding-left: 0 ;
+                    }
+
+                }
+
+            @media screen and (min-width:768px) {
+                    width: 60%;
+                    box-shadow: 2px 2px 2px 2px darken($color: $white, $amount: 20%);
+                    position: absolute;
+                    display: block;
+                    top: 29%;
+                    left: 44%;
+                    z-index: 100;
+
+            }
+            @media screen and (min-width:1400px){
+                top: 15%;
+                left: 50%;
+                width: 45%;
+            }
+
+        }
+
+        @media screen and (min-width:768px) {
+        width: 80%;
+        margin: 60px auto;
+                
+        }
+        @media screen and (min-width:1400px) {
+            margin-top: 90px;
+        }
+
+
+}

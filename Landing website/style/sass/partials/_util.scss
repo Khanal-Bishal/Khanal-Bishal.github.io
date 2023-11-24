@@ -1,0 +1,31 @@
+
+.container {
+    padding: 0 24px;
+
+    @media screen and (min-width: 768px) {
+        padding: 0 36px;
+    }
+
+    @media screen and (min-width: 1400px) {
+        padding: 0;
+        width: 1200px;
+        margin: 0 auto;
+    }
+}
+.card
+{
+    width: 304px;
+    border-radius: 8px;
+    padding: 24px 16px;
+    box-shadow: 2px 2px 2px 2px darken($color: $white, $amount: 20%);
+    
+}
+
+.guideline-card
+{
+    border: 1px solid $white;
+    padding: 15px;
+    // max-width: 31px;
+    border-radius: 8px;
+}
+

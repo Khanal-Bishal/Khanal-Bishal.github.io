@@ -1,0 +1,63 @@
+header{
+
+    background-color:$primary-color ;
+    .header
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $white;
+        
+        &__logo
+        {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: $white;
+            font-size: $logo-font-size;
+            user-select: none;
+            
+        }
+        nav 
+        {
+            display: none;
+            ul
+            {
+                display: flex;
+                gap: 32px;
+            li 
+            {
+                a 
+                {
+                    
+                    color: $body-text-color;
+                    &:hover{
+                        color: $white;
+                    }
+                    
+                }
+               
+            }
+            button 
+            {
+                color: $white;
+                background-color:#6d66ff;
+                cursor: pointer;
+            }
+            
+        }
+       
+            @media screen and (min-width:768px) {
+            display: block;
+            }
+        
+    }
+         .burger-menu {
+             @media screen and (min-width:768px) {
+                 display: none;
+             }
+         }
+}
+   
+}
+
+
