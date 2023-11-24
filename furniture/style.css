@@ -1,0 +1,160 @@
+/* =========resetting css========= */
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    
+}
+html
+{
+    font-size: 62.5%;  /*1 rem = 10px*/
+}
+
+/*============ variables========= */
+:root
+{
+    --bg-clr:#343D33;
+    --primary-txt-clr:#FFFFFF;
+    --text-fs:2rem;
+    --mobile-fs:1.6rem;
+    --heading-fs:4.5rem;
+}
+
+
+body
+{
+    background-color: var(--bg-clr);
+    color: var(--primary-txt-clr);
+
+}
+
+.container
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 6rem;
+    margin: auto;
+    margin-top: 9.9rem;
+    width: 90%;
+}
+
+.plant-image
+{
+    flex-grow: 0;
+    flex-basis: 35%;
+    width: 534px;
+    height: 354px;
+}
+
+.plant-description 
+{
+    /* flex-grow: 0; */
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 35%;
+    flex-direction: column;
+    gap: 1.6rem;
+    font-size: var(--text-fs);
+    text-align: justify;
+    text-transform: capitalize;
+}
+
+h2 
+{
+    font-size: var(--heading-fs);
+    margin: 0;
+}
+
+button 
+{
+    background-color: transparent;
+    border: 3px solid var(--primary-txt-clr);
+    color: var(--primary-txt-clr);
+    padding: 9px;
+    width: 12.5rem;
+    margin-top: 2rem;
+    text-transform: uppercase;
+}
+
+.seating-area-image
+ {
+    margin-bottom: 2.6rem;
+    width: 95%;
+    flex-grow: 1;
+}
+/* ===================tablet ================ */
+@media screen and (max-width:1024px)
+{
+    .container
+    {
+        width: 95%;
+        margin: auto;
+        margin-top: 9.6rem;
+        padding-bottom: 3rem;
+    }
+    .plant-image
+    {
+        flex-basis: 100%;
+        order: 1;
+        width: 100%;
+        height: auto;
+        margin: auto;
+      
+    }
+    .plant-description
+    {
+        flex-grow: 0;
+        flex-basis: 85%;
+        order: 3;
+        text-align: start;
+       
+    }
+    .seating-area-image
+    {
+        width: 100%;
+        height: auto;
+        order: 2;
+        margin: auto;
+    }
+   
+}
+/*================ mobile============== */
+@media screen and (max-width:575px) {
+
+
+    .container
+     {
+        margin: auto;
+        margin-top: 5.6rem;
+        width: 95%;
+        padding-bottom: 3rem;
+    }
+
+    .plant-image 
+    {
+        order: 1;
+        width: 100%;
+        height: auto;
+        margin: 0;
+
+    }
+
+    .plant-description 
+    {
+        flex-grow: 0;
+        order: 3;
+    }
+   
+
+    .seating-area-image
+     {
+        width: 100%;
+        height: auto;
+        order: 2;
+        margin: auto;
+    }
+
+  
+}
+

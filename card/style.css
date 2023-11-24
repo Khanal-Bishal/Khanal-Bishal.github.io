@@ -1,0 +1,119 @@
+/* =========resetting css========= */
+* 
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html 
+{
+    font-size: 62.5%;   /*1 rem = 10px*/
+}
+
+ul
+{
+    list-style: none;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+body 
+{
+    background-color: var(--main-bg-clr);
+    font-family: 'Poppins', sans-serif;
+
+}
+
+/*============ variables========= */
+:root 
+    {
+    
+    --card-bg-clr:#fff;
+    --link-bg-clr:#f5f5f5;
+    --main-bg-clr: #000;
+
+    --primary-txt-clr: #c1c0cc;
+
+    --heading-fs:1.8rem;
+    --text-fs:1.6rem;
+
+    -main-ff:'Poppins',sans-serif;
+
+    --heading-font-weight:500px;
+    }
+
+.container
+{
+    background-color: var(--card-bg-clr);
+    border-radius: 2rem;
+    left: 50%;
+    padding:2.5rem;
+    position: relative;
+    top: 30%;
+    transform: translate(-50%,-30%);
+    width: 35%;
+
+}
+
+.card-image
+{
+    height: 161px;
+    width: 321px;
+}
+
+h2
+{
+    font-size: var(--heading-fs);
+    font-weight: var(--heading-font-weight);
+    margin-top: 2.6rem;
+    text-transform: capitalize;
+    user-select: none;
+}
+
+.details-on-holiday
+{
+    color: var(--primary-txt-clr);
+    display: inline-block;
+    font-size: var(--text-fs);
+    margin-top: 1.3rem;
+    user-select: none;
+}
+
+ul
+{
+    display: flex;
+    gap: 1.8rem;
+    margin-top: 2.1rem;
+}
+
+a
+{
+    
+    background-color: var(--link-bg-clr);
+    border-radius: 50%;
+    padding: 1.2rem;
+}
+
+a:hover
+{
+    background-color: #f2ebeb;
+}
+
+.people-onboard
+{
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 3rem;  
+  
+}
+
+.people-onboard span
+{
+    color: var(--primary-txt-clr);
+    font-size: var(--text-fs);
+    margin-top: 1rem;
+}
