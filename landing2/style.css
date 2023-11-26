@@ -1870,6 +1870,10 @@ header .header__burger {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
   position: relative;
 }
+.footer__getQuote_section_wrapper .footer__getQuote_card_form_button:hover {
+  background-color: #0f1d52;
+  transition: background-color 500ms ease;
+}
 .footer__getQuote_section_wrapper .footer__getQuote_card_form_button img {
   position: absolute;
   top: 50%;
