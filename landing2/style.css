@@ -397,7 +397,7 @@ button {
   }
 }
 header {
-  background-image: url("../../assets/desktop_header_bg.png");
+  background-image: url("./assets/desktop_header_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -881,7 +881,7 @@ header .header__burger {
 }
 
 .main__background_img {
-  background-image: url("../../assets/desktop_header_bg.png");
+  background-image: url("./assets/desktop_header_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -1538,7 +1538,7 @@ header .header__burger {
 }
 
 .main__prevention_wrapper {
-  background-image: url(../../assets/desktop_header_bg.png);
+  background-image: url(./assets/desktop_header_bg.png);
   background-position: center;
   background-size: cover;
 }
@@ -1918,7 +1918,7 @@ header .header__burger {
 }
 
 .footer__nav {
-  background-image: url("../../assets/desktop_header_bg.png");
+  background-image: url("./assets/desktop_header_bg.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
