@@ -1811,31 +1811,31 @@ header .header__burger {
 .footer__getQuote_section_wrapper .footer__getQuote_card_heading {
   text-align: center;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 20px;
 }
 @media screen and (min-width: 768px) {
   .footer__getQuote_section_wrapper .footer__getQuote_card_heading {
-    font-size: 18px;
+    font-size: 28px;
   }
 }
 @media screen and (min-width: 1400px) {
   .footer__getQuote_section_wrapper .footer__getQuote_card_heading {
-    font-size: 20px;
+    font-size: 36px;
   }
 }
 .footer__getQuote_section_wrapper .footer__getQuote_card_desc {
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
 }
 @media screen and (min-width: 768px) {
   .footer__getQuote_section_wrapper .footer__getQuote_card_desc {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 @media screen and (min-width: 1400px) {
   .footer__getQuote_section_wrapper .footer__getQuote_card_desc {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 .footer__getQuote_section_wrapper .footer__getQuote_card_form {
