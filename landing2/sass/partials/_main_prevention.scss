@@ -19,13 +19,17 @@
             font-weight: $heading-font-weight;
             margin-top: 25px;
 
-            @media screen and (min-width:$tablet-breakpoint) 
+            @include tablet 
             {
                 font-size: $tablet-font-size;
                 margin-top: 40px;
             }
             
-            @media screen and (min-width:$desktop-breakpoint)
+            @include laptop
+             {
+                font-size: $laptop-font-size;
+             }
+            @include desktop
              {
                 font-size: $desktop-font-size;
              }
@@ -33,7 +37,7 @@
         }
 
         &_symptomsHeading
-        {   
+        {  
             font-size: $mobile-heading-font-size;
             font-weight: $heading-font-weight;
             margin-top: 20px;
@@ -46,13 +50,19 @@
             }
 
 
-            @media screen and (min-width:$tablet-breakpoint) 
+            @include tablet 
             {
                 font-size: $tablet-heading-font-size;
                 margin-top: 25px;
             }
+
+            @include laptop 
+            {
+                font-size: $laptop-heading-font-size;
+                
+            }
             
-            @media screen and (min-width:$desktop-breakpoint)
+            @include desktop
              {
                 font-size: $desktop-heading-font-size;
                 margin-top: 30px;
@@ -66,16 +76,22 @@
             font-size: 12px;
 
 
-            @media screen and (min-width:$tablet-breakpoint) 
+            @include tablet 
             {
                 font-size: 14px;
             }
             
-            @media screen and (min-width:$desktop-breakpoint) 
+            @include laptop
             {
-                font-size: 16px;
+                font-size: 15px;
                 max-width: 70%;
                 margin: auto;
+
+            }
+            
+            @include desktop 
+            {
+                font-size: 16px;
 
             }
 
@@ -92,26 +108,26 @@
             {
                 width: 100%;
                 border-radius: 20px;
-                @media screen and (min-width:$tablet-breakpoint) {}
+                @include tablet {}
                 
-                @media screen and (min-width:$desktop-breakpoint) {}
+                @include desktop {}
             }
-            @media screen and (min-width:$tablet-breakpoint) {}
+            @include tablet {}
             
-            @media screen and (min-width:$desktop-breakpoint) {}
+            @include desktop {}
 
         }
 
-        @media screen and (min-width:$tablet-breakpoint) {}
+        @include tablet {}
         
-        @media screen and (min-width:$desktop-breakpoint) {}
+        @include desktop {}
 
     }
 
 
-    @media screen and (min-width:$tablet-breakpoint) {}
+    @include tablet {}
     
-    @media screen and (min-width:$desktop-breakpoint) {}
+    @include desktop {}
     
 
 }

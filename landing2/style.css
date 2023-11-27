@@ -432,6 +432,14 @@ header .header__logo::after {
     border-radius: 2px;
   }
 }
+@media screen and (min-width: 1024px) {
+  header .header__logo::after {
+    width: 45%;
+    border: 2px solid #17c2ec;
+    border-radius: 2px;
+    flex-basis: 10%;
+  }
+}
 @media screen and (min-width: 1400px) {
   header .header__logo::after {
     width: 45%;
@@ -449,6 +457,11 @@ header .header__logo:hover::after {
 @media screen and (min-width: 768px) {
   header .header__logo {
     font-size: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  header .header__logo {
+    font-size: 28px;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -474,6 +487,7 @@ header .header__nav_ul_list {
 }
 header .header__nav_ul_list:hover {
   color: whitesmoke;
+  font-weight: 700;
 }
 header .header__nav_ul_list:hover::after {
   content: "";
@@ -487,6 +501,7 @@ header .header__nav_ul_list:hover::after {
 @media screen and (min-width: 1024px) {
   header .header__nav {
     display: block;
+    flex-basis: 43%;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -500,19 +515,26 @@ header .header__status {
 header .header__status_button {
   color: #17c2ec;
   background-color: rgba(196, 196, 196, 0.1019607843);
-  padding: 20px 25px;
   font-weight: 700;
-  width: 219px;
-  font-size: 24px;
+  width: 220px;
+  padding: 13px 13px;
+  font-size: 22px;
 }
 header .header__status_button:hover {
   background-color: rgba(255, 255, 255, 0.1019607843);
   color: white;
   transition: 200ms;
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   header .header__status {
     display: block;
+    max-width: 20%;
+  }
+}
+@media screen and (min-width: 1400px) {
+  header .header__status {
+    font-size: 24px;
+    padding: 20px 25px;
   }
 }
 header .header__burger {
@@ -545,6 +567,11 @@ header .header__burger {
     font-size: 18px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .header__section_desc_subHeading {
+    font-size: 20px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .header__section_desc_subHeading {
     font-size: 22px;
@@ -562,6 +589,11 @@ header .header__burger {
     font-size: 36px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .header__section_desc_heading {
+    font-size: 40px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .header__section_desc_heading {
     font-size: 48px;
@@ -577,7 +609,12 @@ header .header__burger {
     font-size: 20px;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
+  .header__section_desc_detail {
+    font-size: 22px;
+  }
+}
+@media screen and (min-width: 1400px) {
   .header__section_desc_detail {
     font-size: 24px;
   }
@@ -604,6 +641,12 @@ header .header__burger {
   .header__section_desc_button_get {
     width: 210px;
     font-size: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .header__section_desc_button_get {
+    width: 200px;
+    font-size: 22px;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -656,6 +699,11 @@ header .header__burger {
     width: 60%;
   }
 }
+@media screen and (min-width: 1024px) {
+  .header__section_figure_image {
+    width: 60%;
+  }
+}
 @media screen and (min-width: 1400px) {
   .header__section_figure_image {
     width: 95%;
@@ -668,6 +716,7 @@ header .header__burger {
 }
 @media screen and (min-width: 1024px) {
   .header__section_figure {
+    margin-top: 50px;
     justify-content: space-between;
   }
 }
@@ -676,7 +725,7 @@ header .header__burger {
     min-width: 40vw;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .header__section {
     flex-direction: row;
   }
@@ -709,7 +758,12 @@ header .header__burger {
     font-size: 20px;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
+  .header__schedule_section_vaccination_title {
+    font-size: 22px;
+  }
+}
+@media screen and (min-width: 1400px) {
   .header__schedule_section_vaccination_title {
     font-size: 24px;
   }
@@ -717,6 +771,11 @@ header .header__burger {
 @media screen and (min-width: 768px) {
   .header__schedule_section_vaccination {
     gap: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .header__schedule_section_vaccination {
+    gap: 22px;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -731,7 +790,7 @@ header .header__burger {
   backdrop-filter: blur(10px);
   padding: 15px 0px 15px 15px;
   margin-top: 40px;
-  border-radius: 20px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   box-shadow: -4px -4px 5px 4px rgba(255, 255, 255, 0.1);
@@ -760,7 +819,7 @@ header .header__burger {
 @media screen and (min-width: 1400px) {
   .header__schedule_section_card_panel_figure_icon {
     width: 60px;
-    padding: 5pxpx;
+    padding: 5px;
   }
 }
 .header__schedule_section_card_panel_detail_desc {
@@ -815,7 +874,7 @@ header .header__burger {
     width: 192px;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1400px) {
   .header__schedule_section_card_bcontainer_button {
     width: 200px;
     font-size: 16px;
@@ -891,7 +950,7 @@ header .header__burger {
 .main__background_img .main__checkCovid_section {
   background: rgba(255, 255, 255, 0.0509803922);
   backdrop-filter: blur(10px);
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 20px;
 }
 .main__background_img .main__checkCovid_section_heading {
@@ -904,10 +963,17 @@ header .header__burger {
     font-size: 20px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__background_img .main__checkCovid_section_heading {
+    padding-top: 20px;
+    font-size: 22px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__background_img .main__checkCovid_section_heading {
     font-size: 24px;
-    text-align: center;
+    width: 80%;
+    margin: auto;
   }
 }
 .main__background_img .main__checkCovid_section_form {
@@ -932,7 +998,7 @@ header .header__burger {
 .main__background_img .main__checkCovid_section_form_input:nth-child(2) {
   margin-top: 10px;
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .main__background_img .main__checkCovid_section_form_input:nth-child(2) {
     margin-top: 0;
   }
@@ -940,6 +1006,12 @@ header .header__burger {
 @media screen and (min-width: 768px) {
   .main__background_img .main__checkCovid_section_form_input {
     font-size: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__background_img .main__checkCovid_section_form_input {
+    font-size: 22px;
+    flex-basis: 30%;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -969,14 +1041,28 @@ header .header__burger {
     width: 170px;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .main__background_img .main__checkCovid_section_form_button {
     width: 80%;
     margin-top: 0;
     flex-basis: 20%;
-    padding: 20px;
-    font-size: 22px;
+    padding: 15px;
+    font-size: 20px;
     letter-spacing: 1px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .main__background_img .main__checkCovid_section_form_button {
+    font-size: 22px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__background_img .main__checkCovid_section_form {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 55px auto;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1025,6 +1111,11 @@ header .header__burger {
     font-size: 12px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__background_img .main__checkCovid_section_needCertificate span a {
+    font-size: 14px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__background_img .main__checkCovid_section_needCertificate span a {
     font-size: 16px;
@@ -1037,6 +1128,12 @@ header .header__burger {
     flex-direction: row;
     justify-content: center;
     margin: auto;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__background_img .main__checkCovid_section_needCertificate {
+    font-size: 14px;
+    padding: 14px;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1077,6 +1174,12 @@ header .header__burger {
     font-size: 36px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__whyVaccinated_header_heading {
+    flex-basis: 50%;
+    font-size: 40px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__whyVaccinated_header_heading {
     flex-basis: 40%;
@@ -1093,16 +1196,23 @@ header .header__burger {
     font-size: 20px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__whyVaccinated_header_desc {
+    flex-basis: 40%;
+    font-size: 15px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__whyVaccinated_header_desc {
     flex-basis: 40%;
     font-size: 24px;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .main__whyVaccinated_header {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 }
 .main__whyVaccinated_card {
@@ -1142,6 +1252,11 @@ header .header__burger {
     font-size: 36px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__whyVaccinated_card_panel_heading {
+    font-size: 40px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__whyVaccinated_card_panel_heading {
     font-size: 24px;
@@ -1156,6 +1271,11 @@ header .header__burger {
 @media screen and (min-width: 768px) {
   .main__whyVaccinated_card_panel_desc {
     font-size: 14px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__whyVaccinated_card_panel_desc {
+    font-size: 16px;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1183,6 +1303,11 @@ header .header__burger {
     font-size: 20px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__whyVaccinated_card_panel_button {
+    font-size: 22px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__whyVaccinated_card_panel_button {
     font-size: 24px;
@@ -1191,6 +1316,11 @@ header .header__burger {
 @media screen and (min-width: 768px) {
   .main__whyVaccinated_card_panel {
     flex-basis: 60%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__whyVaccinated_card_panel {
+    flex-basis: 40%;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1217,6 +1347,21 @@ header .header__burger {
   font-weight: 700;
   margin-top: 20px;
 }
+@media screen and (min-width: 768px) {
+  .main__whyVaccinated_card_panel2_heading {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__whyVaccinated_card_panel2_heading {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .main__whyVaccinated_card_panel2_heading {
+    font-size: 18px;
+  }
+}
 .main__whyVaccinated_card_panel2_button {
   display: flex;
   gap: 5px;
@@ -1237,6 +1382,11 @@ header .header__burger {
     font-size: 20px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__whyVaccinated_card_panel2_button {
+    font-size: 22px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__whyVaccinated_card_panel2_button {
     font-size: 24px;
@@ -1246,6 +1396,11 @@ header .header__burger {
 @media screen and (min-width: 768px) {
   .main__whyVaccinated_card_panel2:nth-child(2) {
     margin-right: 10%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__whyVaccinated_card_panel2:nth-child(2) {
+    margin-right: 0%;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1258,9 +1413,15 @@ header .header__burger {
     flex-basis: 25%;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .main__whyVaccinated_card_panel2 {
     align-self: end;
+    flex-basis: 20%;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .main__whyVaccinated_card_panel2 {
+    flex-basis: 25%;
   }
 }
 @media screen and (min-width: 768px) {
@@ -1271,7 +1432,7 @@ header .header__burger {
     margin-top: 20px;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .main__whyVaccinated_card {
     margin-top: 30px;
   }
@@ -1298,6 +1459,12 @@ header .header__burger {
     text-align: start;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__register_form_heading {
+    font-size: 40px;
+    max-width: 100%;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__register_form_heading {
     font-size: 48px;
@@ -1311,6 +1478,11 @@ header .header__burger {
 .main__register_form_figure_image {
   width: 100%;
 }
+@media screen and (min-width: 1024px) {
+  .main__register_form_figure_image {
+    display: none;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__register_form_figure_image {
     display: none;
@@ -1320,6 +1492,11 @@ header .header__burger {
   .main__register_form_figure {
     width: 50%;
     margin: 40px 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__register_form_figure {
+    display: none;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1339,6 +1516,12 @@ header .header__burger {
   .main__register_form_label {
     margin-top: 70px;
     font-size: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__register_form_label {
+    margin-top: 40px;
+    font-size: 22px;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1362,6 +1545,11 @@ header .header__burger {
   .main__register_form_inputName {
     width: 100%;
     font-size: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__register_form_inputName {
+    font-size: 22px;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1420,12 +1608,27 @@ header .header__burger {
     font-size: 20px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__register_form_mobile_input_mobile {
+    font-size: 22px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__register_form_mobile_input_mobile {
     font-size: 24px;
   }
 }
 @media screen and (min-width: 768px) {
+  .main__register_form_mobile_input {
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__register_form_mobile_input {
+    padding: 0px;
+  }
+}
+@media screen and (min-width: 1024px) {
   .main__register_form_mobile_input {
     padding: 10px;
   }
@@ -1451,10 +1654,15 @@ header .header__burger {
     width: 225px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__register_form_mobile_button {
+    font-size: 22px;
+    width: 215px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__register_form_mobile_button {
     font-size: 24px;
-    width: 215px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -1463,6 +1671,11 @@ header .header__burger {
     gap: 90px;
     justify-content: space-around;
     margin-top: 25px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__register_form_mobile {
+    gap: 20px;
   }
 }
 .main__register_form_submit_button {
@@ -1483,6 +1696,11 @@ header .header__burger {
 @media screen and (min-width: 768px) {
   .main__register_form_submit_button {
     font-size: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__register_form_submit_button {
+    font-size: 22px;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1522,6 +1740,11 @@ header .header__burger {
     width: 100%;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__register_form {
+    max-width: 50%;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__register_form {
     max-width: 50%;
@@ -1530,7 +1753,7 @@ header .header__burger {
 .main__register_figure {
   display: none;
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .main__register_figure {
     display: block;
     flex-basis: 40%;
@@ -1559,6 +1782,11 @@ header .header__burger {
     margin-top: 40px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__prevention_wrapper .main__prevention_prevHeading {
+    font-size: 22px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__prevention_wrapper .main__prevention_prevHeading {
     font-size: 24px;
@@ -1580,6 +1808,11 @@ header .header__burger {
     margin-top: 25px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__prevention_wrapper .main__prevention_symptomsHeading {
+    font-size: 40px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__prevention_wrapper .main__prevention_symptomsHeading {
     font-size: 48px;
@@ -1595,11 +1828,16 @@ header .header__burger {
     font-size: 14px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__prevention_wrapper .main__prevention_description {
+    font-size: 15px;
+    max-width: 70%;
+    margin: auto;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__prevention_wrapper .main__prevention_description {
     font-size: 16px;
-    max-width: 70%;
-    margin: auto;
   }
 }
 .main__prevention_wrapper .main__prevention_figure {
@@ -1626,6 +1864,11 @@ header .header__burger {
     font-size: 20px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__feedback_subHeading {
+    font-size: 22px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__feedback_subHeading {
     font-size: 24px;
@@ -1640,6 +1883,11 @@ header .header__burger {
 @media screen and (min-width: 768px) {
   .main__feedback_mainHeading {
     font-size: 36px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main__feedback_mainHeading {
+    font-size: 40px;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1727,6 +1975,11 @@ header .header__burger {
     font-size: 20px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .main__feedback_cardsPanel_card_desc {
+    font-size: 16px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .main__feedback_cardsPanel_card_desc {
     font-size: 24px;
@@ -1744,13 +1997,13 @@ header .header__burger {
     margin-top: 30px;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .main__feedback_cardsPanel_card {
     flex-basis: 30%;
     align-self: stretch;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .main__feedback_cardsPanel {
     flex-direction: row;
     align-items: center;
@@ -1775,6 +2028,14 @@ header .header__burger {
     top: -25%;
     left: 22%;
     height: 150%;
+    transform: translate(0%, 0%);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .dose_image {
+    top: -20%;
+    left: 15%;
+    height: 125%;
     transform: translate(0%, 0%);
   }
 }
@@ -1812,10 +2073,16 @@ header .header__burger {
   text-align: center;
   font-weight: 700;
   font-size: 20px;
+  margin-top: 0px;
 }
 @media screen and (min-width: 768px) {
   .footer__getQuote_section_wrapper .footer__getQuote_card_heading {
     font-size: 28px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer__getQuote_section_wrapper .footer__getQuote_card_heading {
+    font-size: 32px;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1857,6 +2124,11 @@ header .header__burger {
     font-size: 14px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .footer__getQuote_section_wrapper .footer__getQuote_card_form_input {
+    font-size: 15px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .footer__getQuote_section_wrapper .footer__getQuote_card_form_input {
     font-size: 16px;
@@ -1884,6 +2156,7 @@ header .header__burger {
 @media screen and (min-width: 768px) {
   .footer__getQuote_section_wrapper .footer__getQuote_card_form {
     margin-top: 25px;
+    padding-bottom: 20px;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1893,31 +2166,41 @@ header .header__burger {
 }
 @media screen and (min-width: 768px) {
   .footer__getQuote_section_wrapper .footer__getQuote_card {
-    padding: 30px;
+    padding: 22px;
   }
 }
 @media screen and (min-width: 768px) {
   .footer__getQuote_section_wrapper .footer__getQuote {
     max-width: 70%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 60px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .footer__getQuote_section_wrapper .footer__getQuote {
+    max-width: 50%;
+    margin: auto;
+    margin-top: 70px;
   }
 }
 @media screen and (min-width: 1400px) {
   .footer__getQuote_section_wrapper .footer__getQuote {
-    max-width: 50%;
-    margin: auto;
     margin-top: 80px;
   }
 }
 @media screen and (min-width: 768px) {
   .footer__getQuote_section_wrapper {
-    margin-top: 50px;
+    margin-top: 60px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .footer__getQuote_section_wrapper {
+    margin-top: 85px;
   }
 }
 @media screen and (min-width: 1400px) {
   .footer__getQuote_section_wrapper {
-    margin-top: 60px;
+    margin-top: 90px;
   }
 }
 
@@ -1939,12 +2222,17 @@ header .header__burger {
     margin-top: 120px;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .footer__nav_wrapper {
-    margin-top: 150px;
+    margin-top: 135px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .footer__nav_wrapper {
+    margin-top: 150px;
   }
 }
 .footer__nav_heading {
@@ -1964,6 +2252,12 @@ header .header__burger {
 @media screen and (min-width: 768px) {
   .footer__nav_heading {
     font-size: 36px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .footer__nav_heading {
+    font-size: 32px;
+    flex-basis: 10%;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -1998,6 +2292,11 @@ header .header__burger {
     font-size: 20px;
   }
 }
+@media screen and (min-width: 1024px) {
+  .footer__nav_navigation_ul_list_link {
+    font-size: 14px;
+  }
+}
 @media screen and (min-width: 1400px) {
   .footer__nav_navigation_ul_list_link {
     font-size: 20px;
@@ -2010,7 +2309,7 @@ header .header__burger {
     max-width: 70%;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .footer__nav_navigation_ul {
     margin: auto;
   }
@@ -2020,7 +2319,7 @@ header .header__burger {
     margin-top: 40px;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .footer__nav_navigation {
     flex-basis: 55%;
     margin: auto;
@@ -2058,14 +2357,19 @@ header .header__burger {
     width: 50px;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1024px) {
   .footer__nav_socialM_navigation {
     flex-basis: 20%;
   }
 }
 @media screen and (min-width: 768px) {
   .footer__nav {
-    margin-top: 40px;
+    margin-top: 50px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .footer__nav {
+    margin-top: 80px;
   }
 }
 

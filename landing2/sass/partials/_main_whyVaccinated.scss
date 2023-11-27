@@ -21,13 +21,18 @@
             font-weight: $heading-font-weight;
             font-size: $mobile-heading-font-size;
 
-            @media screen and (min-width:$tablet-breakpoint) 
+            @include tablet
             {
                 max-width: 60%;
                 font-size: $tablet-heading-font-size;
             }
             
-            @media screen and (min-width:$desktop-breakpoint)
+            @include laptop
+            {
+                flex-basis: 50%;
+                font-size: $laptop-heading-font-size;
+             }
+            @include desktop
             {
                 flex-basis: 40%;
                 font-size: $desktop-heading-font-size;
@@ -39,13 +44,18 @@
             font-size: $mobile-font-size;
             text-align: justify;
 
-            @media screen and (min-width:$tablet-breakpoint) 
+            @include tablet
             {
                 max-width: 80%;
                 font-size: $tablet-font-size;
             }
             
-            @media screen and (min-width:$desktop-breakpoint) 
+            @include laptop
+            {
+                flex-basis:40%;
+                font-size: 15px;
+            }
+            @include desktop 
             {
                 flex-basis:40%;
                 font-size: $desktop-font-size;
@@ -53,15 +63,16 @@
 
         }
 
-        @media screen and (min-width:$tablet-breakpoint) 
+        @include tablet
         {
 
         }
         
-        @media screen and (min-width:$desktop-breakpoint) 
+        @include laptop
         {
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
         }
     }
 
@@ -87,12 +98,14 @@
 
             
 
-            @media screen and (min-width:$tablet-breakpoint) 
+            @include tablet
             {
                 width: 70px;
             }
+
+          
             
-            @media screen and (min-width:$desktop-breakpoint) 
+            @include desktop 
             {
                 width: 80px;
             }
@@ -107,12 +120,16 @@
             font-weight: $heading-font-weight;
             margin-top: 20px;
 
-            @media screen and (min-width:$tablet-breakpoint)
+            @include tablet
             {
                 font-size: $tablet-heading-font-size;
             }
+            @include laptop
+            {
+                font-size: $laptop-heading-font-size;
+            }
             
-            @media screen and (min-width:$desktop-breakpoint) 
+            @include desktop 
             {
                 font-size: $desktop-font-size;
             }
@@ -125,12 +142,17 @@
             margin-top: 20px;
             color: $white;
 
-            @media screen and (min-width:$tablet-breakpoint) 
+            @include tablet
             {
                 font-size: 14px;
             }
+
+            @include laptop
+            {
+                font-size: 16px;
+            }
             
-            @media screen and (min-width:$desktop-breakpoint) 
+            @include desktop 
             {
                 font: 18px; 
             }
@@ -154,25 +176,34 @@
             }
 
 
-            @media screen and (min-width:$tablet-breakpoint) 
+            @include tablet
             {
                 font-size: $tablet-font-size;
             }
+            @include laptop
+            {
+                font-size: $laptop-font-size;
+            }
             
-            @media screen and (min-width:$desktop-breakpoint) 
+            @include desktop 
             {
                 font-size: $desktop-font-size;
             }
 
         }
 
-                @media screen and (min-width:$tablet-breakpoint) 
+                @include tablet
                 {
-                    flex-basis: 60%;
-                    
+                    flex-basis: 60%; 
                 }
         
-                @media screen and (min-width:$desktop-breakpoint) 
+                @include laptop 
+                {
+                    flex-basis: 40%;
+                    
+                    // align-self: end;
+                }
+                @include desktop 
                 {
                     flex-basis: 30%;
                 }
@@ -199,9 +230,14 @@
     
     
     
-                    @media screen and (min-width:$tablet-breakpoint) {}
+                    @include tablet{}
+
+                    @include laptop
+                    {
+                        
+                    }
     
-                    @media screen and (min-width:$desktop-breakpoint) {}
+                    @include desktop {}
     
     
                 }
@@ -213,9 +249,20 @@
                    font-weight: $heading-font-weight;
                    margin-top: 20px;
     
-                   @media screen and (min-width:$tablet-breakpoint) {}
+                   @include tablet
+                   {
+                    font-size: 14px;
+                   }
+                   @include laptop
+                   {
+                    font-size: 16px;
+                   }
+                   @include desktop
+                   {
+                    font-size: 18px;
+                   }
     
-                   @media screen and (min-width:$desktop-breakpoint) {}
+                  
                }
     
              
@@ -236,12 +283,16 @@
                     @include primary-text-on-hover
                    }
     
-                   @media screen and (min-width:$tablet-breakpoint) 
+                   @include tablet
                    {
                     font-size: $tablet-font-size;
                    }
+                   @include laptop
+                   {
+                    font-size: $laptop-font-size;
+                   }
     
-                  @media screen and (min-width:$desktop-breakpoint) 
+                  @include desktop 
                   {
                     font-size: $desktop-font-size;
                     align-self: end;
@@ -251,31 +302,40 @@
 
                &:nth-child(2)
                {
-                @media screen and (min-width:$tablet-breakpoint) {
+                @include tablet{
                     margin-right: 10%;
                 }
-                @media screen and (min-width:$desktop-breakpoint) {
+                @include laptop{
+                    margin-right: 0%;
+                    
+                }
+                @include desktop {
                     margin-right: 0%;
                     
                 }
 
                }
     
-               @media screen and (min-width:$tablet-breakpoint) 
+               @include tablet
                {
                 flex-basis: 25%;
-                
                }
     
-               @media screen and (min-width:$desktop-breakpoint) {
+               @include laptop {
                align-self: end;
+               flex-basis: 20%;
                }
+
+               @include desktop{
+               flex-basis: 25%;
+               }
+               
     
     
     
         }
 
-        @media screen and (min-width:$tablet-breakpoint) 
+        @include tablet
         {
             display: flex;
             flex-direction: row;
@@ -284,10 +344,15 @@
 
         }
         
-        @media screen and (min-width:$desktop-breakpoint) 
+        @include laptop 
         {
             margin-top: 30px;   
         }
+
+        // @include desktop 
+        // {
+        //     margin-top: 30px;   
+        // }
 
     }
 

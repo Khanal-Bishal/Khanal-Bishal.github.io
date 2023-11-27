@@ -14,15 +14,20 @@
         {
             color: $primary-clr;
             font-size: 12px;
-            @media screen and (min-width:$tablet-breakpoint) 
+            @include tablet 
             {
                  font-size: calc($tablet-font-size - 2px);
             }
-            @media screen and (min-width:$desktop-breakpoint) 
+            @include laptop
+            {
+                 font-size: calc($laptop-font-size - 2px);
+            }
+            @include desktop
             {
                 font-size: calc($desktop-font-size - 2px);
             }
         }
+
         &_heading
         {
             color: $white;
@@ -30,11 +35,15 @@
             span {
                 color:$primary-clr;
             }
-            @media screen and (min-width:$tablet-breakpoint)
+            @include tablet
             {
                 font-size: $tablet-heading-font-size;
             }
-            @media screen and (min-width:$desktop-breakpoint)
+            @include laptop
+            {
+                font-size: $laptop-heading-font-size;
+            }
+            @include desktop
             {
                 font-size: $desktop-heading-font-size;
             }
@@ -45,11 +54,15 @@
             font-size: $mobile-font-size;
             text-align: start;
 
-            @media screen and (min-width:$tablet-breakpoint) {
+            @include tablet {
                 // width: 45%;
                 font-size: $tablet-font-size;
             }
-            @media screen and (min-width:$tablet-breakpoint) {
+            @include laptop {
+                
+                font-size: $laptop-font-size;
+            }
+            @include desktop {
                     font-size: $desktop-font-size;
             }
            
@@ -77,11 +90,15 @@
                     
                 }
 
-                @media screen and (min-width:$tablet-breakpoint) {
+                @include tablet {
                     width:210px ;
                     font-size: $tablet-font-size;
                 }
-                @media screen and (min-width:$desktop-breakpoint) {
+                @include laptop {
+                    width:200px ;
+                    font-size: $laptop-font-size;
+                }
+                @include desktop{
                     width: 200px;
                     font-size: $desktop-font-size;
                 }
@@ -101,20 +118,20 @@
                     @include primary-background-on-hover
                 }
 
-                @media screen and (min-width:$tablet-breakpoint)
+                @include tablet
                 {
                     width: 210px;
                     font-size: $tablet-font-size;
                 }
                                 
-                @media screen and (min-width:$desktop-breakpoint) 
+                @include desktop
                 {
                     width: 200px;
                     font-size: $desktop-font-size;
                 }
             }
 
-            @media screen and (min-width:$tablet-breakpoint) {
+            @include tablet {
                 gap:20px
             }
         }
@@ -123,7 +140,7 @@
      &_figure
      {
         min-width:80vw ;
-        margin: auto;
+        margin:  auto;
         display: flex;
         justify-content: center;
 
@@ -131,36 +148,40 @@
         {
             width: 95%;
 
-            @media screen and (min-width:$tablet-breakpoint) {
+            @include tablet {
                 width: 60%;
             }
-            @media screen and (min-width:$desktop-breakpoint) {
+            @include laptop {
+                width: 60%;
+            }
+            @include desktop{
                 width: 95%;
             }
         }
 
-        @media screen and (min-width:$tablet-breakpoint)
+        @include tablet
         {
-            justify-content: center;    
+            justify-content: center; 
+             
         }
        
-        @media screen and (min-width:$laptop-breakpoint)
+        @include laptop
         {
+            margin-top: 50px;
             justify-content: space-between;    
         }
 
-        
-
-        @media screen and (min-width:$desktop-breakpoint) {
+        @include desktop{
             min-width: 40vw;
             
         }
 
      }   
 
-     @media screen and (min-width:$desktop-breakpoint) {
+     @include laptop{
             flex-direction: row;
             
      }
+    
 
 }

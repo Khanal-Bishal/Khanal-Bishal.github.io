@@ -16,7 +16,7 @@
             &_clock
             {
 
-                @media screen and (min-width:$tablet-breakpoint)
+                @include tablet
                 {
                     width: 30px;
                     
@@ -30,21 +30,29 @@
             font-size:$mobile-font-size ;
             font-weight: $bold-text-font-weight;
 
-            @media screen and (min-width:$tablet-breakpoint)
+            @include tablet
             {
                 font-size: $tablet-font-size;
             }
-            @media screen and (min-width:$tablet-breakpoint)
+            @include laptop
+            {
+                font-size: $laptop-font-size;
+            }
+            @include desktop
             {
                 font-size: $desktop-font-size;
             }
         }
 
-        @media screen and (min-width:$tablet-breakpoint) 
+        @include tablet 
         {
             gap: 20px;
         }
-        @media screen and (min-width:$desktop-breakpoint) 
+        @include laptop
+        {
+            gap: 22px;
+        }
+        @include desktop
         {
             gap: 30px;
         }
@@ -80,15 +88,15 @@
                     padding: 4px;
                     background-color: #ffffff1a;;
                     border-radius: 50%;
-                @media screen and (min-width:$tablet-breakpoint) 
+                @include tablet 
                 {
                     width: 40px;
                     padding: 6px;
                 }
-                @media screen and (min-width:$desktop-breakpoint) 
+                @include desktop
                 {
                     width: 60px;
-                    padding: 5pxpx;
+                    padding: 5px;
                 }
                 }
             }
@@ -105,7 +113,7 @@
                     color: $white;
                     font-weight: $bold-text-font-weight;
                 }
-                @media screen and (min-width:$tablet-breakpoint)
+                @include tablet
                 {
                     font-size: $tablet-font-size;    
                 }
@@ -116,13 +124,13 @@
 
             }
 
-            @media screen and (min-width:$tablet-breakpoint)
+            @include tablet
             {
                 flex-basis: 40%;  
                 gap: 10px;
                 
             }
-            @media screen and (min-width:$desktop-breakpoint)
+            @include desktop
             {
                flex-basis: 20%;
                 padding:0px 1px;
@@ -136,6 +144,7 @@
        
        &_bcontainer
        {
+
         @include cursor;   
         align-self: center;
         &_button
@@ -155,23 +164,22 @@
                 @include white-background-on-hover;
             }
 
-            @media screen and (min-width:$tablet-breakpoint)
+            @include tablet
             {
                 width: 192px;     
             }
-            @media screen and (min-width:$tablet-breakpoint)
+            @include desktop
             {
                width: 200px;
                font-size: 16px;
                align-self: center;
             }
         }
-        @media screen and (min-width:$tablet-breakpoint)
+        @include tablet
          {
-                flex-basis: 40%;
-                
+                flex-basis: 40%;     
         }
-        @media screen and (min-width:$desktop-breakpoint)
+        @include desktop
         {
             flex-basis:20% ;  
               
@@ -183,7 +191,7 @@
        
         
 
-        @media screen and (min-width:$tablet-breakpoint)
+        @include tablet
         {
             display: flex;
             flex-direction: row; 
@@ -202,11 +210,16 @@
 
     }
 
-    @media screen and (min-width:$tablet-breakpoint)
+    @include tablet
      {
         
     }
-    @media screen and (min-width:$tablet-breakpoint) 
+    @include laptop
+    {
+        
+    }
+
+    @include desktop 
     {
        
     }

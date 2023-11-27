@@ -12,13 +12,18 @@
         font-weight: $heading-font-weight;
 
 
-        @media screen and (min-width:$tablet-breakpoint) 
+        @include tablet 
         {
             font-size: $tablet-font-size;
 
         }
+        @include laptop 
+        {
+            font-size: $laptop-font-size;
+
+        }
         
-        @media screen and (min-width:$desktop-breakpoint)
+        @include desktop
          {
             font-size: $desktop-font-size;
          }
@@ -31,12 +36,16 @@
         text-align: center;
         font-weight: $heading-font-weight;
 
-        @media screen and (min-width:$tablet-breakpoint)
+        @include tablet
          {
             font-size: $tablet-heading-font-size;
          }
+        @include laptop
+         {
+            font-size: $laptop-heading-font-size;
+         }
         
-        @media screen and (min-width:$desktop-breakpoint) 
+        @include desktop 
         {
             font-size: $desktop-heading-font-size;
         }
@@ -49,12 +58,13 @@
         margin-bottom: 30px;
 
 
-        @media screen and (min-width:$tablet-breakpoint)
+        @include tablet
          {
             font-size: 14px;
          }
+       
         
-        @media screen and (min-width:$desktop-breakpoint) 
+        @include desktop 
         {
             font-size: 16px;
         }
@@ -79,10 +89,6 @@
             position: relative;
             padding-top: 30px;
             margin-bottom: 30px;
-            
-           
-            
-
 
             &_person
             {
@@ -94,12 +100,13 @@
                 &_image
                 {
                     width: 53px;
-                    @media screen and (min-width:$tablet-breakpoint) 
+
+                    @include tablet 
                     {
                         width: 70px;
                     }
                     
-                    @media screen and (min-width:$desktop-breakpoint) 
+                    @include desktop 
                     {
 
                     }
@@ -119,12 +126,12 @@
                         
                       
 
-                        @media screen and (min-width:$tablet-breakpoint) 
+                        @include tablet 
                         {
                             font-size: 14px;
                         }
                         
-                        @media screen and (min-width:$desktop-breakpoint) 
+                        @include desktop 
                         {
                             font-size: 16px;
                         }
@@ -134,21 +141,21 @@
                       font-weight: $bold-text-font-weight;
                        
 
-                        @media screen and (min-width:$tablet-breakpoint) {}
+                        @include tablet {}
                         
-                        @media screen and (min-width:$desktop-breakpoint) {}
+                        @include desktop {}
                     }
                     
-                    @media screen and (min-width:$tablet-breakpoint) {}
+                    @include tablet {}
                     
-                    @media screen and (min-width:$desktop-breakpoint) {}
+                    @include desktop {}
                 }
 
              
 
-                @media screen and (min-width:$tablet-breakpoint) {}
+                @include tablet {}
                 
-                @media screen and (min-width:$desktop-breakpoint) {}
+                @include desktop {}
             }
 
              &_desc 
@@ -162,12 +169,16 @@
                     @include white-text-on-hover;
                 }
 
-                @media screen and (min-width:$tablet-breakpoint) 
+                @include tablet 
                 {
                    font-size: $tablet-font-size;
                 }
+                @include laptop 
+                {
+                   font-size: 16px;
+                }
             
-               @media screen and (min-width:$desktop-breakpoint)
+               @include desktop
                 {
                     font-size: $desktop-font-size;
                 }
@@ -178,33 +189,43 @@
                 @include primary-background-on-hover
              }
 
-            @media screen and (min-width:$tablet-breakpoint)
+            @include tablet
              {
                     max-width: 50%;
                     margin: auto;
                     margin-top:30px ;
              }
             
-            @media screen and (min-width:$desktop-breakpoint) 
+            @include laptop
             {
                 flex-basis: 30%;
                 align-self: stretch;
             }
+            // @include desktop 
+            // {
+            //     flex-basis: 30%;
+            //     align-self: stretch;
+            // }
         }
 
 
-        @media screen and (min-width:$tablet-breakpoint) {}
+        @include tablet {}
         
-        @media screen and (min-width:$desktop-breakpoint) 
+        @include laptop
         {
             flex-direction: row;
             align-items: center;
         }
+        // @include desktop 
+        // {
+        //     flex-direction: row;
+        //     align-items: center;
+        // }
     }
 
-    @media screen and (min-width:$tablet-breakpoint) {}
+    @include tablet {}
     
-    @media screen and (min-width:$desktop-breakpoint)
+    @include desktop
      {
        
      }
@@ -222,17 +243,24 @@ transform: translate(-50%,50%);
 height: 100%;
 width: auto;
 
-@media screen and (min-width:$tablet-breakpoint)
+@include tablet
  {
     height: 120%;
     top: -80%;
  }
 
-@media screen and (min-width:$desktop-breakpoint) 
+@include desktop 
 {   
     top: -25%;
     left: 22%;
     height: 150%;
+    transform: translate(0%,0%);
+}
+@include laptop
+{   
+    top: -20%;
+    left: 15%;
+    height: 125%;
     transform: translate(0%,0%);
 }
 
