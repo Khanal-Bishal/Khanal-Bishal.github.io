@@ -1,0 +1,60 @@
+.todo
+{
+    @include element('ul')
+    {
+        @include flex(column,center,space-between);
+       
+
+    }
+
+    @include element('div')
+    {
+        @include flex;
+        // justify-content: center;
+        
+        border-top: 1px solid $black;
+        border-radius: 1px;
+        width: 90%;
+        margin-top: 15px;
+        padding: 2px;
+        font-size: 12px;
+        font-weight: $bold-text-font-weight;
+    }
+
+    @include element('list')
+    {
+        @include cursor;
+        color: darken($text-clr,50);
+        margin-top: 5px;
+        text-transform: capitalize;
+    }
+
+    @include element('complete-btn')
+    {
+        @include flex;
+        border: 0;
+        margin: 0;
+        appearance: none;
+        padding: 0;
+        background-color: transparent;
+
+    }
+
+    @include element('complete-icon')
+    {
+        @include cursor;
+        padding: 20px;
+        background-color: $bg-clr;
+        border-radius: 100%;
+        color: $primary-clr;
+        margin-top: 20px;
+
+        &:hover
+        {
+            @include icon-hover;
+        }
+    
+    }
+
+
+}

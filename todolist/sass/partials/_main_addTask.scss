@@ -1,0 +1,40 @@
+.task
+{
+    margin-top: 30px;
+    @include element('form')
+    {
+        @include flex;
+        background-color: $white;
+    }
+
+    @include element('input')
+    {
+         border: none;
+         padding: 20px;
+         font-size: 14px;
+         flex-basis: 70%;
+         appearance: none;
+        outline: none
+            }
+    @include element ('icon-container')
+    {
+        @include flex;
+        justify-content: space-around;
+        gap: 5px;
+        flex-basis: 10%;
+        padding: 15px;
+    }
+    @include element ('icon')
+    {
+        padding: 13px;
+        background-color: $bg-clr;
+        border-radius: 50%;
+
+        &:hover
+        {
+            @include icon-hover
+        }
+
+    }
+
+}

@@ -1,0 +1,18 @@
+.todo
+{
+    background-color: $white;
+    margin-top: 0px;
+    @include element('no-todo')
+    {
+       @include flex(column,center,center);
+       gap: 30px;
+       min-height: 40vh;
+       transition: 1000ms ease-in;
+       
+
+    }
+    .fa-2xl
+    {
+        font-size: 6em;
+    }
+}

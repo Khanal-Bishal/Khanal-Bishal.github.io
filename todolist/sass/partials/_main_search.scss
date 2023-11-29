@@ -1,0 +1,66 @@
+.main
+{
+    margin-top: 40px;
+    
+
+        @include element('form')
+        {
+            @include flex;
+            gap: 0px;
+            border-radius: $border-radius;
+            background-color: #fff;
+
+            @include tablet 
+            {
+                width: 100%;
+            }
+
+        }
+
+        @include element('search-input')
+        {
+            width: 80%;
+            border: none;
+            border-radius: $border-radius;
+            padding: 10px;
+            outline: none;
+            font-size: $laptop-font-size;
+            color: $text-clr;
+
+            @include tablet
+            {
+                width: 100%;
+                // padding: 8px;
+                font-size: $tablet-font-size;
+                appearance: none;
+                margin: 0;
+                padding: none;
+            }
+
+        }
+
+        @include element('search-icon')
+        {
+        // flex-basis: 10%;
+        padding: 17px;
+        background-color: $bg-clr;
+        border-radius: 50%;
+
+        &:hover
+        {
+            @include icon-hover;
+        }
+        
+        @include tablet
+        {
+            padding: 12px;
+
+        }
+            
+        }
+
+        @include tablet
+        {
+            margin-top: 20px;
+        }
+}

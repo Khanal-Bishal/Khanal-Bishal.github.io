@@ -1,0 +1,54 @@
+.container
+{
+    padding: 0px 20px;
+
+    @include tablet
+    {
+        width: 100%;
+        margin: 0px auto;
+        padding: 0px;
+
+    }
+    @include laptop
+    {
+        width: 85%;
+        margin: 0px auto;
+    }
+   
+}
+
+//dynamic classes from js 
+
+.vanish
+{
+    display: none;
+}
+
+.completed-todo
+{
+    
+   &>li
+   {
+    color: $text-clr;
+    text-decoration: line-through;
+   }
+
+
+}
+
+.todo__desc
+{
+    // display: inline-block;
+    margin-left: 20px;
+    color: $text-clr;
+}
+
+
+// //matched search
+
+// .not-matched
+// {
+    
+//     color: $text-clr;
+//     text-decoration: line-through;
+// }

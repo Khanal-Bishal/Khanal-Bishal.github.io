@@ -1,0 +1,114 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="assets/radio-svgrepo-com.svg" type="image/x-icon">
+    <title>Radiohead List</title>
+</head>
+
+
+<body>
+
+    <!------------------- header section ----------------->
+    <header>
+        <div class="header container">
+            <div class="header__logo">Radiohead
+                <img src="assets/radio-svgrepo-com.svg" alt="logo" class="header__logo-image">
+            </div>
+
+            <nav class="header__nav">
+                <ul class="header__list-container">
+                    <li class="header__list">Home</li>
+                    <li class="header__list">Completed</li>
+                    <li class="header__list">Remaining</li>
+                </ul>
+            </nav>
+
+            <button class="header__button ">
+                <i class="fa fa-plus-circle header__button-icon " aria-hidden="true"></i>
+            </button>
+        </div>
+    </header>
+
+    <!--------------------- main section ----------------->
+    <main class="main container">
+
+        <!-------------------- search functionality ----------->
+        <form class="main__form">
+            <input type="text" class="main__search-input" placeholder="Search">
+            <i class="fa-solid fa-magnifying-glass main__search-icon"></i>
+        </form>
+
+        <!---------------- add task section ------------------->
+        <section class="task container">
+            <form class="task__form">
+                <input type="text" class="task__input" placeholder="Add a task">
+                <div class="task__icon-container">
+                    <i class="fa fa-plus-circle task__add-icon task__icon" aria-hidden="true"></i>
+                    <i class="fa-solid fa-arrow-up-right-from-square task__upArrow-icon task__icon"></i>
+                </div>
+
+            </form>
+            <hr>
+        </section>
+
+
+
+
+
+        <!--------------------- list of todos ------------------>
+        <section class="todo container">
+
+            <div class="todo__no-todo">
+                <i class="fa-solid fa-list fa-2xl todo__list-icon"></i>
+                <p>
+                    You don't have any tasks yet. Create a new one.
+                </p>
+            </div>
+
+            <div class="todo__container">
+
+                <ul class="todo__ul" id="todo__ul">
+
+                </ul>
+            </div>
+
+
+        </section>
+
+
+
+    </main>
+
+
+    <section class="modal">
+        <div class="modal__heading-container">
+
+            <h2 class="modal__heading">Create a new task</h2>
+            <span class="modal__close">X</span>
+        </div>
+        <hr>
+
+        <form class="modal__form">
+            <input type="text" class="modal__input " placeholder="Task name">
+            <hr>
+            <textarea name="textarea" id="textarea" cols="30" rows="5" resize="none" placeholder="Task description"
+                class="modal__textarea"></textarea>
+        </form>
+
+        <div class="modal__button-container">
+            <button class="modal__close modal__close-cancel" type="button">CANCEL</button>
+            <button class=" modal__add-task " type="button">ADD TASK</button>
+        </div>
+
+    </section>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

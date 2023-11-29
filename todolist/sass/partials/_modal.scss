@@ -1,0 +1,151 @@
+.modal
+{
+    width: 60%;
+    margin: auto;
+    min-height: 20vh;
+    background-color: $white;
+    padding: 10px;
+    border-radius: $border-radius;
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    transform: translate(-50%,-145%);
+    transition: 500ms ease-in;
+
+    @include element(heading-container)
+    {
+        @include flex;
+        @include cursor;
+        padding: 5px;
+
+
+    }
+
+    @include element(heading)
+    {
+        @include cursor;
+        color: darken($text-clr,30);
+    }
+    @include element (close)
+    {
+        font-size: 6px;
+        padding: 6px;
+        background: $text-clr;
+        color: white;
+        border-radius: 50%;
+
+        &:hover
+        {
+            @include icon-hover;
+            color: $black;
+        }
+    }
+
+
+    @include element (form)
+    {
+        @include flex(column);
+        gap: 20px;
+        width:90%;
+       padding-top: 20px;
+        margin: auto; 
+         &>input,textarea
+         {
+            width: 100%;
+            resize: none;
+            border: none;
+            outline: none;
+            // font-size: 14px;
+            border-bottom: 1px solid black !important;
+         }
+    }
+
+    @include element(input)
+    {
+        padding: 20px;
+        font-size: $laptop-font-size;
+
+        @include tablet{
+            font-size: 14px;
+            padding: 15px;
+        }
+    }
+
+    @include element(textarea)
+    {
+        font-size: 18px;
+        padding: 8px;
+
+        @include tablet
+        {
+            font-size: 12px;
+        }
+    }
+
+    @include element(button-container)
+    {
+        @include flex;
+        justify-content: end;
+        gap: 5px;
+        margin-top: 20px;
+
+        button
+        {
+            border: none;
+            padding: 10px;
+            width: 130px;
+            border-radius: $border-radius;
+            font-weight: $button-font-weight;
+            
+        
+
+        &:nth-child(1)
+        {
+            background-color: $bg-clr;
+            color: black;
+            &:hover{
+                transition: 500ms ease;
+                background-color: darken($white,20);
+                color: lighten($black,40);
+            }
+
+           
+        }
+
+        &:nth-child(2)
+        {
+            background-color: $primary-clr;
+            color: white;
+            &:hover
+            {
+                transition: 500ms ease;
+                background-color: darken($primary-clr,20);
+            }
+            @include tablet 
+            {
+                padding: 5px;
+            }
+        }
+        }
+
+    }
+
+    @include tablet
+    {
+        width: 95vw;
+        margin: 0px;
+        padding: 0px;
+       
+       
+    }
+
+}
+
+//matched search
+
+.not-matched {
+
+    // color: $text-clr;
+    // text-decoration: line-through;
+    display: none;
+}
