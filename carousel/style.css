@@ -1,0 +1,128 @@
+/*--------------------- reset---------------------  */
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root
+{
+    --white-clr:white;
+    --bg-clr: rgb(2, 0, 36);
+        --bg: linear-gradient(212deg, rgba(2, 0, 36, 1) 0%, rgba(169, 20, 101, 1) 40%, rgba(0, 212, 255, 1) 65%);
+}
+body
+{
+    background-color: var(--bg-clr);
+    background: var(--bg);
+}
+
+.title {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-clr);
+    opacity: 0.4;
+    cursor: pointer;
+    user-select: none;
+}
+.title:hover
+{
+    opacity: 0.6;
+}
+
+
+.carousel-container {
+    width: 60%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide img {
+    max-height: 100%;
+    /* max-width: 100%; */
+}
+
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 500px;
+}
+
+/* --------------------pointers --------------- */
+#previousBtn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    left: 5%;
+    font-size: 30px;
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#previousBtn:hover
+{
+    opacity: 0.9;
+}
+
+#nextBtn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    right: 5%;
+    font-size: 30px;
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#nextBtn
+{
+    opacity: 0.9;
+}
+
+/* -----------------indicator ------------ */
+
+.indicator
+{
+    position: absolute;
+    bottom: 10%;
+    left: 45%;
+    transform: translateX(-5%);    
+}
+
+.indicator__ul{
+    position: absolute;
+    bottom: 3%;
+}
+
+.indicator__ul{
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    cursor: pointer;
+    
+}
+
+.indicator__ul li img{
+    color: var(--white-clr);
+}
+
+.indicator__ul li img:hover
+{
+    background-color: var(--white-clr);
+    border-radius: 100%;
+}
+
+
+@media screen and (min-width:1200px) {
+    .carousel-container
+    {
+        width: 52%;
+    }
+
+}
+
