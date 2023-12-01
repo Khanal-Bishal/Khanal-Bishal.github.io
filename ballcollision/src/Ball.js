@@ -6,6 +6,7 @@ class Ball {
     this.xCord = xCord;
     this.yCord = yCord;
     this.radius = radius;
+    this.diameter = RADIUS * 2;
 
     this.xSpeed = getRandom(SPEED, -SPEED);
     this.ySpeed = getRandom(SPEED, -SPEED);
@@ -112,12 +113,27 @@ class Ball {
    * @param {number} distance
    * @param {object} ball
    */
+  // checkBallCollision = (distance, ball) => {
+  //   if (this.radius * 2 > distance) {
+  //     this.xSpeed = -this.xSpeed;
+  //     this.ySpeed = -this.ySpeed;
+  //     ball.xSpeed = -ball.xSpeed;
+  //     ball.ySpeed = -ball.ySpeed;
+  //   }
+  // };
+
   checkBallCollision = (distance, ball) => {
-    if (this.radius * 2 > distance) {
-      this.xSpeed = -this.xSpeed;
-      this.ySpeed = -this.ySpeed;
-      ball.xSpeed = -ball.xSpeed;
-      ball.ySpeed = -ball.ySpeed;
+    if (
+      ball.xCord <= this.xCord + this.diameter &&
+      ball.xCord + ball.diameter >= this.xCord &&
+      ball.yCord <= this.yCord + this.diameter &&
+      ball.yCord + ball.diameter >= this.yCord
+    ) {
+      if (Math.abs(this.x - ball.xCord) > Math.abs(this.y - ball.yCord)) {
+        ball.xSpeed *= -1;
+      } else {
+        ball.ySpeed *= -1;
+      }
     }
   };
 
