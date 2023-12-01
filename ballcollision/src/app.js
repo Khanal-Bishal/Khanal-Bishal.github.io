@@ -62,6 +62,7 @@ function render() {
       let y2 = ball.getY();
 
       singleBall.checkBallCollision(getDistance(x1, y1, x2, y2), ball);
+      // singleBall.check(getDistance(x1, y1, x2, y2), singleBall,ball);
       // singleBall.resolveCollision(singleBall, ball);
       singleBall.checkCordinate();
     });

@@ -114,7 +114,6 @@ class Ball {
    */
   checkBallCollision = (distance, ball) => {
     if (this.radius * 2 > distance) {
-      // debugger;
       this.xSpeed = -this.xSpeed;
       this.ySpeed = -this.ySpeed;
       ball.xSpeed = -ball.xSpeed;
