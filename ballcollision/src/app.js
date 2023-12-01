@@ -42,29 +42,29 @@ for (let i = 0; i < BALL_COUNT; i++) {
 }
 
 //draw every single ball on the viewport
-balls.forEach((singleBall) => viewport.appendChild(singleBall.getElement()));
+balls.forEach((nextBall) => viewport.appendChild(nextBall.getElement()));
 
 /**
  * performs all the ball related task including drawing moving and collision detection
  */
 function render() {
-  balls.forEach((singleBall) => {
-    singleBall.checkCordinate();
-    singleBall.draw();
-    singleBall.move();
-    singleBall.checkBoundaryCollision();
+  balls.forEach((nextBall) => {
+    nextBall.checkCordinate();
+    nextBall.draw();
+    nextBall.move();
+    nextBall.checkBoundaryCollision();
 
     balls.forEach((ball) => {
-      if (singleBall == ball) return;
-      let x1 = singleBall.getX();
-      let y1 = singleBall.getY();
+      if (nextBall == ball) return;
+      let x1 = nextBall.getX();
+      let y1 = nextBall.getY();
       let x2 = ball.getX();
       let y2 = ball.getY();
 
-      singleBall.checkBallCollision(getDistance(x1, y1, x2, y2), ball);
-      // singleBall.check(getDistance(x1, y1, x2, y2), singleBall,ball);
-      // singleBall.resolveCollision(singleBall, ball);
-      singleBall.checkCordinate();
+      nextBall.checkBallCollision(getDistance(x1, y1, x2, y2), ball);
+      // nextBall.check(getDistance(x1, y1, x2, y2), nextBall,ball);
+      // nextBall.resolveCollision(nextBall, ball);
+      nextBall.checkCordinate();
     });
   });
   requestAnimationFrame(render);
