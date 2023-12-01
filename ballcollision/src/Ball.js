@@ -119,8 +119,8 @@ class Ball {
     const yDistance = ball.getY() - this.getY();
 
     if (distance < combinedRadius) {
-      const xCollision = xDistance / distance;
-      const yCollision = yDistance / distance;
+      // const xCollision = xDistance / distance;
+      // const yCollision = yDistance / distance;
 
       const xSpeedDiff = this.xSpeed - ball.xSpeed;
       const ySpeedDiff = this.ySpeed - ball.ySpeed;
@@ -136,6 +136,9 @@ class Ball {
     }
   };
 
+  /**
+   * check co ordinate for each ball
+   */
   checkCordinate() {
     let maxHeigth = VIEWPORT_HEIGHT - BALL_HEIGHT;
     if (this.xCord - RADIUS < 0) {
