@@ -27,9 +27,9 @@ const getDistance = (x1, y1, x2, y2) => {
  * generates random color
  */
 const randomColorGenerator = () => {
-  const red = Math.floor(Math.random() * 256);
-  const green = Math.floor(Math.random() * 256);
-  const blue = Math.floor(Math.random() * 256);
+  const red = Math.floor(Math.random() * 255);
+  const green = Math.floor(Math.random() * 255);
+  const blue = Math.floor(Math.random() * 255);
   const alpha = Math.random();
 
   return `rgba(${red}, ${green}, ${blue}, ${alpha})`;

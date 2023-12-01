@@ -113,33 +113,29 @@ class Ball {
    * @param {number} distance
    * @param {object} ball
    */
-  // checkBallCollision = (distance, ball) => {
-  //   if (this.radius * 2 > distance) {
-  //     this.xSpeed = -this.xSpeed;
-  //     this.ySpeed = -this.ySpeed;
-  //     ball.xSpeed = -ball.xSpeed;
-  //     ball.ySpeed = -ball.ySpeed;
-  //   }
-  // };
-
   checkBallCollision = (distance, ball) => {
-    if (
-      ball.xCord <= this.xCord + this.diameter &&
-      ball.xCord + ball.diameter >= this.xCord &&
-      ball.yCord <= this.yCord + this.diameter &&
-      ball.yCord + ball.diameter >= this.yCord
-    ) {
-      if (Math.abs(this.x - ball.xCord) > Math.abs(this.y - ball.yCord)) {
-        ball.xSpeed *= -1;
-      } else {
-        ball.ySpeed *= -1;
-      }
+    const combinedRadius = this.radius + ball.getRadius();
+    const xDistance = ball.getX() - this.getX();
+    const yDistance = ball.getY() - this.getY();
+
+    if (distance < combinedRadius) {
+      const xCollision = xDistance / distance;
+      const yCollision = yDistance / distance;
+
+      const xSpeedDiff = this.xSpeed - ball.xSpeed;
+      const ySpeedDiff = this.ySpeed - ball.ySpeed;
+
+      const xCollisionSpeed = xSpeedDiff;
+      const yCollisionSpeed = ySpeedDiff;
+
+      this.xSpeed -= xCollisionSpeed;
+      this.ySpeed -= yCollisionSpeed;
+
+      ball.xSpeed += xCollisionSpeed;
+      ball.ySpeed += yCollisionSpeed;
     }
   };
 
-  /**
-   * check coords for indivisual ball and pushes them by its -ve x and y velocity
-   */
   checkCordinate() {
     let maxHeigth = VIEWPORT_HEIGHT - BALL_HEIGHT;
     if (this.xCord - RADIUS < 0) {
