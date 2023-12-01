@@ -1,8 +1,8 @@
 const BALL_WIDTH = 25;
 const BALL_HEIGHT = 25;
 
-const VIEWPORT_HEIGHT = 600;
-const VIEWPORT_WIDTH = 1400;
+const VIEWPORT_HEIGHT = 500;
+const VIEWPORT_WIDTH = 1000;
 
 const SPEED = 2;
 const BALL_COUNT = 100;
