@@ -1,0 +1,8 @@
+const BOARD_WIDTH = 360;
+const BOARD_HEIGHT = 576;
+
+const DOODLER_HEIGHT = 46;
+const DOODLER_WIDTH = 46;
+
+const PLATFORM_WIDTH = 60;
+const PLATFORM_HEIGHT = 18;

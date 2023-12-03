@@ -1,0 +1,30 @@
+body{
+    text-align: center;
+    
+}
+
+#board
+{
+    background-image: url('./assets/doodlejumpbg.png');
+  
+}
+
+@media screen and (min-width:1040px) {
+    body
+    {
+        margin: 0;
+        padding: 0;
+    }
+  #board
+  {
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+  }
+
+}
+
+
