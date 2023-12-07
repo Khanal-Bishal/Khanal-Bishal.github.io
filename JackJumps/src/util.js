@@ -23,3 +23,12 @@ function createImage(path) {
   image.src = path;
   return image;
 }
+
+function detectTopCollision(objA, objB) {
+  return (
+    objA.position.x + objA.width >= objB.position.x &&
+    objB.position.x + objB.width >= objA.position.x &&
+    objA.position.y + objA.height + objA.velocity.y >= objB.position.y &&
+    objB.position.y >= objA.position.y + objA.height
+  );
+}

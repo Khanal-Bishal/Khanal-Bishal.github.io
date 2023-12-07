@@ -28,5 +28,7 @@ lgPlatform.onload = () => {
     new Platform(lgPlatform.width, 220, lgPlatform),
     new Platform(lgPlatform.width * 2, 220, lgPlatform),
     new Platform(lgPlatform.width * 3 + 100, 220, lgPlatform),
+    new Platform(lgPlatform.width * 4 + 400, 220, lgPlatform),
+    new Platform(lgPlatform.width * 5 + 1000, 220, lgPlatform),
   ];
 };
