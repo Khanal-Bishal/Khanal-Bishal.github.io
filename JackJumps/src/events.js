@@ -24,7 +24,8 @@ const keys = {
 window.addEventListener("keydown", ({ key }) => {
   switch (key) {
     case "w" || "W":
-      if (isJumping == false && isGrounded == true) {
+      // if (isJumping == false && isGrounded == true) {
+      if (player.velocity.y == 0) {
         player.velocity.y = -15;
         isJumping = true;
         isGrounded = false;
@@ -63,8 +64,8 @@ window.addEventListener("keydown", ({ key }) => {
 window.addEventListener("keyup", ({ key }) => {
   switch (key) {
     case "w" || "W":
-      isJumping = false;
-      isGrounded = true;
+      // isJumping = false;
+      // isGrounded = true;
       break;
     case "a" || "A":
       keys.left.pressed = false;

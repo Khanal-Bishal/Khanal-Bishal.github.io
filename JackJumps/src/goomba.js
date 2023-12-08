@@ -2,7 +2,7 @@ let spriteGoomba = createImage("../img/spriteGoomba.png");
 let goombas = [];
 
 class Goomba {
-  constructor({ position, velocity }) {
+  constructor({ position, velocity, distance }) {
     this.position = {
       x: position.x,
       y: position.y,
@@ -17,6 +17,7 @@ class Goomba {
     this.height = 50;
     this.image = spriteGoomba;
     this.frames = 0;
+    this.distance = distance;
   }
   draw() {
     // ctx.fillStyle = "red";
@@ -47,9 +48,46 @@ class Goomba {
     if (this.position.y + this.velocity.y + this.height <= canvas.height) {
       this.velocity.y += GRAVITY;
     }
+    this.distance.coveredDistance += this.velocity.x;
+    if (
+      Math.abs(this.distance.coveredDistance) >= Math.abs(this.distance.limit)
+    ) {
+      this.velocity.x = -this.velocity.x;
+    }
   }
 }
 
-goombas = [
-  new Goomba({ position: { x: 800, y: 100 }, velocity: { x: -0.1, y: 0 } }),
-];
+spriteGoomba.onload = () => {
+  goombas = [
+    new Goomba({
+      position: { x: 800, y: 100 },
+      velocity: { x: Math.random() * -0.3, y: 0 },
+      distance: { limit: Math.random() * 400, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: generateRandomBetweenRange(1000, 1400), y: 100 },
+      velocity: { x: -0.1, y: 0 },
+      distance: { limit: Math.random() * 200, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: generateRandomBetweenRange(1000, 1400), y: 100 },
+      velocity: { x: -0.1, y: 0 },
+      distance: { limit: Math.random() * 200, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: generateRandomBetweenRange(1000, 1400), y: 100 },
+      velocity: { x: -0.1, y: 0 },
+      distance: { limit: Math.random() * 200, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: generateRandomBetweenRange(1500, 2000), y: 100 },
+      velocity: { x: -0.1, y: 0 },
+      distance: { limit: Math.random() * 200, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: generateRandomBetweenRange(1500, 2000), y: 100 },
+      velocity: { x: -0.1, y: 0 },
+      distance: { limit: Math.random() * 200, coveredDistance: 0 },
+    }),
+  ];
+};

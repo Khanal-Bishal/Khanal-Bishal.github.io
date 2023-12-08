@@ -47,6 +47,8 @@ class Player {
    * draw our charecter into the screen
    */
   draw() {
+    ctx.fillStyle = "rgba(255,255,255,0.3)";
+    ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     ctx.drawImage(
       this.currentSprite,
       this.cropWidth * this.frame, //x cord-cropping origin
@@ -96,7 +98,13 @@ class Player {
     // } else {
     //   this.velocity.y += GRAVITY;
     // }
-    this.velocity.y += GRAVITY;
+    if (
+      player.position.y + player.height + player.velocity.y <=
+      canvas.height
+    ) {
+      this.velocity.y += GRAVITY;
+    }
+    // this.velocity.y += GRAVITY;
   }
 }
 
