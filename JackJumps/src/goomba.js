@@ -60,34 +60,95 @@ class Goomba {
 spriteGoomba.onload = () => {
   goombas = [
     new Goomba({
-      position: { x: 800, y: 100 },
-      velocity: { x: Math.random() * -0.3, y: 0 },
-      distance: { limit: Math.random() * 400, coveredDistance: 0 },
+      position: { x: 908 + lgPlatform.width - 250, y: 0 },
+      velocity: { x: -0.1, y: 0 },
+      distance: { limit: 200, coveredDistance: 0 },
     }),
     new Goomba({
-      position: { x: generateRandomBetweenRange(1000, 1400), y: 100 },
+      position: { x: 908 + lgPlatform.width - 250 - 50, y: 0 },
       velocity: { x: -0.1, y: 0 },
-      distance: { limit: Math.random() * 200, coveredDistance: 0 },
+      distance: { limit: 200, coveredDistance: 0 },
     }),
     new Goomba({
-      position: { x: generateRandomBetweenRange(1000, 1400), y: 100 },
-      velocity: { x: -0.1, y: 0 },
-      distance: { limit: Math.random() * 200, coveredDistance: 0 },
+      position: { x: 1966 + lgPlatform.width / 2 - 250, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 100, coveredDistance: 0 },
     }),
     new Goomba({
-      position: { x: generateRandomBetweenRange(1000, 1400), y: 100 },
-      velocity: { x: -0.1, y: 0 },
-      distance: { limit: Math.random() * 200, coveredDistance: 0 },
+      position: { x: 1966 + lgPlatform.width / 2 - 250 - 50, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 100, coveredDistance: 0 },
     }),
     new Goomba({
-      position: { x: generateRandomBetweenRange(1500, 2000), y: 100 },
-      velocity: { x: -0.1, y: 0 },
-      distance: { limit: Math.random() * 200, coveredDistance: 0 },
+      position: { x: 1966 + lgPlatform.width / 2 - 250 - 100, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 100, coveredDistance: 0 },
     }),
     new Goomba({
-      position: { x: generateRandomBetweenRange(1500, 2000), y: 100 },
-      velocity: { x: -0.1, y: 0 },
-      distance: { limit: Math.random() * 200, coveredDistance: 0 },
+      position: { x: 3000, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 80, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: 3779 + mdPlatform.width / 2 - 100, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 100, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: 3779 + mdPlatform.width / 2 - 100 - 50, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 80, coveredDistance: 0 },
+    }),
+
+    new Goomba({
+      position: { x: 4385 + lgPlatform.width / 2, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 200, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: 4385 + lgPlatform.width / 2 - 50, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 200, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: 4385 + lgPlatform.width / 2 - 100, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 200, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: 4385 + lgPlatform.width / 2 - 150, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 200, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: 4385 + lgPlatform.width / 2 - 200, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 200, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: 5593 + 100, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 50, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: 5593 + 150, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 50, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: 5972 + 150, y: 0 },
+      velocity: { x: -0.9, y: 0 },
+      distance: { limit: 50, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: 6958 + 150, y: 0 },
+      velocity: { x: -0.2, y: 0 },
+      distance: { limit: 20, coveredDistance: 0 },
+    }),
+    new Goomba({
+      position: { x: 7758 + 150, y: 0 },
+      velocity: { x: -0.2, y: 0 },
+      distance: { limit: 20, coveredDistance: 0 },
     }),
   ];
 };

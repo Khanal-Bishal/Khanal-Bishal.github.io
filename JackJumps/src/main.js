@@ -34,6 +34,11 @@ function animate() {
     block.velocity.x = 0;
   });
 
+  //drawing flowers
+  flowers.forEach((flower) => {
+    flower.update();
+  });
+
   //drawing goombas
   goombas.forEach((goomba) => {
     goomba.update();
@@ -52,6 +57,25 @@ function animate() {
     coin.update();
   });
 
+  //drawing lifes
+  lifes.forEach((life) => {
+    life.update();
+  });
+
+  // drawing sharpnel
+  sharpnels.forEach((sharpnel, index) => {
+    sharpnel.update();
+    if (sharpnel.duration < -200) {
+      sharpnels.splice(index, 1);
+    }
+    if (
+      sharpnel.position.x + sharpnel.radius >= canvas.width ||
+      sharpnel.position.x <= 0
+    ) {
+      sharpnels.splice(index, 1);
+    }
+  });
+
   //checking  key press event conditions
   if (
     (keys.left.pressed && player.position.x > 100) ||
@@ -64,7 +88,8 @@ function animate() {
     player.velocity.x = SPEED;
   } else {
     player.velocity.x = 0;
-    //scrolling the platforms s
+
+    //paralleX scrolling the PLATFORM
     platforms.forEach((platform) => {
       if (keys.left.pressed && playerCurrentPosition > 0) {
         platform.velocity.x = SPEED;
@@ -75,7 +100,7 @@ function animate() {
       }
     });
 
-    //parrelX scrolling of background on  right/left key press
+    //parrelX scrolling of BACKGROUND on  right/left key press
     backgrounds.forEach((background) => {
       if (keys.left.pressed && playerCurrentPosition > 0) {
         background.velocity.x += SPEED * 0.66;
@@ -84,34 +109,51 @@ function animate() {
       }
     });
 
-    //parallX scrooling of coin on right/left  key press
+    //parallX scrooling of COIN on right/left  key press
     coins.forEach((coin) => {
       if (keys.left.pressed && playerCurrentPosition > 0) {
-        coin.position.x += SPEED * 0.66;
+        coin.position.x += SPEED;
       } else if (keys.right.pressed) {
         coin.position.x -= SPEED;
       }
     });
-
-    //parelleX scrolling of blocks on right/left key press
-    blocks.forEach((block) => {
+    //parallX scrooling of LIFE on right/left  key press
+    lifes.forEach((life) => {
       if (keys.left.pressed && playerCurrentPosition > 0) {
-        block.velocity.x += SPEED * 0.66;
+        life.position.x += SPEED;
       } else if (keys.right.pressed) {
-        block.velocity.x -= SPEED * 0.66;
+        life.position.x -= SPEED;
       }
     });
 
-    //parelleX scrolling for goombas on right/left key press
+    //parallX scrooling of FLOWER on right/left  key press
+    flowers.forEach((flower) => {
+      if (keys.left.pressed && playerCurrentPosition > 0) {
+        flower.position.x += SPEED;
+      } else if (keys.right.pressed) {
+        flower.position.x -= SPEED;
+      }
+    });
+
+    //parelleX scrolling of BLOCKS on right/left key press
+    blocks.forEach((block) => {
+      if (keys.left.pressed && playerCurrentPosition > 0) {
+        block.velocity.x += SPEED * 0.98;
+      } else if (keys.right.pressed) {
+        block.velocity.x -= SPEED * 0.98;
+      }
+    });
+
+    //parelleX scrolling for GOOMBAS on right/left key press
     goombas.forEach((goomba) => {
       if (keys.left.pressed && playerCurrentPosition > 0) {
-        goomba.position.x += SPEED * 0.66;
+        goomba.position.x += SPEED;
       } else if (keys.right.pressed) {
         goomba.position.x -= SPEED;
       }
     });
   }
-  //parelleX scrolling for particles on right/ledwft key press
+  //parelleX scrolling for PARTICLES on right/ledwft key press
   particles.forEach((particle) => {
     if (keys.left.pressed && playerCurrentPosition > 0) {
       particle.position.x -= SPEED * 0.02;
@@ -120,7 +162,7 @@ function animate() {
     }
   });
 
-  //detecting collision between player and platform
+  //DETECTING collision between PLAYER_PLATFORM
   platforms.forEach((platform) => {
     let hasCollided = detectRectCollision(player, platform);
     if (hasCollided) {
@@ -128,7 +170,7 @@ function animate() {
     }
   });
 
-  //detect collision between coin and platform
+  //DETECTING collision between COIN-PLATFORM
   platforms.forEach((platform) => {
     coins.forEach((coin) => {
       let hasCollided = detectRectCollision(coin, platform);
@@ -138,7 +180,7 @@ function animate() {
     });
   });
 
-  //detecting collision between player and blocks
+  //DETECTING collision between PLAYER-BLOCK
   blocks.forEach((block) => {
     let hasCollided = detectRectCollision(player, block);
     if (hasCollided) {
@@ -146,7 +188,7 @@ function animate() {
     }
   });
 
-  //detecting collision between player and top of block
+  //DETECTING collision between PLAYER-TOP_OF_BLOCK
   blocks.forEach((block) => {
     let hasCollided = hasCollidedBlockTop(player, block);
     if (hasCollided) {
@@ -155,7 +197,7 @@ function animate() {
     }
   });
 
-  //detecting collision between player and side of block
+  //DETECTING collision between PLAYER-SIDE_OF_BLOCK
   blocks.forEach((block) => {
     let hasCollided = hasCollidedBlockSide(player, block);
     if (hasCollided) {
@@ -164,7 +206,7 @@ function animate() {
     }
   });
 
-  //detect collision between goombas and platform
+  //detect collision between  GOOMBA-PLATFORM
   platforms.forEach((platform) => {
     goombas.forEach((goomba) => {
       if (detectRectCollision(goomba, platform)) {
@@ -173,18 +215,46 @@ function animate() {
     });
   });
 
-  //detecting collision between player and coin
+  //DETECTING collision between FLOWER-PLATFORM
+  platforms.forEach((platform) => {
+    flowers.forEach((flower) => {
+      let hasCollided = detectRectCollision(flower, platform);
+      if (hasCollided) flower.velocity.y = 0;
+    });
+  });
+
+  //DETECTING collision between PLAYER-COIN
   coins.forEach((coin, index) => {
-    let hasCollided =
-      detectRectCollision(player, coin) || hasCollidedBlockSide(player, coin);
+    let hasCollided = rectangularCollisionDetection(player, coin);
     if (hasCollided) {
+      console.log("Coin has collided");
       coinsCollected++;
       coins.splice(index, 1);
       console.log(`Coin collected ${coinsCollected}`);
     }
   });
 
-  //detecting top collision if player has stepped over goomba
+  //DETECTING collision between PLAYER-LIFE
+  lifes.forEach((life, index) => {
+    let hasCollided = rectangularCollisionDetection(player, life);
+    if (hasCollided) {
+      health += 100 - health;
+      lifes.splice(index, 1);
+      console.log("life after regen" + health);
+    }
+  });
+
+  //DETECTING collision between PLAYER-FLOWER
+  flowers.forEach((flower, index) => {
+    let hasCollided = rectangularCollisionDetection(player, flower);
+    if (hasCollided) {
+      player.powerUps.flowerPower = true;
+      player.armour = true;
+      flowers.splice(index, 1);
+    }
+  });
+
+  //DETECTING top collision if PLAYER_STEPPED_OVER-GOOMBA
   goombas.forEach((goomba, index) => {
     if (detectTopCollision(player, goomba)) {
       player.velocity.y = -10;
@@ -216,11 +286,112 @@ function animate() {
         console.log("you die");
         restartGame();
       }
-
-      health -= 0.5;
-      console.log(`Life redmaining ${health}`);
+      if (player.armour == true) {
+        player.powerUps.flowerPower = false;
+        player.armour = false;
+        player.opacity = 0;
+        player.opacity = 0.2;
+      } else {
+        health -= 0.5;
+        console.log(`Life remaining ${health}`);
+      }
     }
   });
+
+  //DETECTING collision between PLATFORM-SHARPNEL
+  platforms.forEach((platform) => {
+    sharpnels.forEach((sharpnel) => {
+      if (
+        sharpnel.position.y + sharpnel.radius <= platform.position.y &&
+        sharpnel.position.y + sharpnel.radius + sharpnel.velocity.y >=
+          platform.position.y &&
+        sharpnel.position.x + sharpnel.radius >= platform.position.x &&
+        sharpnel.position.x <= platform.position.x + platform.width
+      ) {
+        sharpnel.velocity.y = -0.7;
+      }
+    });
+  });
+
+  //DETECTING collision between PLATFORM-LIFE
+  platforms.forEach((platform) => {
+    lifes.forEach((life) => {
+      let hasCollided = detectRectCollision(life, platform);
+      if (hasCollided) {
+        life.velocity.y = 0;
+      }
+    });
+  });
+
+  //DETECTING collision between GOOMBA-BLOCK
+  blocks.forEach((block) => {
+    goombas.forEach((goomba) => {
+      if (detectRectCollision(goomba, block)) {
+        goomba.velocity.y = 0;
+      }
+    });
+  });
+
+  //DETECTING collision between FLOWER-BLOCK
+  blocks.forEach((block) => {
+    flowers.forEach((flower) => {
+      if (detectRectCollision(flower, block)) {
+        flower.velocity.y = 0;
+      }
+    });
+  });
+  //DETECTING collision between COIN-BLOCK
+  blocks.forEach((block) => {
+    coins.forEach((coin) => {
+      if (detectRectCollision(coin, block)) {
+        coin.velocity.y = 0;
+      }
+    });
+  });
+
+  // DETECTING collision between SHARPNEL-GOOMBA
+  goombas.forEach((goomba, index) => {
+    sharpnels.forEach((sharpnel, sharpnelIndex) => {
+      if (
+        sharpnel.position.y + sharpnel.radius >= goomba.position.y &&
+        sharpnel.position.y + sharpnel.radius + sharpnel.velocity.y >=
+          goomba.position.y &&
+        sharpnel.position.x + sharpnel.radius >= goomba.position.x &&
+        sharpnel.position.x <= goomba.position.x + goomba.width
+      ) {
+        setTimeout(() => {
+          for (let i = 0; i < 30; i++) {
+            particles.push(
+              new Particle({
+                position: {
+                  x: goomba.position.x + goomba.width / 2,
+                  y: goomba.position.y + goomba.height / 2,
+                },
+                velocity: { x: Math.random() - 0.5, y: Math.random() - 0.5 },
+                radius: Math.random() * 3.5,
+              })
+            );
+          }
+          goombas.splice(index, 1);
+        }, 0);
+        sharpnels.splice(sharpnelIndex, 1);
+      }
+    });
+  });
+
+  //limiting duration of flower-buff
+  if (player.powerUps.flowerPower) {
+    setTimeout(() => {
+      player.powerUps.flowerPower = false;
+    }, 10000);
+  }
+
+  //setting opacity to 1 after player hits goomba with armour
+  if (player.opacity <= 0.9) {
+    setTimeout(() => {
+      player.opacity = 1;
+    }, 500);
+  }
 
   //game over
   if (player.position.y >= canvas.height) {

@@ -121,10 +121,28 @@ function hasCollidedBlockSide(player, block) {
   );
 }
 
-function coinCollision(player, coin) {
+/**
+ * detects wheather two retangles have collided with each other
+ * @param {object} player
+ * @param {object} object can be either flower or coin
+ * @returns
+ */
+
+function rectangularCollisionDetection(player, object) {
   return (
-    player.position.x + player.width >= coin.width ||
-    player.position.y + player.height >= coin.y ||
-    coin.position.x + coin.width >= player.position.x
+    player.position.x + player.width >= object.position.x &&
+    player.position.x <= object.position.x + object.width &&
+    player.position.y + player.height >= object.position.y &&
+    player.position.y <= object.position.y + object.height
+  );
+}
+
+function isOnTopOfPlatformCircle({ object, platform }) {
+  return (
+    object.position.y + object.radius <= platform.position.y &&
+    object.position.y + object.radius + object.velocity.y >=
+      platform.position.y &&
+    object.position.x + object.radius >= platform.position.x &&
+    object.position.x <= platform.position.x + platform.width
   );
 }

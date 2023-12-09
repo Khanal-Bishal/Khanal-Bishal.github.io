@@ -3,14 +3,14 @@ let coins = [];
 // let tempFrameVariable = 0;
 
 class Coin {
-  constructor({ position, velocity, distance }) {
+  constructor({ position, velocity }) {
     this.position = {
       x: position.x,
       y: position.y,
     };
 
     this.velocity = {
-      x: velocity.x,
+      x: 0,
       y: velocity.y,
     };
 
@@ -25,10 +25,10 @@ class Coin {
 
     ctx.drawImage(
       this.image, //image src
-      124.6 * this.frames, //x-axis crop cords
+      125 * this.frames, //x-axis crop cords
       0, //y-axis crop cords
-      124.6, // width for crop
-      135, // height for crop
+      125, // width for crop
+      123, // height for crop
       this.position.x, // x cords
       this.position.y, // y cords
       this.width,
@@ -38,12 +38,12 @@ class Coin {
 
   update() {
     tempFrameVariable++;
-    if (tempFrameVariable % 15 == 0) {
+    if (tempFrameVariable % 7 == 0) {
       this.frames += 1;
     }
 
     if (this.frames >= 6) {
-      this.frames = 1;
+      this.frames = 0;
     }
     this.draw();
     this.position.y += this.velocity.y;
@@ -56,9 +56,60 @@ class Coin {
 coinImg.onload = () => {
   coins = [
     new Coin({
-      position: { x: 800, y: 100 },
-      velocity: { x: Math.random() * -0.3, y: 0 },
-      distance: { limit: Math.random() * 400, coveredDistance: 0 },
+      position: { x: 1010 + 10, y: 0 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 908 + lgPlatform.width - 200, y: 100 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 908 + lgPlatform.width - 150, y: 100 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 908 + lgPlatform.width - 100, y: 100 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 908 + lgPlatform.width - 50, y: 100 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 2572 + tPlatform.width / 2 - 100, y: 100 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 2572 + tPlatform.width / 2 - 50, y: 100 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 2950 + xtPlatform.width - 50, y: 100 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 2950 + xtPlatform.width - 100, y: 100 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 4940 + 150, y: 100 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 4940 + 200, y: 100 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 6351 + 50, y: 100 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 6351 + 100, y: 100 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Coin({
+      position: { x: 6351 + 150, y: 100 },
+      velocity: { x: 0, y: 0 },
     }),
   ];
 };

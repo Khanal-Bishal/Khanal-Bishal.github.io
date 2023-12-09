@@ -4,6 +4,7 @@ canvas.width = 1024;
 canvas.height = 576;
 let isJumping = false;
 let isGrounded = true;
+let lastKeyPressed;
 
 const keys = {
   right: {
@@ -24,8 +25,8 @@ const keys = {
 window.addEventListener("keydown", ({ key }) => {
   switch (key) {
     case "w" || "W":
-      // if (isJumping == false && isGrounded == true) {
-      if (player.velocity.y == 0) {
+      if (isJumping == false && isGrounded == true) {
+        // if (player.velocity.y == 0) {
         player.velocity.y = -15;
         isJumping = true;
         isGrounded = false;
@@ -37,6 +38,13 @@ window.addEventListener("keydown", ({ key }) => {
       player.currentSprite = spriteRunLeft;
       player.cropWidth = player.sprite.run.cropWidth;
       player.spriteImgWidth = player.sprite.run.width;
+
+      if (player.powerUps.flowerPower) {
+        player.currentSprite = powerUpRunLeft;
+        player.cropWidth = player.sprite.run.cropWidth;
+        player.spriteImgWidth = player.sprite.run.width;
+      }
+      lastKeyPressed = "left";
       break;
     case "s" || "S":
       console.log("this is down");
@@ -46,7 +54,30 @@ window.addEventListener("keydown", ({ key }) => {
       player.currentSprite = spriteRunRight;
       player.cropWidth = player.sprite.run.cropWidth;
       player.spriteImgWidth = player.sprite.run.width;
-
+      if (player.powerUps.flowerPower) {
+        player.currentSprite = powerUpRunRight;
+        player.cropWidth = player.sprite.run.cropWidth;
+        player.spriteImgWidth = player.sprite.run.width;
+      }
+      lastKeyPressed = "right";
+      break;
+    case " ":
+      if (player.powerUps.flowerPower) {
+        console.log("space is pressed");
+        sharpnels.push(
+          new Sharpnel({
+            position: {
+              x: player.position.x + player.width / 2,
+              y: player.position.y + player.height / 2,
+            },
+            velocity: {
+              x: 4,
+              y: 1.2,
+            },
+            radius: 6,
+          })
+        );
+      }
       break;
     default:
       break;
@@ -73,6 +104,12 @@ window.addEventListener("keyup", ({ key }) => {
       player.cropWidth = player.sprite.stand.cropWidth;
       player.spriteImgWidth = player.sprite.stand.width;
 
+      if (player.powerUps.flowerPower) {
+        player.currentSprite = powerUpStandLeft;
+        player.cropWidth = player.sprite.stand.cropWidth;
+        player.spriteImgWidth = player.sprite.stand.width;
+      }
+      lastKeyPressed = "left";
       break;
     case "s" || "S":
       console.log("this is down");
@@ -83,6 +120,12 @@ window.addEventListener("keyup", ({ key }) => {
       player.cropWidth = player.sprite.stand.cropWidth;
       player.spriteImgWidth = player.sprite.stand.width;
 
+      if (player.powerUps.flowerPower) {
+        player.currentSprite = powerUpStandRight;
+        player.cropWidth = player.sprite.stand.cropWidth;
+        player.spriteImgWidth = player.sprite.stand.width;
+      }
+      lastKeyPressed = "right";
       break;
     default:
       break;

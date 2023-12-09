@@ -1,19 +1,23 @@
 //creating images
 const lgPlatform = createImage("../img/lgPlatform.png");
-console.log(lgPlatform);
+const xtPlatform = createImage("../img/xtPlatform.png");
+const tPlatform = createImage("../img/tPlatform.png");
+const mdPlatform = createImage("../img/mdPlatform.png");
+const platformSmallTall = createImage("../img/platformSmallTall.png");
 
 /**
  * Platform class
  */
 class Platform {
-  constructor(x, y, image = lgPlatform) {
+  constructor(x, y, image = lgPlatform, text) {
     this.position = {
       x,
-      y: 500,
+      y: y,
     };
     this.image = image;
     this.width = image.width;
     this.height = 20;
+    this.text = text;
 
     this.velocity = {
       x: 0,
@@ -23,6 +27,11 @@ class Platform {
 
   draw() {
     ctx.drawImage(this.image, this.position.x, this.position.y);
+    if (this.text) {
+      ctx.font = "30px  serif";
+      ctx.fillStyle = "red";
+      ctx.fillText(this.text, this.position.x, this.position.y);
+    }
   }
 
   update() {
@@ -32,14 +41,90 @@ class Platform {
 }
 
 let platforms = [];
+let platformDistance = 0;
+
+const platformMap = [
+  "lg",
+  "lg",
+  "gap",
+  "md",
+  "gap",
+  "t",
+  "gap",
+  "xt",
+  "gap",
+  "gap",
+  "smallTall",
+  "gap",
+  "gap",
+  "md",
+  "gap",
+  "lg",
+  "gap",
+  "gap",
+  "xt",
+  "gap",
+  "xt",
+  "gap",
+  "xt",
+  "gap",
+  "t",
+];
 
 checkImageLoaded(lgPlatform, function () {
-  platforms = [
-    new Platform(0, 500, lgPlatform),
-    new Platform(lgPlatform.width, 220, lgPlatform),
-    new Platform(lgPlatform.width * 2, 220, lgPlatform),
-    new Platform(lgPlatform.width * 3 + 100, 220, lgPlatform),
-    new Platform(lgPlatform.width * 4 + 400, 220, lgPlatform),
-    new Platform(lgPlatform.width * 5 + 1000, 220, lgPlatform),
-  ];
+  platformMap.forEach((symbol) => {
+    switch (symbol) {
+      case "lg":
+        platforms.push(
+          new Platform(
+            platformDistance,
+            canvas.height - lgPlatform.height,
+            lgPlatform,
+            (text = platformDistance)
+          )
+        );
+        platformDistance += lgPlatform.width - 2;
+        break;
+
+      case "gap":
+        platformDistance += 150;
+        break;
+
+      case "md":
+        platforms.push(
+          new Platform(
+            platformDistance,
+            canvas.height - mdPlatform.height,
+            mdPlatform,
+            (text = platformDistance)
+          )
+        );
+        platformDistance += mdPlatform.width;
+        break;
+
+      case "xt":
+        platforms.push(
+          new Platform(
+            platformDistance,
+            canvas.height - xtPlatform.height,
+            xtPlatform,
+            (text = platformDistance)
+          )
+        );
+        platformDistance += xtPlatform.width;
+        break;
+
+      case "t":
+        platforms.push(
+          new Platform(
+            platformDistance,
+            canvas.height - tPlatform.height,
+            tPlatform,
+            (text = platformDistance)
+          )
+        );
+        platformDistance += tPlatform.width;
+        break;
+    }
+  });
 });

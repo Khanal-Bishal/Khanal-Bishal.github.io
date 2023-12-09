@@ -2,9 +2,15 @@ let spriteStandLeft = createImage("../img/spriteStandLeft.png");
 let spriteStandRight = createImage("../img/spriteStandRight.png");
 let spriteRunLeft = createImage("../img/spriteRunLeft.png");
 let spriteRunRight = createImage("../img/spriteRunRight.png");
-let tempFrameVariable = 0;
 
+let powerUpStandLeft = createImage("../img/powerUpStandLeft.png");
+let powerUpStandRight = createImage("../img/powerUpStandRight.png");
+let powerUpRunLeft = createImage("../img/powerUpRunLeft.png");
+let powerUpRunRight = createImage("../img/powerUpRunRight.png");
+
+let tempFrameVariable = 0;
 let playerCurrentPosition = 0;
+
 /**
  * Player class
  */
@@ -37,7 +43,29 @@ class Player {
         cropWidth: 340,
         width: 120,
       },
+
+      flowerPower: {
+        stand: {
+          right: powerUpStandRight,
+          left: powerUpStandLeft,
+          cropWidth: 177,
+          width: 66,
+        },
+        run: {
+          right: powerUpRunRight,
+          left: powerUpRunLeft,
+          cropWidth: 340,
+          width: 120,
+        },
+      },
     };
+
+    this.powerUps = {
+      flowerPower: false,
+    };
+    this.armour = false;
+    this.opacity = 1;
+
     this.currentSprite = this.sprite.stand.right;
     this.cropWidth = this.sprite.stand.cropWidth;
     this.spriteImgWidth = this.sprite.stand.width;
@@ -47,8 +75,10 @@ class Player {
    * draw our charecter into the screen
    */
   draw() {
-    ctx.fillStyle = "rgba(255,255,255,0.3)";
-    ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    // ctx.fillStyle = "rgba(255,255,255,0.3)";
+    // ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    ctx.save();
+    ctx.globalAlpha = this.opacity;
     ctx.drawImage(
       this.currentSprite,
       this.cropWidth * this.frame, //x cord-cropping origin
@@ -60,6 +90,7 @@ class Player {
       this.spriteImgWidth,
       this.height
     );
+    ctx.restore();
   }
 
   /**
@@ -74,13 +105,17 @@ class Player {
     if (
       this.frame > 55 &&
       (this.currentSprite == this.sprite.stand.right ||
-        this.currentSprite == this.sprite.stand.left)
+        this.currentSprite == this.sprite.stand.left ||
+        this.currentSprite == this.sprite.flowerPower.stand.left ||
+        this.currentSprite == this.sprite.flowerPower.stand.right)
     ) {
       this.frame = 0;
     } else if (
       this.frame > 29 &&
       (this.currentSprite == this.sprite.run.right ||
-        this.currentSprite == this.sprite.run.left)
+        this.currentSprite == this.sprite.run.left ||
+        this.currentSprite == this.sprite.flowerPower.run.left ||
+        this.currentSprite == this.sprite.flowerPower.run.right)
     ) {
       this.frame = 0;
     }
@@ -89,22 +124,12 @@ class Player {
     this.position.y += this.velocity.y;
     this.position.x += this.velocity.x;
 
-    //setting gravity to our player
-    // if (
-    //   player.position.y + player.height + player.velocity.y >=
-    //   canvas.height
-    // ) {
-    //   this.velocity.y += GRAVITY;
-    // } else {
-    //   this.velocity.y += GRAVITY;
-    // }
     if (
       player.position.y + player.height + player.velocity.y <=
       canvas.height
     ) {
       this.velocity.y += GRAVITY;
     }
-    // this.velocity.y += GRAVITY;
   }
 }
 
