@@ -3,7 +3,7 @@ let particles = [];
  * Particle class
  */
 class Particle {
-  constructor({ position, velocity, radius }) {
+  constructor({ position, velocity, radius, color = "#654428" }) {
     this.position = {
       x: position.x,
       y: position.y,
@@ -14,6 +14,7 @@ class Particle {
     };
     this.radius = radius;
     this.duration = 200;
+    this.color = color;
   }
 
   draw() {
@@ -26,7 +27,7 @@ class Particle {
       Math.PI * 2,
       false
     );
-    ctx.fillStyle = "#654428";
+    ctx.fillStyle = this.color;
     ctx.fill();
     ctx.closePath();
   }

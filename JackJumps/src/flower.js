@@ -54,7 +54,11 @@ class Flower {
   }
 }
 
-spriteFireFlower.onload = () => {
+checkImageLoaded(spriteFireFlower, () => {
+  initializeFlower();
+});
+
+function initializeFlower() {
   flowers = [
     new Flower({
       position: { x: 1060 + 157, y: 150 - 60 },
@@ -69,4 +73,4 @@ spriteFireFlower.onload = () => {
       velocity: { x: 0, y: 0 },
     }),
   ];
-};
+}

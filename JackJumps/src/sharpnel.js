@@ -26,7 +26,7 @@ class Sharpnel {
       Math.PI * 2,
       false
     );
-    ctx.fillStyle = "#97bcff";
+    ctx.fillStyle = "#00ffcc";
     ctx.fill();
     ctx.closePath();
   }

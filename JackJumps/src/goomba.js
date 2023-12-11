@@ -1,4 +1,3 @@
-let spriteGoomba = createImage("../img/spriteGoomba.png");
 let goombas = [];
 
 class Goomba {
@@ -58,6 +57,10 @@ class Goomba {
 }
 
 spriteGoomba.onload = () => {
+  initializeGoomba();
+};
+
+function initializeGoomba() {
   goombas = [
     new Goomba({
       position: { x: 908 + lgPlatform.width - 250, y: 0 },
@@ -151,4 +154,4 @@ spriteGoomba.onload = () => {
       distance: { limit: 20, coveredDistance: 0 },
     }),
   ];
-};
+}

@@ -1,4 +1,3 @@
-let coinImg = createImage("../img/coinImg.png");
 let coins = [];
 // let tempFrameVariable = 0;
 
@@ -26,9 +25,9 @@ class Coin {
     ctx.drawImage(
       this.image, //image src
       125 * this.frames, //x-axis crop cords
-      0, //y-axis crop cords
+      5, //y-axis crop cords
       125, // width for crop
-      123, // height for crop
+      120, // height for crop
       this.position.x, // x cords
       this.position.y, // y cords
       this.width,
@@ -38,12 +37,13 @@ class Coin {
 
   update() {
     tempFrameVariable++;
-    if (tempFrameVariable % 7 == 0) {
+    if (tempFrameVariable % 3 == 0) {
       this.frames += 1;
     }
 
     if (this.frames >= 6) {
       this.frames = 0;
+      tempFrameVariable = 0;
     }
     this.draw();
     this.position.y += this.velocity.y;
@@ -54,6 +54,13 @@ class Coin {
 }
 
 coinImg.onload = () => {
+  initializeCoin();
+};
+
+/**
+ * initialized instance of coin class and pushes it to coins array
+ */
+function initializeCoin() {
   coins = [
     new Coin({
       position: { x: 1010 + 10, y: 0 },
@@ -112,4 +119,4 @@ coinImg.onload = () => {
       velocity: { x: 0, y: 0 },
     }),
   ];
-};
+}

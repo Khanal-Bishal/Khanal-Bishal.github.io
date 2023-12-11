@@ -1,13 +1,3 @@
-let spriteStandLeft = createImage("../img/spriteStandLeft.png");
-let spriteStandRight = createImage("../img/spriteStandRight.png");
-let spriteRunLeft = createImage("../img/spriteRunLeft.png");
-let spriteRunRight = createImage("../img/spriteRunRight.png");
-
-let powerUpStandLeft = createImage("../img/powerUpStandLeft.png");
-let powerUpStandRight = createImage("../img/powerUpStandRight.png");
-let powerUpRunLeft = createImage("../img/powerUpRunLeft.png");
-let powerUpRunRight = createImage("../img/powerUpRunRight.png");
-
 let tempFrameVariable = 0;
 let playerCurrentPosition = 0;
 
@@ -16,6 +6,7 @@ let playerCurrentPosition = 0;
  */
 class Player {
   constructor() {
+    console.log("Player restart");
     this.position = {
       x: 50,
       y: 50,
@@ -101,7 +92,6 @@ class Player {
     if (tempFrameVariable % 3 == 0) {
       this.frame += 1;
     }
-
     if (
       this.frame > 55 &&
       (this.currentSprite == this.sprite.stand.right ||
@@ -110,6 +100,7 @@ class Player {
         this.currentSprite == this.sprite.flowerPower.stand.right)
     ) {
       this.frame = 0;
+      tempFrameVariable = 0;
     } else if (
       this.frame > 29 &&
       (this.currentSprite == this.sprite.run.right ||
@@ -118,6 +109,7 @@ class Player {
         this.currentSprite == this.sprite.flowerPower.run.right)
     ) {
       this.frame = 0;
+      tempFrameVariable = 0;
     }
 
     this.draw();
@@ -134,4 +126,4 @@ class Player {
 }
 
 let player = new Player();
-player.draw();
+// player.draw();

@@ -1,6 +1,3 @@
-const blockTri = createImage("../img/blockTri.png");
-const singleBlock = createImage("../img/block.png");
-
 /**
  * class to create blocks
  */
@@ -36,6 +33,13 @@ class Block {
 let blocks = [];
 
 checkTwoImagesLoaded(singleBlock, blockTri, function () {
+  initializeBlock();
+});
+
+/**
+ * initalizes blocks
+ */
+function initializeBlock() {
   blocks = [
     new Block(lgPlatform.width + 100, 250, singleBlock, lgPlatform.width + 100),
     new Block(lgPlatform.width + 250, 150, blockTri, lgPlatform.width + 150),
@@ -90,4 +94,4 @@ checkTwoImagesLoaded(singleBlock, blockTri, function () {
       7750 + blockTri.width + 400
     ),
   ];
-});
+}

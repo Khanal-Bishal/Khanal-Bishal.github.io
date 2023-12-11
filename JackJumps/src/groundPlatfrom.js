@@ -1,10 +1,3 @@
-//creating images
-const lgPlatform = createImage("../img/lgPlatform.png");
-const xtPlatform = createImage("../img/xtPlatform.png");
-const tPlatform = createImage("../img/tPlatform.png");
-const mdPlatform = createImage("../img/mdPlatform.png");
-const platformSmallTall = createImage("../img/platformSmallTall.png");
-
 /**
  * Platform class
  */
@@ -42,8 +35,10 @@ class Platform {
 
 let platforms = [];
 let platformDistance = 0;
+let platformMap = [];
 
-const platformMap = [
+// function initializePlatform() {
+platformMap = [
   "lg",
   "lg",
   "gap",
@@ -72,6 +67,14 @@ const platformMap = [
 ];
 
 checkImageLoaded(lgPlatform, function () {
+  initializeMap();
+  console.log("mdplatform", mdPlatform.height);
+  console.log("lgPlatform", lgPlatform.height);
+  console.log("xtplatfrom", xtPlatform.height);
+  console.log("tplatform", tPlatform.height);
+});
+
+function initializeMap() {
   platformMap.forEach((symbol) => {
     switch (symbol) {
       case "lg":
@@ -127,4 +130,8 @@ checkImageLoaded(lgPlatform, function () {
         break;
     }
   });
-});
+}
+
+// }
+
+// initializePlatform();

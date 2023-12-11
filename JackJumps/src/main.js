@@ -1,6 +1,5 @@
 let playerCurrentPosition = 0;
-let health = 100;
-let coinsCollected = 0;
+
 /**
  * runs our game loop
  * @returns {}
@@ -9,6 +8,9 @@ let coinsCollected = 0;
  */
 
 function animate() {
+  audioMusicLevel1.play();
+  audioMusicLevel1.volume = 0.1;
+
   // we first need to clear canvas and then update it
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -18,6 +20,9 @@ function animate() {
     background.update();
     background.velocity.x = 0;
   });
+
+  //drawing scoreBoard
+  score.draw();
 
   //drawing platform
   platforms.forEach((platform) => {
@@ -39,9 +44,19 @@ function animate() {
     flower.update();
   });
 
+  //drawing flytrap
+  // flytraps.forEach((flytrap) => {
+  //   flytrap.update();
+  // });
+
   //drawing goombas
   goombas.forEach((goomba) => {
     goomba.update();
+  });
+
+  //drawing lifes
+  lifes.forEach((life) => {
+    life.update();
   });
 
   //drawing particles (on goombas explosion)
@@ -57,9 +72,10 @@ function animate() {
     coin.update();
   });
 
-  //drawing lifes
-  lifes.forEach((life) => {
-    life.update();
+  //drawing flag
+  flags.forEach((flag) => {
+    flag.update();
+    flag.velocity.x = 0;
   });
 
   // drawing sharpnel
@@ -76,7 +92,7 @@ function animate() {
     }
   });
 
-  //checking  key press event conditions
+  //checking  key press event conditions for limiting player moment
   if (
     (keys.left.pressed && player.position.x > 100) ||
     (keys.left.pressed &&
@@ -143,6 +159,14 @@ function animate() {
         block.velocity.x -= SPEED * 0.98;
       }
     });
+    //parelleX scrolling of FLAGS on right/left key press
+    flags.forEach((flag) => {
+      if (keys.left.pressed && playerCurrentPosition > 0) {
+        flag.velocity.x += SPEED * 0.98;
+      } else if (keys.right.pressed) {
+        flag.velocity.x -= SPEED * 0.98;
+      }
+    });
 
     //parelleX scrolling for GOOMBAS on right/left key press
     goombas.forEach((goomba) => {
@@ -153,6 +177,7 @@ function animate() {
       }
     });
   }
+
   //parelleX scrolling for PARTICLES on right/ledwft key press
   particles.forEach((particle) => {
     if (keys.left.pressed && playerCurrentPosition > 0) {
@@ -227,6 +252,7 @@ function animate() {
   coins.forEach((coin, index) => {
     let hasCollided = rectangularCollisionDetection(player, coin);
     if (hasCollided) {
+      audioCoin.play();
       console.log("Coin has collided");
       coinsCollected++;
       coins.splice(index, 1);
@@ -238,6 +264,7 @@ function animate() {
   lifes.forEach((life, index) => {
     let hasCollided = rectangularCollisionDetection(player, life);
     if (hasCollided) {
+      audioLife.play();
       health += 100 - health;
       lifes.splice(index, 1);
       console.log("life after regen" + health);
@@ -248,6 +275,7 @@ function animate() {
   flowers.forEach((flower, index) => {
     let hasCollided = rectangularCollisionDetection(player, flower);
     if (hasCollided) {
+      audioFireFlower.play();
       player.powerUps.flowerPower = true;
       player.armour = true;
       flowers.splice(index, 1);
@@ -259,7 +287,7 @@ function animate() {
     if (detectTopCollision(player, goomba)) {
       player.velocity.y = -10;
       console.log("Goomba has died");
-
+      audioGoombaSquash.play();
       setTimeout(() => {
         for (let i = 0; i < 30; i++) {
           particles.push(
@@ -284,9 +312,11 @@ function animate() {
     ) {
       if (health <= 0) {
         console.log("you die");
+        audioDie.play();
         restartGame();
       }
       if (player.armour == true) {
+        audioLosePowerUp.play();
         player.powerUps.flowerPower = false;
         player.armour = false;
         player.opacity = 0;
@@ -359,6 +389,7 @@ function animate() {
         sharpnel.position.x + sharpnel.radius >= goomba.position.x &&
         sharpnel.position.x <= goomba.position.x + goomba.width
       ) {
+        audioGoombaSquash.play();
         setTimeout(() => {
           for (let i = 0; i < 30; i++) {
             particles.push(
@@ -380,11 +411,11 @@ function animate() {
   });
 
   //limiting duration of flower-buff
-  if (player.powerUps.flowerPower) {
-    setTimeout(() => {
-      player.powerUps.flowerPower = false;
-    }, 10000);
-  }
+  // if (player.powerUps.flowerPower) {
+  //   setTimeout(() => {
+  //     player.powerUps.flowerPower = false;
+  //   }, 10000);
+  // }
 
   //setting opacity to 1 after player hits goomba with armour
   if (player.opacity <= 0.9) {
@@ -393,16 +424,57 @@ function animate() {
     }, 500);
   }
 
+  //win game condition
+  flags.forEach((flag) => {
+    if (
+      player.position.x + player.width >= flag.position.x &&
+      flag.position.x + flag.width >= player.position.x &&
+      player.position.y + player.height >= flag.position.y
+    ) {
+      console.log(`you win`);
+      keys.right.pressed = false;
+      keys.left.pressed = false;
+      if (!player.powerUps.flowerPower) {
+        player.currentSprite = spriteStandRight;
+        player.cropWidth = player.sprite.stand.cropWidth;
+        player.spriteImgWidth = player.sprite.stand.width;
+      } else {
+        player.currentSprite = powerUpStandRight;
+        player.cropWidth = player.sprite.stand.cropWidth;
+        player.spriteImgWidth = player.sprite.stand.width;
+      }
+
+      disableUserInput = true;
+      // audioFireworkBrust.play();
+
+      audioFireworkWhistle.play();
+
+      //explosion effect after winning game
+      for (let i = 0; i < 1; i++) {
+        particles.push(
+          new Particle({
+            position: {
+              x: generateRandomBetweenRange(2, canvas.width),
+              y: generateRandomBetweenRange(2, canvas.width),
+            },
+            velocity: { x: Math.random() - 0.5, y: Math.random() - 0.5 },
+            radius: Math.random() * 3.5,
+            color: `rgb(${Math.floor(Math.random() * 256)},
+                         ${Math.floor(Math.random() * 256)},
+                        ${Math.floor(Math.random() * 256)})`,
+          })
+        );
+      }
+    }
+  });
+
   //game over
   if (player.position.y >= canvas.height) {
     player.velocity.y = +GRAVITY;
+    audioDie.play();
     restartGame();
-  }
-
-  if (player.velocity.y == 0) {
-    isGrounded = true;
-    isJumping = false;
   }
   requestAnimationFrame(animate); //running game loop here with  recursion
 }
+
 animate();

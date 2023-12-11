@@ -1,4 +1,3 @@
-let lifeImg = createImage("../img/life.png");
 let lifes = [];
 // let tempFrameVariable = 0;
 
@@ -20,6 +19,7 @@ class Life {
     this.frames = 0;
   }
   draw() {
+    console.log("This is from life class");
     ctx.drawImage(
       this.image, //image src
       108 * this.frames, //x-axis crop cords
@@ -35,8 +35,8 @@ class Life {
 
   update() {
     tempFrameVariable++;
-    if (tempFrameVariable % 9 == 0) {
-      this.frames += 1;
+    if (tempFrameVariable % 3 == 0) {
+      this.frames++;
     }
 
     if (this.frames >= 7) {
@@ -51,10 +51,14 @@ class Life {
 }
 
 lifeImg.onload = () => {
+  initializeLife();
+};
+
+function initializeLife() {
   lifes = [
     new Life({
       position: { x: 3779 + mdPlatform.width - 100, y: 300 },
       velocity: { x: 0, y: 0 },
     }),
   ];
-};
+}

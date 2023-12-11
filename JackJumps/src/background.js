@@ -1,12 +1,23 @@
-const backgroundImg = createImage("../img/background.png");
-const hills = createImage("../img/hills.png");
-
 /**
  * Background class
  *
  */
 class Background {
   constructor(x, y, image) {
+    // this.position = {
+    //   x,
+    //   y,
+    // };
+
+    // this.velocity = {
+    //   x: 0,
+    //   y: 0,
+    // };
+    // this.image = image;
+    this.initialize(x, y, image);
+  }
+
+  initialize(x, y, image) {
     this.position = {
       x,
       y,
@@ -18,6 +29,7 @@ class Background {
     };
     this.image = image;
   }
+
   draw() {
     ctx.drawImage(this.image, this.position.x, this.position.y);
   }

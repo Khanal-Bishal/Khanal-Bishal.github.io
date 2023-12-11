@@ -127,7 +127,6 @@ function hasCollidedBlockSide(player, block) {
  * @param {object} object can be either flower or coin
  * @returns
  */
-
 function rectangularCollisionDetection(player, object) {
   return (
     player.position.x + player.width >= object.position.x &&
@@ -137,6 +136,12 @@ function rectangularCollisionDetection(player, object) {
   );
 }
 
+/**
+ * detects if object is on top of platform
+ * @param {object} object
+ * @param {object} platform
+ * @returns {boolean}
+ */
 function isOnTopOfPlatformCircle({ object, platform }) {
   return (
     object.position.y + object.radius <= platform.position.y &&
