@@ -71,8 +71,10 @@ function checkTwoImagesLoaded(image1, image2, callback) {
 
 /**
  *  creates new instance if image has loaded
- * @param {object} image1
+ *
+ * @param {Image} image1
  * @param {function} callback
+ *
  * @returns {callback}
  */
 function checkImageLoaded(image1, callback) {
@@ -92,7 +94,7 @@ function checkImageLoaded(image1, callback) {
 
 /**
  *  checks if player has collided with top of block
- * @param {object} player
+ * @param {Player} player
  * @param {object} block
  * @returns {boolean}
  */
@@ -108,8 +110,8 @@ function hasCollidedBlockTop(player, block) {
 
 /**
  * checks if players has collided with side of block
- * @param {object} player
- * @param {object} block
+ * @param {Player} player
+ * @param {Block} block
  * @returns {boolean}
  */
 function hasCollidedBlockSide(player, block) {
@@ -123,9 +125,11 @@ function hasCollidedBlockSide(player, block) {
 
 /**
  * detects wheather two retangles have collided with each other
- * @param {object} player
- * @param {object} object can be either flower or coin
- * @returns
+ *
+ * @param {Player} player
+ * @param {Flower/Coin} object can be either flower or coin
+ *
+ * @returns {boolean}
  */
 function rectangularCollisionDetection(player, object) {
   return (

@@ -1,4 +1,3 @@
-let spriteFireFlower = createImage("../img/spriteFireFlower.png");
 let flowers = [];
 let frameSpeed = 0;
 
@@ -62,6 +61,10 @@ function initializeFlower() {
   flowers = [
     new Flower({
       position: { x: 1060 + 157, y: 150 - 60 },
+      velocity: { x: 0, y: 0 },
+    }),
+    new Flower({
+      position: { x: 200, y: 150 - 60 },
       velocity: { x: 0, y: 0 },
     }),
     new Flower({

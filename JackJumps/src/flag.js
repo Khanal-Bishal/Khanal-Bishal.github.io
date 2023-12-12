@@ -42,11 +42,11 @@ checkImageLoaded(flagImg, function () {
 function initializeFlag() {
   flags = [
     new Flag(
-      8302 + mdPlatform.width - 100,
+      8753 + lgPlatform.width - 100,
       //   500,
       canvas.height - lgPlatform.height - flagImg.height,
       flagImg,
-      lgPlatform.width + 100
+      8753 + lgPlatform.width - 100
     ),
   ];
 }

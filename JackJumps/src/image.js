@@ -35,3 +35,11 @@ const flagImg = createImage("img/flagPole.png");
 //background images
 const backgroundImg = createImage("img/background.png");
 const hills = createImage("img/hills.png");
+
+//flower image
+let spriteFireFlower = createImage("img/spriteFireFlower.png");
+
+//mainboss image
+let mainBossStandImg = createImage("img/spriteFireFlowerStandLeft.png");
+let mainBossHitImg = createImage("img/mario/spriteFireFlowerShootLeft.png");
+let mainBossRunRightImg = createImage("img/spriteFireFlowerRunRight.png");

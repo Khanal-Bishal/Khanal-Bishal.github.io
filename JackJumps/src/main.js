@@ -1,5 +1,5 @@
 let playerCurrentPosition = 0;
-
+let fps = 100;
 /**
  * runs our game loop
  * @returns {}
@@ -33,6 +33,11 @@ function animate() {
   //drawing player
   player.update();
 
+  //drawing mainboss
+  if (mainBoss) {
+    mainBoss.update();
+  }
+
   //drawing blocks
   blocks.forEach((block) => {
     block.update();
@@ -43,11 +48,6 @@ function animate() {
   flowers.forEach((flower) => {
     flower.update();
   });
-
-  //drawing flytrap
-  // flytraps.forEach((flytrap) => {
-  //   flytrap.update();
-  // });
 
   //drawing goombas
   goombas.forEach((goomba) => {
@@ -91,6 +91,19 @@ function animate() {
       sharpnels.splice(index, 1);
     }
   });
+  // drawing fireballs
+  fireballs.forEach((fireball, index) => {
+    fireball.update();
+    if (fireball.duration < -200) {
+      fireballs.splice(index, 1);
+    }
+    if (
+      fireball.position.x + fireball.radius >= canvas.width ||
+      fireball.position.x <= 0
+    ) {
+      fireballs.splice(index, 1);
+    }
+  });
 
   //checking  key press event conditions for limiting player moment
   if (
@@ -124,6 +137,15 @@ function animate() {
         background.velocity.x -= SPEED * 0.66;
       }
     });
+
+    //parallx scrolling of MAINBOSS on right/left key press
+    if (mainBoss) {
+      if (keys.left.pressed && playerCurrentPosition > 0) {
+        mainBoss.position.x += SPEED;
+      } else if (keys.right.pressed) {
+        mainBoss.position.x -= SPEED;
+      }
+    }
 
     //parallX scrooling of COIN on right/left  key press
     coins.forEach((coin) => {
@@ -187,7 +209,7 @@ function animate() {
     }
   });
 
-  //DETECTING collision between PLAYER_PLATFORM
+  //DETECTING collision between PLAYER-PLATFORM
   platforms.forEach((platform) => {
     let hasCollided = detectRectCollision(player, platform);
     if (hasCollided) {
@@ -342,6 +364,48 @@ function animate() {
       }
     });
   });
+  //DETECTING collision between BLOCK-SHARPNEL
+  blocks.forEach((block) => {
+    sharpnels.forEach((sharpnel) => {
+      if (
+        sharpnel.position.y + sharpnel.radius <= block.position.y &&
+        sharpnel.position.y + sharpnel.radius + sharpnel.velocity.y >=
+          block.position.y &&
+        sharpnel.position.x + sharpnel.radius >= block.position.x &&
+        sharpnel.position.x <= block.position.x + block.width
+      ) {
+        sharpnel.velocity.y = -0.7;
+      }
+    });
+  });
+  //DETECTING collision between PLATFORM-FIREBALLS
+  platforms.forEach((platform) => {
+    fireballs.forEach((fireball) => {
+      if (
+        fireball.position.y + fireball.radius <= platform.position.y &&
+        fireball.position.y + fireball.radius + fireball.velocity.y >=
+          platform.position.y &&
+        fireball.position.x + fireball.radius >= platform.position.x &&
+        fireball.position.x <= platform.position.x + platform.width
+      ) {
+        fireball.velocity.y = -0.7;
+      }
+    });
+  });
+  //DETECTING collision between BLOCKS-FIREBALLS
+  blocks.forEach((block) => {
+    fireballs.forEach((fireball) => {
+      if (
+        fireball.position.y + fireball.radius <= block.position.y &&
+        fireball.position.y + fireball.radius + fireball.velocity.y >=
+          block.position.y &&
+        fireball.position.x + fireball.radius >= block.position.x &&
+        fireball.position.x <= block.position.x + block.width
+      ) {
+        fireball.velocity.y = -0.7;
+      }
+    });
+  });
 
   //DETECTING collision between PLATFORM-LIFE
   platforms.forEach((platform) => {
@@ -387,7 +451,8 @@ function animate() {
         sharpnel.position.y + sharpnel.radius + sharpnel.velocity.y >=
           goomba.position.y &&
         sharpnel.position.x + sharpnel.radius >= goomba.position.x &&
-        sharpnel.position.x <= goomba.position.x + goomba.width
+        sharpnel.position.x <= goomba.position.x + goomba.width &&
+        goomba.position.y + goomba.height >= sharpnel.position.y
       ) {
         audioGoombaSquash.play();
         setTimeout(() => {
@@ -410,12 +475,96 @@ function animate() {
     });
   });
 
-  //limiting duration of flower-buff
-  // if (player.powerUps.flowerPower) {
-  //   setTimeout(() => {
-  //     player.powerUps.flowerPower = false;
-  //   }, 10000);
-  // }
+  //DETECTING collision between MAINBOSS-PLATFORM
+  platforms.forEach((platform) => {
+    if (mainBoss) {
+      let hasCollided = detectRectCollision(mainBoss, platform);
+      if (hasCollided) {
+        mainBoss.velocity.y = 0;
+      }
+    }
+  });
+  //DETECTING collision between MAINBOSS-BLOCKS
+  blocks.forEach((block) => {
+    if (mainBoss) {
+      let hasCollided = detectRectCollision(mainBoss, block);
+      if (hasCollided) {
+        mainBoss.velocity.y = 0;
+      }
+    }
+  });
+  // DETECTING collision between PLAYER-FIREBALL
+  fireballs.forEach((fireball, index) => {
+    if (
+      fireball.position.y + fireball.radius >= player.position.y &&
+      fireball.position.y + fireball.radius + fireball.velocity.y >=
+        player.position.y &&
+      fireball.position.x + fireball.radius >= player.position.x &&
+      fireball.position.x <= player.position.x + player.width &&
+      player.position.y + player.height >= fireball.position.y
+    ) {
+      for (let i = 0; i < 30; i++) {
+        particles.push(
+          new Particle({
+            position: {
+              x: player.position.x + player.width / 2,
+              y: player.position.y + player.height / 2,
+            },
+            velocity: { x: Math.random() - 0.5, y: Math.random() - 0.5 },
+            radius: Math.random() * 3.5,
+            color: "white",
+          })
+        );
+      }
+      fireballs.splice(index, 1);
+      health -= 10;
+    }
+  });
+
+  // DETECTING collision between MAINBOSS-SHARPNEL
+  sharpnels.forEach((sharpnel, index) => {
+    if (
+      sharpnel.position.y + sharpnel.radius >= mainBoss.position.y &&
+      sharpnel.position.y + sharpnel.radius + sharpnel.velocity.y >=
+        mainBoss.position.y &&
+      sharpnel.position.x + sharpnel.radius >= mainBoss.position.x &&
+      sharpnel.position.x <= mainBoss.position.x + mainBoss.width &&
+      mainBoss.position.y + mainBoss.height >= sharpnel.position.y
+    ) {
+      for (let i = 0; i < 30; i++) {
+        particles.push(
+          new Particle({
+            position: {
+              x: mainBoss.position.x + mainBoss.width / 2,
+              y: mainBoss.position.y + mainBoss.height / 2,
+            },
+            velocity: { x: Math.random() - 0.5, y: Math.random() - 0.5 },
+            radius: Math.random() * 3.5,
+            color: "red",
+          })
+        );
+      }
+      sharpnels.splice(index, 1);
+      mainBossHealth -= generateRandomBetweenRange(5, 10);
+      if (mainBossHealth < 0) {
+        mainBoss.currentSprite = mainBoss.sprite.run.right;
+        mainBoss.cropWidth = 398;
+        mainBoss.spriteImgWidth = 353;
+        mainBoss.velocity.x = 15;
+        particles = [];
+      }
+    }
+  });
+
+  //DETECTING collision between PLAYER-MAINBOSS
+  if (mainBoss) {
+    if (
+      player.position.x < mainBoss.position.x + mainBoss.width &&
+      player.position.x + player.width > mainBoss.position.x
+    ) {
+      health -= 10;
+    }
+  }
 
   //setting opacity to 1 after player hits goomba with armour
   if (player.opacity <= 0.9) {
@@ -474,7 +623,13 @@ function animate() {
     audioDie.play();
     restartGame();
   }
-  requestAnimationFrame(animate); //running game loop here with  recursion
+  //game restarts if health is below 0
+  if (health <= 0) {
+    restartGame();
+  }
+  setTimeout(() => {
+    requestAnimationFrame(animate); //running game loop here with  recursion
+  }, 1000 / fps);
 }
 
 animate();

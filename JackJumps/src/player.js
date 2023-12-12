@@ -89,9 +89,9 @@ class Player {
    */
   update() {
     tempFrameVariable++;
-    if (tempFrameVariable % 3 == 0) {
-      this.frame += 1;
-    }
+    // if (tempFrameVariable % 3 == 0) {
+    this.frame += 1;
+    // }
     if (
       this.frame > 55 &&
       (this.currentSprite == this.sprite.stand.right ||
@@ -126,4 +126,3 @@ class Player {
 }
 
 let player = new Player();
-// player.draw();

@@ -64,12 +64,12 @@ function initializeGoomba() {
   goombas = [
     new Goomba({
       position: { x: 908 + lgPlatform.width - 250, y: 0 },
-      velocity: { x: -0.1, y: 0 },
+      velocity: { x: -0.4, y: 0 },
       distance: { limit: 200, coveredDistance: 0 },
     }),
     new Goomba({
       position: { x: 908 + lgPlatform.width - 250 - 50, y: 0 },
-      velocity: { x: -0.1, y: 0 },
+      velocity: { x: -0.4, y: 0 },
       distance: { limit: 200, coveredDistance: 0 },
     }),
     new Goomba({

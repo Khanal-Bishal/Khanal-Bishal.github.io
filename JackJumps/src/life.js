@@ -19,7 +19,6 @@ class Life {
     this.frames = 0;
   }
   draw() {
-    console.log("This is from life class");
     ctx.drawImage(
       this.image, //image src
       108 * this.frames, //x-axis crop cords
@@ -34,10 +33,10 @@ class Life {
   }
 
   update() {
-    tempFrameVariable++;
-    if (tempFrameVariable % 3 == 0) {
-      this.frames++;
-    }
+    // tempFrameVariable++;
+    // if (tempFrameVariable % 3 == 0) {
+    this.frames++;
+    // }
 
     if (this.frames >= 7) {
       this.frames = 0;

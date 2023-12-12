@@ -42,10 +42,14 @@ class Background {
 let backgrounds = [];
 
 checkTwoImagesLoaded(backgroundImg, hills, function () {
+  initializeBackground();
+});
+
+function initializeBackground() {
   backgrounds = [
     new Background(-2, -2, backgroundImg),
     new Background(backgroundImg.width - 10, -2, backgroundImg),
     new Background(-1, -1, hills),
     new Background(hills.width, -1, hills),
   ];
-});
+}

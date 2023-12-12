@@ -15,13 +15,11 @@ function restartGame() {
   flags = [];
   coins = [];
   platformDistance = 0;
+  particles = [];
+  fireballs = [];
 
-  backgrounds = [
-    new Background(-2, -2, backgroundImg),
-    new Background(backgroundImg.width - 10, -2, backgroundImg),
-    new Background(-1, -1, hills),
-    new Background(hills.width, -1, hills),
-  ];
+  //drawing backgorund
+  initializeBackground();
 
   //drawing groundPlatform
   initializeMap();
@@ -46,7 +44,10 @@ function restartGame() {
   initializeFlag();
 
   //drawing player
-  player.initialize();
+  player = new Player();
+
+  //drawing mainBoss
+  initializeMainBoss();
 
   console.log("restart ended");
 }

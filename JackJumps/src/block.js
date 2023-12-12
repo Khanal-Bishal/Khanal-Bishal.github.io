@@ -93,5 +93,17 @@ function initializeBlock() {
       mdPlatform,
       7750 + blockTri.width + 400
     ),
+    new Block(
+      8302 + mdPlatform.width - 5,
+      canvas.height - mdPlatform.height,
+      lgPlatform,
+      8302 + mdPlatform.width - 5
+    ),
+    new Block(
+      8753 + lgPlatform.width,
+      canvas.height - mdPlatform.height,
+      lgPlatform,
+      8302 + lgPlatform.width - 5
+    ),
   ];
 }

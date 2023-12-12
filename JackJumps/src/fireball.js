@@ -1,15 +1,15 @@
-let sharpnels = [];
+let fireballs = [];
 /**
  * Particle class
  */
-class Sharpnel {
+class FireBall {
   constructor({ position, velocity, radius, color = "#00ffcc" }) {
     this.position = {
       x: position.x,
       y: position.y,
     };
     this.velocity = {
-      x: lastKeyPressed == "right" ? velocity.x : -velocity.x,
+      x: -velocity.x,
       y: velocity.y,
     };
 
