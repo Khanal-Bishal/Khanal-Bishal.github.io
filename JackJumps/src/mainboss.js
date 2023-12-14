@@ -1,16 +1,7 @@
-switch (currentLevel) {
-  case 1:
-    mainBossHealth = 100;
-    break;
-  case 2:
-    mainBossHealth = 300;
-    break;
-  case 3:
-    mainBossHealth = 500;
-}
 tempFrameVariable = 0;
 let shotFired = false;
 let mainBoss;
+mainBossHealth = 100;
 
 /**
  * Player class
@@ -49,11 +40,12 @@ class MainBoss {
         width: 353,
       },
     };
-    if (mainBossHealth >= 0) {
+    if (mainBossHealth >= 0 || currentLevel > 1) {
       this.currentSprite = this.sprite.stand.left;
       this.cropWidth = this.sprite.stand.cropWidth;
       this.spriteImgWidth = this.sprite.stand.width;
     }
+    console.log(this.currentSprite);
   }
 
   /**
@@ -109,18 +101,21 @@ class MainBoss {
   }
 }
 
-checkTwoImagesLoaded(mainBossHitImg, mainBossStandImg, () => {
-  initializeMainBoss();
-});
+// checkTwoImagesLoaded(mainBossHitImg, mainBossStandImg, () => {
+initializeMainBoss();
+// });
 
 function initializeMainBoss() {
   switch (currentLevel) {
     case 1:
+      console.log("from mainboss 1 ");
       mainBoss = new MainBoss({
         position: { x: 8753 + lgPlatform.width - 200, y: 300 },
       });
       break;
     case 2:
+      console.log("from mainboss 2 ");
+
       mainBoss = new MainBoss({
         position: { x: 11594, y: 300 },
       });

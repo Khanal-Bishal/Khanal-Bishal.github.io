@@ -94,3 +94,6 @@ let images = [
   singleBlock,
   singleBlock2,
 ];
+
+//main menu sprite
+let menuStandRight = createImage("img/mainMenuStandRight.png");

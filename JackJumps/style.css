@@ -1,27 +1,203 @@
-body{
+body {
     margin: 0;
     padding: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-image: url('./img/bluemoon.png');
+    background-size: cover;
+    background-position: center;
     overflow: hidden;
+    font-family: 'Press Start 2P', sans-serif;
+    
 }
 #canvas
 {
-    border: 5px solid #3674b3;
+    
     border-radius: 10px;
+    display: none;
 }
 
 
 
-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+/* main menu  */
+.menu_container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
     height: 100%;
-    /* z-index: -1; */
+    /* display: none; */
+    
+    
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+.heading
+{
+   font-size: 60px;
+    user-select: none;
+    color: rgb(240, 228, 228);
+    text-shadow: 4px 6px black;
+    transition: 200ms;
+
+}
+.heading:hover{
+    color: white;
+    text-shadow: none;
+}
+
+.menu__heading:hover{
+    text-shadow: 0px 0px white;
+}
+
+button
+{
+    border: none;
+    padding: 5px;
+    width: 200px;
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', sans-serif;
+    cursor: pointer;
+    user-select: none;
+    transition: 300ms ease-in;
+}
+
+button:hover{
+    box-shadow: 2px 2px 2px white;
+    transform: scale(2);
+    border-radius: 4px;
+    text-shadow: 4px 2px black;
+}
+
+.jackCanvas {
+    position: relative;
+    animation: jump 3s  infinite ease-in-out;
+    /* Use ease-in-out for a smoother transition */
+}
+
+
+
+@keyframes jump {
+    0% {
+        bottom: 0px;
+    }
+
+    20% {
+        bottom: 130px;
+    }
+
+
+    40% {
+        bottom: 160px;
+    }
+
+    60% {
+        bottom: 200px;
+    }
+
+   
+
+    100% {
+        bottom: 0px;
+    }
+}
+
+
+/* levels icon styling  */
+
+.levels
+{
+    display: none;
+
+}
+.levels .heading{
+    margin-bottom: 140px;
+    text-align: center;
+    font-size: 100px;
+    
+}
+
+
+
+.level-btn-container
+{
+    display: flex;
+    gap: 200px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lvl-btn
+{
+    font-size: 35px;  
+}
+.lvl-btn:hover
+{
+    transform: scale(1.4);
+}
+
+.lvl-btn:hover{
+    box-shadow: none;
+}
+
+.level2-btn
+{
+    display: flex;
+    
+}
+
+
+.level3-btn
+{
+    display: flex;
+}
+
+div .fa-2xl
+{
+    font-size: 4em;
+    color: white;
+    cursor: pointer;
+    
+}
+
+.back-icon:hover
+{
+        text-shadow: 3px 10px black;
+}
+
+
+/* help section  */
+.help
+{
+    display: none;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    
+}
+table,tr,th,td{
+border: 4px solid white;
+color: white;
+padding: 25px;
+border-collapse: collapse;
+box-shadow: 1px 1px 4px 3px white;
+font-size: 20px;
+}
+
+th
+{
+    text-shadow: 3px 3px  3px black; 
+    background-color: rgba(0,0,0,0.2);
 }
 

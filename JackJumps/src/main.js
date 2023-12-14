@@ -585,6 +585,7 @@ function animate() {
   });
 
   // DETECTING collision between MAINBOSS-SHARPNEL
+
   sharpnels.forEach((sharpnel, index) => {
     if (
       sharpnel.position.y + sharpnel.radius >= mainBoss.position.y &&
@@ -664,12 +665,13 @@ function animate() {
 
       setTimeout(() => {
         if (levelChanged) {
+          // currentLevel++;
           selectLevel(currentLevel++);
           levelChanged = false;
           disableUserInput = false;
           platformDistance = 0;
         }
-      }, 1000);
+      }, 5000);
 
       //explosion effect after winning game
       for (let i = 0; i < 1; i++) {

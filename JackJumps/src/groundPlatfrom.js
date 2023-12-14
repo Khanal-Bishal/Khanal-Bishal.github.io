@@ -23,7 +23,7 @@ class Platform {
     if (this.text) {
       ctx.font = "30px  serif";
       ctx.fillStyle = "red";
-      ctx.fillText(this.text, this.position.x, this.position.y);
+      // ctx.fillText(this.text, this.position.x, this.position.y);
     }
   }
 
@@ -37,100 +37,104 @@ let platforms = [];
 let platformDistance = 0;
 let platformMap = [];
 
-// function initializePlatform() {
-switch (currentLevel) {
-  case 1:
-    platformMap = [
-      "lg",
-      "lg",
-      "gap",
-      "md",
-      "gap",
-      "t",
-      "gap",
-      "xt",
-      "gap",
-      "gap",
-      "smallTall",
-      "gap",
-      "gap",
-      "md",
-      "gap",
-      "lg",
-      "gap",
-      "gap",
-      "xt",
-      "gap",
-      "xt",
-      "gap",
-      "xt",
-      "gap",
-      "t",
-    ];
-    break;
-  case 2: {
-    platformMap = [
-      "lg",
-      "lg",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "lg",
-      "t",
-      "gap",
-      "xt",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "md",
-      "gap",
-      "gap",
-      "xt",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "xt",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "t",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "gap",
-      "xt",
-      "gap",
-      "md",
-      "lg",
-      "lg",
-    ];
+function initializePlatform() {
+  switch (currentLevel) {
+    case 1:
+      platformMap = [
+        "lg",
+        "lg",
+        "gap",
+        "md",
+        "gap",
+        "t",
+        "gap",
+        "xt",
+        "gap",
+        "gap",
+        "smallTall",
+        "gap",
+        "gap",
+        "md",
+        "gap",
+        "lg",
+        "gap",
+        "gap",
+        "xt",
+        "gap",
+        "xt",
+        "gap",
+        "xt",
+        "gap",
+        "t",
+      ];
+      break;
+    case 2: {
+      platformMap = [
+        "lg",
+        "lg",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "lg",
+        "t",
+        "gap",
+        "xt",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "md",
+        "gap",
+        "gap",
+        "xt",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "xt",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "t",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "xt",
+        "gap",
+        "md",
+        "lg",
+        "lg",
+      ];
+    }
   }
 }
 
-checkTwoImageLoaded(lgPlatform, mdPlatform2, function () {
+checkTwoImagesLoaded(lgPlatform, mdPlatform2, function () {
   initializeMap();
+
   console.log("From level 2 blocks" + blocks);
 });
 
 function initializeMap() {
+  initializePlatform();
+
   switch (currentLevel) {
     case 1:
       platformMap.forEach((symbol) => {

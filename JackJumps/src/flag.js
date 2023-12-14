@@ -20,8 +20,8 @@ class Flag {
   draw() {
     ctx.font = "30px serif";
     ctx.fillStyle = "black";
-    ctx.fillText(this.text, this.position.x, this.position.y - 30);
-    ctx.fillText(this.position.y, this.position.x, this.position.y);
+    // ctx.fillText(this.text, this.position.x, this.position.y - 30);
+    // ctx.fillText(this.position.y, this.position.x, this.position.y);
     ctx.drawImage(this.image, this.position.x, this.position.y);
   }
   update() {
@@ -43,11 +43,11 @@ function initializeFlag() {
   switch (currentLevel) {
     case 1:
       flags = [
-        new Flag(
-          500,
-          canvas.height - lgPlatform.height - flagImg.height,
-          flagImg
-        ),
+        // new Flag(
+        //   500,
+        //   canvas.height - lgPlatform.height - flagImg.height,
+        //   flagImg
+        // ),
         new Flag(
           8753 + lgPlatform.width - 100,
           //   500,
@@ -59,12 +59,12 @@ function initializeFlag() {
       break;
     case 2:
       flags = [
-        new Flag(
-          500,
-          canvas.height - lgPlatform.height - flagImg.height,
-          flagImg,
-          500
-        ),
+        // new Flag(
+        //   500,
+        //   canvas.height - lgPlatform.height - flagImg.height,
+        //   flagImg,
+        //   500
+        // ),
         new Flag(
           11574 + 400,
           //   500,

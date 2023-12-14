@@ -26,15 +26,14 @@ const keys = {
 window.addEventListener("keydown", ({ key }) => {
   if (!disableUserInput) {
     switch (key) {
-      case "w" || "W":
+      case "w":
         if (player.powerUps.flowerPower) {
           audioJump.play();
-          // if (player.velocity.y == 0) {
-          player.velocity.y = -17;
-          isJumping = true;
-          isGrounded = false;
-
-          // }
+          if (player.velocity.y == 0) {
+            player.velocity.y = -17;
+            isJumping = true;
+            isGrounded = false;
+          }
         }
         if (player.velocity.y == 0) {
           audioJump.play();
@@ -44,7 +43,7 @@ window.addEventListener("keydown", ({ key }) => {
         }
 
         break;
-      case "a" || "A":
+      case "a":
         keys.left.pressed = true;
         player.currentSprite = spriteRunLeft;
         player.cropWidth = player.sprite.run.cropWidth;
@@ -57,10 +56,10 @@ window.addEventListener("keydown", ({ key }) => {
         }
         lastKeyPressed = "left";
         break;
-      case "s" || "S":
+      case "s":
         console.log("this is down");
         break;
-      case "d" || "D":
+      case "d":
         keys.right.pressed = true;
         player.currentSprite = spriteRunRight;
         player.cropWidth = player.sprite.run.cropWidth;
@@ -73,9 +72,10 @@ window.addEventListener("keydown", ({ key }) => {
         lastKeyPressed = "right";
         break;
       case " ":
-        if (player.powerUps.flowerPower) {
+        if (player.powerUps.flowerPower && sharpnels.length < 4) {
           console.log("space is pressed");
           audioShoot.play();
+
           sharpnels.push(
             new Sharpnel({
               position: {

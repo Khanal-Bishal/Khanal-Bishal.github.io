@@ -4,53 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jack Jumps</title>
-    <link rel="shortcut icon" href="./img/level2/sun.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/level2/sun.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
 
-    <video autoplay loop muted>
-        <source src="https://youtu.be/-T3LcxYNUMM?list=PLaTP_B8K0vdiUP8f3h6Y2930CJS4e_e4H" type="video/mp4">
-    </video>
+
+
+    <section class="menu_container">
+        <canvas class="jackCanvas"></canvas>
+        <div class="menu">
+            <h1 class="heading">JACK JUMPS</h1>
+            <button class="newGameBtn">New game</button>
+            <button class="loadGameBtn">Load game</button>
+            <button class="levelsBtn">Levels</button>
+            <button class="helpBtn">Help</button>
+        </div>
+    </section>
+
+    <section class="levels">
+        <div><i class="fa-solid fa-arrow-left fa-2xl back-icon"></i></div>
+        <h1 class="heading">LEVEL</h1>
+        <div class="level-btn-container">
+            <button class="level1-btn lvl-btn">
+                <img src="img/mario/spriteFireFlowerShootLeft.png" alt="" width="120px">
+            </button>
+            <button class="level2-btn lvl-btn">
+                <img src="img/mario/spriteFireFlowerShootLeft.png" alt="" width="120px">
+                <img src="img/mario/spriteFireFlowerShootLeft2.png" alt="" width="120px">
+            </button>
+            <button class="level3-btn lvl-btn">
+                <img src="img/mario/spriteFireFlowerShootLeft2.png" alt="" width="120px">
+                <img src="img/mario/spriteFireFlowerShootLeft.png" alt="" width="120px">
+                <img src="img/mario/spriteFireFlowerShootLeft2.png" alt="" width="120px">
+            </button>
+        </div>
+    </section>
+
+
+    <!-- help section  -->
+    <section class="help">
+        <div><i class="fa-solid fa-arrow-left fa-2xl back-icon-help back-icon"></i></div>
+        <h1 class="heading">HELP</h1>
+        <table>
+            <tr>
+                <th>CONTROL</th>
+                <th>KEY</th>
+            </tr>
+            <tr>
+                <td>Up</td>
+                <td>W</td>
+            </tr>
+            <tr>
+                <td>Right</td>
+                <td>D</td>
+            </tr>
+            <tr>
+                <td>Down</td>
+                <td>S</td>
+            </tr>
+            <tr>
+                <td>Left</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>Shoot</td>
+                <td>Space</td>
+            </tr>
+        </table>
+    </section>
 
     <canvas id="canvas"></canvas>
 
 
-    <script src="./src/constants.js"></script>
-    <script src="./src/util.js"></script>
-    <script src="./src/audio.js"></script>
-    <script src="./src/image.js"></script>
 
 
-    <script src="./src/events.js"></script>
+    <script src="src/mainMenu.js"></script>
+    <script src="src/constants.js"></script>
+    <script src="src/util.js"></script>
+    <script src="src/audio.js"></script>
+    <script src="src/image.js"></script>
 
-    <script src="./src/player.js"></script>
-    <script src="./src/mainboss.js"></script>
+    <script src="src/jackCanvas.js"></script>
 
-    <script src="./src/background.js"></script>
-    <script src="./src/groundPlatfrom.js"></script>
-    <script src="./src/flower.js"></script>
-    <script src="./src/goomba.js"></script>
-    <script src="./src/particle.js"></script>
-    <script src="./src/sharpnel.js"></script>
-    <script src="./src/fireball.js"></script>
+    <script src="src/events.js"></script>
 
-    <script src="./src/block.js"></script>
-    <script src="./src/movingBlock.js"></script>
-    <script src="./src/coin.js"></script>
-    <script src="./src/life.js"></script>
-    <script src="./src/flag.js"></script>
+    <script src="src/dialogs.js"></script>
+    <script src="src/player.js"></script>
+    <script src="src/mainboss.js"></script>
 
-    <script src="./src/scoreBoard.js"></script>
+    <script src="src/background.js"></script>
+    <script src="src/groundPlatfrom.js"></script>
+    <script src="src/flower.js"></script>
+    <script src="src/goomba.js"></script>
+    <script src="src/particle.js"></script>
+    <script src="src/sharpnel.js"></script>
+    <script src="src/fireball.js"></script>
+
+    <script src="src/block.js"></script>
+    <script src="src/movingBlock.js"></script>
+    <script src="src/coin.js"></script>
+    <script src="src/life.js"></script>
+    <script src="src/flag.js"></script>
+
+    <script src="src/scoreBoard.js"></script>
 
 
 
     <script type="module" src="src/main.js"></script>
-    <script src="./src/restartgame.js"></script>
+    <script src="src/restartgame.js"></script>
 </body>
 
 </html>

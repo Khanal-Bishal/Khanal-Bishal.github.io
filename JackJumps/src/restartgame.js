@@ -3,4 +3,5 @@ function restartGame() {
   coinsCollected = 0;
 
   initializeLevel();
+  console.log(canvas.width);
 }

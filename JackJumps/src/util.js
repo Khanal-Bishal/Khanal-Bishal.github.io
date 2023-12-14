@@ -237,6 +237,9 @@ function initializeLevel() {
   //drawing MovingBlocks
   initializeMovingBlock();
 
+  //setmain boss health
+  setMainBossHealth();
+
   //drawing player
   player = new Player();
 }
@@ -255,7 +258,10 @@ function selectLevel(currentLevel) {
     case 2:
       initializeLevel();
       break;
+    default:
+      break;
   }
+  console.log(currentLevel);
 }
 
 //checks all images loaded
@@ -275,4 +281,18 @@ function checkAllImagesLoaded(images, callback) {
   images.forEach((image) => {
     image.onload = imageLoaded;
   });
+}
+
+//set mainboss health
+function setMainBossHealth() {
+  switch (currentLevel) {
+    case 1:
+      mainBossHealth = 100;
+      break;
+    case 2:
+      mainBossHealth = 300;
+      break;
+    case 3:
+      mainBossHealth = 500;
+  }
 }

@@ -20,8 +20,8 @@ class Block {
   draw() {
     ctx.font = "30px serif";
     ctx.fillStyle = "black";
-    ctx.fillText(this.text, this.position.x, this.position.y - 30);
-    ctx.fillText(this.position.y, this.position.x, this.position.y);
+    // ctx.fillText(this.text, this.position.x, this.position.y - 30);
+    // ctx.fillText(this.position.y, this.position.x, this.position.y);
     ctx.drawImage(this.image, this.position.x, this.position.y);
   }
   update() {

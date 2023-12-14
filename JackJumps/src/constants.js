@@ -1,2 +1,2 @@
 const GRAVITY = 0.5;
-const SPEED = 17;
+const SPEED = 7;
