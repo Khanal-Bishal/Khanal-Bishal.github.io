@@ -1,5 +1,7 @@
 let playerCurrentPosition = 0;
 let fps = 100;
+let levelChanged = false;
+
 /**
  * runs our game loop
  * @returns {}
@@ -37,6 +39,12 @@ function animate() {
   if (mainBoss) {
     mainBoss.update();
   }
+
+  //drawing moving blocks
+  movingBlocks.forEach((movingBlock) => {
+    movingBlock.update();
+    // movingBlock.velocity.x = 0;
+  });
 
   //drawing blocks
   blocks.forEach((block) => {
@@ -181,6 +189,14 @@ function animate() {
         block.velocity.x -= SPEED * 0.98;
       }
     });
+    //parelleX scrolling of MOVING-BLOCKS on right/left key press
+    movingBlocks.forEach((movingBlock) => {
+      if (keys.left.pressed && playerCurrentPosition > 0) {
+        movingBlock.position.x += SPEED;
+      } else if (keys.right.pressed) {
+        movingBlock.position.x -= SPEED;
+      }
+    });
     //parelleX scrolling of FLAGS on right/left key press
     flags.forEach((flag) => {
       if (keys.left.pressed && playerCurrentPosition > 0) {
@@ -234,21 +250,42 @@ function animate() {
       player.velocity.y = 0;
     }
   });
+  //DETECTING collision between PLAYER-MOVINGBLOCK
+  movingBlocks.forEach((movingBlock) => {
+    if (
+      player.position.x < movingBlock.position.x + movingBlock.width &&
+      player.position.x + player.width > movingBlock.position.x &&
+      player.position.y + player.height >= movingBlock.position.y &&
+      player.position.y + player.velocity.y < movingBlock.position.y
+    ) {
+      console.log("Player has landed on the moving block");
+      player.velocity.y = 0;
+      player.position.x += movingBlock.velocity.x + player.velocity.x;
+      // Adjust the player's position if needed to prevent overlap
+      player.position.y = movingBlock.position.y - player.height;
+    }
+  });
 
   //DETECTING collision between PLAYER-TOP_OF_BLOCK
   blocks.forEach((block) => {
     let hasCollided = hasCollidedBlockTop(player, block);
     if (hasCollided) {
-      console.log("has collided top");
+      player.velocity.y = -player.velocity.y * 0.4;
+    }
+  });
+  //DETECTING collision between PLAYER-TOP_OF_MOVING_BLOCK
+  movingBlocks.forEach((movingBlock) => {
+    let hasCollided = hasCollidedBlockTop(player, movingBlock);
+    if (hasCollided) {
+      console.log("has collided top of moving block");
       player.velocity.y = -player.velocity.y * 0.4;
     }
   });
 
   //DETECTING collision between PLAYER-SIDE_OF_BLOCK
-  blocks.forEach((block) => {
+  movingBlocks.forEach((block) => {
     let hasCollided = hasCollidedBlockSide(player, block);
     if (hasCollided) {
-      console.log("has collided top");
       player.velocity.x = 0;
     }
   });
@@ -278,7 +315,6 @@ function animate() {
       console.log("Coin has collided");
       coinsCollected++;
       coins.splice(index, 1);
-      console.log(`Coin collected ${coinsCollected}`);
     }
   });
 
@@ -337,6 +373,32 @@ function animate() {
         audioDie.play();
         restartGame();
       }
+      //player losing life animation
+      for (let i = 0; i < 1; i++) {
+        particles.push(
+          new Particle({
+            position: {
+              x: player.position.x + player.width / 2,
+              y: player.position.y + player.height / 2,
+            },
+            velocity: { x: Math.random() - 0.5, y: Math.random() - 0.5 },
+            radius: Math.random() * 1.5,
+            color: "white",
+          })
+        );
+        particles.push(
+          new Particle({
+            position: {
+              x: score.position.x,
+              y: score.position.y,
+            },
+            velocity: { x: Math.random() - 0.5, y: Math.random() - 0.5 },
+            radius: Math.random() * 1.5,
+            color: "white",
+          })
+        );
+      }
+
       if (player.armour == true) {
         audioLosePowerUp.play();
         player.powerUps.flowerPower = false;
@@ -392,6 +454,7 @@ function animate() {
       }
     });
   });
+
   //DETECTING collision between BLOCKS-FIREBALLS
   blocks.forEach((block) => {
     fireballs.forEach((fireball) => {
@@ -550,7 +613,7 @@ function animate() {
         mainBoss.currentSprite = mainBoss.sprite.run.right;
         mainBoss.cropWidth = 398;
         mainBoss.spriteImgWidth = 353;
-        mainBoss.velocity.x = 15;
+        mainBoss.velocity.x = 5;
         particles = [];
       }
     }
@@ -573,16 +636,16 @@ function animate() {
     }, 500);
   }
 
-  //win game condition
+  //WIN GAME condition
   flags.forEach((flag) => {
     if (
       player.position.x + player.width >= flag.position.x &&
       flag.position.x + flag.width >= player.position.x &&
       player.position.y + player.height >= flag.position.y
     ) {
-      console.log(`you win`);
       keys.right.pressed = false;
       keys.left.pressed = false;
+
       if (!player.powerUps.flowerPower) {
         player.currentSprite = spriteStandRight;
         player.cropWidth = player.sprite.stand.cropWidth;
@@ -597,6 +660,16 @@ function animate() {
       // audioFireworkBrust.play();
 
       audioFireworkWhistle.play();
+      levelChanged = true;
+
+      setTimeout(() => {
+        if (levelChanged) {
+          selectLevel(currentLevel++);
+          levelChanged = false;
+          disableUserInput = false;
+          platformDistance = 0;
+        }
+      }, 1000);
 
       //explosion effect after winning game
       for (let i = 0; i < 1; i++) {
@@ -617,13 +690,12 @@ function animate() {
     }
   });
 
-  //game over
+  //GAME OVER
   if (player.position.y >= canvas.height) {
     player.velocity.y = +GRAVITY;
     audioDie.play();
     restartGame();
   }
-  //game restarts if health is below 0
   if (health <= 0) {
     restartGame();
   }

@@ -61,62 +61,175 @@ coinImg.onload = () => {
  * initialized instance of coin class and pushes it to coins array
  */
 function initializeCoin() {
-  coins = [
-    new Coin({
-      position: { x: 1010 + 10, y: 0 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 908 + lgPlatform.width - 200, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 908 + lgPlatform.width - 150, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 908 + lgPlatform.width - 100, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 908 + lgPlatform.width - 50, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 2572 + tPlatform.width / 2 - 100, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 2572 + tPlatform.width / 2 - 50, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 2950 + xtPlatform.width - 50, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 2950 + xtPlatform.width - 100, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 4940 + 150, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 4940 + 200, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 6351 + 50, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 6351 + 100, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Coin({
-      position: { x: 6351 + 150, y: 100 },
-      velocity: { x: 0, y: 0 },
-    }),
-  ];
+  switch (currentLevel) {
+    case 1:
+      coins = [
+        new Coin({
+          position: { x: 1010 + 10, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 908 + lgPlatform.width - 200, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 908 + lgPlatform.width - 150, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 908 + lgPlatform.width - 100, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 908 + lgPlatform.width - 50, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 2572 + tPlatform.width / 2 - 100, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 2572 + tPlatform.width / 2 - 50, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 2950 + xtPlatform.width - 50, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 2950 + xtPlatform.width - 100, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 4940 + 150, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 4940 + 200, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 6351 + 50, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 6351 + 100, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 6351 + 150, y: 100 },
+          velocity: { x: 0, y: 0 },
+        }),
+      ];
+      break;
+    case 2:
+      coins = [
+        new Coin({
+          position: { x: 906 - 50, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 906, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 906 + 200, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 906 + 250, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 1220, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 2406, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+
+        new Coin({
+          position: { x: 2862 + 100 + singleBlock2.width / 2 - 10, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 2862 + 150 + singleBlock2.width / 2 - 10, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 2862 + 200 + singleBlock2.width / 2 - 10, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 3438 + singleBlock2.width / 2 - 10, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 3488 + singleBlock2.width / 2 - 10, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 4975 + 150, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 4975 + 200, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 4975 + 250, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 4975 + 300, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 7757 + 20, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 7757 + 70, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 8736 + 50, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 8736 + 100, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 10243 + mdPlatform2.width / 2, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 10243 + mdPlatform2.width / 2 + 50, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 10243 + mdPlatform2.width / 2 + 100, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 10696 + lgPlatform2.width / 2, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 10696 + lgPlatform2.width / 2 + 50, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 10696 + lgPlatform2.width / 2 + 100, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 10696 + lgPlatform2.width / 2 + 150, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+      ];
+      break;
+  }
 }

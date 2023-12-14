@@ -43,3 +43,54 @@ let spriteFireFlower = createImage("img/spriteFireFlower.png");
 let mainBossStandImg = createImage("img/spriteFireFlowerStandLeft.png");
 let mainBossHitImg = createImage("img/mario/spriteFireFlowerShootLeft.png");
 let mainBossRunRightImg = createImage("img/spriteFireFlowerRunRight.png");
+
+//level 2 backgrounds and platforms
+const backgroundImg2 = createImage("img/level2/background.png");
+const mountains = createImage("img/level2/mountains.png");
+const sun = createImage("img/level2/sun.png");
+
+//level 2 platforms
+const lgPlatform2 = createImage("img/level2/lgPlatform.png");
+const mdPlatform2 = createImage("img/level2/mdPlatform.png");
+
+//level 2 blocks
+const blockTri2 = createImage("img/level2/blockTri2.png");
+const singleBlock2 = createImage("img/level2/singleBlock2.png");
+
+//level 2 tall and xtall platforms
+const xtPlatform2 = createImage("img/level2/xtPlatform.png");
+const tPlatform2 = createImage("img/level2/tPlatform.png");
+
+//flag image level 2
+const flagImg2 = createImage("img/level2/flag2.png");
+
+let images = [
+  flagImg2,
+  xtPlatform,
+  xtPlatform2,
+  lgPlatform,
+  lgPlatform2,
+  backgroundImg,
+  backgroundImg2,
+  mainBossHitImg,
+  mainBossRunRightImg,
+  mainBossStandImg,
+  flagImg,
+  spriteFireFlower,
+  spriteGoomba,
+  spriteRunLeft,
+  spriteRunRight,
+  spriteStandRight,
+  powerUpRunLeft,
+  powerUpRunRight,
+  powerUpStandLeft,
+  powerUpStandRight,
+  hills,
+  mountains,
+  sun,
+  coinImg,
+  blockTri,
+  blockTri2,
+  singleBlock,
+  singleBlock2,
+];

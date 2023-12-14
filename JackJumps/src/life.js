@@ -54,10 +54,22 @@ lifeImg.onload = () => {
 };
 
 function initializeLife() {
-  lifes = [
-    new Life({
-      position: { x: 3779 + mdPlatform.width - 100, y: 300 },
-      velocity: { x: 0, y: 0 },
-    }),
-  ];
+  switch (currentLevel) {
+    case 1:
+      lifes = [
+        new Life({
+          position: { x: 3779 + mdPlatform.width - 100, y: 300 },
+          velocity: { x: 0, y: 0 },
+        }),
+      ];
+      break;
+    case 2:
+      lifes = [
+        new Life({
+          position: { x: 4975 + mdPlatform.width - 100, y: 300 },
+          velocity: { x: 0, y: 0 },
+        }),
+      ];
+      break;
+  }
 }

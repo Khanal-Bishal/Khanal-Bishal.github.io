@@ -1,7 +1,11 @@
+let currentLevel = 1;
+
 /**
  * detects whether objA has collided with objB and viceversa
+ *
  * @param {object} objA
  * @param {object} objB
+ *
  * @returns boolean
  */
 function detectRectCollision(objA, objB) {
@@ -15,7 +19,9 @@ function detectRectCollision(objA, objB) {
 
 /**
  * creates image with provided path and returns image object
+ *
  * @param {path string} path
+ *
  * @returns {image object}
  */
 function createImage(path) {
@@ -26,8 +32,10 @@ function createImage(path) {
 
 /**
  * return boolean if objectA has collided with objB vetically
+ *
  * @param {object} objA
  * @param {object} objB
+ *
  * @returns
  */
 function detectTopCollision(objA, objB) {
@@ -41,8 +49,10 @@ function detectTopCollision(objA, objB) {
 
 /**
  *  returns random number between given range of number
+ *
  * @param {number} min
  * @param {number} max
+ *
  * @returns {number}
  */
 function generateRandomBetweenRange(min, max) {
@@ -51,6 +61,7 @@ function generateRandomBetweenRange(min, max) {
 
 /**
  * checks whether image has loaded or not
+ *
  * @param {object} image
  */
 function checkTwoImagesLoaded(image1, image2, callback) {
@@ -94,8 +105,10 @@ function checkImageLoaded(image1, callback) {
 
 /**
  *  checks if player has collided with top of block
- * @param {Player} player
- * @param {object} block
+ *
+ *  @param {Player} player
+ * @param {Block} block
+ *
  * @returns {boolean}
  */
 function hasCollidedBlockTop(player, block) {
@@ -110,8 +123,10 @@ function hasCollidedBlockTop(player, block) {
 
 /**
  * checks if players has collided with side of block
+ *
  * @param {Player} player
  * @param {Block} block
+ *
  * @returns {boolean}
  */
 function hasCollidedBlockSide(player, block) {
@@ -142,8 +157,10 @@ function rectangularCollisionDetection(player, object) {
 
 /**
  * detects if object is on top of platform
- * @param {object} object
- * @param {object} platform
+ *
+ * @param {Player} object
+ * @param {Platform} platform
+ *
  * @returns {boolean}
  */
 function isOnTopOfPlatformCircle({ object, platform }) {
@@ -154,4 +171,108 @@ function isOnTopOfPlatformCircle({ object, platform }) {
     object.position.x + object.radius >= platform.position.x &&
     object.position.x <= platform.position.x + platform.width
   );
+}
+
+/**
+ *
+ * @param {object} objA
+ * @param {object} objB
+ *
+ * @returns {boolean}
+ */
+function detectCollisionOnMotion(objA, objB) {
+  return (
+    objA.position.x < objB.position.x + objB.width &&
+    objA.position.x + objA.width > objB.position.x &&
+    objA.position.y < objB.position.y + objB.height &&
+    objA.position.y + objA.height > objB.position.y &&
+    objA.velocity.y > 0
+  );
+}
+
+/**
+ * initalizes level
+ */
+function initializeLevel() {
+  console.log("initializing current level" + currentLevel);
+  backgrounds = [];
+  platforms = [];
+  blocks = [];
+  flowers = [];
+  lifes = [];
+  goombas = [];
+  flags = [];
+  coins = [];
+  platformDistance = 0;
+  particles = [];
+  fireballs = [];
+
+  //drawing backgorund
+  initializeBackground();
+
+  //drawing groundPlatform
+  initializeMap();
+
+  //drawing flower
+  initializeFlower();
+
+  //drawing block
+  initializeBlock();
+
+  //drawing goomba
+  initializeGoomba();
+
+  //drawing coin
+  initializeCoin();
+
+  //drawing life/health buff
+  initializeLife();
+
+  //drawing flag pole
+  initializeFlag();
+
+  //drawing mainBoss
+  initializeMainBoss();
+
+  //drawing MovingBlocks
+  initializeMovingBlock();
+
+  //drawing player
+  player = new Player();
+}
+
+/**
+ * selects the current level
+ *
+ * @param {number} level
+ */
+function selectLevel(currentLevel) {
+  // if (!audio.musicLevel1.playing()) audio.musicLevel1.play();
+  switch (currentLevel) {
+    case 1:
+      initializeLevel();
+      break;
+    case 2:
+      initializeLevel();
+      break;
+  }
+}
+
+//checks all images loaded
+function checkAllImagesLoaded(images, callback) {
+  let loadedCount = 0;
+  const totalImages = images.length;
+
+  function imageLoaded() {
+    loadedCount++;
+
+    if (loadedCount === totalImages) {
+      console.log(`${totalImages} images have loaded.`);
+      callback();
+    }
+  }
+
+  images.forEach((image) => {
+    image.onload = imageLoaded;
+  });
 }

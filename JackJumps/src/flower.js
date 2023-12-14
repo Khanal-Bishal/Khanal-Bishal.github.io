@@ -58,22 +58,47 @@ checkImageLoaded(spriteFireFlower, () => {
 });
 
 function initializeFlower() {
-  flowers = [
-    new Flower({
-      position: { x: 1060 + 157, y: 150 - 60 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Flower({
-      position: { x: 200, y: 150 - 60 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Flower({
-      position: { x: 4385 + lgPlatform.width - 100, y: 150 - 60 },
-      velocity: { x: 0, y: 0 },
-    }),
-    new Flower({
-      position: { x: 6730 + tPlatform.width / 2 - 100, y: 150 - 60 },
-      velocity: { x: 0, y: 0 },
-    }),
-  ];
+  switch (currentLevel) {
+    case 1:
+      flowers = [
+        new Flower({
+          position: { x: 1060 + 157, y: 150 - 60 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Flower({
+          position: { x: 200, y: 150 - 60 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Flower({
+          position: { x: 4385 + lgPlatform.width - 100, y: 150 - 60 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Flower({
+          position: { x: 6730 + tPlatform.width / 2 - 100, y: 150 - 60 },
+          velocity: { x: 0, y: 0 },
+        }),
+      ];
+      break;
+    case 2:
+      flowers = [
+        new Flower({
+          position: { x: 300, y: 60 },
+          velocity: { x: 0, y: 0 },
+        }),
+
+        new Flower({
+          position: { x: 3468, y: 60 },
+          velocity: { x: 0, y: 0 },
+        }),
+
+        new Flower({
+          position: {
+            x: 9864 + xtPlatform2.width / 2 - 30,
+            y: 0,
+          },
+          velocity: { x: 0, y: 0 },
+        }),
+      ];
+      break;
+  }
 }

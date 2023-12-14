@@ -29,10 +29,11 @@ window.addEventListener("keydown", ({ key }) => {
       case "w" || "W":
         if (player.powerUps.flowerPower) {
           audioJump.play();
-          // if (player.velocity.y < 2) {
+          // if (player.velocity.y == 0) {
           player.velocity.y = -17;
           isJumping = true;
           isGrounded = false;
+
           // }
         }
         if (player.velocity.y == 0) {

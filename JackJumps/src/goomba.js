@@ -61,97 +61,240 @@ spriteGoomba.onload = () => {
 };
 
 function initializeGoomba() {
-  goombas = [
-    new Goomba({
-      position: { x: 908 + lgPlatform.width - 250, y: 0 },
-      velocity: { x: -0.4, y: 0 },
-      distance: { limit: 200, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 908 + lgPlatform.width - 250 - 50, y: 0 },
-      velocity: { x: -0.4, y: 0 },
-      distance: { limit: 200, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 1966 + lgPlatform.width / 2 - 250, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 100, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 1966 + lgPlatform.width / 2 - 250 - 50, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 100, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 1966 + lgPlatform.width / 2 - 250 - 100, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 100, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 3000, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 80, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 3779 + mdPlatform.width / 2 - 100, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 100, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 3779 + mdPlatform.width / 2 - 100 - 50, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 80, coveredDistance: 0 },
-    }),
+  switch (currentLevel) {
+    case 1:
+      goombas = [
+        new Goomba({
+          position: { x: 908 + lgPlatform.width - 250, y: 0 },
+          velocity: { x: -0.4, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 908 + lgPlatform.width - 250 - 50, y: 0 },
+          velocity: { x: -0.4, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 1966 + lgPlatform.width / 2 - 250, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 100, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 1966 + lgPlatform.width / 2 - 250 - 50, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 100, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 1966 + lgPlatform.width / 2 - 250 - 100, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 100, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 3000, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 80, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 3779 + mdPlatform.width / 2 - 100, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 100, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 3779 + mdPlatform.width / 2 - 100 - 50, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 80, coveredDistance: 0 },
+        }),
 
-    new Goomba({
-      position: { x: 4385 + lgPlatform.width / 2, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 200, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 4385 + lgPlatform.width / 2 - 50, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 200, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 4385 + lgPlatform.width / 2 - 100, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 200, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 4385 + lgPlatform.width / 2 - 150, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 200, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 4385 + lgPlatform.width / 2 - 200, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 200, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 5593 + 100, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 50, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 5593 + 150, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 50, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 5972 + 150, y: 0 },
-      velocity: { x: -0.9, y: 0 },
-      distance: { limit: 50, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 6958 + 150, y: 0 },
-      velocity: { x: -0.2, y: 0 },
-      distance: { limit: 20, coveredDistance: 0 },
-    }),
-    new Goomba({
-      position: { x: 7758 + 150, y: 0 },
-      velocity: { x: -0.2, y: 0 },
-      distance: { limit: 20, coveredDistance: 0 },
-    }),
-  ];
+        new Goomba({
+          position: { x: 4385 + lgPlatform.width / 2, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 4385 + lgPlatform.width / 2 - 50, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 4385 + lgPlatform.width / 2 - 100, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 4385 + lgPlatform.width / 2 - 150, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 4385 + lgPlatform.width / 2 - 200, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 5593 + 100, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 50, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 5593 + 150, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 50, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 5972 + 150, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 50, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 6958 + 150, y: 0 },
+          velocity: { x: -0.2, y: 0 },
+          distance: { limit: 20, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 7758 + 150, y: 0 },
+          velocity: { x: -0.2, y: 0 },
+          distance: { limit: 20, coveredDistance: 0 },
+        }),
+      ];
+      break;
+    case 2:
+      goombas = [
+        new Goomba({
+          position: { x: 906 + lgPlatform2.width - 500, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 906 + lgPlatform2.width - 450, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 906 + lgPlatform2.width - 400, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 906 + lgPlatform2.width - 350, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 906 + lgPlatform2.width - 300, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 906 + lgPlatform2.width - 250, y: 0 },
+          velocity: { x: -0.9, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 2862 + 400, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 2862 + 500, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 2862 + 600, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 2862 + 700, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 200, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 3768 + 100, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 50, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 3768 + 50, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 50, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 4146 + 50, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 50, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 4146 + 100, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 50, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 4146 + 150, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 50, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 5728 + 50, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 50, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 5728 + 100, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 50, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 5728 + 150, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 50, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 7757 + 100, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 100, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 8736 + 60, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 50, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 8736 + 100, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 100, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 10243 + 100, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 100, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 10243 + 150, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 100, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 10243 + lgPlatform.width / 2, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 100, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 10243 + lgPlatform.width / 2 + 50, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 100, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 10243 + lgPlatform.width, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 100, coveredDistance: 0 },
+        }),
+        new Goomba({
+          position: { x: 10243 + lgPlatform.width + 50, y: 0 },
+          velocity: { x: 2, y: 0 },
+          distance: { limit: 100, coveredDistance: 0 },
+        }),
+      ];
+      break;
+  }
 }

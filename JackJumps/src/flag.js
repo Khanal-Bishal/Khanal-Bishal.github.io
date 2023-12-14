@@ -40,13 +40,39 @@ checkImageLoaded(flagImg, function () {
  * initializes instance of flag class and pushes to flags array
  */
 function initializeFlag() {
-  flags = [
-    new Flag(
-      8753 + lgPlatform.width - 100,
-      //   500,
-      canvas.height - lgPlatform.height - flagImg.height,
-      flagImg,
-      8753 + lgPlatform.width - 100
-    ),
-  ];
+  switch (currentLevel) {
+    case 1:
+      flags = [
+        new Flag(
+          500,
+          canvas.height - lgPlatform.height - flagImg.height,
+          flagImg
+        ),
+        new Flag(
+          8753 + lgPlatform.width - 100,
+          //   500,
+          canvas.height - lgPlatform.height - flagImg.height,
+          flagImg,
+          8753 + lgPlatform.width - 100
+        ),
+      ];
+      break;
+    case 2:
+      flags = [
+        new Flag(
+          500,
+          canvas.height - lgPlatform.height - flagImg.height,
+          flagImg,
+          500
+        ),
+        new Flag(
+          11574 + 400,
+          //   500,
+          canvas.height - lgPlatform.height - flagImg.height,
+          flagImg2,
+          11974
+        ),
+      ];
+      break;
+  }
 }

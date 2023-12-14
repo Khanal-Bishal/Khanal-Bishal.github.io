@@ -1,4 +1,13 @@
-mainBossHealth = 100;
+switch (currentLevel) {
+  case 1:
+    mainBossHealth = 100;
+    break;
+  case 2:
+    mainBossHealth = 300;
+    break;
+  case 3:
+    mainBossHealth = 500;
+}
 tempFrameVariable = 0;
 let shotFired = false;
 let mainBoss;
@@ -103,10 +112,20 @@ class MainBoss {
 checkTwoImagesLoaded(mainBossHitImg, mainBossStandImg, () => {
   initializeMainBoss();
 });
+
 function initializeMainBoss() {
-  mainBoss = new MainBoss({
-    position: { x: 8753 + lgPlatform.width - 200, y: 300 },
-  });
+  switch (currentLevel) {
+    case 1:
+      mainBoss = new MainBoss({
+        position: { x: 8753 + lgPlatform.width - 200, y: 300 },
+      });
+      break;
+    case 2:
+      mainBoss = new MainBoss({
+        position: { x: 11594, y: 300 },
+      });
+      break;
+  }
 }
 let tempVariable = 0;
 
