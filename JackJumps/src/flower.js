@@ -61,12 +61,12 @@ function initializeFlower() {
   switch (currentLevel) {
     case 1:
       flowers = [
+        // new Flower({
+        //   position: { x: 200, y: 150 - 60 },
+        //   velocity: { x: 0, y: 0 },
+        // }),
         new Flower({
           position: { x: 1060 + 157, y: 150 - 60 },
-          velocity: { x: 0, y: 0 },
-        }),
-        new Flower({
-          position: { x: 200, y: 150 - 60 },
           velocity: { x: 0, y: 0 },
         }),
         new Flower({
@@ -81,10 +81,10 @@ function initializeFlower() {
       break;
     case 2:
       flowers = [
-        new Flower({
-          position: { x: 300, y: 60 },
-          velocity: { x: 0, y: 0 },
-        }),
+        // new Flower({
+        //   position: { x: 300, y: 60 },
+        //   velocity: { x: 0, y: 0 },
+        // }),
 
         new Flower({
           position: { x: 3468, y: 60 },
@@ -102,10 +102,10 @@ function initializeFlower() {
       break;
     case 3:
       flowers = [
-        new Flower({
-          position: { x: 300, y: 60 },
-          velocity: { x: 0, y: 0 },
-        }),
+        // new Flower({
+        //   position: { x: 300, y: 60 },
+        //   velocity: { x: 0, y: 0 },
+        // }),
         new Flower({
           position: { x: 8957 + tPlatform.width - 80, y: 60 },
           velocity: { x: 0, y: 0 },

@@ -304,9 +304,9 @@ function setMainBossHealth() {
       mainBossHealth = 100;
       break;
     case 2:
-      mainBossHealth = 30;
+      mainBossHealth = 300;
       break;
     case 3:
-      mainBossHealth = 50;
+      mainBossHealth = 500;
   }
 }
