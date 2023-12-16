@@ -1,5 +1,4 @@
 let coins = [];
-// let tempFrameVariable = 0;
 
 class Coin {
   constructor({ position, velocity }) {

@@ -1,6 +1,7 @@
 playerCurrentPosition = 0;
 let fps = 100;
 let levelChanged = false;
+let gameData;
 
 /**
  *
@@ -9,6 +10,7 @@ let levelChanged = false;
  */
 function game() {
   if (pauseCanvas) return;
+
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -49,7 +51,7 @@ function game() {
 
       setTimeout(() => {
         if (levelChanged) {
-          if (currentLevel <= 4) {
+          if (currentLevel <= 3) {
             currentLevel++;
           } else {
             return;
@@ -59,6 +61,8 @@ function game() {
           levelChanged = false;
           disableUserInput = false;
           platformDistance = 0;
+          gameData = { level: currentLevel, gold: coinsCollected };
+          localStorage.setItem("level", JSON.stringify(gameData));
         }
       }, 5000);
 

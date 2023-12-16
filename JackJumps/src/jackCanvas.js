@@ -7,7 +7,7 @@ isJumping = false;
 let tempFrame = 0;
 
 /**
- * Player class
+ * Jack class
  */
 class Jack {
   constructor() {
@@ -28,7 +28,7 @@ class Jack {
   }
 
   /**
-   * draw our charecter into the screen
+   * draws our charecter into the screen
    */
   draw() {
     ctx1.drawImage(

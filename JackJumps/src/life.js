@@ -1,5 +1,4 @@
 let lifes = [];
-// let tempFrameVariable = 0;
 
 class Life {
   constructor({ position, velocity }) {
@@ -33,10 +32,7 @@ class Life {
   }
 
   update() {
-    // tempFrameVariable++;
-    // if (tempFrameVariable % 3 == 0) {
     this.frames++;
-    // }
 
     if (this.frames >= 7) {
       this.frames = 0;
@@ -53,6 +49,9 @@ lifeImg.onload = () => {
   initializeLife();
 };
 
+/**
+ * initalizes/positions health powerUp
+ */
 function initializeLife() {
   switch (currentLevel) {
     case 1:

@@ -27,6 +27,7 @@ const mainMenuBtn = document.querySelector(".pause-mainMenu");
 const winContainer = document.querySelector(".winning-screen");
 const goHome = document.querySelector(".win-mainMenu");
 
+// ----------------main menu buttons----------------
 //new game btn
 newGameBtn.addEventListener("click", () => {
   menuContainer.style.display = "none";
@@ -35,6 +36,7 @@ newGameBtn.addEventListener("click", () => {
   selectLevel(currentLevel);
   showPause = true;
   body.style.backgroundImage = "url('img/background.png')";
+  localStorage.removeItem("level");
 });
 
 //levels btn
@@ -119,7 +121,9 @@ goHome.addEventListener("click", () => {
   pauseCanvas = false;
   showPause = false;
   disableUserInput = false;
+  currentLevel = 1;
   body.style.backgroundImage = "url('img/bluemoon.png')";
+  localStorage.removeItem("level");
 });
 
 //continue btn
@@ -137,6 +141,7 @@ restartBtn.addEventListener("click", () => {
   pauseCanvas = false;
 });
 
+//-------------- story --------------
 //story btn
 storyBtn.addEventListener("click", () => {
   menuContainer.style.display = "none";
@@ -146,4 +151,29 @@ storyBtn.addEventListener("click", () => {
 storyBackIcon.addEventListener("click", () => {
   menuContainer.style.display = "flex";
   storyContainer.style.display = "none";
+});
+
+//load game btn
+loadGameBtn.addEventListener("click", () => {
+  let levelStoredData = localStorage.getItem("level");
+  let levelData = JSON.parse(levelStoredData);
+  menuContainer.style.display = "none";
+  mainCanvas.style.display = "block";
+  currentLevel = levelData?.level ? levelData.level : 1;
+  selectLevel(currentLevel);
+  showPause = true;
+
+  switch (currentLevel) {
+    case 1:
+      body.style.backgroundImage = "url(img/background.png)";
+      break;
+    case 2:
+      body.style.backgroundImage = "url(img/level2/background.png)";
+      break;
+    case 3:
+      body.style.backgroundImage = "url(img/level3/background.png)";
+      break;
+    default:
+      break;
+  }
 });

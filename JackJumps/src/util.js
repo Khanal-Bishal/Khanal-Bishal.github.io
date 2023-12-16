@@ -177,7 +177,7 @@ function isOnTopOfPlatformCircle({ object, platform }) {
 }
 
 /**
- *
+ *  detects collision between objA and objB considering motion
  * @param {object} objA
  * @param {object} objB
  *
@@ -259,6 +259,7 @@ function selectLevel(currentLevel) {
   switch (currentLevel) {
     case 1:
       initializeLevel();
+      bodyBackground.style.backgroundImage = "url(img/background.png)";
       break;
     case 2:
       initializeLevel();
@@ -275,10 +276,16 @@ function selectLevel(currentLevel) {
       winScreen.style.display = "flex";
       gameCanvas.style.display = "none";
       disableUserInput = false;
+      break;
   }
 }
 
-//checks all images loaded
+/**
+ *
+ * takes image array as input and checks whether image has loaded or not
+ * @param {[Image]} images
+ * @param {*} callback
+ */
 function checkAllImagesLoaded(images, callback) {
   let loadedCount = 0;
   const totalImages = images.length;
@@ -297,7 +304,9 @@ function checkAllImagesLoaded(images, callback) {
   });
 }
 
-//set mainboss health
+/**
+ * set the health of mainBoss depending on level
+ */
 function setMainBossHealth() {
   switch (currentLevel) {
     case 1:

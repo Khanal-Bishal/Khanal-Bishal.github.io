@@ -37,7 +37,7 @@ checkImageLoaded(flagImg, function () {
 });
 
 /**
- * initializes instance of flag class and pushes to flags array
+ * initializes instance of flag class and pushes to flags array along with positioning it
  */
 function initializeFlag() {
   switch (currentLevel) {

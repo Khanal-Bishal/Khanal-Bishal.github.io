@@ -1,5 +1,8 @@
 let health = 100;
 let coinsCollected = 0;
+/**
+ * Score board class
+ */
 class Score {
   constructor({ position, velocity }) {
     this.position = {
