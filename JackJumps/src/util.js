@@ -1,4 +1,7 @@
 let currentLevel = 1;
+let bodyBackground = document.querySelector("body");
+let winScreen = document.querySelector(".winning-screen");
+let gameCanvas = document.querySelector("#canvas");
 
 /**
  * detects whether objA has collided with objB and viceversa
@@ -204,8 +207,10 @@ function initializeLevel() {
   flags = [];
   coins = [];
   platformDistance = 0;
+  playerCurrentPosition = 0;
   particles = [];
   fireballs = [];
+  movingBlocks = [];
 
   //drawing backgorund
   initializeBackground();
@@ -257,11 +262,20 @@ function selectLevel(currentLevel) {
       break;
     case 2:
       initializeLevel();
+      bodyBackground.style.backgroundImage = "url(img/level2/background.png)";
+
       break;
+    case 3:
+      initializeLevel();
+      bodyBackground.style.backgroundImage = "url(img/level3/background.png)";
+      break;
+
     default:
-      break;
+      audioFireworkWhistle.pause();
+      winScreen.style.display = "flex";
+      gameCanvas.style.display = "none";
+      disableUserInput = false;
   }
-  console.log(currentLevel);
 }
 
 //checks all images loaded
@@ -290,9 +304,9 @@ function setMainBossHealth() {
       mainBossHealth = 100;
       break;
     case 2:
-      mainBossHealth = 300;
+      mainBossHealth = 30;
       break;
     case 3:
-      mainBossHealth = 500;
+      mainBossHealth = 50;
   }
 }

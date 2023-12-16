@@ -17,7 +17,7 @@
 <body>
 
 
-
+    <!-- main container  -->
     <section class="menu_container">
         <canvas class="jackCanvas"></canvas>
         <div class="menu">
@@ -25,10 +25,12 @@
             <button class="newGameBtn">New game</button>
             <button class="loadGameBtn">Load game</button>
             <button class="levelsBtn">Levels</button>
+            <button class="storyBtn">Story</button>
             <button class="helpBtn">Help</button>
         </div>
     </section>
 
+    <!-- levels section  -->
     <section class="levels">
         <div><i class="fa-solid fa-arrow-left fa-2xl back-icon"></i></div>
         <h1 class="heading">LEVEL</h1>
@@ -78,15 +80,78 @@
                 <td>Shoot</td>
                 <td>Space</td>
             </tr>
+            <tr>
+                <td>Pause</td>
+                <td>Escape</td>
+            </tr>
         </table>
     </section>
 
+    <!-- pause menu -->
+    <section class="pause">
+        <button class="pause-mainMenu">
+            <img src="img/house-person-svgrepo-com.svg" alt="" width="80px">
+        </button>
+        <button class="pause-continue">
+            <img src="img/restart-svgrepo-com.svg" alt="" width="80px">
+        </button>
+        <button class="pause-restart">
+            <img src="img/resume-svgrepo-com.svg" alt="" width="80px">
+        </button>
+
+    </section>
+
+    <!-- story section  -->
+    <section class="story">
+        <div class="story-header">
+            <div><i class="fa-solid fa-arrow-left fa-2xl back-icon story-back-icon"></i></div>
+            <h2>OVERVIEW</h2>
+        </div>
+
+        <p>
+
+            Jack, the friendly alien, has his sneakers stolen by the notorious Marshall, an enemy from another planet.
+            Without his
+            sneakers, Jack loses his extraordinary jumping abilities. The game follows Jack's quest to retrieve his
+            sneakers
+            and
+            restore peace to his planet.
+        </p>
+
+        <h2>STORY</h2>
+
+        <p>
+            The game begins with Jack enjoying a peaceful day on his home planet when suddenly, Marshall and his minions
+            launch a
+            surprise attack.
+        </p>
+        <p>
+
+            Marshall, known for his mischief, steals Jack's sneakers, which grant him the power to jump incredibly high.
+            Jack vows to retrieve his sneakers and sets out on a journey through various alien landscapes.
+        </p>
+
+        <p>
+            Jack encounters different alien worlds, each with unique challenges and enemies sent by Marshall to stop
+            him.
+            Along the way, Jack discovers clues about Marshall's plan to use the sneakers for a nefarious purpose.
+        </p>
+    </section>
+
+    <!-- YOU WIN SECTION  -->
+    <section class="winning-screen">
+        <span>YOU WIN</span>
+        <button class="win-mainMenu">
+            <img src="img/house-person-svgrepo-com.svg" alt="" width="80px">
+        </button>
+
+    </section>
+
+
+    <!-- main canvas  -->
     <canvas id="canvas"></canvas>
 
-
-
-
-    <script src="src/mainMenu.js"></script>
+    <!---- scripts ----->
     <script src="src/constants.js"></script>
     <script src="src/util.js"></script>
     <script src="src/audio.js"></script>
@@ -116,10 +181,16 @@
 
     <script src="src/scoreBoard.js"></script>
 
+    <script src="src/mainMenu.js"></script>
 
+    <script src="src/drawElements.js"></script>
+    <script src="src/parallex.js"></script>
+    <script src="src/detectCollision.js"></script>
+    <script src="src/game.js"></script>
 
     <script type="module" src="src/main.js"></script>
     <script src="src/restartgame.js"></script>
+
 </body>
 
 </html>

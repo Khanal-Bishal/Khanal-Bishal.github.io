@@ -6,6 +6,8 @@ let isJumping = false;
 let isGrounded = true;
 let lastKeyPressed;
 let disableUserInput = false;
+let showPause = false;
+let pauseCanvas = false;
 
 const keys = {
   right: {
@@ -15,7 +17,7 @@ const keys = {
     pressed: false,
   },
 };
-
+const pauseContainer = document.querySelector(".pause");
 /**
  * event listner for key press
  *
@@ -24,16 +26,17 @@ const keys = {
  */
 
 window.addEventListener("keydown", ({ key }) => {
+  console.log(key);
   if (!disableUserInput) {
     switch (key) {
       case "w":
         if (player.powerUps.flowerPower) {
           audioJump.play();
-          if (player.velocity.y == 0) {
-            player.velocity.y = -17;
-            isJumping = true;
-            isGrounded = false;
-          }
+          // if (player.velocity.y == 0) {
+          player.velocity.y = -16;
+          isJumping = true;
+          isGrounded = false;
+          // }
         }
         if (player.velocity.y == 0) {
           audioJump.play();
@@ -91,6 +94,15 @@ window.addEventListener("keydown", ({ key }) => {
           );
         }
         break;
+
+      case "Escape":
+        if (showPause) {
+          pauseContainer.style.display = "flex";
+          disableUserInput = true;
+          pauseCanvas = true;
+        }
+        break;
+
       default:
         break;
     }
@@ -141,6 +153,7 @@ window.addEventListener("keyup", ({ key }) => {
         }
         lastKeyPressed = "right";
         break;
+
       default:
         break;
     }

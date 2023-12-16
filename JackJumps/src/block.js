@@ -34,14 +34,13 @@ let blocks = [];
 
 switch (currentLevel) {
   case 1:
-    // checkTwoImagesLoaded(singleBlock, blockTri, function () {
     initializeBlock();
-    // });
     break;
   case 2:
-    // checkTwoImagesLoaded(singleBlock2, blockTri2, function () {
     initializeBlock();
-    // });
+    break;
+  case 3:
+    initializeBlock();
     break;
   default:
     break;
@@ -182,6 +181,44 @@ function initializeBlock() {
           5722 + xtPlatform.width + 300
         ),
         new Block(6251 + 400, 350, singleBlock2, 6251 + 400),
+      ];
+      break;
+
+    case 3:
+      blocks = [
+        new Block(
+          lgPlatform.width + 200,
+          500,
+          singleBlock3,
+          lgPlatform.width + 200
+        ),
+        new Block(1110 + 300, 500, singleBlock3, 1110 + 300),
+        new Block(1110 + 600, 500, singleBlock3, 1100 + 600),
+        new Block(
+          1960 + tPlatform3.width + 250,
+          150,
+          singleBlock3,
+          1960 + tPlatform3.width + 300
+        ),
+        new Block(
+          1960 + tPlatform3.width + 600,
+          350,
+          singleBlock3,
+          1960 + tPlatform3.width + 600
+        ),
+        new Block(2788 + 300, 250, singleBlock3, 2788 + 300),
+        new Block(
+          7101 + blockTri3.width + 250,
+          220,
+          singleBlock3,
+          7101 + blockTri3.width + 250
+        ),
+        new Block(
+          7503 + singleBlock3.width + 250,
+          420,
+          singleBlock3,
+          7503 + singleBlock3.width + 250
+        ),
       ];
   }
 }

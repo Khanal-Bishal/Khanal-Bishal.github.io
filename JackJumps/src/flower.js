@@ -100,5 +100,26 @@ function initializeFlower() {
         }),
       ];
       break;
+    case 3:
+      flowers = [
+        new Flower({
+          position: { x: 300, y: 60 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Flower({
+          position: { x: 8957 + tPlatform.width - 80, y: 60 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Flower({
+          position: {
+            x: 13189 + mdPlatform.width / 2 - 50,
+            y: 0,
+          },
+          velocity: { x: 0, y: 0 },
+        }),
+      ];
+      break;
+    default:
+      break;
   }
 }

@@ -71,5 +71,15 @@ function initializeLife() {
         }),
       ];
       break;
+    case 3:
+      lifes = [
+        new Life({
+          position: { x: 10995 + tPlatform.width / 2, y: 300 },
+          velocity: { x: 0, y: 0 },
+        }),
+      ];
+      break;
+    default:
+      break;
   }
 }

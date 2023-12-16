@@ -231,5 +231,78 @@ function initializeCoin() {
         }),
       ];
       break;
+
+    case 3:
+      coins = [
+        new Coin({
+          position: { x: 1110 + singleBlock3.width / 2 - 10, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 1700 + singleBlock3.width / 2 + 10, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 1960, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 1960 + 100, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 1960 + 200, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+
+        new Coin({
+          position: { x: 3088 + singleBlock3.width / 2 + 20, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 5344 + 20, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 5344 + 120, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 8957 + 20, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 8957 + 90, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 11523 + 10, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 11523 + 80, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 11523 + 150, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 11523 + 220, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 11523 + 290, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 11523 + 360, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+        new Coin({
+          position: { x: 11523 + 430, y: 0 },
+          velocity: { x: 0, y: 0 },
+        }),
+      ];
   }
 }

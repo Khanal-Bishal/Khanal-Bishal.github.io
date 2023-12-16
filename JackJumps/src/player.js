@@ -8,7 +8,7 @@ class Player {
   constructor() {
     console.log("Player restart");
     this.position = {
-      x: 50,
+      x: 100,
       y: 50,
     };
     this.velocity = {

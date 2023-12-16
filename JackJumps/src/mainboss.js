@@ -120,6 +120,13 @@ function initializeMainBoss() {
         position: { x: 11594, y: 300 },
       });
       break;
+    case 3:
+      console.log("from mainboss 3 ");
+
+      mainBoss = new MainBoss({
+        position: { x: 14099 + 100, y: 300 },
+      });
+      break;
   }
 }
 let tempVariable = 0;

@@ -28,8 +28,8 @@ class MovingBlock {
   draw() {
     ctx.font = "30px serif";
     ctx.fillStyle = "black";
-    ctx.fillText(this.text, this.position.x, this.position.y - 30);
-    ctx.fillText(this.position.y, this.position.x, this.position.y);
+    // ctx.fillText(this.text, this.position.x, this.position.y - 30);
+    // ctx.fillText(this.position.y, this.position.x, this.position.y);
     ctx.drawImage(this.image, this.position.x, this.position.y);
   }
 
@@ -101,6 +101,40 @@ function initializeMovingBlock() {
           distance: { limit: 250, coveredDistance: 0 },
           image: singleBlock2,
           text: 8736 + tPlatform.width + 300,
+        }),
+      ];
+      break;
+
+    case 3:
+      movingBlocks = [
+        new MovingBlock({
+          position: { x: lgPlatform3.width + 400, y: 200 },
+          velocity: { x: 2.5, y: 0 },
+          distance: { limit: 450, coveredDistance: 0 },
+          image: blockTri3,
+          text: lgPlatform3.width + 400,
+        }),
+        new MovingBlock({
+          position: { x: 3088 + 700, y: 200 },
+          velocity: { x: 2.5, y: 0 },
+          distance: { limit: 350, coveredDistance: 0 },
+          image: blockTri3,
+          text: 3088 + 700,
+        }),
+        new MovingBlock({
+          position: { x: 6401 + mdPlatform3.width + 250, y: 350 },
+          velocity: { x: 0, y: 3 },
+          distance: { limit: 120, coveredDistance: 0 },
+          image: blockTri3,
+          text: 6401 + mdPlatform3.width + 250,
+          verticalMoveMent: true,
+        }),
+        new MovingBlock({
+          position: { x: 7804 + singleBlock3.width + 600, y: 300 },
+          velocity: { x: 4, y: 0 },
+          distance: { limit: 300, coveredDistance: 0 },
+          image: singleBlock3,
+          text: 7804 + singleBlock3.width + 250,
         }),
       ];
       break;

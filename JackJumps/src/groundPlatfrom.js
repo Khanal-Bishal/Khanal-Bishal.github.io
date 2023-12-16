@@ -68,7 +68,7 @@ function initializePlatform() {
         "t",
       ];
       break;
-    case 2: {
+    case 2:
       platformMap = [
         "lg",
         "lg",
@@ -122,7 +122,98 @@ function initializePlatform() {
         "lg",
         "lg",
       ];
-    }
+      break;
+    case 3:
+      platformMap = [
+        "lg",
+
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+
+        "t",
+
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+
+        "md",
+
+        "gap",
+        "gap",
+        "gap",
+
+        "t",
+
+        "gap",
+        "gap",
+
+        "xt",
+
+        "gap",
+        "gap",
+
+        "md",
+
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+
+        "t",
+
+        "gap",
+        "gap",
+        "gap",
+        "gap",
+
+        "lg",
+
+        "gap",
+        "gap",
+
+        "t",
+
+        "gap",
+        "gap",
+
+        "md",
+
+        "gap",
+        "gap",
+
+        "lg",
+        "lg",
+        "lg",
+      ];
+    default:
+      break;
   }
 }
 
@@ -250,9 +341,61 @@ function initializeMap() {
         }
       });
       break;
+    case 3:
+      platformMap.forEach((symbol) => {
+        switch (symbol) {
+          case "lg":
+            platforms.push(
+              new Platform(
+                platformDistance - 100,
+                canvas.height - lgPlatform3.height,
+                lgPlatform3,
+                (text = platformDistance)
+              )
+            );
+            platformDistance += lgPlatform3.width;
+            break;
+
+          case "gap":
+            platformDistance += 150;
+            break;
+
+          case "md":
+            platforms.push(
+              new Platform(
+                platformDistance,
+                canvas.height - mdPlatform3.height,
+                mdPlatform3,
+                (text = platformDistance)
+              )
+            );
+            platformDistance += mdPlatform3.width;
+            break;
+          case "xt":
+            platforms.push(
+              new Platform(
+                platformDistance,
+                canvas.height - xtPlatform3.height,
+                xtPlatform3,
+                (text = platformDistance)
+              )
+            );
+            platformDistance += xtPlatform3.width;
+            break;
+
+          case "t":
+            platforms.push(
+              new Platform(
+                platformDistance,
+                canvas.height - tPlatform3.height,
+                tPlatform3,
+                (text = platformDistance)
+              )
+            );
+            platformDistance += tPlatform3.width;
+            break;
+        }
+      });
+      break;
   }
 }
-
-// }
-
-// initializePlatform();

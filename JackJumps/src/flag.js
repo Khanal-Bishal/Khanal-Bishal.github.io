@@ -50,7 +50,6 @@ function initializeFlag() {
         // ),
         new Flag(
           8753 + lgPlatform.width - 100,
-          //   500,
           canvas.height - lgPlatform.height - flagImg.height,
           flagImg,
           8753 + lgPlatform.width - 100
@@ -67,10 +66,25 @@ function initializeFlag() {
         // ),
         new Flag(
           11574 + 400,
-          //   500,
           canvas.height - lgPlatform.height - flagImg.height,
           flagImg2,
           11974
+        ),
+      ];
+      break;
+    case 3:
+      flags = [
+        // new Flag(
+        //   500,
+        //   canvas.height - lgPlatform.height - flagImg.height,
+        //   flag3,
+        //   500
+        // ),
+        new Flag(
+          14099 + lgPlatform3.width / 2 - 200,
+          canvas.height - lgPlatform3.height - flag3.height,
+          flag3,
+          14099 + lgPlatform3.width - 200
         ),
       ];
       break;

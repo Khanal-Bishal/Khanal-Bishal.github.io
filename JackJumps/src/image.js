@@ -64,6 +64,21 @@ const tPlatform2 = createImage("img/level2/tPlatform.png");
 //flag image level 2
 const flagImg2 = createImage("img/level2/flag2.png");
 
+//main menu sprite
+let menuStandRight = createImage("img/mainMenuStandRight.png");
+
+//level 3 images
+const backgroundImg3 = createImage("img/level3/background.png");
+const singleBlock3 = createImage("img/level3/block.png");
+const blockTri3 = createImage("img/level3/blockTri.png");
+const hills3 = createImage("img/level3/hills.png");
+const mountains3 = createImage("img/level3/mountains.png");
+const tPlatform3 = createImage("img/level3/tPlatform.png");
+const xtPlatform3 = createImage("img/level3/xtPlatform.png");
+const mdPlatform3 = createImage("img/level3/mdPlatform.png");
+const lgPlatform3 = createImage("img/level3/lgPlatform.png");
+const flag3 = createImage("img/level3/flagPole.png");
+
 let images = [
   flagImg2,
   xtPlatform,
@@ -94,6 +109,3 @@ let images = [
   singleBlock,
   singleBlock2,
 ];
-
-//main menu sprite
-let menuStandRight = createImage("img/mainMenuStandRight.png");

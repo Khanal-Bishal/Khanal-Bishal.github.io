@@ -57,6 +57,21 @@ function initializeBackground() {
         new Background(mountains.width * 2, -1, mountains),
       ];
       break;
+    case 3:
+      backgrounds = [
+        new Background(-2, -1, backgroundImg3),
+        new Background(backgroundImg3.width - 10, -1, backgroundImg3),
+        new Background(backgroundImg3.width * 2 - 10, -1, backgroundImg3),
+        new Background(800, -30, sun),
+        new Background(-1, canvas.height - hills3.height + 10, hills3),
+        new Background(
+          hills3.width,
+          canvas.height - mountains.height,
+          mountains3
+        ),
+        new Background(hills3.width + mountains3.width, -1, hills3),
+      ];
+      break;
     default:
       break;
   }
