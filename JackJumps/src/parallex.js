@@ -1,5 +1,5 @@
 /**
- * performs all the parallex scorlling
+ * performs  parallex scorlling for all game elements
  */
 function paralleX() {
   //checking  key press event conditions for limiting player moment

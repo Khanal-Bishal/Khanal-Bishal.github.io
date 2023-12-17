@@ -30,8 +30,6 @@ class Block {
   }
 }
 
-let blocks = [];
-
 switch (currentLevel) {
   case 1:
     initializeBlock();
@@ -220,5 +218,6 @@ function initializeBlock() {
           7503 + singleBlock3.width + 250
         ),
       ];
+      break;
   }
 }

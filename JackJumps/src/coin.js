@@ -1,5 +1,3 @@
-let coins = [];
-
 class Coin {
   constructor({ position, velocity }) {
     this.position = {

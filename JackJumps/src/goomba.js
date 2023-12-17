@@ -1,5 +1,3 @@
-let goombas = [];
-
 class Goomba {
   constructor({ position, velocity, distance }) {
     this.position = {

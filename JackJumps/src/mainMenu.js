@@ -36,7 +36,10 @@ newGameBtn.addEventListener("click", () => {
   selectLevel(currentLevel);
   showPause = true;
   body.style.backgroundImage = "url('img/background.png')";
+  progressBar.style.display = "block";
   localStorage.removeItem("level");
+  progressBar.value = 100;
+  health = 100;
 });
 
 //levels btn
@@ -75,7 +78,10 @@ level1Btn.addEventListener("click", () => {
   currentLevel = 1;
   selectLevel(currentLevel);
   body.style.backgroundImage = "url('img/background.png')";
+  progressBar.style.display = "block";
   showPause = true;
+  progressBar.value = 100;
+  health = 100;
 });
 
 //level-2-btn
@@ -85,8 +91,12 @@ level2Btn.addEventListener("click", () => {
   showPause = true;
   levels.style.display = "none";
   body.style.backgroundImage = "url('img/level2/background.png')";
+  progressBar.style.display = "block";
+
   currentLevel = 2;
   selectLevel(currentLevel);
+  progressBar.value = 100;
+  health = 100;
 });
 
 //level-3-btn
@@ -96,8 +106,12 @@ level3Btn.addEventListener("click", () => {
   showPause = true;
   levels.style.display = "none";
   body.style.backgroundImage = "url('img/level3/background.png')";
+  progressBar.style.display = "block";
+
   currentLevel = 3;
   selectLevel(currentLevel);
+  progressBar.value = 100;
+  health = 100;
 });
 
 //------------------pause functionality---------
@@ -111,6 +125,7 @@ mainMenuBtn.addEventListener("click", () => {
   showPause = false;
   disableUserInput = false;
   body.style.backgroundImage = "url('img/bluemoon.png')";
+  progressBar.style.display = "none";
 });
 
 //win screen main menu btn
@@ -124,6 +139,7 @@ goHome.addEventListener("click", () => {
   currentLevel = 1;
   body.style.backgroundImage = "url('img/bluemoon.png')";
   localStorage.removeItem("level");
+  progressBar.style.display = "none";
 });
 
 //continue btn
@@ -139,6 +155,8 @@ restartBtn.addEventListener("click", () => {
   selectLevel(currentLevel);
   disableUserInput = false;
   pauseCanvas = false;
+  progressBar.value = 100;
+  health = 100;
 });
 
 //-------------- story --------------
@@ -162,6 +180,9 @@ loadGameBtn.addEventListener("click", () => {
   currentLevel = levelData?.level ? levelData.level : 1;
   selectLevel(currentLevel);
   showPause = true;
+  progressBar.style.display = "block";
+  progressBar.value = 100;
+  health = 100;
 
   switch (currentLevel) {
     case 1:

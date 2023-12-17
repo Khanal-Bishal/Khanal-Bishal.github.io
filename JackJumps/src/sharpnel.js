@@ -1,4 +1,3 @@
-let sharpnels = [];
 /**
  * Particle class
  */

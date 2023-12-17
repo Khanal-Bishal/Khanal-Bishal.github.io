@@ -309,3 +309,20 @@ th
     border-radius: 10%;
 
 }
+
+/* progress  bar (health bar)*/
+
+
+#progress {
+    height: 20px;
+   width: 600px;
+   position: absolute;
+   top: 5%;
+   display: none;
+   accent-color: white;
+  
+    
+  
+}
+
+

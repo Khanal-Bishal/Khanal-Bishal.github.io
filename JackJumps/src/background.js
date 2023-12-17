@@ -40,7 +40,6 @@ function initializeBackground() {
         new Background(-1, -1, hills),
         new Background(hills.width, -1, hills),
       ];
-
       break;
     case 2:
       backgrounds = [

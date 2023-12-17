@@ -1,5 +1,3 @@
-let lifes = [];
-
 class Life {
   constructor({ position, velocity }) {
     this.position = {

@@ -1,5 +1,3 @@
-let health = 100;
-let coinsCollected = 0;
 /**
  * Score board class
  */
@@ -13,22 +11,39 @@ class Score {
       x: velocity.x,
       y: velocity.y,
     };
+    this.width = 30;
+    this.height = 30;
+    this.frames = 0;
   }
 
   draw() {
     ctx.font = "15px 'Press Start 2P', cursive";
-    ctx.fillStyle = "rgba(255,255,255,0.6)";
+    ctx.fillStyle = "rgba(255,255,255,0.7)";
+
+    ctx.drawImage(
+      coinImg,
+      125 * this.frames, //x-axis crop cords
+      5, //y-axis crop cords
+      125, // width for crop
+      120, // height for crop
+      this.position.x, // x cords
+      this.position.y - 25, // y cords
+      this.width,
+      this.height
+    );
     ctx.fillText(
-      `GOLD ${coinsCollected * 100}`,
+      `\t  X ${coinsCollected * 100}`,
       this.position.x,
       this.position.y
     );
-
-    ctx.fillText(
-      `HEALTH ${Math.ceil(health)}`,
-      this.position.x,
-      this.position.y + 40
-    );
+  }
+  update() {
+    this.frames++;
+    if (this.frames >= 6) {
+      this.frames = 0;
+      // tempFrameVariable = 0;
+    }
+    this.draw();
   }
 }
 

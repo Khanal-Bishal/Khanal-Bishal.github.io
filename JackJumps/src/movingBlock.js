@@ -1,5 +1,3 @@
-let movingBlocks = [];
-
 class MovingBlock {
   constructor({
     position,

@@ -1,14 +1,3 @@
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-canvas.width = 1024;
-canvas.height = 576;
-let isJumping = false;
-let isGrounded = true;
-let lastKeyPressed;
-let disableUserInput = false;
-let showPause = false;
-let pauseCanvas = false;
-
 const keys = {
   right: {
     pressed: false,
@@ -18,6 +7,7 @@ const keys = {
   },
 };
 const pauseContainer = document.querySelector(".pause");
+
 /**
  * event listner for key press
  *

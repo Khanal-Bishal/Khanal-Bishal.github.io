@@ -33,10 +33,6 @@ class Platform {
   }
 }
 
-let platforms = [];
-let platformDistance = 0;
-let platformMap = [];
-
 function initializePlatform() {
   switch (currentLevel) {
     case 1:

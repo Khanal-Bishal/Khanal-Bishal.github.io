@@ -1,4 +1,3 @@
-let fireballs = [];
 /**
  * Particle class
  */

@@ -1,6 +1,3 @@
-let tempFrameVariable = 0;
-let playerCurrentPosition = 0;
-
 /**
  * Player class
  */

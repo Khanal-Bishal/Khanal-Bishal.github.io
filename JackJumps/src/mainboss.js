@@ -1,8 +1,3 @@
-tempFrameVariable = 0;
-let shotFired = false;
-let mainBoss;
-mainBossHealth = 100;
-
 /**
  * Player class
  */

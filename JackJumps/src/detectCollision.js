@@ -24,6 +24,7 @@ function detectCollision() {
       player.velocity.y = 0;
     }
   });
+
   //DETECTING collision between PLAYER-MOVINGBLOCK
   movingBlocks.forEach((movingBlock) => {
     if (
@@ -32,7 +33,6 @@ function detectCollision() {
       player.position.y + player.height >= movingBlock.position.y &&
       player.position.y + player.velocity.y < movingBlock.position.y
     ) {
-      console.log("Player has landed on the moving block");
       player.velocity.y = 0;
       player.position.x += movingBlock.velocity.x + player.velocity.x;
       // Adjust the player's position if needed to prevent overlap
@@ -47,11 +47,11 @@ function detectCollision() {
       player.velocity.y = -player.velocity.y * 0.4;
     }
   });
+
   //DETECTING collision between PLAYER-TOP_OF_MOVING_BLOCK
   movingBlocks.forEach((movingBlock) => {
     let hasCollided = hasCollidedBlockTop(player, movingBlock);
     if (hasCollided) {
-      console.log("has collided top of moving block");
       player.velocity.y = -player.velocity.y * 0.4;
     }
   });
@@ -64,7 +64,7 @@ function detectCollision() {
     }
   });
 
-  //detect collision between  GOOMBA-PLATFORM
+  //DETECTING collision between  GOOMBA-PLATFORM
   platforms.forEach((platform) => {
     goombas.forEach((goomba) => {
       if (detectRectCollision(goomba, platform)) {
@@ -160,11 +160,12 @@ function detectCollision() {
             color: "white",
           })
         );
+        progressBar.value = health;
         particles.push(
           new Particle({
             position: {
-              x: score.position.x,
-              y: score.position.y,
+              x: canvas.width / 2,
+              y: 0,
             },
             velocity: { x: Math.random() - 0.5, y: Math.random() - 0.5 },
             radius: Math.random() * 1.5,
@@ -200,6 +201,7 @@ function detectCollision() {
       }
     });
   });
+
   //DETECTING collision between BLOCK-SHARPNEL
   blocks.forEach((block) => {
     sharpnels.forEach((sharpnel) => {
@@ -214,6 +216,7 @@ function detectCollision() {
       }
     });
   });
+
   //DETECTING collision between PLATFORM-FIREBALLS
   platforms.forEach((platform) => {
     fireballs.forEach((fireball) => {
@@ -352,9 +355,21 @@ function detectCollision() {
             color: "white",
           })
         );
+        particles.push(
+          new Particle({
+            position: {
+              x: canvas.width / 2,
+              y: 0,
+            },
+            velocity: { x: Math.random() - 0.5, y: Math.random() - 0.5 },
+            radius: Math.random() * 1.5,
+            color: "white",
+          })
+        );
       }
       fireballs.splice(index, 1);
       health -= 10;
+      progressBar.value = health;
     }
   });
 

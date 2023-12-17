@@ -1,8 +1,3 @@
-let currentLevel = 1;
-let bodyBackground = document.querySelector("body");
-let winScreen = document.querySelector(".winning-screen");
-let gameCanvas = document.querySelector("#canvas");
-
 /**
  * detects whether objA has collided with objB and viceversa
  *
@@ -211,6 +206,8 @@ function initializeLevel() {
   particles = [];
   fireballs = [];
   movingBlocks = [];
+  health = 100;
+  progressBar.value = health;
 
   //drawing backgorund
   initializeBackground();
@@ -260,6 +257,7 @@ function selectLevel(currentLevel) {
     case 1:
       initializeLevel();
       bodyBackground.style.backgroundImage = "url(img/background.png)";
+
       break;
     case 2:
       initializeLevel();

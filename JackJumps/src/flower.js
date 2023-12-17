@@ -1,6 +1,3 @@
-let flowers = [];
-let frameSpeed = 0;
-
 class Flower {
   constructor({ position, velocity }) {
     this.position = {

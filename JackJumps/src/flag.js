@@ -30,8 +30,6 @@ class Flag {
   }
 }
 
-let flags = [];
-
 checkImageLoaded(flagImg, function () {
   initializeFlag();
 });

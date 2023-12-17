@@ -1,10 +1,5 @@
-playerCurrentPosition = 0;
-let fps = 100;
-let levelChanged = false;
-let gameData;
-
 /**
- *
+ * check/performs drawing of elements, scrolling bg and elements and detection colliosion along with win/lose condition
  *
  * @returns {}
  */

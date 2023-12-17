@@ -6,7 +6,7 @@ function drawElements() {
   });
 
   //drawing scoreBoard
-  score.draw();
+  score.update();
 
   //drawing platform
   platforms.forEach((platform) => {
