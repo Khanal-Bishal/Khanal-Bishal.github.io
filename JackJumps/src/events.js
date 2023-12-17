@@ -50,7 +50,6 @@ window.addEventListener("keydown", ({ key }) => {
         lastKeyPressed = "left";
         break;
       case "s":
-        console.log("this is down");
         break;
       case "d":
         keys.right.pressed = true;
@@ -93,6 +92,51 @@ window.addEventListener("keydown", ({ key }) => {
         }
         break;
 
+      //---------arrow keys------------
+      case "ArrowUp":
+        if (player.powerUps.flowerPower) {
+          audioJump.play();
+          if (player.velocity.y == 0) {
+            player.velocity.y = -16;
+            isJumping = true;
+            isGrounded = false;
+          }
+        }
+        if (player.velocity.y == 0) {
+          audioJump.play();
+          player.velocity.y = -16;
+          isJumping = true;
+          isGrounded = false;
+        }
+
+        break;
+      case "ArrowLeft":
+        keys.left.pressed = true;
+        player.currentSprite = spriteRunLeft;
+        player.cropWidth = player.sprite.run.cropWidth;
+        player.spriteImgWidth = player.sprite.run.width;
+
+        if (player.powerUps.flowerPower) {
+          player.currentSprite = powerUpRunLeft;
+          player.cropWidth = player.sprite.run.cropWidth;
+          player.spriteImgWidth = player.sprite.run.width;
+        }
+        lastKeyPressed = "left";
+        break;
+
+      case "ArrowRight":
+        keys.right.pressed = true;
+        player.currentSprite = spriteRunRight;
+        player.cropWidth = player.sprite.run.cropWidth;
+        player.spriteImgWidth = player.sprite.run.width;
+        if (player.powerUps.flowerPower) {
+          player.currentSprite = powerUpRunRight;
+          player.cropWidth = player.sprite.run.cropWidth;
+          player.spriteImgWidth = player.sprite.run.width;
+        }
+        lastKeyPressed = "right";
+        break;
+
       default:
         break;
     }
@@ -128,9 +172,41 @@ window.addEventListener("keyup", ({ key }) => {
         lastKeyPressed = "left";
         break;
       case "s" || "S":
-        console.log("this is down");
         break;
       case "d" || "D":
+        keys.right.pressed = false;
+        player.currentSprite = spriteStandRight;
+        player.cropWidth = player.sprite.stand.cropWidth;
+        player.spriteImgWidth = player.sprite.stand.width;
+
+        if (player.powerUps.flowerPower) {
+          player.currentSprite = powerUpStandRight;
+          player.cropWidth = player.sprite.stand.cropWidth;
+          player.spriteImgWidth = player.sprite.stand.width;
+        }
+        lastKeyPressed = "right";
+        break;
+
+      // -------------arrow keys-----------
+      case "ArrowUp":
+        // isJumping = false;
+        // isGrounded = true;
+        break;
+      case "ArrowLeft":
+        keys.left.pressed = false;
+        player.currentSprite = spriteStandLeft;
+        player.cropWidth = player.sprite.stand.cropWidth;
+        player.spriteImgWidth = player.sprite.stand.width;
+
+        if (player.powerUps.flowerPower) {
+          player.currentSprite = powerUpStandLeft;
+          player.cropWidth = player.sprite.stand.cropWidth;
+          player.spriteImgWidth = player.sprite.stand.width;
+        }
+        lastKeyPressed = "left";
+        break;
+
+      case "ArrowRight":
         keys.right.pressed = false;
         player.currentSprite = spriteStandRight;
         player.cropWidth = player.sprite.stand.cropWidth;

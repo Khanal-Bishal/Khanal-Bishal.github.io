@@ -1,8 +1,8 @@
 /**
  * detects whether objA has collided with objB and viceversa
  *
- * @param {object} objA
- * @param {object} objB
+ * @param {PLAYER} objA
+ * @param {Platform/Block} objB
  *
  * @returns boolean
  */
@@ -18,7 +18,7 @@ function detectRectCollision(objA, objB) {
 /**
  * creates image with provided path and returns image object
  *
- * @param {path string} path
+ * @param {STRING} path
  *
  * @returns {image object}
  */
@@ -31,8 +31,8 @@ function createImage(path) {
 /**
  * return boolean if objectA has collided with objB vetically
  *
- * @param {object} objA
- * @param {object} objB
+ * @param {PLAYER} objA
+ * @param {Block/Platform/Goomba} objB
  *
  * @returns
  */
@@ -60,7 +60,9 @@ function generateRandomBetweenRange(min, max) {
 /**
  * checks whether image has loaded or not
  *
- * @param {object} image
+ * @param {Image} image1
+ * @param {Image} image2
+ * @param {function } callback
  */
 function checkTwoImagesLoaded(image1, image2, callback) {
   let loadedCount = 0;
