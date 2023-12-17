@@ -113,4 +113,13 @@ function paralleX() {
       particle.position.x -= SPEED * 0.02;
     }
   });
+
+  //parelleX scrolling for FIREBALL on right/ledwft key press
+  fireballs.forEach((fireball) => {
+    if (keys.left.pressed && playerCurrentPosition > 0) {
+      fireball.position.x += SPEED + player.velocity.x;
+    } else if (keys.right.pressed) {
+      fireball.position.x -= SPEED - player.velocity.x;
+    }
+  });
 }

@@ -105,8 +105,10 @@ function initializeMainBoss() {
     case 1:
       console.log("from mainboss 1 ");
       mainBoss = new MainBoss({
+        // position: { x: 1200 - 200, y: 300 },
         position: { x: 8753 + lgPlatform.width - 200, y: 300 },
       });
+
       break;
     case 2:
       console.log("from mainboss 2 ");
@@ -140,8 +142,8 @@ function shootFireBall() {
             y: mainBoss.position.y + mainBoss.height / 2,
           },
           velocity: {
-            x: generateRandomBetweenRange(10, 20),
-            y: 3,
+            x: generateRandomBetweenRange(10, 40),
+            y: generateRandomBetweenRange(-2, 2),
           },
           radius: 10,
           color: "red",

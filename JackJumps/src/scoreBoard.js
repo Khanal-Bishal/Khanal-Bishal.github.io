@@ -32,7 +32,7 @@ class Score {
       this.height
     );
     ctx.fillText(
-      `\t  X ${coinsCollected * 100}`,
+      `\t  X ${Math.trunc(Math.ceil(coinsCollected * 100))}`,
       this.position.x,
       this.position.y
     );

@@ -23,7 +23,7 @@ window.addEventListener("keydown", ({ key }) => {
         if (player.powerUps.flowerPower) {
           audioJump.play();
           if (player.velocity.y == 0) {
-            player.velocity.y = -16;
+            player.velocity.y = -17;
             isJumping = true;
             isGrounded = false;
           }

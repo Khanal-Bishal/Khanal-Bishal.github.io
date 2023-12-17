@@ -121,6 +121,7 @@ function detectCollision() {
       player.velocity.y = -10;
       console.log("Goomba has died");
       audioGoombaSquash.play();
+      coinsCollected += 0.1;
       setTimeout(() => {
         for (let i = 0; i < 30; i++) {
           particles.push(
@@ -296,6 +297,8 @@ function detectCollision() {
         goomba.position.y + goomba.height >= sharpnel.position.y
       ) {
         audioGoombaSquash.play();
+        coinsCollected += 0.2;
+
         setTimeout(() => {
           for (let i = 0; i < 30; i++) {
             particles.push(
