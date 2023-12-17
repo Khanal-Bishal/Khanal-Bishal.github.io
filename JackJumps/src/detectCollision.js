@@ -98,6 +98,7 @@ function detectCollision() {
     if (hasCollided) {
       audioLife.play();
       health += 100 - health;
+      progressBar.value = health;
       lifes.splice(index, 1);
       console.log("life after regen" + health);
     }
