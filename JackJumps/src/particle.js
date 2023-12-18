@@ -12,7 +12,7 @@ class Particle {
       y: velocity.y,
     };
     this.radius = radius;
-    this.duration = 200;
+    this.duration = 50;
     this.color = color;
   }
 
@@ -31,7 +31,9 @@ class Particle {
     ctx.closePath();
   }
   update() {
-    this.duration--;
+    if (this.duration > 0) {
+      this.duration--;
+    }
     this.draw();
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;

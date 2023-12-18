@@ -2,7 +2,7 @@ const jackCanvas = document.querySelector(".jackCanvas");
 const ctx1 = jackCanvas.getContext("2d");
 ctx1.width = 400;
 ctx1.height = 300;
-isJumping = false;
+// isJumping = false;
 
 let tempFrame = 0;
 

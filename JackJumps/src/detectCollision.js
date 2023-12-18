@@ -184,12 +184,11 @@ function detectCollision() {
         player.opacity = 0.2;
       } else {
         health -= 0.5;
-        console.log(`Life remaining ${health}`);
       }
     }
   });
 
-  //DETECTING collision between PLATFORM-SHARPNEL
+  //DETECTING collision between SHARPNEL-PLATFORM
   platforms.forEach((platform) => {
     sharpnels.forEach((sharpnel) => {
       if (
@@ -219,7 +218,7 @@ function detectCollision() {
     });
   });
 
-  //DETECTING collision between PLATFORM-FIREBALLS
+  //DETECTING collision between FIREBALLS-PLATFORM
   platforms.forEach((platform) => {
     fireballs.forEach((fireball) => {
       if (
@@ -249,7 +248,7 @@ function detectCollision() {
     });
   });
 
-  //DETECTING collision between PLATFORM-LIFE
+  //DETECTING collision between LIFE-PLATFORM
   platforms.forEach((platform) => {
     lifes.forEach((life) => {
       let hasCollided = detectRectCollision(life, platform);
@@ -378,7 +377,6 @@ function detectCollision() {
   });
 
   // DETECTING collision between MAINBOSS-SHARPNEL
-
   sharpnels.forEach((sharpnel, index) => {
     if (
       sharpnel.position.y + sharpnel.radius >= mainBoss.position.y &&
@@ -388,7 +386,7 @@ function detectCollision() {
       sharpnel.position.x <= mainBoss.position.x + mainBoss.width &&
       mainBoss.position.y + mainBoss.height >= sharpnel.position.y
     ) {
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 10; i++) {
         particles.push(
           new Particle({
             position: {

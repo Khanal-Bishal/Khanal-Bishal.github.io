@@ -16,23 +16,22 @@ const pauseContainer = document.querySelector(".pause");
  */
 
 window.addEventListener("keydown", ({ key }) => {
-  console.log(key);
   if (!disableUserInput) {
     switch (key) {
       case "w":
         if (player.powerUps.flowerPower) {
           audioJump.play();
-          if (player.velocity.y == 0) {
+          if (player.velocity.y < 5) {
             player.velocity.y = -17;
-            isJumping = true;
-            isGrounded = false;
+            // isJumping = true;
+            // isGrounded = false;
           }
         }
-        if (player.velocity.y == 0) {
+        if (player.velocity.y < 5) {
           audioJump.play();
           player.velocity.y = -16;
-          isJumping = true;
-          isGrounded = false;
+          // isJumping = true;
+          // isGrounded = false;
         }
 
         break;

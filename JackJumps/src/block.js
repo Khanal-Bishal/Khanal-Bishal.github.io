@@ -10,7 +10,7 @@ class Block {
     this.width = image.width;
     this.height = image.height;
     this.image = image;
-    console.log(this.width, this.height);
+    // console.log(this.width, this.height);
     this.velocity = {
       x: 0,
       y: 0,

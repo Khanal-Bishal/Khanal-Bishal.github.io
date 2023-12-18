@@ -13,7 +13,7 @@ class Sharpnel {
     };
 
     this.radius = radius;
-    this.duration = 200;
+    this.duration = 50;
     this.color = color;
   }
 

@@ -13,7 +13,7 @@ class FireBall {
     };
 
     this.radius = radius;
-    this.duration = 200;
+    this.duration = 150;
     this.color = color;
   }
 

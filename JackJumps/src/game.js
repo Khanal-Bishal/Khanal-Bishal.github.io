@@ -13,14 +13,14 @@ function game() {
   paralleX();
   detectCollision();
 
-  //setting opacity to 1 after player hits goomba with armour
+  //------------setting opacity to 1 after player hits goomba ------------------
   if (player.opacity <= 0.9) {
     setTimeout(() => {
       player.opacity = 1;
     }, 500);
   }
 
-  //WIN GAME condition
+  //----------------WIN GAME condition----------------
   flags.forEach((flag) => {
     if (
       player.position.x + player.width >= flag.position.x &&
@@ -80,7 +80,7 @@ function game() {
     }
   });
 
-  //GAME OVER
+  //----------------------GAME OVER (after falling from pitfall)--------------------------
   if (player.position.y >= canvas.height) {
     player.velocity.y = +GRAVITY;
     audioDie.play();

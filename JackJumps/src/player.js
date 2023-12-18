@@ -3,7 +3,7 @@
  */
 class Player {
   constructor() {
-    console.log("Player restart");
+    // console.log("Player restart");
     this.position = {
       x: 100,
       y: 50,

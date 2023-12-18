@@ -70,10 +70,6 @@ function initializeFlower() {
           position: { x: 4385 + lgPlatform.width - 100, y: 150 - 60 },
           velocity: { x: 0, y: 0 },
         }),
-        new Flower({
-          position: { x: 6730 + tPlatform.width / 2 - 100, y: 150 - 60 },
-          velocity: { x: 0, y: 0 },
-        }),
       ];
       break;
     case 2:
