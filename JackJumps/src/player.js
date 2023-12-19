@@ -85,7 +85,7 @@ class Player {
    * Updates our player over time
    */
   update() {
-    tempFrameVariable++;
+    // tempFrameVariable++;
     // if (tempFrameVariable % 3 == 0) {
     this.frame += 1;
     // }
@@ -97,7 +97,6 @@ class Player {
         this.currentSprite == this.sprite.flowerPower.stand.right)
     ) {
       this.frame = 0;
-      tempFrameVariable = 0;
     } else if (
       this.frame > 29 &&
       (this.currentSprite == this.sprite.run.right ||
@@ -106,7 +105,6 @@ class Player {
         this.currentSprite == this.sprite.flowerPower.run.right)
     ) {
       this.frame = 0;
-      tempFrameVariable = 0;
     }
 
     this.draw();

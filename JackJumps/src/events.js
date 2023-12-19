@@ -33,8 +33,8 @@ window.addEventListener("keydown", ({ key }) => {
           // isJumping = true;
           // isGrounded = false;
         }
-
         break;
+
       case "a":
         keys.left.pressed = true;
         player.currentSprite = spriteRunLeft;
@@ -48,8 +48,10 @@ window.addEventListener("keydown", ({ key }) => {
         }
         lastKeyPressed = "left";
         break;
+
       case "s":
         break;
+
       case "d":
         keys.right.pressed = true;
         player.currentSprite = spriteRunRight;
@@ -64,7 +66,6 @@ window.addEventListener("keydown", ({ key }) => {
         break;
       case " ":
         if (player.powerUps.flowerPower && sharpnels.length < 4) {
-          console.log("space is pressed");
           audioShoot.play();
 
           sharpnels.push(

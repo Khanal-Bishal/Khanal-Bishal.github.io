@@ -1,4 +1,94 @@
 /**
+ * initalizes level
+ */
+function initializeLevel() {
+  console.log("initializing current level" + currentLevel);
+  backgrounds = [];
+  platforms = [];
+  blocks = [];
+  flowers = [];
+  lifes = [];
+  goombas = [];
+  flags = [];
+  coins = [];
+  platformDistance = 0;
+  playerCurrentPosition = 0;
+  particles = [];
+  fireballs = [];
+  movingBlocks = [];
+  health = 100;
+  progressBar.value = health;
+
+  //drawing backgorund
+  initializeBackground();
+
+  //drawing groundPlatform
+  initializeMap();
+
+  //drawing flower
+  initializeFlower();
+
+  //drawing block
+  initializeBlock();
+
+  //drawing goomba
+  initializeGoomba();
+
+  //drawing coin
+  initializeCoin();
+
+  //drawing life/health buff
+  initializeLife();
+
+  //drawing flag pole
+  initializeFlag();
+
+  //drawing mainBoss
+  initializeMainBoss();
+
+  //drawing MovingBlocks
+  initializeMovingBlock();
+
+  //setmain boss health
+  setMainBossHealth();
+
+  //drawing player
+  player = new Player();
+}
+
+/**
+ * selects the current level
+ *
+ * @param {number} level
+ */
+function selectLevel(currentLevel) {
+  // if (!audio.musicLevel1.playing()) audio.musicLevel1.play();
+  switch (currentLevel) {
+    case 1:
+      initializeLevel();
+      bodyBackground.style.backgroundImage = "url(img/background.png)";
+
+      break;
+    case 2:
+      initializeLevel();
+      bodyBackground.style.backgroundImage = "url(img/level2/background.png)";
+
+      break;
+    case 3:
+      initializeLevel();
+      bodyBackground.style.backgroundImage = "url(img/level3/background.png)";
+      break;
+
+    default:
+      audioFireworkWhistle.pause();
+      winScreen.style.display = "flex";
+      gameCanvas.style.display = "none";
+      disableUserInput = false;
+      break;
+  }
+}
+
+/**
  * detects whether objA has collided with objB and viceversa
  *
  * @param {PLAYER} objA
@@ -20,7 +110,7 @@ function detectRectCollision(objA, objB) {
  *
  * @param {STRING} path
  *
- * @returns {image object}
+ * @returns {Image object}
  */
 function createImage(path) {
   let image = new Image();
@@ -175,6 +265,7 @@ function isOnTopOfPlatformCircle({ object, platform }) {
 
 /**
  *  detects collision between objA and objB considering motion
+ *
  * @param {object} objA
  * @param {object} objB
  *
@@ -191,98 +282,9 @@ function detectCollisionOnMotion(objA, objB) {
 }
 
 /**
- * initalizes level
- */
-function initializeLevel() {
-  console.log("initializing current level" + currentLevel);
-  backgrounds = [];
-  platforms = [];
-  blocks = [];
-  flowers = [];
-  lifes = [];
-  goombas = [];
-  flags = [];
-  coins = [];
-  platformDistance = 0;
-  playerCurrentPosition = 0;
-  particles = [];
-  fireballs = [];
-  movingBlocks = [];
-  health = 100;
-  progressBar.value = health;
-
-  //drawing backgorund
-  initializeBackground();
-
-  //drawing groundPlatform
-  initializeMap();
-
-  //drawing flower
-  initializeFlower();
-
-  //drawing block
-  initializeBlock();
-
-  //drawing goomba
-  initializeGoomba();
-
-  //drawing coin
-  initializeCoin();
-
-  //drawing life/health buff
-  initializeLife();
-
-  //drawing flag pole
-  initializeFlag();
-
-  //drawing mainBoss
-  initializeMainBoss();
-
-  //drawing MovingBlocks
-  initializeMovingBlock();
-
-  //setmain boss health
-  setMainBossHealth();
-
-  //drawing player
-  player = new Player();
-}
-
-/**
- * selects the current level
- *
- * @param {number} level
- */
-function selectLevel(currentLevel) {
-  // if (!audio.musicLevel1.playing()) audio.musicLevel1.play();
-  switch (currentLevel) {
-    case 1:
-      initializeLevel();
-      bodyBackground.style.backgroundImage = "url(img/background.png)";
-
-      break;
-    case 2:
-      initializeLevel();
-      bodyBackground.style.backgroundImage = "url(img/level2/background.png)";
-
-      break;
-    case 3:
-      initializeLevel();
-      bodyBackground.style.backgroundImage = "url(img/level3/background.png)";
-      break;
-
-    default:
-      audioFireworkWhistle.pause();
-      winScreen.style.display = "flex";
-      gameCanvas.style.display = "none";
-      disableUserInput = false;
-      break;
-  }
-}
-
-/**
  *
  * takes image array as input and checks whether image has loaded or not
+ *
  * @param {[Image]} images
  * @param {*} callback
  */

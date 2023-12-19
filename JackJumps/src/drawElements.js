@@ -71,7 +71,7 @@ function drawElements() {
   // drawing sharpnel
   sharpnels.forEach((sharpnel, index) => {
     sharpnel.update();
-    if (sharpnel.duration < -200) {
+    if (sharpnel.duration < -50) {
       sharpnels.splice(index, 1);
     }
     if (

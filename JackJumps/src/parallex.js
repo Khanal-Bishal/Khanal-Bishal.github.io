@@ -73,9 +73,9 @@ function paralleX() {
     //parelleX scrolling of BLOCKS on right/left key press
     blocks.forEach((block) => {
       if (keys.left.pressed && playerCurrentPosition > 0) {
-        block.velocity.x += SPEED * 0.98;
+        block.position.x += SPEED * 0.98;
       } else if (keys.right.pressed) {
-        block.velocity.x -= SPEED * 0.98;
+        block.position.x -= SPEED * 0.98;
       }
     });
     //parelleX scrolling of MOVING-BLOCKS on right/left key press
@@ -89,9 +89,9 @@ function paralleX() {
     //parelleX scrolling of FLAGS on right/left key press
     flags.forEach((flag) => {
       if (keys.left.pressed && playerCurrentPosition > 0) {
-        flag.velocity.x += SPEED * 0.98;
+        flag.position.x += SPEED * 0.98;
       } else if (keys.right.pressed) {
-        flag.velocity.x -= SPEED * 0.98;
+        flag.position.x -= SPEED * 0.98;
       }
     });
 

@@ -34,13 +34,12 @@ class Coin {
 
   update() {
     // tempFrameVariable++;
-    // if (tempFrameVariable % 7 == 0) {
+    // if (tempFrameVariable % 3 == 0) {
     this.frames += 1;
     // }
 
     if (this.frames >= 6) {
       this.frames = 0;
-      // tempFrameVariable = 0;
     }
     this.draw();
     this.position.y += this.velocity.y;

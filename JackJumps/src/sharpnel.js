@@ -23,9 +23,8 @@ class Sharpnel {
       this.position.x,
       this.position.y,
       this.radius,
-      0,
-      Math.PI * 2,
-      false
+      0, //start angle
+      Math.PI * 2 //end angle
     );
     ctx.fillStyle = this.color;
     ctx.fill();

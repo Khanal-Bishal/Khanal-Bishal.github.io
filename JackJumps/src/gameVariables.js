@@ -37,7 +37,6 @@ let frameSpeed = 0;
 let fps = 100;
 let levelChanged = false;
 let gameData;
-playerCurrentPosition = 0;
 
 // goomba
 let goombas = [];

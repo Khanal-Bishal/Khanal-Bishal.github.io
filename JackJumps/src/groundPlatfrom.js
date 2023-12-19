@@ -293,7 +293,7 @@ function initializeMap() {
                 (text = platformDistance)
               )
             );
-            platformDistance += lgPlatform2.width;
+            platformDistance += lgPlatform2.width - 1;
             break;
 
           case "gap":
