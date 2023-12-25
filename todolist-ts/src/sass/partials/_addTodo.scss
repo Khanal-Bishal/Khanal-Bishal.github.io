@@ -1,0 +1,49 @@
+.addTodo
+{
+    @include flex;
+    background-color: white;
+    padding: 15px;
+    margin: 20px auto 0px;
+    border-bottom: 1px solid #c93956;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+
+    @include element('form')
+    {
+        @include flex;
+        width:95%;
+    }
+
+    @include element('input')
+    {
+        padding: 10px;
+        width: 90%;
+        font-size: $tablet-font-size;
+        outline: none;
+        border: none;  
+    }
+
+    @include  element('btn')
+    {
+        @include cursor;
+        background-color: white;
+        &:hover 
+        {
+            @include icon-hover;
+        }
+    }
+
+    @include element('openModal')
+    {
+        @include cursor;
+        background-color: white;
+        &:hover 
+        {
+            @include icon-hover;
+        }
+    }
+
+
+
+
+}

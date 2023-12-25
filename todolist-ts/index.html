@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List</title>
+  <!-- <link rel="stylesheet" href="./src/style.css"> -->
+</head>
+
+<body>
+
+  <!-- ======================= header ====================== -->
+  <header class="  header__container">
+    <div class="container header">
+
+      <div class="header__logo">RadioHead
+        <img src="./src/assets/radio-svgrepo-com.svg" alt="logoImg" width="50" height="50" class="header__logo-img">
+      </div>
+
+      <nav class="header__nav">
+        <ul class="header__lists">
+          <li class="header__list header__home">Home</li>
+          <li class="header__list header__completed">Completed</li>
+          <li class="header__list header__remaining">Remaining</li>
+        </ul>
+      </nav>
+
+      <button class="header__openModal ">
+        <img src="./src/assets/add-circle-svgrepo-com.svg" class="header__addTodoIcon" alt="addBtn" width="20"
+          height="20">
+      </button>
+
+    </div>
+  </header>
+
+  <!--==================== main -===================== -->
+  <main class="main container">
+
+    <!-- search section  -->
+    <form class="container search">
+      <input type="text" placeholder="Search" class="search__input">
+      <button class="search__btn">
+        <img src="./src/assets/search-svgrepo-com.svg" alt="" width="25" height="25" class="search__button">
+      </button>
+    </form>
+
+    <!--================ addTodo section ================-->
+    <section class="addTodo">
+      <form class="addTodo__form">
+        <input type="text" placeholder="Add a task" class="addTodo__input">
+
+        <button class=" addTodo__btn ">
+          <img src="./src/assets/add-circle-svgrepo-com.svg" class="header__addTodoIcon" alt="addBtn" width="20"
+            height="20">
+        </button>
+      </form>
+
+
+      <button class="addTodo__openModal ">
+        <img src="./src/assets/open-in-new-window-svgrepo-com.svg" alt="openModalIcon" width="20" height="20">
+      </button>
+    </section>
+
+    <!--===================== todo list section  ========================-->
+    <section class="todoList">
+
+      <div class="todoList__noTask">
+        <img src="./src/assets/list-ul-alt-svgrepo-com.svg" alt="listIcon" width="125" height="75">
+        <p class="todoList__taskInfo">
+          You don't have any tasks yet. Create a new one.
+        </p>
+      </div>
+
+      <div class="todoList__container">
+
+        <ul class="todoList__list">
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!--===== modal for todo and description of todo  =========-->
+  <div class="outlay">
+
+  </div>
+  <div class="modal container">
+    <div class="modal__heading">
+      <h2>Create a new task</h2>
+      <img src="./src/assets/cross-svgrepo-com.svg" alt="cross" width="20" height="15" class="modal__close-btn">
+    </div>
+
+
+    <input type="text" placeholder="Task name" class="modal__todo-name">
+    <textarea name="" id="" cols="30" rows="5" class="modal__todo-desc"></textarea>
+
+    <div class="modal__buttons">
+      <button class="modal__addTodo-btn modal__btn">Add todo</button>
+      <button class="modal__cancel-btn modal__btn">Cancel</button>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <script type="module" src="/src/main.ts"></script>
+
+</body>
+
+</html>

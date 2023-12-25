@@ -1,31 +1,26 @@
 //color 
-
 $black: #000;
-$primary-clr: #5577aa;
+$primary-clr: #dc143c;
 $white: #fff;
 $text-clr: darken($white, 30);
 
 //font-size
-
 $base-font-size: 16px;
 $mobile-font-size: 14px;
 $tablet-font-size: 16px;
 $laptop-font-size: 22px;
 
 //breakpoint
-
 $mobile-breakpoint: 577px;
 $tablet-breakpoint: 769px;
 $laptop-breakpoint: 1024px;
 
 //backgroud-clr
-
 $bg-clr: #f5f5f5;
 $card-bg-clr: #c4c4c480;
 $section-bg-clr: #c4c4c40d;
 
 // font weight
-
 $bold-text-font-weight: 700;
 $button-font-weight: 700;
 $heading-font-weight: 700;

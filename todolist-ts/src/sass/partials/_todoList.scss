@@ -1,0 +1,67 @@
+.todoList
+{
+    
+    background-color:$white;
+    padding: 10px;
+    user-select: none;
+    
+    @include element ('noTask')
+    {
+        @include flex(column,center,center);
+        padding:20px;
+        font-size: $tablet-font-size;
+    }
+
+    @include element('container')
+    {
+        display: none;
+    }
+
+    @include element('list')
+    {
+        
+    }
+
+    @include element('todo-item')
+    {
+        @include flex;
+        width: 90%;
+        justify-content: space-between;
+        padding: 10px;
+        font-size: $tablet-font-size;
+        color: $primary-clr;
+        border-bottom: 0.2px solid $primary-clr;
+        padding-bottom: 25px;
+        margin-top: 5px;
+    }
+
+    @include element('check-box')
+    {
+        @include cursor;
+        width: 20px;
+        height: 20px;
+        border: none;
+        border-radius: 50%;
+        background-color: $primary-clr;
+        border: 2px solid $primary-clr;
+
+    }
+     @include element('uncheck-box') 
+    {
+        @include cursor;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid $primary-clr;
+        background-color: $white;
+        padding: 2px;
+    
+    }
+
+    @include element('control-btn')
+    {
+        @include flex;
+        gap: 10px;
+    }
+
+}

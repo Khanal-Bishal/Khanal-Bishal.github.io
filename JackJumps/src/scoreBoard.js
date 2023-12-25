@@ -41,7 +41,6 @@ class Score {
     this.frames++;
     if (this.frames >= 6) {
       this.frames = 0;
-      // tempFrameVariable = 0;
     }
     this.draw();
   }

@@ -89,7 +89,32 @@ function selectLevel(currentLevel) {
 }
 
 /**
- * detects whether objA has collided with objB and viceversa
+ * creates image with provided path and returns image object
+ *
+ * @param {STRING} path
+ *
+ * @returns {Image object}
+ */
+function createImage(path) {
+  let image = new Image();
+  image.src = path;
+  return image;
+}
+
+/**
+ *  returns random number between given range of number
+ *
+ * @param {number} min
+ * @param {number} max
+ *
+ * @returns {number}
+ */
+function generateRandomBetweenRange(min, max) {
+  return Math.floor(min + (Math.random() * max - min));
+}
+
+/**
+ * detects whether objA has collided with objB and viceversa (player platform with considering velocity on y axis)dw
  *
  * @param {PLAYER} objA
  * @param {Platform/Block} objB
@@ -106,20 +131,7 @@ function detectRectCollision(objA, objB) {
 }
 
 /**
- * creates image with provided path and returns image object
- *
- * @param {STRING} path
- *
- * @returns {Image object}
- */
-function createImage(path) {
-  let image = new Image();
-  image.src = path;
-  return image;
-}
-
-/**
- * return boolean if objectA has collided with objB vetically
+ * return boolean if objectA has collided with objB vetically (player stepped over goomba)
  *
  * @param {PLAYER} objA
  * @param {Block/Platform/Goomba} objB
@@ -136,67 +148,9 @@ function detectTopCollision(objA, objB) {
 }
 
 /**
- *  returns random number between given range of number
- *
- * @param {number} min
- * @param {number} max
- *
- * @returns {number}
- */
-function generateRandomBetweenRange(min, max) {
-  return Math.floor(min + (Math.random() * max - min));
-}
-
-/**
- * checks whether image has loaded or not
- *
- * @param {Image} image1
- * @param {Image} image2
- * @param {function } callback
- */
-function checkTwoImagesLoaded(image1, image2, callback) {
-  let loadedCount = 0;
-
-  function imageLoaded() {
-    loadedCount++;
-
-    if (loadedCount === 2) {
-      console.log("Both images have loaded.");
-      callback();
-    }
-  }
-
-  image1.onload = imageLoaded;
-  image2.onload = imageLoaded;
-}
-
-/**
- *  creates new instance if image has loaded
- *
- * @param {Image} image1
- * @param {function} callback
- *
- * @returns {callback}
- */
-function checkImageLoaded(image1, callback) {
-  let loadedCount = 0;
-
-  function imageLoaded() {
-    loadedCount++;
-
-    if (loadedCount === 1) {
-      console.log(" images have loaded.");
-      callback();
-    }
-  }
-
-  image1.onload = imageLoaded;
-}
-
-/**
  *  checks if player has collided with top of block
  *
- *  @param {Player} player
+ * @param {Player} player
  * @param {Block} block
  *
  * @returns {boolean}
@@ -246,7 +200,7 @@ function rectangularCollisionDetection(player, object) {
 }
 
 /**
- * detects if object is on top of platform
+ * detects if object is on top of platform (detection for sharpnel and fireballs)
  *
  * @param {Player} object
  * @param {Platform} platform
@@ -304,6 +258,52 @@ function checkAllImagesLoaded(images, callback) {
   images.forEach((image) => {
     image.onload = imageLoaded;
   });
+}
+
+/**
+ *  creates new instance if image has loaded
+ *
+ * @param {Image} image1
+ * @param {function} callback
+ *
+ * @returns {callback}
+ */
+function checkImageLoaded(image1, callback) {
+  let loadedCount = 0;
+
+  function imageLoaded() {
+    loadedCount++;
+
+    if (loadedCount === 1) {
+      console.log(" images have loaded.");
+      callback();
+    }
+  }
+
+  image1.onload = imageLoaded;
+}
+
+/**
+ * checks whether image has loaded or not
+ *
+ * @param {Image} image1
+ * @param {Image} image2
+ * @param {function } callback
+ */
+function checkTwoImagesLoaded(image1, image2, callback) {
+  let loadedCount = 0;
+
+  function imageLoaded() {
+    loadedCount++;
+
+    if (loadedCount === 2) {
+      console.log("Both images have loaded.");
+      callback();
+    }
+  }
+
+  image1.onload = imageLoaded;
+  image2.onload = imageLoaded;
 }
 
 /**

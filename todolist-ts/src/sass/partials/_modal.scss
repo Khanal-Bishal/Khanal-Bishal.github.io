@@ -1,0 +1,88 @@
+.outlay 
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.3);
+    display: none;
+}
+
+.modal
+{   
+    background-color: $white;
+    padding: 5px 30px 30px ;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30%;
+    z-index: 2;
+    border-radius: 20px;
+    box-shadow: 2px 2px 15px 4px lighten($color: $primary-clr, $amount: 30);
+    display: none;
+
+    @include element('heading')
+    {
+        @include cursor;
+        @include flex;
+        font-size: calc($mobile-font-size - 2px);
+        margin-bottom: 5px;
+        border-bottom: 0.2px solid $primary-clr;
+
+    }
+
+    @include element('todo-name')
+    {
+        width: 100%;
+        display: inline-block;
+        outline: none;
+        padding: 15px 0px 15px;
+        font-size: $tablet-font-size;
+        border: none;
+        border-bottom: 0.1px solid $primary-clr;
+        margin-bottom: 10px;
+    }
+
+    @include element('todo-desc')
+    {
+        width: 100%;
+        padding: 5px;
+        font-size: $tablet-font-size;
+        outline: 0.1px solid $primary-clr;
+        resize: none;
+        border: 0.1px solid $primary-clr;
+    }
+
+    @include element('buttons')
+    {
+        @include flex(row,end,center,20px);
+        margin-top: 20px;
+        
+        
+    }
+
+    @include element('btn')
+    {
+        @include transition;
+        background-color: $white;
+        border: 0.1px solid $primary-clr;
+        border-radius: 8px;
+        font-size: $tablet-font-size;
+        color: $primary-clr;
+        padding: 10px;
+
+        &:hover 
+        {
+            @include transition;
+            background-color: $primary-clr;
+            color: white;
+        }
+        
+    }
+
+
+
+}

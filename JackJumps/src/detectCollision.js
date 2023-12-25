@@ -1,5 +1,5 @@
 function detectCollision() {
-  //DETECTING collision between PLAYER-PLATFORM
+  //DETECTING COLLISION BETWEEN PLAYER-PLATFORM
   platforms.forEach((platform) => {
     let hasCollided = detectRectCollision(player, platform);
     if (hasCollided) {
@@ -7,7 +7,7 @@ function detectCollision() {
     }
   });
 
-  //DETECTING collision between COIN-PLATFORM
+  //DETECTING COLLISION BETWEEN COIN-PLATFORM
   platforms.forEach((platform) => {
     coins.forEach((coin) => {
       let hasCollided = detectRectCollision(coin, platform);
@@ -17,7 +17,7 @@ function detectCollision() {
     });
   });
 
-  //DETECTING collision between PLAYER-BLOCK
+  //DETECTING COLLISION BETWEEN PLAYER-BLOCK
   blocks.forEach((block) => {
     let hasCollided = detectRectCollision(player, block);
     if (hasCollided) {
@@ -25,7 +25,7 @@ function detectCollision() {
     }
   });
 
-  //DETECTING collision between PLAYER-MOVINGBLOCK
+  //DETECTING COLLISION BETWEEN PLAYER-MOVINGBLOCK
   movingBlocks.forEach((movingBlock) => {
     if (
       player.position.x < movingBlock.position.x + movingBlock.width &&
@@ -40,7 +40,7 @@ function detectCollision() {
     }
   });
 
-  //DETECTING collision between PLAYER-TOP_OF_BLOCK
+  //DETECTING COLLISION BETWEEN PLAYER-TOP_OF_BLOCK
   blocks.forEach((block) => {
     let hasCollided = hasCollidedBlockTop(player, block);
     if (hasCollided) {
@@ -48,7 +48,7 @@ function detectCollision() {
     }
   });
 
-  //DETECTING collision between PLAYER-TOP_OF_MOVING_BLOCK
+  //DETECTING COLLISION BETWEEN PLAYER-TOP_OF_MOVING_BLOCK
   movingBlocks.forEach((movingBlock) => {
     let hasCollided = hasCollidedBlockTop(player, movingBlock);
     if (hasCollided) {
@@ -56,7 +56,7 @@ function detectCollision() {
     }
   });
 
-  //DETECTING collision between PLAYER-SIDE_OF_BLOCK
+  //DETECTING COLLISION BETWEEN PLAYER-SIDE_OF_BLOCK
   movingBlocks.forEach((block) => {
     let hasCollided = hasCollidedBlockSide(player, block);
     if (hasCollided) {
@@ -64,7 +64,7 @@ function detectCollision() {
     }
   });
 
-  //DETECTING collision between  GOOMBA-PLATFORM
+  //DETECTING COLLISION BETWEEN  GOOMBA-PLATFORM
   platforms.forEach((platform) => {
     goombas.forEach((goomba) => {
       if (detectRectCollision(goomba, platform)) {
@@ -73,7 +73,7 @@ function detectCollision() {
     });
   });
 
-  //DETECTING collision between FLOWER-PLATFORM
+  //DETECTING COLLISION BETWEEN  FLOWER-PLATFORM
   platforms.forEach((platform) => {
     flowers.forEach((flower) => {
       let hasCollided = detectRectCollision(flower, platform);
@@ -81,18 +81,17 @@ function detectCollision() {
     });
   });
 
-  //DETECTING collision between PLAYER-COIN
+  //DETECTING COLLISION BETWEEN PLAYER-COIN
   coins.forEach((coin, index) => {
     let hasCollided = rectangularCollisionDetection(player, coin);
     if (hasCollided) {
       audioCoin.play();
-      console.log("Coin has collided");
       coinsCollected++;
       coins.splice(index, 1);
     }
   });
 
-  //DETECTING collision between PLAYER-LIFE
+  //DETECTING COLLISION BETWEEN PLAYER-LIFE
   lifes.forEach((life, index) => {
     let hasCollided = rectangularCollisionDetection(player, life);
     if (hasCollided) {
@@ -104,7 +103,7 @@ function detectCollision() {
     }
   });
 
-  //DETECTING collision between PLAYER-FLOWER
+  //DETECTING COLLISION BETWEEN PLAYER-FLOWER
   flowers.forEach((flower, index) => {
     let hasCollided = rectangularCollisionDetection(player, flower);
     if (hasCollided) {
@@ -119,7 +118,6 @@ function detectCollision() {
   goombas.forEach((goomba, index) => {
     if (detectTopCollision(player, goomba)) {
       player.velocity.y = -10;
-      console.log("Goomba has died");
       audioGoombaSquash.play();
       coinsCollected += 0.1;
       setTimeout(() => {
@@ -188,7 +186,7 @@ function detectCollision() {
     }
   });
 
-  //DETECTING collision between SHARPNEL-PLATFORM
+  //DETECTING COLLISION BETWEEN SHARPNEL-PLATFORM
   platforms.forEach((platform) => {
     sharpnels.forEach((sharpnel) => {
       if (
@@ -203,7 +201,7 @@ function detectCollision() {
     });
   });
 
-  //DETECTING collision between BLOCK-SHARPNEL
+  //DETECTING COLLISION BETWEEN BLOCK-SHARPNEL
   blocks.forEach((block) => {
     sharpnels.forEach((sharpnel) => {
       if (
@@ -218,7 +216,7 @@ function detectCollision() {
     });
   });
 
-  //DETECTING collision between FIREBALLS-PLATFORM
+  //DETECTING COLLISION BETWEEN FIREBALLS-PLATFORM
   platforms.forEach((platform) => {
     fireballs.forEach((fireball) => {
       if (
@@ -233,7 +231,7 @@ function detectCollision() {
     });
   });
 
-  //DETECTING collision between BLOCKS-FIREBALLS
+  //DETECTING COLLISION BETWEEN BLOCKS-FIREBALLS
   blocks.forEach((block) => {
     fireballs.forEach((fireball) => {
       if (
@@ -248,7 +246,7 @@ function detectCollision() {
     });
   });
 
-  //DETECTING collision between LIFE-PLATFORM
+  //DETECTING COLLISION BETWEEN LIFE-PLATFORM
   platforms.forEach((platform) => {
     lifes.forEach((life) => {
       let hasCollided = detectRectCollision(life, platform);
@@ -258,7 +256,7 @@ function detectCollision() {
     });
   });
 
-  //DETECTING collision between GOOMBA-BLOCK
+  //DETECTING COLLISION BETWEEN GOOMBA-BLOCK
   blocks.forEach((block) => {
     goombas.forEach((goomba) => {
       if (detectRectCollision(goomba, block)) {
@@ -267,7 +265,7 @@ function detectCollision() {
     });
   });
 
-  //DETECTING collision between FLOWER-BLOCK
+  //DETECTING COLLISION BETWEEN FLOWER-BLOCK
   blocks.forEach((block) => {
     flowers.forEach((flower) => {
       if (detectRectCollision(flower, block)) {
@@ -275,7 +273,7 @@ function detectCollision() {
       }
     });
   });
-  //DETECTING collision between COIN-BLOCK
+  //DETECTING COLLISION BETWEEN COIN-BLOCK
   blocks.forEach((block) => {
     coins.forEach((coin) => {
       if (detectRectCollision(coin, block)) {
@@ -284,7 +282,7 @@ function detectCollision() {
     });
   });
 
-  // DETECTING collision between SHARPNEL-GOOMBA
+  // DETECTING COLLISION BETWEEN SHARPNEL-GOOMBA
   goombas.forEach((goomba, index) => {
     sharpnels.forEach((sharpnel, sharpnelIndex) => {
       if (
@@ -318,7 +316,7 @@ function detectCollision() {
     });
   });
 
-  //DETECTING collision between MAINBOSS-PLATFORM
+  //DETECTING COLLISION BETWEEN MAINBOSS-PLATFORM
   platforms.forEach((platform) => {
     if (mainBoss) {
       let hasCollided = detectRectCollision(mainBoss, platform);
@@ -327,7 +325,7 @@ function detectCollision() {
       }
     }
   });
-  //DETECTING collision between MAINBOSS-BLOCKS
+  //DETECTING COLLISION BETWEEN MAINBOSS-BLOCKS
   blocks.forEach((block) => {
     if (mainBoss) {
       let hasCollided = detectRectCollision(mainBoss, block);
@@ -336,7 +334,7 @@ function detectCollision() {
       }
     }
   });
-  // DETECTING collision between PLAYER-FIREBALL
+  // DETECTING COLLISION BETWEEN PLAYER-FIREBALL
   fireballs.forEach((fireball, index) => {
     if (
       fireball.position.y + fireball.radius >= player.position.y &&
@@ -376,7 +374,7 @@ function detectCollision() {
     }
   });
 
-  // DETECTING collision between MAINBOSS-SHARPNEL
+  // DETECTING COLLISION BETWEEN MAINBOSS-SHARPNEL
   sharpnels.forEach((sharpnel, index) => {
     if (
       sharpnel.position.y + sharpnel.radius >= mainBoss.position.y &&
@@ -411,7 +409,7 @@ function detectCollision() {
     }
   });
 
-  //DETECTING collision between PLAYER-MAINBOSS
+  //DETECTING COLLISION BETWEEN PLAYER-MAINBOSS
   if (mainBoss) {
     if (
       player.position.x < mainBoss.position.x + mainBoss.width &&

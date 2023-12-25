@@ -1,0 +1,55 @@
+@mixin laptop {
+    @media screen and (min-width:$laptop-breakpoint) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width:$tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (max-width:$mobile-breakpoint) {
+        @content;
+    }
+}
+
+@mixin cursor {
+    cursor: pointer;
+    user-select: none;
+}
+
+
+
+@mixin element($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+@mixin flex($direction: row, $justify: space-between, $align: center, $gap: 3px) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+    gap: $gap;
+}
+
+
+@mixin transition($duration: 200ms, $property: ease-in) {
+    transition: $duration $property;
+
+}
+
+@mixin icon-hover {
+     @include transition(500);
+        border-radius: 20%;
+        background-color: rgba(185, 42, 42, 0.3);
+}
+
+
+
+
+

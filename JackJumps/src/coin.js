@@ -16,9 +16,6 @@ class Coin {
     this.frames = 0;
   }
   draw() {
-    // ctx.fillStyle = "red";
-    // ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
-
     ctx.drawImage(
       this.image, //image src
       125 * this.frames, //x-axis crop cords
@@ -54,7 +51,7 @@ coinImg.onload = () => {
 };
 
 /**
- * initialized instance of coin class and pushes it to coins array
+ * initializes instance of coin class and pushes it to coins array
  */
 function initializeCoin() {
   switch (currentLevel) {

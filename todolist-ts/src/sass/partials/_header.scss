@@ -1,0 +1,87 @@
+.header__container 
+{
+    background-color: white;
+    margin-bottom: 10px;
+        box-shadow: 0.1px 0.1px 12px 2px $primary-clr;
+    
+}
+.header
+{
+    @include flex;
+    font-size: $laptop-font-size;
+   
+    
+    @include element('logo')
+    {
+        @include flex;
+        @include cursor;
+        @include transition;
+        gap: 10px;
+        text-transform: capitalize;
+        color: $black;
+        font-weight: $heading-font-weight;
+        color: $primary-clr;
+
+
+        &:hover
+        {
+            @include transition;
+            color: darken($primary-clr,10%);
+        }
+    }
+
+    @include element('logo-img')
+    {
+        transform: rotate(15deg)
+    }
+
+    @include element ('nav')
+    {
+        @include cursor;
+
+    }
+
+    @include element('lists')
+    {
+        @include flex(row,space-between,center,40px);
+        color: $primary-clr;
+        
+
+    }
+
+    @include element('list')
+    {
+        @include transition;
+        padding: 10px;
+        &:hover 
+        {   
+            @include transition;
+            color: darken($primary-clr,3);
+          
+           
+        }
+    }
+
+    @include element('home')
+    {
+        border-bottom: 0.1px solid $primary-clr;
+    }
+
+    @include element('openModal')
+    {
+        @include transition(1500);
+        background-color: white;
+        border: none;
+        appearance: none;
+        
+        &:hover
+        {
+            @include icon-hover;
+
+        }
+    }
+
+   
+
+
+}

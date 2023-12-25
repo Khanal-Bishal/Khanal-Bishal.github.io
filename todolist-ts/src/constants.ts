@@ -1,0 +1,2 @@
+export const ALPHA_NUM= '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+export const ID_LENGTH=8
