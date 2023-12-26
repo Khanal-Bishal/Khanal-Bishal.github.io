@@ -342,23 +342,21 @@ modalAddTodo?.addEventListener('click',(event)=>
 window.addEventListener('load',()=>
 {
   const localTasklist= localStorage.getItem('tasklist')  
-  const parsedLocalTaskList= localTasklist?JSON.parse(localTasklist):[]
+  const parsedLocalTaskList:Task[]= localTasklist?JSON.parse(localTasklist):[]
   console.log(parsedLocalTaskList.length);
   
   
   if(parsedLocalTaskList?.length)
   {
     if(noTaskContainer) noTaskContainer.style.display='none'
-    const localList=localTasklist? JSON.parse(localTasklist) :[]
-   Object.values(localList).forEach(list=>
+    // const localList=localTasklist? JSON.parse(localTasklist) :[]
+   Object.values(parsedLocalTaskList).forEach(list=>
     {
       if(list)
       {
-        // @ts-expect-error
         const task = createTask(list.todo,list.completed,list.description);
         render(task)
       }
-      
     })
   }
 })
