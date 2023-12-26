@@ -352,8 +352,12 @@ window.addEventListener('load',()=>
     const localList=localTasklist? JSON.parse(localTasklist) :[]
    Object.values(localList).forEach(list=>
     {
-      const task = createTask(list?.todo,list?.completed,list?.description);
-      render(task)
+      if(list)
+      {
+        // @ts-expect-error
+        const task = createTask(list.todo,list.completed,list.description);
+        render(task)
+      }
       
     })
   }
