@@ -1,0 +1,7 @@
+services:
+  todocheck:
+    image: bishalkhanal7/todo
+    build:
+      context: .
+    ports:
+      - 3000:3000
