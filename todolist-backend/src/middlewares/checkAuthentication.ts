@@ -9,8 +9,8 @@ const checkAuthentication = (req:Request,res:Response,next:NextFunction)=>
         {
             if(process.env.JWT_SECRET)
             {
-                try{
-
+                try
+                {
                     let decodedUserInfo=jwt.verify(token,process.env.JWT_SECRET) as any  
                     if(decodedUserInfo)
                     {                        
@@ -18,7 +18,8 @@ const checkAuthentication = (req:Request,res:Response,next:NextFunction)=>
                         req.user=decodedUserInfo
                         return next()
                     }
-                }catch (err)
+                }
+                catch (err)
                 {
 
                 }

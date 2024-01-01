@@ -37,4 +37,5 @@ export const deleteTask= async (req:Request)=>
 {
     const deletedRowCount = await Task.destroy({ where: { taskid: req.params.id } });
     return deletedRowCount;
+    
 }

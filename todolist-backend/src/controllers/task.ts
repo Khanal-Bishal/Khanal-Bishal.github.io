@@ -36,16 +36,19 @@ export const createTask=(async(req:Request,res:Response,next:NextFunction)=>
 //@desc updates the tasks 
 //@route PUT /api/task
 export const updateTask = async (req: Request, res: Response, next: NextFunction) => {
-  try {
+  try
+  {
     const updatedData = await taskService.updateTask(req)
 
-    if (updatedData.rowCount === 0) {
+    if (updatedData.rowCount === 0) 
+    {
       // No task was updated (possibly the task with the given ID doesn't exist)
       return res.status(404).json({ success: false, message: 'Task not found' });
     }
     res.status(200).json({ success: true, message: 'Task updated', updatedTask:updatedData.updatedTask});
   } 
-  catch (err) {
+  catch (err)
+  {
     next(err)   
   }
 };
@@ -53,17 +56,20 @@ export const updateTask = async (req: Request, res: Response, next: NextFunction
 //@desc updates the tasks 
 //@route DELETE /api/task
 export const deleteTask = async (req: Request, res: Response, next: NextFunction) => {
-  try {
+  try 
+  {
     const deletedRowCount = await taskService.deleteTask(req)
-
-    if (deletedRowCount != 0) {
+    if (deletedRowCount != 0) 
+    {
         return res.status(204).json({success:true});
     }
     else 
     {
         return res.status(404).json({ success: false, message: 'No task found' });
     }
-  } catch (error) {
+  } 
+  catch (error)
+  {
     console.error('Error deleting task:', error);
     next(error); 
   }
