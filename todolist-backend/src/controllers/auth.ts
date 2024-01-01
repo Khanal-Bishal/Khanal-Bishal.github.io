@@ -1,5 +1,5 @@
 import { NextFunction,Request,Response } from "express";
-
+import jwt from 'jsonwebtoken'
 import * as authService from '../services/auth'
 
 //@desc signs up a new user
@@ -40,7 +40,6 @@ export const login = async (req:Request,res:Response,next:NextFunction)=>
 
 //@desc generates new access token after initial access token expires
 //@routes POST /api/user/token
-import jwt from 'jsonwebtoken'
 export const generateAccessToken= async (req:Request,res:Response,next:NextFunction)=>
 {
     try
