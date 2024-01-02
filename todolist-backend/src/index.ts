@@ -2,6 +2,7 @@ import express,{Request,Response,NextFunction} from 'express';
 import dotenv from 'dotenv';
 const colors =require('colors')
 import morgan from 'morgan';
+import path from 'path'
 
 
 import connectDb from './config/database';
@@ -21,6 +22,7 @@ connectDb()
 
 //global middlewares
 app.use(express.json())  // parses the request body 
+
 
 app.use(morgan(`:method :url  :status :response-time ms :date[web]`,{ stream: accessLogStream })) //logger for HTTP requests 
 

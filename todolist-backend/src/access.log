@@ -1,1 +1,7 @@
-POST /api/user/signup  401 97.310 ms Tue, 02 Jan 2024 14:58:28 GMT
+POST /api/user/login  200 83.171 ms Tue, 02 Jan 2024 15:10:08 GMT
+POST /api/user/signup  401 140.879 ms Tue, 02 Jan 2024 15:10:19 GMT
+POST /api/task  200 8.325 ms Tue, 02 Jan 2024 15:10:25 GMT
+POST /api/task  200 5.325 ms Tue, 02 Jan 2024 15:10:31 GMT
+POST /api/task  401 0.550 ms Tue, 02 Jan 2024 15:10:38 GMT
+POST /api/task  200 67.631 ms Tue, 02 Jan 2024 15:10:53 GMT
+GET /api/task  200 4.875 ms Tue, 02 Jan 2024 15:10:57 GMT
