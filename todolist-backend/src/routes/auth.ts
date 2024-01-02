@@ -1,7 +1,7 @@
 import express,{Request,Response,NextFunction} from 'express'
 
 import {signup,login,generateAccessToken} from '../controllers/auth'
-import { loginSchema,signupSchema } from '../models/authSchema'
+import { loginSchema,signupSchema } from '../schema/authSchema'
 import validateSchema from '../middlewares/validateSchema'
 
 

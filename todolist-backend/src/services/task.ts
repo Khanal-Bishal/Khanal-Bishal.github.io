@@ -1,6 +1,11 @@
 import {Request} from 'express'
 import Task from "../models/task"
 
+/**
+ * @description gets all task from the database
+ * 
+ * @returns array of task
+ */
 export const getTasks=async()=>
 {
     const doesTaskExist= await Task.findAll()
@@ -16,6 +21,13 @@ export const getTasks=async()=>
     }
 }
 
+/**
+ * @description creates new task into the db
+ * 
+ * @param body
+ *  
+ * @returns object
+ */
 export const createTask = async(body:any)=>
 {
       //@ts-ignore
@@ -25,7 +37,13 @@ export const createTask = async(body:any)=>
         return data
 }
 
-
+/**
+ * @description updates the task
+ * 
+ * @param {Request} req
+ * 
+ * @returns object
+ */
 export const updateTask= async(req:Request)=>
 {
     const [rowCount, [updatedTask]] = await Task.update(req.body, { where: { taskid: req.params.id }, returning: true });
@@ -33,6 +51,13 @@ export const updateTask= async(req:Request)=>
 
 }
 
+/**
+ * @description delete the task from the database
+ * 
+ * @param {Request} req
+ * 
+ * @returns number
+ */
 export const deleteTask= async (req:Request)=>
 {
     const deletedRowCount = await Task.destroy({ where: { taskid: req.params.id } });

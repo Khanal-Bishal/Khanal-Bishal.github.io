@@ -3,6 +3,11 @@ import bcrypt from 'bcrypt'
 import User from "../models/user";
 import { ACCESS_TOKEN_EXPIRY,REFRESH_TOKEN_EXPIRY } from '../constants/tokenExpiry';
 
+/**
+ * @description creates new user into the database 
+ * @param body 
+ * @returns userData
+ */
 export const signup = async(body:any)=>
 {
         const saltRounds=10
@@ -16,6 +21,11 @@ export const signup = async(body:any)=>
         return userData;
 }
 
+/**
+ * @description logs user into the system after checking email and password
+ * @param body 
+ * @returns object
+ */
 
 export const login = async(body:any)=>
 {

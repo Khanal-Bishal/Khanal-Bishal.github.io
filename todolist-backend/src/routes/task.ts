@@ -1,7 +1,7 @@
 import express from 'express'
 
 import { getTasks,createTask,updateTask,deleteTask} from '../controllers/task'
-import TaskSchema from '../models/taskSchema'
+import TaskSchema from '../schema/taskSchema'
 import validateSchema from '../middlewares/validateSchema'
 import checkAuthentication from '../middlewares/checkAuthentication'
 
