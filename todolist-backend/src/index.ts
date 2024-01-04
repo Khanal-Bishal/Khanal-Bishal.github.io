@@ -23,7 +23,6 @@ connectDb()
 //global middlewares
 app.use(express.json())  // parses the request body 
 
-
 app.use(morgan(`:method :url  :status :response-time ms :date[web]`,{ stream: accessLogStream })) //logger for HTTP requests 
 
 //routes level middlewares

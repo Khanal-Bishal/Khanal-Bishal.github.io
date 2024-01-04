@@ -7,15 +7,33 @@ import * as taskService from '../services/task'
 //@route  GET /api/task/
 export const getTasks=( async(req:Request,res:Response,next:NextFunction)=>
 {
-    const taskInfo= await taskService.getTasks() as any
+  try
+  {
+    const per_page = parseInt(req.query.per_page as string) || 10
+    const page = parseInt(req.query.page as string) || 1
+    const search_term = req.query.search_term  as string|| ""
+    const completed = req.query.completed as string
+    const offset= (page-1) * per_page 
+    
+    const {taskInfo,totalCount,totalPage}= await taskService.getTasks(per_page,offset,search_term, completed ) as any
+   
     if(taskInfo.length>0)
     {
-      return res.status(200).json({success:true,tasks:taskInfo})
+      return res.status(200).json({success:true,taskCount:totalCount,totalPage,tasks:taskInfo})
     }
-    res.status(400).json({success:false,message:"No data"})
+
+    return res.status(400).json({success:false,message:"No data"})
+
+  }
+
+  catch (error)
+  {
+    next(error)
+  }
+
 })
 
-//@desc creates new task into the db
+//@desc CREATES new task into the db
 //@route POST /api/task
 export const createTask=(async(req:Request,res:Response,next:NextFunction)=>
 {  
@@ -33,7 +51,7 @@ export const createTask=(async(req:Request,res:Response,next:NextFunction)=>
     }
 })  
 
-//@desc updates the tasks 
+//@desc UPDATES the tasks 
 //@route PUT /api/task
 export const updateTask = async (req: Request, res: Response, next: NextFunction) => {
   try
@@ -53,7 +71,7 @@ export const updateTask = async (req: Request, res: Response, next: NextFunction
   }
 };
 
-//@desc updates the tasks 
+//@desc DELETES the tasks 
 //@route DELETE /api/task
 export const deleteTask = async (req: Request, res: Response, next: NextFunction) => {
   try 
@@ -70,7 +88,6 @@ export const deleteTask = async (req: Request, res: Response, next: NextFunction
   } 
   catch (error)
   {
-    console.error('Error deleting task:', error);
     next(error); 
   }
 };
