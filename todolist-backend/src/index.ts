@@ -1,8 +1,7 @@
-import express,{Request,Response,NextFunction} from 'express';
+import express from 'express';
 import dotenv from 'dotenv';
 const colors =require('colors')
 import morgan from 'morgan';
-import path from 'path'
 
 
 import connectDb from './config/database';

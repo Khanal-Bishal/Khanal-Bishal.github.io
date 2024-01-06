@@ -9,6 +9,7 @@ export const sequelize = new Sequelize('postgres://postgres:postgresdb@localhost
   
 });
 
+
 //testing the connection 
 const connectDb=async()=>
 {

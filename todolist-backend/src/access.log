@@ -144,3 +144,10 @@ GET /api/task?page=1&per_page=5&search_term=when&completed=false  200 6.094 ms T
 GET /api/task?page=2&per_page=5&search_term=when&completed=false  400 45.483 ms Thu, 04 Jan 2024 18:31:23 GMT
 GET /api/task?page=1&per_page=5&search_term=when&completed=false  200 6.816 ms Thu, 04 Jan 2024 18:31:32 GMT
 GET /api/task?page=1&per_page=5&search_term=when&completed=false  200 17.917 ms Thu, 04 Jan 2024 18:32:11 GMT
+GET /api/task?page=1&per_page=5&search_term=when&completed=false  200 26.244 ms Fri, 05 Jan 2024 04:07:08 GMT
+GET /api/task?page=1&per_page=5&search_term=when&completed=  200 5.719 ms Fri, 05 Jan 2024 04:07:18 GMT
+GET /api/task?page=1&per_page=5&search_term=when&completed=true  400 59.797 ms Fri, 05 Jan 2024 04:07:42 GMT
+GET /api/task?page=1&per_page=5&search_term=when&completed=false  200 5.820 ms Fri, 05 Jan 2024 04:07:47 GMT
+GET /api/task  200 168.506 ms Sat, 06 Jan 2024 14:23:49 GMT
+POST /api/task  200 48.130 ms Sat, 06 Jan 2024 14:24:03 GMT
+POST /api/task  401 0.517 ms Sat, 06 Jan 2024 14:24:10 GMT
