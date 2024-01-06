@@ -5,7 +5,6 @@ const validateSchema = (Schema:any) =>
 {
     return (req:Request,res:Response,next:NextFunction) =>
     {
-        console.log("from validate schema ");
         
         const {error} = Schema.validate(req.body,{abortEarly:false,stripUnknown:true})
         if(error)

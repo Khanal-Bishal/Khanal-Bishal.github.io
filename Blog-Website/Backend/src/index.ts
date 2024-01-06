@@ -4,13 +4,15 @@ import morgan from 'morgan'
 const colors = require('colors')
 
 import connectDb from './config/database'
+connectDb()
 
 const app = express()
 dotenv.config()
-connectDb()
 
 import authRoute from './routes/auth'
 import blogRoute from './routes/blog'
+import profileRoute from './routes/profile'
+
 import pageNotFound from './middlewares/pageNotFound'
 import customErrorHandler from './middlewares/customErrorHandler'
 
@@ -24,6 +26,7 @@ app.use(morgan(`:method :url  :status :response-time ms :date[web]`,{ stream: ac
 //router level middleware
 app.use('/api/user',authRoute)
 app.use('/api/blog',blogRoute)
+app.use('/api/aboutme',profileRoute)
 
 app.use(pageNotFound)
 app.use(customErrorHandler)

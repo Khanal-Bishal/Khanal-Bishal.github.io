@@ -5,29 +5,29 @@ const Blog = sequelize.define('Blog',
     {
         blog_id:
         {
-            type:DataTypes.INTEGER,
-            autoIncrement:true,
-            allowNull:false,
-            primaryKey:true
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            allowNull: false,
+            primaryKey: true
         },
 
         title:
         {
-            type:DataTypes.STRING,
-            allowNull:false,
+            type: DataTypes.STRING,
+            allowNull: false,
 
         },
 
         description:
         {
-            type:DataTypes.STRING,
-            allowNull:false
+            type: DataTypes.STRING,
+            allowNull: false
         },
 
         image:
         {
-            type:DataTypes.STRING,
-            allowNull:true
+            type: DataTypes.STRING,
+            allowNull: true
         } 
 
     },

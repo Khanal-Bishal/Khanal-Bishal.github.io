@@ -135,7 +135,7 @@ export const deleteBlog = async( req: Request, res: Response, next: NextFunction
             return res.status(404).json({ success: false, message: "Blog not found" })
         }
 
-        res.status(204).json()  //kept .json as server kept on spinning even tho 204 returns nothing
+        res.status(204).end()  //kept .end as server kept on spinning even tho 204 returns nothing
     }
     catch (error)
     {

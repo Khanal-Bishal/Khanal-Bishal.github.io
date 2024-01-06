@@ -26,7 +26,7 @@ export const createBlog = async (body: IBlog) =>
         return blogInfo
 }
 
-export const updateBlog = async (body: IBlog, blog_id:string) =>
+export const updateBlog = async (body: IBlog, blog_id: string) =>
 {
      const doesBlogExist =  await Blog.findByPk(blog_id) 
         
@@ -50,6 +50,12 @@ export const deleteBlog = async (blog_id: string) =>
         return await Blog.destroy({ where: { blog_id } });
 }
 
+/**
+ * 
+ * @param {number} page 
+ * @param {string} search_term 
+ * @returns 
+ */
 export const searchBlog = async(page:number, search_term:string) =>
 {
      let offset = (page - 1) * LIMIT

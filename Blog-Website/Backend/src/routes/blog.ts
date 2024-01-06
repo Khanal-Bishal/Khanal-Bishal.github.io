@@ -5,7 +5,7 @@ import { getAllBlog,getSingleBlog,createBlog,deleteBlog,updateBlog,searchBlog } 
 
 import validateSchema from '../middlewares/validateSchema'
 import checkAuthentication from '../middlewares/checkAuthentication'
-
+import { isAdmin, isUser } from '../middlewares/checkRole'
 
 
 
@@ -19,15 +19,15 @@ const router = express.Router()
  * @route  /api/blog
  */
 
-router.get('/search',searchBlog)
+router.get('/search', searchBlog)
 router.get('/',  getAllBlog);
 router.get( '/:id', getSingleBlog)
 
-router.post( '/', checkAuthentication, validateSchema(blogSchema), createBlog)
+router.post( '/', checkAuthentication, isAdmin, validateSchema(blogSchema), createBlog)
 
-router.put ( '/:id', checkAuthentication,validateSchema(blogSchema), updateBlog)
+router.put ( '/:id', checkAuthentication, isAdmin, validateSchema(blogSchema), updateBlog)
 
-router.delete ( '/:id',checkAuthentication, deleteBlog)
+router.delete ( '/:id', checkAuthentication, isAdmin, deleteBlog)
 
 
 
