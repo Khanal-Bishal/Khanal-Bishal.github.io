@@ -1,5 +1,6 @@
 import {Request,Response,NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt'
 
 
 import * as authService from '../services/auth'
@@ -41,10 +42,22 @@ export const login = async(req:Request,res:Response,next:NextFunction)=>
 {
     try
     {
-        const userData = await authService.login(req,res)
-        const accessToken = jwt.sign(userData,process.env.JWT_SECRET as string,{expiresIn:ACCESS_TOKEN_EXPIRY})
-        const  refreshToken = jwt.sign(userData,process.env.JWT_REFRESH_SECRET as string,{expiresIn:REFRESH_TOKEN_EXPIRY})
-        res.status(200).json({success:true,message:"user logged successfully",data:userData,accessToken,refreshToken})
+        const { email, password } = req.body
+        const doesEmailExist = await authService.login(email, password)
+        if(!doesEmailExist)
+        {
+            return res.status(404).json({ success: false, message: "User Email not found" })
+        }
+        const userInfo = doesEmailExist.get()
+        const doesPasswordMatch = await bcrypt.compare(password, userInfo.password)
+        if(!doesPasswordMatch)
+        {
+            return res.status(401).json({ success:false, message: "Password does not match" })
+        }
+        delete userInfo.password
+        const accessToken = jwt.sign(userInfo , process.env.JWT_SECRET as string, { expiresIn: ACCESS_TOKEN_EXPIRY })
+        const  refreshToken = jwt.sign(userInfo, process.env.JWT_REFRESH_SECRET as string, { expiresIn: REFRESH_TOKEN_EXPIRY })
+        res.status(200).json({ success:true, message:"user logged successfully", data: userInfo, accessToken,refreshToken })
     }
     catch(error)
     {
@@ -60,28 +73,28 @@ export const login = async(req:Request,res:Response,next:NextFunction)=>
  * @param {NextFunction} next 
  * 
  */
-export const generateAccessToken = async(req:Request,res:Response,next:NextFunction)=>
+export const generateAccessToken = async(req: Request, res: Response, next: NextFunction)=>
 {
     try 
     {
         const {refreshToken} = req.body
         if(!refreshToken)
         {
-            return res.status(401).json({message:"Invalid refresh token"})
+            return res.status(401).json({ message:"Invalid refresh token" })
         }
         const decodeUserInfo = await jwt.verify(refreshToken , process.env.JWT_REFRESH_SECRET as string) 
 
         if(!decodeUserInfo)
         {
-            return res.status(401).json({message:"User doesn't exist"})
+            return res.status(401).json({ message: "User doesn't exist" })
         }
         
         let accessToken = await jwt.sign(decodeUserInfo,process.env.JWT_SECRET as string)
-        res.json({success:true,accessToken})
+        res.json({ success:true, accessToken })
     }
     catch (error)
     {
-        res.status(401).json({success:false,error})
+        res.status(401).json({ success: false, error })
         
     }
 }

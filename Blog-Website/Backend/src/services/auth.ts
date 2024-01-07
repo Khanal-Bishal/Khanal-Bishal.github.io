@@ -1,4 +1,5 @@
 import { Response,Request } from 'express'
+import IUser from '../interfaces/IUser'
 import User from '../model/user'
 import bcrypt from 'bcrypt'
 
@@ -8,13 +9,13 @@ import bcrypt from 'bcrypt'
  * @param {object} body 
  * @returns {Promise} promise resolves after user signs-up
  */
-export const signup = async(body:any)=>
+export const signup = async(body: IUser)=>
 {
         const SALTROUNDS = 10
         const plainPassword = body.password
         const hashedPw = await bcrypt.hash(plainPassword,SALTROUNDS)
         
-        const filteredUserInfo={...body,password:hashedPw}
+        const filteredUserInfo = { ...body, password: hashedPw }
         const userData = await User.create(filteredUserInfo)
         delete userData.get().password
 
@@ -24,26 +25,14 @@ export const signup = async(body:any)=>
 /**
  * @description logs user in 
  * 
- * @param {Request}req 
- * @param {Response}res
+ * @param {Request} req 
+ * @param {Response} res
  *  
  * @returns {Promise} promise resolves after user logs in 
  */
-export const login = async(req:Request,res:Response)=>
+export const login = async(email: string, password: string)=>
 {
-    const {email,password}=req.body
-        const doesEmailExist:any = await User.findOne({where:{email}}) 
-        if(!doesEmailExist)
-        {
-            return res.status(404).json({success:false,message:"User Email not found"})
-        }
-        const userInfo=doesEmailExist.get()
-        const doesPasswordMatch= await bcrypt.compare(password,userInfo.password)
-        if(!doesPasswordMatch)
-        {
-            return res.status(401).json({success:false,message:"Password does not match"})
-        }
-        delete userInfo.password
-
-        return userInfo
+    
+    const doesEmailExist: any = await User.findOne({ where: { email } }) 
+    return doesEmailExist
 }

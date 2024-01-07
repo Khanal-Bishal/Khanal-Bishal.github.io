@@ -16,15 +16,15 @@ export const getAllBlog = async (req: Request, res: Response, next: NextFunction
 {
     try
     {
-        let page = parseInt(req.query.page as string) || 1
-        let {blogsInfo, blogsCount} = await blogService.getAllBlog(page)
-        let totalPage = Math.ceil(blogsCount/LIMIT)
+        const page = parseInt(req.query.page as string) || 1
+        const {blogsInfo, blogsCount} = await blogService.getAllBlog(page)
+        const totalPage = Math.ceil(blogsCount/LIMIT)
         if ( blogsInfo.length === 0 )
         {
             return res.status(404).json( { success:false, message:"Blogs not found"} )
         }
         
-        res.status(200).json({success:true,blogsCount,totalPage,data: blogsInfo})
+        res.status(200).json({success:true, blogsCount, totalPage, data: blogsInfo})
     }
     catch(error)
     {
@@ -53,7 +53,7 @@ export const getSingleBlog = async(req: Request, res: Response, next: NextFuncti
         {
             return res.status(404).json({success: false, message: "Blog not found" })
         } 
-        res.status(200).json({success: true, data: blogInfo})
+        res.status(200).json({ success: true, data: blogInfo })
     }
     catch(error)
     {
@@ -75,8 +75,9 @@ export const createBlog = async (req : Request, res : Response, next : NextFunct
     try
     {   //@ts-ignore
         const imageName = req.user.imageName
-        console.log(req.files?.image);
-        let blogInfo = await blogService.createBlog(req.body, imageName)
+        //@ts-ignore
+        const admin_id = req.user.user_id
+        let blogInfo = await blogService.createBlog(req.body, imageName, admin_id)
         blogInfo = blogInfo.toJSON()
         res.status(201).json({ success: true,data: blogInfo  })
     }
@@ -87,7 +88,7 @@ export const createBlog = async (req : Request, res : Response, next : NextFunct
 }
 
 /**
- * @description updated the existing blog
+ * @description updates the existing blog
  * 
  * @param { Request } req 
  * @param { Response } res 
@@ -151,10 +152,10 @@ export const searchBlog =  async(req: Request, res: Response, next: NextFunction
 {
      try
     {   
-        let page = parseInt(req.query.page as string) || 1
-        let search_term = req.query.search_term as string || ""
-        let {blogsInfo, blogsCount} = await blogService.searchBlog(page,search_term)
-        let totalPage = Math.ceil(blogsCount/LIMIT)
+        const page = parseInt(req.query.page as string) || 1
+        const search_term = req.query.search_term as string || ""
+        const {blogsInfo, blogsCount} = await blogService.searchBlog(page,search_term)
+        const totalPage = Math.ceil(blogsCount/LIMIT)
         if ( blogsInfo.length === 0 )
         {
             return res.status(404).json( { success:false, message:"Blogs not found"} )
