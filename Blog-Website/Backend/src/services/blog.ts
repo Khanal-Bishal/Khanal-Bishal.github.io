@@ -20,13 +20,13 @@ export const getSingleBlog = async ( blog_id: string) =>
         return blogInfo
 }
 
-export const createBlog = async (body: IBlog) =>
+export const createBlog = async (body: IBlog, imageName: string) =>
 {
-        let blogInfo = await Blog.create({...body})
+        let blogInfo = await Blog.create({...body, image: imageName})
         return blogInfo
 }
 
-export const updateBlog = async (body: IBlog, blog_id: string) =>
+export const updateBlog = async (body: IBlog, blog_id: string, imageName: string) =>
 {
      const doesBlogExist =  await Blog.findByPk(blog_id) 
         
@@ -34,7 +34,7 @@ export const updateBlog = async (body: IBlog, blog_id: string) =>
         {
             return doesBlogExist
         }
-        const [rowCount, [updatedBlog]] = await Blog.update(body, { where: { blog_id }, returning: true });
+        const [rowCount, [updatedBlog]] = await Blog.update({...body, image: imageName}, { where: { blog_id }, returning: true });
         updatedBlog.get()
         return updatedBlog
 }

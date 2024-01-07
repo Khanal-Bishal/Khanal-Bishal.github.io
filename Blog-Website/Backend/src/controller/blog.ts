@@ -73,9 +73,10 @@ export const getSingleBlog = async(req: Request, res: Response, next: NextFuncti
 export const createBlog = async (req : Request, res : Response, next : NextFunction) =>
 {
     try
-    {
-
-        let blogInfo = await blogService.createBlog(req.body)
+    {   //@ts-ignore
+        const imageName = req.user.imageName
+        console.log(req.files?.image);
+        let blogInfo = await blogService.createBlog(req.body, imageName)
         blogInfo = blogInfo.toJSON()
         res.status(201).json({ success: true,data: blogInfo  })
     }
@@ -98,8 +99,10 @@ export const updateBlog = async(req: Request, res: Response, next: NextFunction)
 {
     try
     {
+        //@ts-ignore
+        const imageName = req.user.imageName
         const blog_id = req.params.id
-        const updatedBlog = await blogService.updateBlog(req.body,blog_id)
+        const updatedBlog = await blogService.updateBlog(req.body, blog_id, imageName )
 
          if(!updatedBlog)
         {

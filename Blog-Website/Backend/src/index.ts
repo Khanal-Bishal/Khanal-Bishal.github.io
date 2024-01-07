@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import morgan from 'morgan'
 const colors = require('colors')
+import fileUpload from 'express-fileupload' 
 
 import connectDb from './config/database'
 connectDb()
@@ -21,7 +22,9 @@ import {accessLogStream} from './utils/logger'
 
 //application level middlewares
 app.use(express.json())
-app.use(morgan(`:method :url  :status :response-time ms :date[web]`,{ stream: accessLogStream })) // logger for HTTP requests
+app.use(fileUpload())
+app.use(express.static('uploads'))
+app.use(morgan(`:method :url  :status :response-time ms :date[web]`,{ stream: accessLogStream })) //logger for HTTP requests
 
 //router level middleware
 app.use('/api/user',authRoute)

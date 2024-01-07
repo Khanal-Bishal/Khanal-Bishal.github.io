@@ -7,13 +7,14 @@ export const getProfile = async() =>
     return adminInfo
 }
 
-export const createProfile = async (body: IProfile) =>
+export const createProfile = async (body: IProfile, imageName: string) =>
 {
-    let adminInfo = await Profile.create({...body})
+    let adminInfo = await Profile.create({...body, image: imageName})
     return adminInfo
 }
 
-export const updateProfile = async (body: IProfile, profile_id: string) =>
+
+export const updateProfile = async (body: IProfile, profile_id: string, imageName: string) =>
 {
      const doesProfileExist =  await Profile.findByPk(profile_id) 
         
@@ -21,7 +22,7 @@ export const updateProfile = async (body: IProfile, profile_id: string) =>
         {
             return doesProfileExist
         }
-        const [rowCount, [updatedProfile]] = await Profile.update(body, { where: { profile_id }, returning: true });
+        const [rowCount, [updatedProfile]] = await Profile.update({ ...body, image: imageName }, { where: { profile_id }, returning: true });
         updatedProfile.get()
         return updatedProfile
 }

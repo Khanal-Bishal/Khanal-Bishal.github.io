@@ -12,8 +12,9 @@ const blogSchema = Joi.object(
             {
                 'string.base' : 'description must be a string',
                 'any.required' : 'description is required'
-            }
-        )
+            },
+        ),
+           
     }
 )
 
