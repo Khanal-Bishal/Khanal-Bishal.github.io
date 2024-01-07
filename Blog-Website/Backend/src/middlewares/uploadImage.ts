@@ -13,11 +13,11 @@ const uploadImage = ( req: Request, res: Response, next: NextFunction) =>
         const filename = Date.now() + " "  + fileNameWithoutExt + path.extname(image.name)
         const destinationPath = path.join(destinationFolder, filename)
         
-        image?.mv(destinationPath, (err:any) =>
+        image?.mv(destinationPath, (err: any) =>
         {
             if (err)
             {
-                return res.status(500).json({ message: "error uploading image"})
+                return res.status(500).json({ message: "error uploading image" })
             }
         })
         

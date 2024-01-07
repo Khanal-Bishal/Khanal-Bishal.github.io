@@ -16,9 +16,9 @@ export const signUpSchema = Joi.object(
     messages
     (
         {
-            'string.base':'Email must be a string',
-            'any.required':'Email is required',
-            'string.email':'Must be a email'
+            'string.base': 'Email must be a string',
+            'any.required': 'Email is required',
+            'string.email': 'Must be a email'
         }
     ),
 
@@ -44,9 +44,9 @@ export const loginSchema = Joi.object(
         messages
         (
             {
-                'string.base':'Email must be a string',
-                'any.required':'Email is required',
-                'string.email':'Must be a email'
+                'string.base': 'Email must be a string',
+                'any.required': 'Email is required',
+                'string.email': 'Must be a email'
             }
         ),
 

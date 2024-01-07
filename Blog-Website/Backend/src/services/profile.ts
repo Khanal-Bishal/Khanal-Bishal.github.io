@@ -9,7 +9,7 @@ export const getProfile = async() =>
 
 export const createProfile = async (body: IProfile, imageName: string) =>
 {
-    let adminInfo = await Profile.create({...body, image: imageName})
+    let adminInfo = await Profile.create({ ...body, image: imageName })
     return adminInfo
 }
 

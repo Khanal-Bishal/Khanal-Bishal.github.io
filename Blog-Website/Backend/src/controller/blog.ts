@@ -105,7 +105,7 @@ export const updateBlog = async(req: Request, res: Response, next: NextFunction)
         const blog_id = req.params.id
         const updatedBlog = await blogService.updateBlog(req.body, blog_id, imageName )
 
-         if(!updatedBlog)
+        if(!updatedBlog)
         {
             return res.status(404).json({ success: false, message: "Blog not found" })
         }

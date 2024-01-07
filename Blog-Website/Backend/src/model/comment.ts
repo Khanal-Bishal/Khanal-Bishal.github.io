@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize';
-import {sequelize} from '../config/database';
-import Profile from './profile'
+import { sequelize } from '../config/database';
 import Blog from './blog';
 import User from './user'
 

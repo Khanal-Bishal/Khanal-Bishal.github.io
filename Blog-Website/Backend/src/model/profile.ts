@@ -19,7 +19,7 @@ const Profile = sequelize.define
         name:
         {
             type:DataTypes.STRING,
-            allowNull:false
+            allowNull: false
         },
         email:
         {
@@ -27,7 +27,7 @@ const Profile = sequelize.define
             allowNull: false,
             validate:
             {
-                isEmail:true
+                isEmail: true
             }
         },
         image: 
@@ -38,7 +38,7 @@ const Profile = sequelize.define
         contact: 
         {
             type: DataTypes.STRING,
-            allowNull:false
+            allowNull: false
         },
         education:
         {
@@ -48,7 +48,7 @@ const Profile = sequelize.define
         aboutme:
         {
             type: DataTypes.STRING,
-            allowNull:false
+            allowNull: false
         },
     },
     

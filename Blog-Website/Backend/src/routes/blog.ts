@@ -7,7 +7,6 @@ import * as commentController from '../controller/comment'
 import validateSchema from '../middlewares/validateSchema'
 import uploadImage from '../middlewares/uploadImage'
 
-import multer from 'multer'
 import checkAuthentication from '../middlewares/checkAuthentication'
 import { isAdmin, isUser } from '../middlewares/checkRole'
     
@@ -29,9 +28,5 @@ router.delete ( '/:id', checkAuthentication, isAdmin, blogController.deleteBlog)
 //comment related routes 
 router.get('/:id/comment', commentController.getCommentByBlogId)
 router.post('/:id/comment', checkAuthentication, commentController.createComment)
-
-
-
-
 
 export default router

@@ -10,7 +10,7 @@ export const isAdmin = async(req: Request, res: Response, next: NextFunction) =>
         const userInfo = req.user
         if(userInfo.role != ADMIN)
         {
-            return res.status(403).json({ success:false, message: "Forbidden. Must be admin" })
+            return res.status(403).json({ success: false, message: "Forbidden. Must be admin" })
         }
         next()
         
@@ -28,7 +28,7 @@ export const isUser = async(req: Request, res:Response, next: NextFunction) =>
 
     if(userInfo.role != USER)
     {
-        return res.status(403).json({ success:false, message: "Forbidden. Must be user" })
+        return res.status(403).json({ success: false, message: "Forbidden. Must be user" })
     }
     next()
 }

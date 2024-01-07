@@ -80,7 +80,7 @@ export const deleteBlog = async (blog_id: string) =>
  * @param {string} search_term 
  * @returns 
  */
-export const searchBlog = async(page:number, search_term:string) =>
+export const searchBlog = async(page: number, search_term: string) =>
 {
     const offset = (page - 1) * LIMIT
     const blogsInfo = await Blog.findAll({ where: 

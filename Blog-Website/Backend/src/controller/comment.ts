@@ -5,7 +5,7 @@ import * as commentService from '../services/comment'
 
 export const getComments = async( req: Request, res: Response, next: NextFunction ) =>
 {
-  try
+    try
     {
         const commentInfo = await commentService.getComments()
         if ( commentInfo.length === 0 )
@@ -23,7 +23,7 @@ export const getComments = async( req: Request, res: Response, next: NextFunctio
 
 export const getCommentByBlogId = async( req: Request, res: Response, next: NextFunction ) =>
 {
-  try
+    try
     {
         const commentInfo = await Comment.findAll({ where: { blog_id: req.params.id } })
         if ( commentInfo.length === 0 )

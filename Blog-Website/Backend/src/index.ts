@@ -5,9 +5,8 @@ const colors = require('colors')
 import fileUpload from 'express-fileupload' 
 
 import connectDb from './config/database'
-connectDb()
 
-const app = express()
+connectDb()
 dotenv.config()
 
 import authRoute from './routes/auth'
@@ -21,13 +20,15 @@ import customErrorHandler from './middlewares/customErrorHandler'
 import {PORT} from './constants/port'
 import {accessLogStream} from './utils/logger'
 
+const app = express()
+
 //application level middlewares
 app.use(express.json())
 app.use(fileUpload())
 app.use(express.static('uploads'))
 app.use(morgan(`:method :url  :status :response-time ms :date[web]`,{ stream: accessLogStream })) //logger for HTTP requests
 
-//router level middleware
+//route level middleware
 app.use('/api/user', authRoute)
 app.use('/api/blog', blogRoute)
 app.use('/api/aboutme', profileRoute)

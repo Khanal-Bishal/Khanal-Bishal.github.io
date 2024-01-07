@@ -3,7 +3,7 @@ import * as profileService from '../services/profile'
 
 export const getProfile = async (req: Request, res: Response, next: NextFunction) =>
 {
-      try
+    try
     {
        
         let adminInfo = await profileService.getProfile()
@@ -44,7 +44,7 @@ export const updateProfile =async (req: Request, res: Response, next: NextFuncti
     {
         const blog_id = req.params.id
         //@ts-ignore
-       const imageName = req.user.imageName 
+        const imageName = req.user.imageName 
         const updatedProfile = await profileService.updateProfile(req.body, blog_id , imageName)
         if(!updatedProfile)
         {
