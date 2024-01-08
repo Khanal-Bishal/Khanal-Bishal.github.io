@@ -19,10 +19,10 @@ const customErrorHandler = (error: any,req: Request,res:Response,next: NextFunct
                 errArr.push(errObj)
                 
             })
-            return res.status(status).json({ success:false, error:errArr })
+            return res.status(status).json({ success: false, error: errArr })
     }
     
-    return res.status(status).json({success:false, message})
+    return res.status(status).json({ success: false, message})
 
 }
 

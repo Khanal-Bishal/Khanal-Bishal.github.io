@@ -27,7 +27,8 @@
         ],
         "indent":[
             "error",
-            4
+            4,
+            {"ignoreNodes": ["PropertyDefinition"]}
         ],
         "linebreak-style":[
             "error",

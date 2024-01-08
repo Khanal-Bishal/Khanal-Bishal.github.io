@@ -13,6 +13,7 @@ import authRoute from './routes/auth'
 import blogRoute from './routes/blog'
 import profileRoute from './routes/profile'
 import commentRoute from './routes/comment'
+import imageRoute from './routes/image'
 
 import pageNotFound from './middlewares/pageNotFound'
 import customErrorHandler from './middlewares/customErrorHandler'
@@ -33,10 +34,10 @@ app.use('/api/user', authRoute)
 app.use('/api/blog', blogRoute)
 app.use('/api/aboutme', profileRoute)
 app.use('/api/comment', commentRoute)
+app.use('/api/image', imageRoute)
 
 app.use(pageNotFound)
 app.use(customErrorHandler)
-
 
 //connecting to server 
 app.listen(PORT,()=>

@@ -6,7 +6,6 @@ const uploadImage = ( req: Request, res: Response, next: NextFunction) =>
  
     if(req.files)
      {
-        //@ts-ignore
         const image: any = req.files?.image
         const destinationFolder = path.join(__dirname, '../../uploads' )
         const  fileNameWithoutExt = path.basename(image.name).split(".")[0] 

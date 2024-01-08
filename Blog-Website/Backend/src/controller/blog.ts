@@ -2,6 +2,7 @@ import {Request, Response, NextFunction } from 'express'
 import Blog from '../model/blog'
 import * as blogService from '../services/blog'
 import { LIMIT } from '../constants/blogConstants'
+import DOMAIN from '../constants/domain'
 
 /**
  * @description get all the existing blog
@@ -23,8 +24,17 @@ export const getAllBlog = async (req: Request, res: Response, next: NextFunction
         {
             return res.status(404).json( { success:false, message:"Blogs not found"} )
         }
+       
+        const plainBlogInfo= blogsInfo.map(info =>
+        {
+            info= info.get({ plain: true })
+            //@ts-ignore
+            const imageUrl = `${DOMAIN}/image/${ info.image }`
+            return { ...info, image: imageUrl }
+        })
+        console.log(plainBlogInfo);
         
-        res.status(200).json({success:true, blogsCount, totalPage, data: blogsInfo})
+        res.status(200).json({success:true, blogsCount, totalPage, data: plainBlogInfo})
     }
     catch(error)
     {
@@ -79,6 +89,8 @@ export const createBlog = async (req : Request, res : Response, next : NextFunct
         const admin_id = req.user.user_id
         let blogInfo = await blogService.createBlog(req.body, imageName, admin_id)
         blogInfo = blogInfo.toJSON()
+        
+
         res.status(201).json({ success: true,data: blogInfo  })
     }
     catch(error)
