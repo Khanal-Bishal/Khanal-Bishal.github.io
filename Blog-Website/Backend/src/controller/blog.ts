@@ -167,14 +167,14 @@ export const searchBlog =  async(req: Request, res: Response, next: NextFunction
     {   
         const page = parseInt(req.query.page as string) || 1
         const search_term = req.query.search_term as string || ""
-        const {blogsInfo, blogsCount} = await blogService.searchBlog(page,search_term)
+        const {blogsInfo, blogsCount} = await blogService.searchBlog(page, search_term)
         const totalPage = Math.ceil(blogsCount/LIMIT)
         if ( blogsInfo.length === 0 )
         {
-            return res.status(404).json( { success:false, message:"Blogs not found"} )
+            return res.status(404).json( { success :false, message: "Blogs not found"} )
         }
         
-        res.status(200).json({success:true,blogsCount,totalPage,data:blogsInfo})
+        res.status(200).json({success: true, blogsCount, totalPage, data: blogsInfo})
     }
     catch(error)
     {

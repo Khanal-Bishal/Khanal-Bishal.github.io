@@ -1,8 +1,27 @@
-/** @type {import('tailwindcss').Config} */
+// /** @type {import('tailwindcss').Config} */
+// export default {
+//   content: ["./index.html", "./blog.html", "./src/**/*.{js,ts,jsx,tsx,html}"],
+//   theme: {
+//     extend: {},
+//   },
+//   plugins: [],
+// };
+
 export default {
-  content: ["./index.html", "./blog.html", "./src/**/*.{js,ts,jsx,tsx,html}"],
+  content: [
+    "./public/**/*.{html,js}",
+    "./src/**/*.{html,js,ts}",
+    "./**/*.html",
+  ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Custom Font", "Nunito"],
+      },
+    },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light"],
+  },
 };

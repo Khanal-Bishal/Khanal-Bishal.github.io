@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 /* custom styles  */
-
-.custom-container
+ .custom-container
 {   
     width: 90%;
     margin-left:auto;
@@ -18,7 +17,8 @@
     cursor: pointer;
 }
 
-.primary-clr
+.main-clr
 {
     color: #084c61;
-}
+    
+} 
