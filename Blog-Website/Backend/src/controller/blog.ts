@@ -29,7 +29,7 @@ export const getAllBlog = async (req: Request, res: Response, next: NextFunction
         {
             info= info.get({ plain: true })
             //@ts-ignore
-            const imageUrl = `${DOMAIN}/image/${ info.image }`
+            const imageUrl = `http://${DOMAIN}/image/${ info.image }`
             return { ...info, image: imageUrl }
         })
         
@@ -63,7 +63,7 @@ export const getSingleBlog = async(req: Request, res: Response, next: NextFuncti
             return res.status(404).json({success: false, message: "Blog not found" })
         } 
         //@ts-ignore
-        blogInfo = { ...blogInfo, image:`${DOMAIN}/image/${ blogInfo.image }`}
+        blogInfo = { ...blogInfo, image:`http://${DOMAIN}/image/${ blogInfo.image }`}
         res.status(200).json({ success: true, data: blogInfo })
     }
     catch(error)

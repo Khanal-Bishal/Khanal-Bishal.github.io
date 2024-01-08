@@ -25,7 +25,7 @@ import {accessLogStream} from './utils/logger'
 
 const app = express()
 app.use(cors())
-app.use(helmet())
+app.use(helmet({crossOriginResourcePolicy: false}))
 
 
 //application level middlewares
