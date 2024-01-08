@@ -2,6 +2,8 @@ import express from 'express'
 import dotenv from 'dotenv'
 import morgan from 'morgan'
 const colors = require('colors')
+import cors from 'cors'
+import helmet from 'helmet'
 import fileUpload from 'express-fileupload' 
 
 import connectDb from './config/database'
@@ -22,6 +24,9 @@ import {PORT} from './constants/port'
 import {accessLogStream} from './utils/logger'
 
 const app = express()
+app.use(cors())
+app.use(helmet())
+
 
 //application level middlewares
 app.use(express.json())

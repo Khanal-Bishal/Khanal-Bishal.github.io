@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import * as profileService from '../services/profile'
+import DOMAIN from "../constants/domain";
 
 export const getProfile = async (req: Request, res: Response, next: NextFunction) =>
 {
@@ -12,8 +13,16 @@ export const getProfile = async (req: Request, res: Response, next: NextFunction
         {
             return res.status(404).json( { success:false, message:"Profile not found. Create one"} )
         }
+       
+         const plainAdminInfo= adminInfo.map(info =>
+        {
+            info= info.get({ plain: true })
+            //@ts-ignore
+            const imageUrl = `${DOMAIN}/image/${ info.image }`
+            return { ...info, image: imageUrl }
+        })
         
-        res.status(200).json({ success:true, data: adminInfo })
+        res.status(200).json({ success:true, data: plainAdminInfo })
     }
     catch(error)
     {
