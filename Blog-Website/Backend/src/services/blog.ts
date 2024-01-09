@@ -33,7 +33,7 @@ export const getSingleBlog = async ( blog_id: string) =>
             { model: User, attributes: [ 'name', 'email'] },
              {
                 model: Comment,
-                attributes: [ 'comment_id', 'comment', 'user_id'],
+                attributes: [ 'comment_id', 'comment', 'user_id','createdAt'],
                 include: [{model: User, attributes: ['name', 'email'] }]
             }
         ] })
