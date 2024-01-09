@@ -9,149 +9,37 @@
   <title>Home </title>
 </head>
 
-<body class="bg-gradient-to-r from-slate-400 to-slate-600 text-white">
+<body class="">
 
   <!--===================== HEADER SECTION ====================== -->
 
   <header>
+
     <!-- social media section  -->
-    <!-- <div class="  bg-gray-300 ">
-      <section class=" flex justify-between items-center custom-container">
-        <div class="flex justify-center gap-7">
-          <img src="./src/assets/icons/logo.svg" alt="logo" width="40">
-          <ul class="flex gap-5  p-3">
-            <li>
-              <img src="src/assets/icons/facebook.svg" width="20" alt="">
-            </li>
-            <li>
-              <img src="src/assets/icons/instagram.svg" width="20" alt="">
-            </li>
-            <li>
-              <img src="src/assets/icons/twitter.svg" width="20" alt="">
-            </li>
-          </ul>
-        </div>
+    <div>
+      <ul class="flex">
+        <li class='border border-gray-400 rounded-full p-4'>
+          <a href="facebook.com" class='bg-black '>
+            <img src="./src/assets/icons/facebook.svg" alt="" width="15">
+          </a>
+        </li>
+        <li class='border border-gray-400 rounded-full p-4'>
+          <a href="facebook.com" class='bg-black '>
+            <img src="./src/assets/icons/facebook.svg" alt="" width="15">
+          </a>
+        </li>
+        <li class='border border-gray-400 rounded-full p-4'>
+          <a href="facebook.com" class='bg-black '>
+            <img src="./src/assets/icons/facebook.svg" alt="" width="15">
+          </a>
+        </li>
 
-        <div class="flex justify-center gap-2 cursor">Search
-          <img src="src/assets/icons/search.svg" width="20" alt="">
-        </div>
-      </section>
-    </div> -->
 
-    <!-- login and profile section  -->
-
-    <section class="custom-container flex justify-between items-center 5 border-b-[0.2px]  pb-10 border-gray-300">
-
-      <img src="./src/assets/icons/logo.svg" alt="logo" width="60">
-      <h2 class="text-7xl font-bold ">RAPIER</h2>
-
-      <div class="flex justify-between item-center gap-6  text-xl">
-        <p>Name</p>
-        <p>Login</p>
-        <img src="./src/assets/icons/logout.svg" alt="logout" width="25">
-      </div>
-
-    </section>
+      </ul>
+    </div>
 
   </header>
 
-  <!-- navigation section  -->
-
-  <section class="custom-container mt-8">
-    <nav class="custom-container ">
-      <ul class="flex justify-between  text-xl cursor">
-        <li>
-          home
-        </li>
-        <li>
-          blogs
-        </li>
-        <li>
-          about
-        </li>
-      </ul>
-    </nav>
-  </section>
-
-  <main class=" custom-container mt-20 ">
-
-    <!--================= INTRODUCTION SECTION =================-->
-    <section class="  flex flex-col ">
-
-
-      <div class="flex flex-col justify-center items-center text-8xl relative h-[35vh] select-none">
-        <p class="absolute top-0 text-[#4581b1] font-bold">OPPORTUNE</p>
-        <p class="absolute top-16 text-yellow-400 font-bold">EXPLORE</p>
-        <p class="absolute top-32 text-[#9381ff] font-bold">TEST&PROBE</p>
-        <p class="absolute top-48 text-red-500 font-bold">FORMULATE</p>
-        <p class="absolute top-[185px] text-[#084c61] font-bold">GUIDE AND LEARN</p>
-      </div>
-
-      <p class="m-auto font-semibold text-xl w-[50%] text-center mt-10">
-        I'm a Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur
-        adipisicing elit. Nostrum,
-        excepturi similique? Exercitationem, rem similique soluta perspiciatis quidem dolorem et laboriosam!
-      </p>
-
-    </section>
-
-
-    <!--==================== Blogs section ===================== -->
-    <section class="mt-32">
-
-      <div class="flex flex-wrap random-blog-container ">
-        <div class=" relative cursor mb-3 w-[66%] mx-1  ">
-          <figure class="relative rounded-lg">
-            <img src=${res.image} alt="blogImage " class="w-[100%] opacity-50 h-[500px] aspect-square ">
-            <div class="absolute inset-0 bg-black opacity-55 hover:opacity-40"></div>
-          </figure>
-
-          <div class="absolute top-[50%] left-10 translate-y-[-50%] text-white ">
-            <h2 class="font-bold text-4xl capitalize w-[45%]"> ${res.title} </h2>
-            <p class="w-[45%] mt-5 text-2xl"> ${res.description} </p>
-            <button
-              class="border rounded-xl p-4 mt-7 text-xl font-semibold w-[150px] hover:bg-[#7ca9aa] hover:border-none transition-all ">Read
-              more</button>
-          </div>
-        </div>
-
-        <div class=" relative cursor mb-3 w-[30%] mx-1 ">
-          <figure class="relative ">
-            <img src=${res.image} alt="blogImage " class="w-[100%] opacity-50 h-[500px] aspect-square ">
-            <div class="absolute inset-0 bg-black opacity-55 hover:opacity-40"></div>
-          </figure>
-
-          <div class="absolute top-[50%] left-10 translate-y-[-50%] text-white ">
-            <h2 class="font-bold text-4xl capitalize w-[45%]"> ${res.title} </h2>
-            <p class="w-[45%] mt-5 text-2xl"> ${res.description} </p>
-            <button
-              class="border rounded-xl p-4 mt-7 text-xl font-semibold w-[150px] hover:bg-[#7ca9aa] hover:border-none transition-all ">Read
-              more</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-wrap blogs-container">
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="custom-container pr-14">
-    <ul class="flex gap-5  p-3 justify-end">
-      <li>
-        <img src="src/assets/icons/facebook.svg" width="20" alt="">
-      </li>
-      <li>
-        <img src="src/assets/icons/instagram.svg" width="20" alt="">
-      </li>
-      <li>
-        <img src="src/assets/icons/twitter.svg" width="20" alt="">
-      </li>
-    </ul>
-    <p class="text-center capitalize text-xs font-light">&copy; 2024 Rapier. All rights reserved.</p>
-
-  </footer>
 
   <script type="module" src="./src/main.ts"></script>
 </body>

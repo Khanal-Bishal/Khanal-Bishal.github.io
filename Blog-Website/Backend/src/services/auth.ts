@@ -16,6 +16,7 @@ export const signup = async(body: IUser)=>
         const hashedPw = await bcrypt.hash(plainPassword,SALTROUNDS)
         
         const filteredUserInfo = { ...body, password: hashedPw }
+        
         const userData = await User.create(filteredUserInfo)
         delete userData.get().password
 

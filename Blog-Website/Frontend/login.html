@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+
+<body class="bg-slate-300">
+    <div class="toast-container absolute top-[1%] translate-y-[-10%] right-0 p-5"></div>
+    <div
+        class="flex justify-center items-center gap-20 relative top-[50%] translate-y-[-50%] bg-white w-[60%] m-auto rounded-3xl p-10 ">
+
+        <dotlottie-player src="https://lottie.host/f3b76063-9854-41c9-8910-470f275b4396/s2LZeSSSkc.json"
+            class="border-r" background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay>
+        </dotlottie-player>
+
+        <div class="flex flex-col justify-around items-center gap-10 ">
+            <p class="text-7xl text-center font-extrabold text-[#8D66F0]">Log In</p>
+            <form class="flex flex-col">
+                <div class="flex border-b border-[#8D66F0] mt-10 items-center ">
+                    <label for="email"> <img src="./src/assets/icons/email.svg" alt="" width="30"></label>
+                    <input type="email" name="email" placeholder="Enter email" id="email"
+                        class="w-[250px] p-5 outline-none border-none text-2xl">
+                </div>
+
+                <div class="flex border-b border-[#8D66F0] mt-10 items-center">
+                    <label for="password"> <img src="./src/assets/icons/password.svg" alt="" width="30"></label>
+                    <input type="password" name="password" placeholder="Enter password" id="password" value="password"
+                        class="w-[250px] p-5 outline-none border-none text-2xl">
+                </div>
+                <div class="flex gap-7">
+                    <button
+                        class=" login-btn mt-14 bg-[#8D66F0] w-[150px] text-center p-5 rounded-lg relative  text-xl font-semibold text-white hover:bg-[#7e69b4] transition-all">Login
+                    </button>
+                    <button
+                        class=" register-btn mt-14 bg-[#8D66F0] w-[150px] text-center p-5 rounded-lg relative  text-xl font-semibold text-white hover:bg-[#7e69b4] transition-all ">Register</a>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="./src/login.ts"></script>
+
+</body>
+
+</html>

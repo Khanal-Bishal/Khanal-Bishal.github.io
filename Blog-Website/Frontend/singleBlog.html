@@ -7,7 +7,72 @@
 </head>
 
 <body>
-    <p>This is from the single blog page</p>
+    <header class="cursor">
+
+        <!-- social media section  -->
+        <section class="border-b pb-6">
+            <div class="custom-container mt-10 flex justify-between item-center">
+                <div class=" ">
+                    <ul class="flex gap-7">
+                        <li class='border border-black rounded-full p-4 hover:bg-gray-200  transition-colors'>
+                            <a href="facebook.com" class=' '>
+                                <img src="./src/assets/icons/twitter.svg" alt="" width="15">
+                            </a>
+                        </li>
+                        <li class='border border-black rounded-full p-4 hover:bg-gray-200  transition-colors'>
+                            <a href="facebook.com" class=' '>
+                                <img src="./src/assets/icons/facebook.svg" alt="" width="15">
+                            </a>
+                        </li>
+                        <li class='border border-black rounded-full p-4 hover:bg-gray-200  transition-colors'>
+                            <a href="facebook.com" class=' '>
+                                <img src="./src/assets/icons/instagram.svg" alt="" width="15">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- name section  -->
+                <div class="flex flex-col gap-3 min-w-[60%] m-auto text-center">
+                    <h1 class="text-7xl font-extrabold uppercase">Conforio</h1>
+                    <span class=" tracking-tighter font-thin text-2xl  text-center text-gray-400">A personal blog
+                        site</span>
+                </div>
+
+                <div class="flex justify-between item-center gap-6  text-xl">
+                    <p class="username-container"></p>
+                    <p class="login-container"></p>
+                    <p class="signup-container"></p>
+                    <p class="logout-container"></p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- navigation section  -->
+        <section class="custom-container mt-20 flex justify-between items-center">
+            <img src="./src/assets/icons/logo.svg" alt="logo-icon" width="50">
+
+            <nav class="w-[70%] m-auto">
+                <ul class="flex gap-20 text-2xl text-gray-400 font-semibold capitalize ">
+                    <li class="hover:text-[#F09892] "><a href="#">home</a></li>
+                    <li class="hover:text-[#F09892]"><a href="./blog.html">blog</a></li>
+                    <li class="hover:text-[#F09892]"><a href="./about.html">about</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="">
+                <img src="./src/assets/icons/search.svg" alt="" class="w-[30px]">
+            </div>
+        </section>
+    </header>
+
+
+
+
+
+    <script type="module" src="./src/singleBlog.ts"></script>
 </body>
 
 </html>

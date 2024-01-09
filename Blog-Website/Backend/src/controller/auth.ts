@@ -2,9 +2,9 @@ import {Request,Response,NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
-
 import * as authService from '../services/auth'
 import { ACCESS_TOKEN_EXPIRY,REFRESH_TOKEN_EXPIRY } from '../constants/jwtExpiry'
+
 /**
  * @description signs up a new user
  * @route POST /api/user/signup
@@ -19,11 +19,12 @@ export const signup = async(req:Request,res:Response,next:NextFunction)=>
 {
     try
     {   
-        const userData=await authService.signup(req.body)
-        res.status(201).json({success:true,message:"User signed in successfully",data:userData})  
+        const userData = await authService.signup(req.body)
+        res.status(201).json({ success: true, message: "User signed in successfully", data: userData })  
     }
     catch(error)
     {
+        
         next(error)
     }
 }
@@ -46,13 +47,13 @@ export const login = async(req:Request,res:Response,next:NextFunction)=>
         const doesEmailExist = await authService.login(email, password)
         if(!doesEmailExist)
         {
-            return res.status(404).json({ success: false, message: "User Email not found" })
+            return res.status(404).json({ success: false, error: "User email not found" })
         }
         const userInfo = doesEmailExist.get()
         const doesPasswordMatch = await bcrypt.compare(password, userInfo.password)
         if(!doesPasswordMatch)
         {
-            return res.status(401).json({ success:false, message: "Password does not match" })
+            return res.status(401).json({ success:false, error: "Password does not match" })
         }
         delete userInfo.password
         const accessToken = jwt.sign(userInfo , process.env.JWT_SECRET as string, { expiresIn: ACCESS_TOKEN_EXPIRY })
