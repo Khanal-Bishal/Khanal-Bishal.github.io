@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./src/assets/icons/logo.svg" type="image/x-icon">
+    <title>Write</title>
+</head>
+
+<body>
+    <!-- ... your existing code ... -->
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <!-- Hidden file input -->
+        <input type="file" id="fileInput" name="fileInput" accept=".jpg, .jpeg, .png, .gif">
+
+        <!-- Custom file input label with image and message -->
+        <label for="fileInput" class="custom-file-input-label">
+            <img src="icon.png" alt="File Icon" width="50">
+            <p>Choose an image</p>
+        </label>
+
+        <script type="module" src="./src/writeBlog.ts"></script>
+
+        <script>
+            const textAreaContainer = document.getElementById('textAreaContainer');
+            let textareaIndex = 0;
+
+            function addNewTextarea() {
+                const newTextArea = document.createElement('textarea');
+                newTextArea.type = 'text';
+                newTextArea.className = 'text-container overflow-y-hidden resize-none outline-none mt-20 border-b w-full font-bold text-5xl pb-1 text-gray-700 placeholder-gray-200 focus:pb-5';
+                newTextArea.placeholder = 'Tell your story...';
+                newTextArea.addEventListener('input', function () {
+                    this.style.height = 'auto';
+                    this.style.height = (this.scrollHeight) + 'px';
+                });
+
+                const textareaId = `textarea-${textareaIndex}`;
+                newTextArea.id = textareaId;
+                textAreaContainer.appendChild(newTextArea);
+
+                textareaIndex++;
+            }
+        </script>
+</body>
+
+</html>

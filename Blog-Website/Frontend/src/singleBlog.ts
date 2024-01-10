@@ -1,4 +1,3 @@
-import './style.css'
 import HTTP from './urlConfig'
 import IBlog from './interface/IBlog'
 import queryString from 'query-string'

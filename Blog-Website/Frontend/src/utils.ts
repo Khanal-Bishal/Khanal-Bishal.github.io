@@ -6,3 +6,14 @@ export const convertIsoToFormattedData = (isoData:string) =>
     const formattedDate = dateObject.toLocaleDateString('en-US', options)
     return formattedDate
 }
+
+/**
+ * checks if the provided role is admin or not
+ * @param {string} role 
+ * @returns 
+ */
+export const checkIsAdmin = (role: string) =>
+{
+    if (role === "admin") return true 
+    return false
+}

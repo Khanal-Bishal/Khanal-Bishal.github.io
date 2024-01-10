@@ -1,0 +1,147 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--============== header section ================ -->
+    <header class="cursor">
+        <!-- social media section  -->
+        <section class="border-b pb-6">
+            <div class="custom-container mt-10 flex justify-between item-center">
+                <div class=" ">
+                    <ul class="flex gap-7">
+                        <li class='border border-black rounded-full p-4 hover:bg-gray-200  transition-colors'>
+                            <a href="https://www.twitter.com/m" class=' '>
+                                <img src="./src/assets/icons/twitter.svg" alt="" width="15">
+                            </a>
+                        </li>
+                        <li class='border border-black rounded-full p-4 hover:bg-gray-200  transition-colors'>
+                            <a href="https://www.facebook.com/" class=' '>
+                                <img src="./src/assets/icons/facebook.svg" alt="" width="15">
+                            </a>
+                        </li>
+                        <li class='border border-black rounded-full p-4 hover:bg-gray-200  transition-colors'>
+                            <a href="https://www.instagram.com/" class=' '>
+                                <img src="./src/assets/icons/instagram.svg" alt="" width="15">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- name section  -->
+                <div class="flex flex-col gap-3 min-w-[60%] m-auto text-center">
+                    <h1 class="text-7xl font-extrabold uppercase">BOBOCA</h1>
+                    <span class=" tracking-tighter font-thin text-2xl  text-center text-gray-400">A personal blog
+                        site</span>
+                </div>
+
+                <div class="flex justify-between item-center gap-6  text-xl">
+                    <p class="username-container"></p>
+                    <p class="login-container"></p>
+                    <p class="signup-container"></p>
+                    <p class="logout-container"></p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- navigation section  -->
+        <section class="custom-container mt-20 flex justify-between items-center">
+            <a href="./index">
+
+                <img src="./src/assets/icons/logo.svg" alt="logo-icon" width="50">
+            </a>
+
+            <nav class="w-[70%] m-auto">
+                <ul class="flex gap-20 text-2xl text-gray-400 font-semibold capitalize ">
+                    <li class="hover:text-[#F09892] "><a href="./index">home</a></li>
+                    <li class="hover:text-[#F09892]"><a href="./blogs">blog</a></li>
+                    <li class="hover:text-[#F09892]"><a href="./about">about</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="">
+                <img src="./src/assets/icons/search.svg" alt="" class="w-[30px]">
+            </div>
+        </section>
+    </header>
+
+    <main class="custom-container mt-20 text-center">
+        <h2 class="text-7xl font-extrabold ">Blogs</h2>
+
+        <div class=" blogs-container mt-20">
+
+            <div class=" relative cursor mb-3 custom-container mx-1 border  shadow-xl m-auto">
+                <figure class="relative rounded-lg">
+                    <img src="./src/assets/image/ladywithcamera.jpg " alt="blogImage "
+                        class="w-[100%] opacity-50 h-[200px] aspect-square object-cover ">
+                    <div class="absolute inset-0 bg-black opacity-55  rounded-lg hover:opacity-40"></div>
+                </figure>
+
+                <div class="text-left mt-5 p-5">
+                    <h2 class="font-bold text-4xl capitalize "> ${res.title} </h2>
+                    <p class=" mt-5 text-xl text-gray-400 "> ${res.description} </p>
+                    <a href='/blog?id=${res.blog_id}'>
+                        <button
+                            class="border bg-black text-white  rounded-xl p-4 mt-7 text-xl font-semibold w-[150px] hover:bg-gray-600 hover:border-none hover:text-white transition-all ">
+                            Read more
+                        </button> </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- pagination section  -->
+        <section class="pagination-container flex justify-center mt-20">
+        </section>
+
+    </main>
+
+    <!--=============== footer section  ====================-->
+    <footer class="mt-32">
+        <h2 class="custom-container text-center text-2xl font-semibold tracking-wider">FOLLOW @BOBOCA</h2>
+
+        <div class="bg-black mt-10 pb-7">
+            <ul class="flex gap-7 p-10 justify-center">
+                <li class=''>
+                    <a href="https://www.facebook.com/" class=' '>
+                        <i class="fa-brands fa-facebook text-gray-400 text-2xl hover:text-white"></i>
+                    </a>
+                </li>
+                <li class=''>
+                    <a href="https://www.instagram.com/" class=' '>
+                        <i class="fa-brands fa-instagram text-gray-400 text-2xl hover:text-white"></i>
+                    </a>
+                </li>
+                <li class=''>
+                    <a href="https://www.twitter.com/" class=' '>
+                        <i class="fa-brands fa-twitter text-gray-400 text-2xl hover:text-white"></i>
+                    </a>
+                </li>
+                <li class=''>
+                    <a href="https://www.pintrest.com/" class=' '>
+                        <i class="fa-brands fa-pinterest text-gray-400 text-2xl hover:text-white"></i>
+                    </a>
+                </li>
+                <li class=''>
+                    <a href="https://www.gmail.com/" class=' '>
+                        <i class="fa-regular fa-envelope text-gray-400 text-2xl hover:text-white"></i>
+                    </a>
+                </li>
+            </ul>
+            <p class="text-center text-gray-300 text-xs font-thin">&copy; 2024 — Rapier. All Rights Reserved. Designed &
+                Developed by
+                BishalKhanal.</p>
+        </div>
+    </footer>
+    <script src="./src/blog.ts" type="module"></script>
+</body>
+
+</html>

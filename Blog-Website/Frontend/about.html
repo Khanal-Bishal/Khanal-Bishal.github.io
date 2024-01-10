@@ -4,11 +4,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./src/style.css">
+
 </head>
 
 <body>
 
-    <script type="module" src="./src/main.ts"></script>
+    <!--======================= header section ===================== -->
+    <header class="cursor">
+        <!-- social media section  -->
+        <section class="border-b pb-6">
+            <div class="custom-container mt-10 flex justify-between item-center">
+                <div class=" ">
+                    <ul class="flex gap-7">
+                        <li class='border border-black rounded-full p-4 hover:bg-gray-200  transition-colors'>
+                            <a href="https://www.twitter.com/m" class=' '>
+                                <img src="./src/assets/icons/twitter.svg" alt="" width="15">
+                            </a>
+                        </li>
+                        <li class='border border-black rounded-full p-4 hover:bg-gray-200  transition-colors'>
+                            <a href="https://www.facebook.com/" class=' '>
+                                <img src="./src/assets/icons/facebook.svg" alt="" width="15">
+                            </a>
+                        </li>
+                        <li class='border border-black rounded-full p-4 hover:bg-gray-200  transition-colors'>
+                            <a href="https://www.instagram.com/" class=' '>
+                                <img src="./src/assets/icons/instagram.svg" alt="" width="15">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- name section  -->
+                <div class="flex flex-col gap-3 w-[60%] m-auto text-center">
+                    <h1 class="text-7xl font-extrabold uppercase"> BOBOCA</h1>
+                    <span class=" tracking-tighter font-thin text-2xl  text-center text-gray-400">A personal blog
+                        site</span>
+                </div>
+
+                <div class="flex justify-between item-center gap-6  text-xl">
+                    <p class="username-container"></p>
+                    <p class="login-container"></p>
+                    <p class="signup-container"></p>
+                    <p class="logout-container"></p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- navigation section  -->
+        <section class="custom-container mt-20 flex justify-between items-center">
+            <a href="./index">
+
+                <img src="./src/assets/icons/logo.svg" alt="logo-icon" width="50">
+            </a>
+
+            <nav class="w-[70%] m-auto">
+                <ul class="flex gap-20 text-2xl text-gray-400 font-semibold capitalize ">
+                    <li class="hover:text-[#F09892] "><a href="./index">home</a></li>
+                    <li class="hover:text-[#F09892]"><a href="./blogs">blog</a></li>
+                    <li class="hover:text-[#F09892]"><a href="./about">about</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="">
+                <img src="./src/assets/icons/search.svg" alt="" class="w-[30px]">
+            </div>
+        </section>
+    </header>
+
+    <!-- ========================== main section ======================== -->
+    <main class="custom-container mt-32">
+        <h2 class="text-7xl font-extrabold text-left lowercase"> About me </h2>
+
+        <!-- mugshot section  -->
+        <div class="mt-16 custom-container flex gap-20 items-center">
+            <div class="flex  items-center gap-3">
+                <div class="font-semibold text-3xl text-slate-500">Mugshot</div>
+                <img src="./src/assets/icons/arrow.svg" alt="arrow icon " class="w-[50px] h-[30px]">
+            </div>
+            <figure class="mugshot-container w-[100px] h-[100px] rounded-full">
+                <img src="./src/assets/image/ladywithcamera.jpg" alt="" class="w-full h-full rounded-full">
+            </figure>
+        </div>
+
+        <!-- about me  section  -->
+        <div class="mt-16 custom-container flex gap-20 items-center">
+            <div class="flex  items-center gap-3">
+                <div class="font-semibold text-3xl text-slate-500 ">About Me</div>
+                <img src="./src/assets/icons/arrow.svg" alt="arrow icon" class="w-[50px] h-[30px]">
+            </div>
+            <p class="aboutme-container text-2xl font-thin text-justify text-gray-400 custom-container">Here will be
+                about be of
+                the author. Lorem
+                ipsum
+                dolor sit amet
+                consectetur
+                adipisicing elit. Quaerat dignissimos, odit voluptates minima porro, at aliquam maiores error laboriosam
+                sunt dolor doloremque eos explicabo quae corporis facere quia expedita. Et est aut aliquid vitae omnis
+                numquam eveniet voluptates aliquam possimus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Suscipit repellendus ratione vitae molestias sapiente nihil quisquam magnam, numquam beatae consectetur
+                minus maiores quis iure dolore soluta, id fugit. Dolorem officiis fugit assumenda voluptatum blanditiis
+                quas optio necessitatibus natus dignissimos at!</p>
+        </div>
+
+        <!-- contacting  section  -->
+        <div class="mt-16 custom-container flex gap-20 items-center">
+            <div class="flex  items-center gap-3">
+                <div class="font-semibold text-3xl text-slate-500">Contacting</div>
+                <img src="./src/assets/icons/arrow.svg" alt="arrow icon " class="w-[50px] h-[30px]">
+            </div>
+            <div class="text-2xl font-thin text-justify text-gray-400 w-[80%]  ">
+                <p>
+                    Email me directly at
+                    <span class="email-container font-bold text-gray-800">Email@e.com</span>
+                    is the best way to react out to me.
+                </p>
+                <p>
+                    Alternatively, you can call or message (.inc WhatsApp) me on
+                    <span class="number-container font-bold text-gray-700">1293345098349</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- socials  section  -->
+        <div class="mt-16 custom-container flex gap-20 items-center ">
+            <div class="flex  items-center  gap-3">
+                <div class="font-semibold text-3xl text-slate-500">Social</div>
+                <img src="./src/assets/icons/arrow.svg" alt="arrow icon " class="w-[50px] h-[30px]">
+            </div>
+            <div class="custom-container mr-5 relative left-10">
+                <nav>
+                    <ul class="flex justify-stretch items-center gap-10">
+                        <li class=' '>
+                            <a href="facebook.com" class=' '>
+                                <img src="./src/assets/icons/twitter.svg" alt="" width="25">
+                            </a>
+                        </li>
+                        <li class=''>
+                            <a href="facebook.com" class=' '>
+                                <img src="./src/assets/icons/facebook.svg" alt="" width="25">
+                            </a>
+                        </li>
+                        <li class=''>
+                            <a href="facebook.com" class=' '>
+                                <img src="./src/assets/icons/instagram.svg" alt="" width="25">
+                            </a>
+                        </li>
+                        <li class='  '>
+                            <a href="facebook.com" class=' '>
+                                <img src="./src/assets/icons/pintrest.svg" alt="" width="25">
+                            </a>
+                        </li>
+                        <li class=' '>
+                            <a href="facebook.com" class=' '>
+                                <img src="./src/assets/icons/gmail.svg" alt="" width="25">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- socials  section  -->
+        <div class="mt-16 custom-container flex gap-20 items-center ">
+            <div class="flex  items-center  gap-3">
+                <div class="font-semibold text-3xl text-slate-500">Education</div>
+                <img src="./src/assets/icons/arrow.svg" alt="arrow icon " class="w-[50px] h-[30px]">
+            </div>
+            <p class=" education-container text-2xl font-thin text-justify text-gray-400 custom-container">
+                Somewhere over the rainbow
+            </p>
+        </div>
+
+        <div>
+
+        </div>
+
+    </main>
+
+    <!--=============== footer section  ====================-->
+    <footer class="mt-32">
+        <h2 class="custom-container text-center text-2xl font-semibold tracking-wider">FOLLOW @BOBOCA</h2>
+
+        <div class="bg-black mt-10 pb-7">
+            <ul class="flex gap-7 p-10 justify-center">
+                <li class=''>
+                    <a href="https://www.facebook.com/" class=' '>
+                        <i class="fa-brands fa-facebook text-gray-400 text-2xl hover:text-white"></i>
+                    </a>
+                </li>
+                <li class=''>
+                    <a href="https://www.instagram.com/" class=' '>
+                        <i class="fa-brands fa-instagram text-gray-400 text-2xl hover:text-white"></i>
+                    </a>
+                </li>
+                <li class=''>
+                    <a href="https://www.twitter.com/" class=' '>
+                        <i class="fa-brands fa-twitter text-gray-400 text-2xl hover:text-white"></i>
+                    </a>
+                </li>
+                <li class=''>
+                    <a href="https://www.pintrest.com/" class=' '>
+                        <i class="fa-brands fa-pinterest text-gray-400 text-2xl hover:text-white"></i>
+                    </a>
+                </li>
+                <li class=''>
+                    <a href="https://www.gmail.com/" class=' '>
+                        <i class="fa-regular fa-envelope text-gray-400 text-2xl hover:text-white"></i>
+                    </a>
+                </li>
+            </ul>
+            <p class="text-center text-gray-300 text-xs font-thin">&copy; 2024 — Rapier. All Rights Reserved. Designed &
+                Developed by
+                BishalKhanal.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="./src/about.ts"></script>
 </body>
 
 </html>

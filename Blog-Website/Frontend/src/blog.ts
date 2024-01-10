@@ -1,4 +1,3 @@
-import './style.css'
 import HTTP from './urlConfig'
 import IBlog from './interface/IBlog'
 import queryString from 'query-string'
@@ -19,10 +18,10 @@ window.addEventListener('load', async(event)=>
     blogs.forEach( res =>
     {   
         blogsContainer.innerHTML += `
-         <div class=" relative cursor mb-3 custom-container mx-1 border  shadow-xl m-auto">
+         <div class=" relative cursor mb-8 mt-10 custom-container mx-1 border  shadow-xl m-auto ">
                 <figure class="relative rounded-lg">
                     <img src="./src/assets/image/ladywithcamera.jpg " alt="blogImage "
-                        class="w-[100%] opacity-50 h-[200px] aspect-square object-cover ">
+                        class="w-[100%] opacity-50 h-[500px] aspect-square object-cover ">
                     <div class="absolute inset-0 bg-black opacity-55  rounded-lg hover:opacity-40"></div>
                 </figure>
 
@@ -42,7 +41,7 @@ window.addEventListener('load', async(event)=>
     for(let index = 1; index <= totalPage; index++)
     {
         paginationContainer.innerHTML += `
-        <a href='./blog?blog_id=${index}'>
+        <a href='./blogs?blog_id=${index}'>
         <div class="border cursor p-3 px-5 font-bold text-xl bg-black text-white hover:bg-white hover:text-black ">${index}
         </div>
         </a>

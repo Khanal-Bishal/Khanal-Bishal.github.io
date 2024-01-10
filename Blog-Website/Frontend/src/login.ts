@@ -1,4 +1,3 @@
-import './style.css'
 import HTTP from './urlConfig'
 
 //variables and constants 
@@ -36,20 +35,20 @@ loginBtn.addEventListener('click', async (event) =>
             User logged in
             </p>
             `
-        console.log(result.data.data.name);
+        console.log(result.data.data.role);
 
         const dataToStore = {
             userName : result.data.data.name,
             userEmail : result.data.data.email,
             accessToken : result.data.accessToken,
             refreshToken : result.data.refreshToken,
+            role : result.data.data.role
         }
         const jsonDataToStore = JSON.stringify(dataToStore)
         
         if(localStorage.getItem('userInfo')) localStorage.removeItem('userInfo')
         localStorage.setItem('userInfo', jsonDataToStore)
        
-        
         setTimeout(()=>
         {
             window.location.href = '../index.html'
@@ -57,9 +56,9 @@ loginBtn.addEventListener('click', async (event) =>
     }
     catch(error: any)
     {
-        toastContainer.innerHTML = ""
         const errorData = error.response.data.error
-
+        console.log(error);
+        
         if(!Array.isArray(errorData))
         {
              toastContainer.innerHTML += `
@@ -80,6 +79,11 @@ loginBtn.addEventListener('click', async (event) =>
                 console.log(err.message);
                 
             })
+        
+        setTimeout( ()=>
+        {
+            toastContainer.innerHTML= ""
+        },1500)
 
         
     }

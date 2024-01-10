@@ -1,4 +1,3 @@
-import './style.css'
 import HTTP from './urlConfig'
 import axios from 'axios'
 
@@ -7,7 +6,7 @@ const nameInput = document.querySelector('#name') as HTMLInputElement
 const emailInput = document.querySelector('#email') as HTMLInputElement
 const passwordInput = document.querySelector('#password') as HTMLInputElement
 const registerBtn = document.querySelector('.register-btn') as HTMLButtonElement
-const errorContainer = document.querySelector('.error-container') as HTMLDivElement
+const toastContainer = document.querySelector('.error-container') as HTMLDivElement
 
 //events 
 registerBtn.addEventListener('click', async (event) =>
@@ -24,8 +23,8 @@ registerBtn.addEventListener('click', async (event) =>
             email:userEmail,
             password: userPassword
         });
-        errorContainer.innerHTML= ''
-        errorContainer.innerHTML += `
+        toastContainer.innerHTML= ''
+        toastContainer.innerHTML += `
                 <p class="bg-green-400 text-white p-5 rounded-xl w-[250px] text-center text-xl font-semibold m-5">
                     User registered
                 </p>
@@ -37,11 +36,11 @@ registerBtn.addEventListener('click', async (event) =>
     }
     catch(error:any)
     {
-        errorContainer.innerHTML = ""
+        toastContainer.innerHTML = ""
         //@ts-ignore
         error.response.data.error.forEach( err =>
             {
-                errorContainer.innerHTML += `
+                toastContainer.innerHTML += `
                 <p class="bg-red-400 text-white p-5 rounded-xl w-[250px] text-center text-xl font-semibold m-5">
                     ${err.message}
                 </p>
@@ -49,8 +48,10 @@ registerBtn.addEventListener('click', async (event) =>
                 console.log(err.message);
                 
             })
-        console.log( error.response.data.error);
-        
+        setTimeout( ()=>
+        {
+            toastContainer.innerHTML= ""
+        },1500)
     }
 
   
