@@ -66,15 +66,21 @@ postButton.addEventListener('click', async (event)=>
                 title: inputTitle,
                 description: inputText,
                 image: fileName
-            },
-            {
-                headers: {'Authorization': `Bearer ${userInfo.accessToken}`}
-            }
+            }         
         )
         textContainer.value = "" 
-        
         titleInput.value = " "
         addFile.innerText = "ADD IMAGE"
+        toastContainer.innerHTML += `
+            <p class="bg-green-400 text-white p-5 rounded-xl w-[250px] text-center text-xl font-semibold m-5">
+            Blog posted
+            </p>
+            `
+        setTimeout(()=>
+        {
+            toastContainer.innerHTML = ""
+        },1000)
+
     }catch (error: any)
     {
         const errorData = error.response.data.error
