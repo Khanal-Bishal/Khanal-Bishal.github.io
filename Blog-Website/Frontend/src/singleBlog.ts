@@ -21,6 +21,7 @@ window.addEventListener('load', async(event) =>
     console.log(singleBlogId);
     const result = await HTTP.get(`/blog/${singleBlogId.blog_id}`)
     const blogInfo = result.data.data
+    
  
     const totalComments = blogInfo.Comments.length
     const formattedDate = convertIsoToFormattedData(blogInfo.createdAt)
@@ -32,7 +33,7 @@ window.addEventListener('load', async(event) =>
     dateContainer.innerText = formattedDate
     totalCommentContainer.innerText = totalComments
     blogImageContainer.innerHTML = `
-        <img src=${"http://localhost:5000/api/image/1704963473145Screenshot (165).png"} alt="" class=" w-[100%] h-[100%]">
+        <img src=${encodeURI(blogInfo.image)} alt="" class=" w-[100%] h-[100%]">
         
     `
     blogDescriptionContainer.innerHTML = `
@@ -48,10 +49,10 @@ window.addEventListener('load', async(event) =>
     for(let index = 1; index <= 3; index++)
     {
         blogCardContainer.innerHTML += `
-            <div class="mt-7 flex gap-6 w-[30%] ">
+            <div class="mt-7 flex gap-6 w-[33%] ">
                 <div class="">
                     <figure class="">
-                        <img src=${randomBlogInfo[index].image} alt="" class="h-[80%] w-[100%] object-fill">
+                        <img src=${encodeURI(randomBlogInfo[index].image)} alt="" class="h-[80%] w-[100%] object-fill opacity-70 hover:opacity-100">
                     </figure>
                     <h2 class="font-bold text-4xl mt-7">${randomBlogInfo[index].title}</h2>
                     <div class="flex flex-row gap-7 mt-7 text-xl uppercase ">

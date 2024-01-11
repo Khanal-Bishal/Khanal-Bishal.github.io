@@ -20,9 +20,9 @@ window.addEventListener('load', async(event)=>
         blogsContainer.innerHTML += `
          <div class=" relative cursor mb-8 mt-10 custom-container mx-1 border  shadow-xl m-auto ">
                 <figure class="relative rounded-lg">
-                    <img src="./src/assets/image/ladywithcamera.jpg " alt="blogImage "
-                        class="w-[100%] opacity-50 h-[500px] aspect-square object-cover ">
-                    <div class="absolute inset-0 bg-black opacity-55  rounded-lg hover:opacity-40"></div>
+                    <img src=${encodeURI(res.image)}
+                        class="w-[100%] opacity-50 h-[400px] aspect-square object-cover ">
+                    <div class="absolute inset-0 bg-black opacity-50  rounded-lg hover:opacity-10"></div>
                 </figure>
 
                 <div class="text-left mt-5 p-5">

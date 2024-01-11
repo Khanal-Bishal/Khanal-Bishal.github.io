@@ -16,7 +16,7 @@ window.addEventListener('load', async (event) =>
     console.log(aboutMeInfo);
 
     mugshotContainer.innerHTML = `
-    <img src=${aboutMeInfo.image}  alt = "" class="w-full h-full rounded-full">
+    <img src=http://${encodeURI(aboutMeInfo.image)}  alt = "" class="w-full h-full rounded-full">
     `
     aboutContainer.innerText = aboutMeInfo.aboutme
     emailContainer.innerText = aboutMeInfo.email
