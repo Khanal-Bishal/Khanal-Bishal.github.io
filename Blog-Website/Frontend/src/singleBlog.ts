@@ -11,6 +11,7 @@ const blogImageContainer = document.querySelector('.blog-image-container') as HT
 const blogDescriptionContainer = document.querySelector('.blog-desc-container') as HTMLElement
 const blogCardContainer = document.querySelector('.blog-card-container') as HTMLElement
 const commentsContainer = document.querySelector('.comments-container') as HTMLDivElement
+const authorMugshot = document.querySelector('.author-mugshot') as HTMLElement
 
 
 //event listner
@@ -26,16 +27,13 @@ window.addEventListener('load', async(event) =>
     const totalComments = blogInfo.Comments.length
     const formattedDate = convertIsoToFormattedData(blogInfo.createdAt)
 
-    console.log(blogInfo);
     
 
     headingContainer.innerText = blogInfo.title
     dateContainer.innerText = formattedDate
     totalCommentContainer.innerText = totalComments
     blogImageContainer.innerHTML = `
-        <img src=${encodeURI(blogInfo.image)} alt="" class=" w-[100%] h-[100%]">
-        
-    `
+        <img src=${encodeURI(blogInfo.image)} alt="" class=" w-[100%] h-[100%]">`
     blogDescriptionContainer.innerHTML = `
         <p class=" text-xl font-thin  text-gray-400 text-justify ">${blogInfo.description}</p>
     `    
@@ -49,13 +47,13 @@ window.addEventListener('load', async(event) =>
     for(let index = 1; index <= 3; index++)
     {
         blogCardContainer.innerHTML += `
-            <div class="mt-7 flex gap-6 w-[33%] ">
+            <div class="mt-7 pt-14 flex gap-6  lg:w-[33%] ">
                 <div class="">
                     <figure class="">
                         <img src=${encodeURI(randomBlogInfo[index].image)} alt="" class="h-[80%] w-[100%] object-fill opacity-70 hover:opacity-100">
                     </figure>
                     <h2 class="font-bold text-4xl mt-7">${randomBlogInfo[index].title}</h2>
-                    <div class="flex flex-row gap-7 mt-7 text-xl uppercase ">
+                    <div class="flex flex-row gap-7 mt-2 text-xl uppercase ">
                         <span class="text-gray-500 uppercase">${convertIsoToFormattedData(randomBlogInfo[0].createdAt)} </span>
                         <span class="text-black">${randomBlogInfo[index].Comments.length} Comments</span>
                     </div>
@@ -64,7 +62,15 @@ window.addEventListener('load', async(event) =>
         `
     }
 
-   
+    //for mugshot 
+    const adminResult = await  HTTP.get('/aboutme')
+    const adminInfo = adminResult.data.data[0]
+    console.log(adminInfo);
+    
+    authorMugshot.innerHTML = `
+    <img src=http://${encodeURI(adminInfo.image)} alt="author" class="author-mugshot w-full h-full rounded-full">
+    `
+
    //for comments
    if(totalComments === 0 )  
    {
@@ -88,14 +94,9 @@ window.addEventListener('load', async(event) =>
         </div>
         `
     }
+
+ 
     
-
-
-
-
-
-
-
 
 })
 

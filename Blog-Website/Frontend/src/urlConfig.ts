@@ -1,27 +1,27 @@
 import axios, { AxiosRequestConfig, AxiosError } from 'axios';
 
-const unparsedUserInfo = localStorage.getItem('userInfo') as any
-const userInfo = JSON.parse(unparsedUserInfo)
-
 const HTTP = axios.create(
     {
         baseURL: 'http://localhost:5000/api',
     }
 )
 
-HTTP.interceptors.request.use((request) =>
-    {         
-        const token = userInfo.accessToken
+HTTP.interceptors.request.use((request) => 
+    {    
+        const unparsedUserInfo = localStorage.getItem('userInfo') as any
+        const userInfo = JSON.parse(unparsedUserInfo)
+        const token = userInfo?.accessToken
+        
         if(token)
         {
             request.headers['Authorization'] = `Bearer ${token}`
-
         }
         return request
     },
 
     (error) =>
     {
+        console.log('from requesrt interceptor',error);
         return error
     }
 )
@@ -32,8 +32,12 @@ HTTP.interceptors.response.use(
         return response;
     },
     async (error) => {
+        
         const originalRequest = error.config;
-
+        const unparsedUserInfo = localStorage.getItem('userInfo') as any
+        const userInfo = JSON.parse(unparsedUserInfo)
+        console.log(error.response);
+        
         if (error.response.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
 

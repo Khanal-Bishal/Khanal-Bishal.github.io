@@ -10,42 +10,49 @@
 
 <body class="bg-slate-300 ">
 
-    <div class=" error-container absolute top-[1%] translate-y-[-10%] right-0 p-5  ">
+    <div class=" toast-container absolute top-[1%] translate-y-[-10%] right-0 p-5 z-[50] ">
 
     </div>
 
     <div
-        class="flex justify-center items-center gap-20 relative top-[50%] translate-y-[-50%] bg-white w-[60%] m-auto rounded-3xl p-10 ">
+        class="flex justify-center items-center gap-20 relative top-[50%] translate-y-[-50%] bg-white w-[90%] m-auto rounded-3xl p-10 sm:w-[60%]">
+
         <dotlottie-player src="https://lottie.host/1ec34285-d8a6-4626-971c-3e79f52ba4c3/F3aE5mWAA1.json"
-            background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay class="border-r">
+            class="border-r hidden lg:block " background="transparent" speed="1" style="width: 400px; height: 400px;"
+            loop autoplay>
         </dotlottie-player>
+
         <div class="flex flex-col justify-around items-center gap-5">
             <p class="text-7xl text-center font-extrabold text-black">Register</p>
+
             <form class="flex flex-col">
-                <div class="flex border-b border-gray-300 mt-10 items-center ">
+                <div class="flex flex-col border-b border-gray-300 mt-10 items-center sm:flex-row ">
                     <label for="name"> <img src="./src/assets/icons/person.svg" alt="" width="30"></label>
                     <input type="name" name="name" placeholder="Enter name" id="name"
-                        class="w-[250px] p-5 outline-none border-none text-2xl">
+                        class="w-[250px] p-5 outline-none border-none text-2xl text-center">
                 </div>
 
-                <div class="flex border-b border-gray-300 mt-10 items-center ">
+                <div class="flex flex-col border-b border-gray-300 mt-10 items-center sm:flex-row ">
                     <label for="email"> <img src="./src/assets/icons/email.svg" alt="" width="30"></label>
                     <input type="email" name="email" placeholder="Enter email" id="email"
-                        class="w-[250px] p-5 outline-none border-none text-2xl">
+                        class="w-[250px] p-5 outline-none border-none text-2xl text-center">
                 </div>
 
-                <div class="flex border-b border-gray-300 mt-10 items-center">
+                <div class="flex flex-col border-b border-gray-300 mt-10 items-center sm:flex-row">
                     <label for="password"> <img src="./src/assets/icons/password.svg" alt="" width="30"></label>
                     <input type="password" name="password" placeholder="Enter password" id="password" minlength="4"
-                        class="w-[250px] p-5 outline-none border-none text-2xl">
-                </div>
-                <div class="flex gap-7">
-                    <button type="submit"
-                        class="mt-14 bg-black w-[150px] text-center p-5 rounded-lg relative  text-xl font-semibold text-white hover:bg-gray-800 transition-all register-btn">Register
-                    </button>
+                        class="w-[250px] p-5 outline-none border-none text-2xl text-center">
                 </div>
 
+                <div class="flex gap-7 justify-center">
+                    <button type="submit"
+                        class="mt-14 bg-black w-[90%] text-center p-5 rounded-lg relative  text-xl font-semibold text-white hover:bg-gray-800 transition-all register-btn">Register
+                    </button>
+                </div>
             </form>
+
+
+
         </div>
 
     </div>

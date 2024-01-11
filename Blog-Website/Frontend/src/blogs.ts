@@ -18,10 +18,10 @@ window.addEventListener('load', async(event)=>
     blogs.forEach( res =>
     {   
         blogsContainer.innerHTML += `
-         <div class=" relative cursor mb-8 mt-10 custom-container mx-1 border  shadow-xl m-auto ">
+         <div class=" relative cursor mb-8 mt-10  mx-1 border  shadow-xl m-auto sm:custom-container">
                 <figure class="relative rounded-lg">
                     <img src=${encodeURI(res.image)}
-                        class="w-[100%] opacity-50 h-[400px] aspect-square object-cover ">
+                        class="w-[100%] opacity-50 h-[200px] aspect-square object-cover sm:h-[400px] ">
                     <div class="absolute inset-0 bg-black opacity-50  rounded-lg hover:opacity-10"></div>
                 </figure>
 

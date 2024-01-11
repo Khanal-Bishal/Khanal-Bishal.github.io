@@ -19,7 +19,7 @@ window.addEventListener('load', async ()=>
 
     if(userInfo?.userName) userNameContainer.innerText = userInfo.userName
     if(userInfo)  logoutContainer.innerHTML = `<img src="./src/assets/icons/logout.svg" alt="logout" width="25">`
-    if(!userInfo) loginContainer.innerText = "Login"
+  if(!userInfo) loginContainer.innerText = "Login"
     if(!userInfo) signupContainer.innerText = "Register"
     blogs.forEach( res =>
     {   
@@ -79,16 +79,6 @@ window.addEventListener('load', async ()=>
     `
 })
 
-//event for logging 
-logoutContainer.addEventListener('click', (event)=>
-{
-  event.preventDefault()
-  localStorage.removeItem('userInfo')
 
-  setTimeout( ()=>
-  {
-    window.location.reload()
-  },200)
-})
 
 

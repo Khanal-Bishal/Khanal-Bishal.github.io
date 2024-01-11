@@ -56,8 +56,8 @@ loginBtn.addEventListener('click', async (event) =>
     }
     catch(error: any)
     {
-        const errorData = error.response.data.error
         console.log(error);
+        const errorData = error.response.data.error
         
         if(!Array.isArray(errorData))
         {
@@ -75,17 +75,13 @@ loginBtn.addEventListener('click', async (event) =>
                 <p class="bg-red-400 text-white p-5 rounded-xl w-[250px] text-center text-xl font-semibold m-5">
                     ${err.message}
                 </p>
-                `
-                console.log(err.message);
-                
+                `                
             })
         
         setTimeout( ()=>
         {
             toastContainer.innerHTML= ""
-        },1500)
-
-        
+        },1500)  
     }
       
 })

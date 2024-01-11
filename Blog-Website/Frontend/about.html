@@ -5,62 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
 <body>
 
-    <!--======================= header section ===================== -->
+    <!--================= header section ================= -->
     <header class="cursor">
         <!-- social media section  -->
-        <section class="border-b pb-6">
-            <div class="custom-container mt-10 flex justify-between item-center">
-                <div class=" ">
-                    <ul class="flex gap-7">
-                        <li class='border border-black rounded-full p-4 hover:bg-gray-200  transition-colors'>
+        <section class=" sm:border-b pb-6 ">
+
+            <div class="  sm:flex custom-container mt-10  justify-between item-center">
+                <div class="hidden sm:block">
+                    <ul class=" flex gap-7">
+                        <li class='border border-black rounded-full p-2 hover:bg-gray-200  transition-colors'>
                             <a href="https://www.twitter.com/m" class=' '>
-                                <img src="./src/assets/icons/twitter.svg" alt="" width="15">
+                                <img src="./src/assets/icons/twitter.svg" alt="" width="20">
                             </a>
                         </li>
-                        <li class='border border-black rounded-full p-4 hover:bg-gray-200  transition-colors'>
+                        <li class='border border-black rounded-full p-2 hover:bg-gray-200  transition-colors'>
                             <a href="https://www.facebook.com/" class=' '>
-                                <img src="./src/assets/icons/facebook.svg" alt="" width="15">
+                                <img src="./src/assets/icons/facebook.svg" alt="" width="20">
                             </a>
                         </li>
-                        <li class='border border-black rounded-full p-4 hover:bg-gray-200  transition-colors'>
+                        <li class='border border-black rounded-full p-2 hover:bg-gray-200  transition-colors'>
                             <a href="https://www.instagram.com/" class=' '>
-                                <img src="./src/assets/icons/instagram.svg" alt="" width="15">
+                                <img src="./src/assets/icons/instagram.svg" alt="" width="20">
                             </a>
                         </li>
                     </ul>
                 </div>
 
                 <!-- name section  -->
-                <div class="flex flex-col gap-3 w-[60%] m-auto text-center">
-                    <h1 class="text-7xl font-extrabold uppercase"> BOBOCA</h1>
-                    <span class=" tracking-tighter font-thin text-2xl  text-center text-gray-400">A personal blog
-                        site</span>
+                <div class=" flex flex-col gap-3 min-w-[60%] m-auto text-center ">
+                    <h1 class="text-6xl font-extrabold uppercase">BOBOCA</h1>
+                    <span class=" tracking-tighter font-thin text-xl  text-center text-gray-400"> ---- My personal blog
+                        site -----</span>
                 </div>
 
-                <div class="flex justify-between item-center gap-6  text-xl">
-                    <p class="username-container"></p>
-                    <p class="login-container"></p>
-                    <p class="signup-container"></p>
-                    <p class="logout-container"></p>
+
+                <div class=" hidden  gap-4 text-xl items-center sm:flex">
+                    <i class="person-icon fa-solid fa-user text-3xl"></i>
+                    <span class="username-container font-bold text-sm text-gray-400">Name</span>
+                    <a href="./login" class="login-container text-sm font-thin  tracking-wider  hover:underline"></a>
+                    <a href="./signup" class="signup-container text-sm font-thin  tracking-wider hover:underline"></a>
+                    <span class="logout-container"></span>
                 </div>
 
             </div>
         </section>
 
         <!-- navigation section  -->
-        <section class="custom-container mt-20 flex justify-between items-center">
+        <section class="custom-container mt-7 flex justify-between items-center">
             <a href="./index">
-
                 <img src="./src/assets/icons/logo.svg" alt="logo-icon" width="50">
             </a>
 
-            <nav class="w-[70%] m-auto">
-                <ul class="flex gap-20 text-2xl text-gray-400 font-semibold capitalize ">
+            <nav class="lg:w-[70%] m-auto">
+                <ul class=" hidden sm:flex gap-20 text-2xl text-gray-400 font-semibold capitalize ">
                     <li class="hover:text-[#F09892] "><a href="./index">home</a></li>
                     <li class="hover:text-[#F09892]"><a href="./blogs">blog</a></li>
                     <li class="hover:text-[#F09892]"><a href="./about">about</a></li>
@@ -68,71 +73,89 @@
             </nav>
 
 
-            <div class="">
+            <div class="hidden sm:block">
                 <img src="./src/assets/icons/search.svg" alt="" class="w-[30px]">
             </div>
+            <div class=" sm:hidden">
+                <i class=" menu-icon fa-solid fa-bars text-4xl text-black"></i>
+            </div>
         </section>
+
+        <div class="  menu-opener hidden fixed inset-0 bg-black  justify-center items-start  ">
+            <div class=" absolute userinfo flex gap-5 items-center top-7 left-10 ">
+                <i class="person-icon fa-solid fa-user text-3xl text-white"></i>
+                <span class="user-name font-bold  text-white">Name</span>
+            </div>
+            <i
+                class="x-icon fa-solid fa-xmark text-white  text-2xl absolute userinfo flex gap-5 items-center top-7 right-10"></i>
+            <ul
+                class="  flex flex-col justify-center items-center gap-16 text-2xl text-white font-semibold capitalize w-full h-full  ">
+                <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a
+                        href="./index">home</a>
+                </li>
+                <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a href="./blog">blog</a>
+                </li>
+                <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a
+                        href="./about">about</a>
+                </li>
+                <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a
+                        href="./login">Login</a>
+                </li>
+
+
+            </ul>
+        </div>
     </header>
 
     <!-- ========================== main section ======================== -->
     <main class="custom-container mt-32">
-        <h2 class="text-7xl font-extrabold text-left lowercase"> About me </h2>
+        <h2 class="text-7xl font-extrabold text-center lowercase sm:text-left"> About me </h2>
 
         <!-- mugshot section  -->
-        <div class="mt-16 custom-container flex gap-20 items-center">
+        <div class="mt-16 custom-container flex flex-col gap-7 items-center sm:flex-row sm:gap-20">
             <div class="flex  items-center gap-3">
-                <div class="font-semibold text-3xl text-slate-500">Mugshot</div>
-                <img src="./src/assets/icons/arrow.svg" alt="arrow icon " class="w-[50px] h-[30px]">
+                <div class="font-semibold text-3xl text-slate-500 ">Mugshot</div>
+                <img src="./src/assets/icons/arrow.svg" alt="arrow icon " class="w-[50px] h-[30px] hidden sm:block">
             </div>
             <figure class="mugshot-container w-[100px] h-[100px] rounded-full">
-                <img src="./src/assets/image/ladywithcamera.jpg" alt="" class="w-full h-full rounded-full">
+                <img src="" alt="" class="w-full h-full rounded-full">
             </figure>
         </div>
 
         <!-- about me  section  -->
-        <div class="mt-16 custom-container flex gap-20 items-center">
-            <div class="flex  items-center gap-3">
+        <div class="mt-16 custom-container flex flex-col gap-7 items-center sm:flex-row sm:gap-20">
+            <div class=" flex  items-center gap-3 ">
                 <div class="font-semibold text-3xl text-slate-500 ">About Me</div>
-                <img src="./src/assets/icons/arrow.svg" alt="arrow icon" class="w-[50px] h-[30px]">
+                <img src="./src/assets/icons/arrow.svg" alt="arrow icon" class="hidden w-[50px] h-[30px] sm:block">
             </div>
-            <p class="aboutme-container text-2xl font-thin text-justify text-gray-400 custom-container">Here will be
-                about be of
-                the author. Lorem
-                ipsum
-                dolor sit amet
-                consectetur
-                adipisicing elit. Quaerat dignissimos, odit voluptates minima porro, at aliquam maiores error laboriosam
-                sunt dolor doloremque eos explicabo quae corporis facere quia expedita. Et est aut aliquid vitae omnis
-                numquam eveniet voluptates aliquam possimus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Suscipit repellendus ratione vitae molestias sapiente nihil quisquam magnam, numquam beatae consectetur
-                minus maiores quis iure dolore soluta, id fugit. Dolorem officiis fugit assumenda voluptatum blanditiis
-                quas optio necessitatibus natus dignissimos at!</p>
+            <p class="aboutme-container text-2xl font-thin text-center text-gray-400 custom-container sm:text-justify">
+            </p>
         </div>
 
         <!-- contacting  section  -->
-        <div class="mt-16 custom-container flex gap-20 items-center">
+        <div class="mt-16 custom-container flex flex-col gap-7 items-center sm:flex-row">
             <div class="flex  items-center gap-3">
                 <div class="font-semibold text-3xl text-slate-500">Contacting</div>
-                <img src="./src/assets/icons/arrow.svg" alt="arrow icon " class="w-[50px] h-[30px]">
+                <img src="./src/assets/icons/arrow.svg" alt="arrow icon " class="w-[50px] h-[30px] hidden sm:block">
             </div>
-            <div class="text-2xl font-thin text-justify text-gray-400 w-[80%]  ">
+            <div class="text-2xl font-thin  text-gray-400 w-[80%] text-center sm:text-justify  ">
                 <p>
                     Email me directly at
-                    <span class="email-container font-bold text-gray-800">Email@e.com</span>
+                    <span class="email-container font-bold text-gray-800"></span>
                     is the best way to react out to me.
                 </p>
                 <p>
                     Alternatively, you can call or message (.inc WhatsApp) me on
-                    <span class="number-container font-bold text-gray-700">1293345098349</span>
+                    <span class="number-container font-bold text-gray-700"></span>.
                 </p>
             </div>
         </div>
 
         <!-- socials  section  -->
-        <div class="mt-16 custom-container flex gap-20 items-center ">
+        <div class="mt-16 custom-container flex flex-col gap-7 items-center sm:flex-row sm:gap-20 ">
             <div class="flex  items-center  gap-3">
                 <div class="font-semibold text-3xl text-slate-500">Social</div>
-                <img src="./src/assets/icons/arrow.svg" alt="arrow icon " class="w-[50px] h-[30px]">
+                <img src="./src/assets/icons/arrow.svg" alt="arrow icon " class="w-[50px] h-[30px]  hidden sm:block">
             </div>
             <div class="custom-container mr-5 relative left-10">
                 <nav>
@@ -168,13 +191,14 @@
         </div>
 
         <!-- socials  section  -->
-        <div class="mt-16 custom-container flex gap-20 items-center ">
-            <div class="flex  items-center  gap-3">
+        <div class="mt-16 custom-container flex flex-col gap-7 items-center sm:flex-row sm:gap-20">
+            <div class="flex  items-center  gap-">
                 <div class="font-semibold text-3xl text-slate-500">Education</div>
-                <img src="./src/assets/icons/arrow.svg" alt="arrow icon " class="w-[50px] h-[30px]">
+                <img src="./src/assets/icons/arrow.svg" alt="arrow icon " class="w-[50px] h-[30px] hidden sm:block">
             </div>
-            <p class=" education-container text-2xl font-thin text-justify text-gray-400 custom-container">
-                Somewhere over the rainbow
+            <p
+                class=" education-container text-2xl font-thin text-center text-gray-400 custom-container sm:text-justify">
+
             </p>
         </div>
 
@@ -223,6 +247,7 @@
     </footer>
 
     <script type="module" src="./src/about.ts"></script>
+    <script type="module" src="./src/header.ts"></script>
 </body>
 
 </html>

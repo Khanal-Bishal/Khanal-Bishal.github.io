@@ -6,7 +6,7 @@ const nameInput = document.querySelector('#name') as HTMLInputElement
 const emailInput = document.querySelector('#email') as HTMLInputElement
 const passwordInput = document.querySelector('#password') as HTMLInputElement
 const registerBtn = document.querySelector('.register-btn') as HTMLButtonElement
-const toastContainer = document.querySelector('.error-container') as HTMLDivElement
+const toastContainer = document.querySelector('.toast-container') as HTMLDivElement
 
 //events 
 registerBtn.addEventListener('click', async (event) =>
