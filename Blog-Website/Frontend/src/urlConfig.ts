@@ -47,13 +47,8 @@ HTTP.interceptors.response.use(
                 const newAccessToken = response.data.accessToken;
 
                 if (newAccessToken) {
-                    // Update only the accessToken in userInfo
-                    userInfo.accessToken = newAccessToken;
-                    
-                    // Update localStorage with the refreshed userInfo
+                    userInfo.accessToken = newAccessToken;                    
                     localStorage.setItem('userInfo', JSON.stringify(userInfo));
-
-                    // Retry the original request with the new access token
                     originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
                     return HTTP(originalRequest);
                 }

@@ -19,6 +19,7 @@ export const getAllBlog = async(page: number) =>
                 include: [{ model: User, attributes: ['name', 'email'] }]
             }
         ], 
+        order: [['blog_id','ASC']]
     })
     let blogsCount = await Blog.count()
 

@@ -1,29 +1,38 @@
 import HTTP from './urlConfig'
 import { checkIsAdmin } from './utils'
+import queryString from 'query-string'
 
 //variables and constants 
 const textContainer = document.querySelector('.text-container') as HTMLTextAreaElement
 const fileInput = document.querySelector('#fileInput') as HTMLInputElement
 const addFile = document.querySelector('.add-file') as HTMLInputElement
-const form = document.querySelector('#form') as HTMLFormElement
 
 const titleInput = document.querySelector('.title-input') as HTMLInputElement
-const postButton= document.querySelector('.post-button') as HTMLButtonElement
+const updateButton= document.querySelector('.update-button') as HTMLButtonElement
 const toastContainer = document.querySelector('.toast-container') as HTMLElement
+const idContainer = document.querySelector('.id-container') as HTMLSpanElement
 
 const unparsedUserInfo = localStorage.getItem('userInfo') as any
 const userInfo = JSON.parse(unparsedUserInfo)
+const blogId = queryString.parse(location.search)
 
 // event listener 
 
 //onload event
-window.addEventListener('load', () =>
+window.addEventListener('load', async () =>
 {
     if (userInfo== null || !checkIsAdmin(userInfo.role)) 
     {
         window.location.href = '../404.html'
         return
-    }
+    }    
+    const result = await HTTP.get(`/blog/${blogId.blog_id}`)
+    const blogInfo = result.data.data
+    console.log(blogInfo);
+    titleInput.value = blogInfo.title
+    textContainer.value = blogInfo.description
+    idContainer.innerText = blogInfo.blog_id
+    
 })
 
 //function for infinite textarea expansion
@@ -42,36 +51,31 @@ fileInput.addEventListener('change', (event: any)=>
 )
 
 //event when admin post the blog
-postButton.addEventListener('click', async (event)=>
+updateButton.addEventListener('click', async (event)=>
 {
-   
-    
     event.preventDefault()
     const inputTitle = titleInput.value
     const inputText = textContainer.value
-    const formData = new FormData(form);
-    
-    console.log(fileInput);
-    
-    //@ts-ignore
-    // formData.append('image',fileInput?.files[0])
-    // formData.append('image',fileInput?.files[0])
-    // formData.append('image',fileInput?.files[0])
-   
+    let fileName
+    if (fileInput.files && fileInput.files.length > 0) 
+    {
+        const fileName = fileInput.files[0].name;
+        addFile.innerText = fileName;
+    } 
+    else
+    {
+        addFile.innerText = "No file selected";
+    }
+
     try 
-    {  
-        console.log(formData);
-        
-        const result = await  HTTP.post('/blog',
-            // {
-            //     // title: inputTitle,
-            //     // description: inputText,
-            //     // image: formData
-            // },
-              formData
+    { 
+        const result = await  HTTP.put(`/blog/${blogId.blog_id}`,
+            {
+                title: inputTitle,
+                description: inputText,
+                image: fileName
+            }         
         )
-        
-        
         textContainer.value = "" 
         titleInput.value = " "
         addFile.innerText = "ADD IMAGE"
@@ -85,7 +89,12 @@ postButton.addEventListener('click', async (event)=>
             toastContainer.innerHTML = ""
         },1000)
 
-    }catch (error: any)
+        setTimeout(() =>
+        {
+            window.location.href = '../dashboard'
+        })
+    }
+    catch (error: any)
     {
         const errorData = error.response.data.error
         
@@ -102,7 +111,8 @@ postButton.addEventListener('click', async (event)=>
         setTimeout( ()=>
         {
             toastContainer.innerHTML= ""
-        },1500)
+        },3000)
+
 
     }
     

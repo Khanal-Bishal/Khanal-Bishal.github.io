@@ -25,11 +25,15 @@ window.addEventListener('load', async(event) =>
     const totalComments = blogInfo.Comments.length
     const formattedDate = convertIsoToFormattedData(blogInfo.createdAt)
 
+    console.log(blogInfo);
+    
+
     headingContainer.innerText = blogInfo.title
     dateContainer.innerText = formattedDate
     totalCommentContainer.innerText = totalComments
     blogImageContainer.innerHTML = `
-        <img src=${blogInfo.image} alt="" class=" w-[100%] h-[100%]">
+        <img src=${"http://localhost:5000/api/image/1704963473145Screenshot (165).png"} alt="" class=" w-[100%] h-[100%]">
+        
     `
     blogDescriptionContainer.innerHTML = `
         <p class=" text-xl font-thin  text-gray-400 text-justify ">${blogInfo.description}</p>
