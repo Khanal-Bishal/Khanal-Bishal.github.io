@@ -8,67 +8,123 @@
   <link rel="shortcut icon" href="./src/assets/logo.svg" type="image/x-icon">
   <title>Home </title>
   <link rel="stylesheet" href="./src/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800&display=swap"
+    rel="stylesheet">
 
 </head>
 
-<body class="bg-gradient-to-r from-slate-400 to-slate-600 text-white">
+<body class="">
 
-  <!--===================== HEADER SECTION ====================== -->
+  <!--=================== header section ==========================-->
+  <header class="cursor">
+    <!-- social media section  -->
+    <section class=" sm:border-b pb-6 ">
 
-  <header>
+      <div class="  sm:flex custom-container mt-10  justify-between item-center">
+        <div class="hidden sm:block">
+          <ul class=" flex gap-7">
+            <li class='border border-black rounded-full p-2 hover:bg-gray-200  transition-colors'>
+              <a href="https://www.twitter.com/m" class=' '>
+                <img src="./src/assets/icons/twitter.svg" alt="" width="20">
+              </a>
+            </li>
+            <li class='border border-black rounded-full p-2 hover:bg-gray-200  transition-colors'>
+              <a href="https://www.facebook.com/" class=' '>
+                <img src="./src/assets/icons/facebook.svg" alt="" width="20">
+              </a>
+            </li>
+            <li class='border border-black rounded-full p-2 hover:bg-gray-200  transition-colors'>
+              <a href="https://www.instagram.com/" class=' '>
+                <img src="./src/assets/icons/instagram.svg" alt="" width="20">
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- name section  -->
+        <div class=" flex flex-col gap-3 min-w-[60%] m-auto text-center ">
+          <h1 class="text-6xl font-extrabold uppercase">BOBOCA</h1>
+          <span class=" tracking-tighter font-thin text-xl  text-center text-gray-400"> ---- My personal blog
+            site ----</span>
+        </div>
 
 
-    <!-- login and profile section  -->
+        <div class=" hidden  gap-4 text-xl items-center sm:flex">
+          <i class="person-icon fa-solid fa-user text-3xl"></i>
+          <span class="username-container font-bold text-sm text-gray-400">Name</span>
+          <a href="./login" class="login-container text-sm font-thin  tracking-wider  hover:underline"></a>
+          <a href="./signup" class="signup-container text-sm font-thin  tracking-wider hover:underline"></a>
+          <span class="logout-container"></span>
+        </div>
 
-    <section class="custom-container flex justify-between items-center 5 border-b-[0.2px]  pb-10 border-gray-300">
-
-      <img src="./src/assets/icons/logo.svg" alt="logo" width="60">
-      <h2 class="text-7xl font-bold ">RAPIER</h2>
-
-      <div class="flex justify-between item-center gap-6  text-xl">
-        <p class="username-container"></p>
-        <p class="login-container"></p>
-        <p class="signup-container"></p>
-        <p class="logout-container"></p>
       </div>
-
     </section>
 
+    <!-- navigation section  -->
+    <section class="custom-container mt-7 flex justify-between items-center">
+      <a href="./index">
+        <img src="./src/assets/icons/logo.svg" alt="logo-icon" width="50">
+      </a>
+
+      <nav class="lg:w-[70%] m-auto">
+        <ul class=" hidden sm:flex gap-20 text-2xl text-gray-400 font-semibold capitalize ">
+          <li class="hover:text-[#F09892] "><a href="./index">home</a></li>
+          <li class="hover:text-[#F09892]"><a href="./blogs">blog</a></li>
+          <li class="hover:text-[#F09892]"><a href="./about">about</a></li>
+        </ul>
+      </nav>
+
+
+      <div class="hidden sm:block">
+        <img src="./src/assets/icons/search.svg" alt="" class="w-[30px]">
+      </div>
+      <div class=" sm:hidden">
+        <i class=" menu-icon fa-solid fa-bars text-4xl text-black"></i>
+      </div>
+    </section>
+
+    <div class="  menu-opener hidden fixed inset-0 bg-black  justify-center items-start  ">
+      <div class=" absolute userinfo flex gap-5 items-center top-7 left-10 ">
+        <i class="person-icon fa-solid fa-user text-3xl text-white"></i>
+        <span class="user-name font-bold  text-white">Name</span>
+      </div>
+      <i
+        class="x-icon fa-solid fa-xmark text-white  text-2xl absolute userinfo flex gap-5 items-center top-7 right-10"></i>
+      <ul
+        class="  flex flex-col justify-center items-center gap-16 text-2xl text-white font-semibold capitalize w-full h-full  ">
+        <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a href="./index">home</a>
+        </li>
+        <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a href="./blog">blog</a>
+        </li>
+        <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a href="./about">about</a>
+        </li>
+        <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a href="./login">Login</a>
+        </li>
+
+
+      </ul>
+    </div>
   </header>
 
-  <!-- navigation section  -->
 
-  <section class="custom-container mt-8">
-    <nav class="custom-container ">
-      <ul class="flex justify-between  text-xl cursor">
-        <li>
-          home
-        </li>
-        <li>
-          blogs
-        </li>
-        <li>
-          about
-        </li>
-      </ul>
-    </nav>
-  </section>
 
-  <main class=" custom-container mt-20 ">
-
+  <main class=" custom-container mt-14 ">
     <!--================= INTRODUCTION SECTION =================-->
     <section class="  flex flex-col ">
-
-
-      <div class="flex flex-col justify-center items-center text-8xl relative h-[35vh] select-none">
+      <div class="hidden relative   flex-col justify-center items-center text-6xl h-[30vh]   select-none sm:flex">
         <p class="absolute top-0 text-[#4581b1] font-bold">OPPORTUNE</p>
-        <p class="absolute top-16 text-yellow-400 font-bold">EXPLORE</p>
-        <p class="absolute top-32 text-[#9381ff] font-bold">TEST&PROBE</p>
-        <p class="absolute top-48 text-red-500 font-bold">FORMULATE</p>
-        <p class="absolute top-[185px] text-[#084c61] font-bold">GUIDE AND LEARN</p>
+        <p class="absolute top-10 text-yellow-400 font-bold">EXPLORE</p>
+        <p class="absolute top-20 text-[#9381ff] font-bold">TEST&PROBE</p>
+        <p class="absolute top-[90px] text-red-500 font-bold">FORMULATE</p>
+        <p class="absolute top-40 text-[#084c61] font-bold">GUIDE AND LEARN</p>
       </div>
 
-      <p class="m-auto font-semibold text-xl w-[50%] text-center mt-10">
+      <p class="m-auto font-semibold text-xl w-[80%] text-center mt-10 hidden sm:block lg:w-[50%]">
         I'm a Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur
         adipisicing elit. Nostrum,
         excepturi similique? Exercitationem, rem similique soluta perspiciatis quidem dolorem et laboriosam!
@@ -76,64 +132,299 @@
 
     </section>
 
-
     <!--==================== Blogs section ===================== -->
-    <section class="mt-32">
 
-      <div class="flex flex-wrap random-blog-container ">
-        <div class=" relative cursor mb-3 w-[66%] mx-1  ">
-          <figure class="relative rounded-lg">
-            <img src=${res.image} alt="blogImage " class="w-[100%] opacity-50 h-[500px] aspect-square ">
-            <div class="absolute inset-0 bg-black opacity-55 hover:opacity-40"></div>
-          </figure>
+    <!--==== blogs image section  ====-->
+    <section class="blog-image-container mt-24 flex ">
 
-          <div class="absolute top-[50%] left-10 translate-y-[-50%] text-white ">
-            <h2 class="font-bold text-4xl capitalize w-[45%]"> ${res.title} </h2>
-            <p class="w-[45%] mt-5 text-2xl"> ${res.description} </p>
-            <button
-              class="border rounded-xl p-4 mt-7 text-xl font-semibold w-[150px] hover:bg-[#7ca9aa] hover:border-none transition-all ">Read
-              more</button>
-          </div>
-        </div>
+    </section>
 
-        <div class=" relative cursor mb-3 w-[30%] mx-1 ">
-          <figure class="relative ">
-            <img src=${res.image} alt="blogImage " class="w-[100%] opacity-50 h-[500px] aspect-square ">
-            <div class="absolute inset-0 bg-black opacity-55 hover:opacity-40"></div>
-          </figure>
+    <!--====== single blog section ====-->
 
-          <div class="absolute top-[50%] left-10 translate-y-[-50%] text-white ">
-            <h2 class="font-bold text-4xl capitalize w-[45%]"> ${res.title} </h2>
-            <p class="w-[45%] mt-5 text-2xl"> ${res.description} </p>
-            <button
-              class="border rounded-xl p-4 mt-7 text-xl font-semibold w-[150px] hover:bg-[#7ca9aa] hover:border-none transition-all ">Read
-              more</button>
-          </div>
+    <!-- first single blog  -->
+    <!--single blog heading section  -->
+    <section class="mt-20 w-[70%] m-auto">
+
+      <div class="w-[85%] m-auto">
+        <h2 class="heading text-5xl font-semibold sm:7xl ">Heading will be here </h2>
+        <div class="author-info flex gap-10 uppercase font-semibold mt-5">
+          <p>
+            <span class="text-gray-400 ">By</span>
+            <span class="author-name-container">Boboca</span>
+          </p>
+          <p class="date-container text-gray-400">
+          </p>
+
+          <p class="flex flex-col sm:flex-row gap-2">
+            <span class="total-comment-container">7</span>
+            <span class="text-gray-400">Comments</span>
+          </p>
         </div>
       </div>
 
-      <div class="flex flex-wrap blogs-container">
+      <section class="mt-10 flex flex-col-reverse justify-between gap-5 sm:flex-row">
+        <!-- social media  -->
+        <div class=" ">
+          <ul class="flex flex-row   justify-center items-center sm:flex-col">
+            <li class='border border-black  p-2 hover:bg-gray-200  transition-colors sm:p-4  '>
+              <a href="facebook.com" class=' '>
+                <img src="./src/assets/icons/twitter.svg" alt="" width="20">
+              </a>
+            </li>
+            <li class='border border-black  p-2 hover:bg-gray-200  transition-colors sm:p-4  '>
+              <a href="facebook.com" class=' '>
+                <img src="./src/assets/icons/facebook.svg" alt="" width="20">
+              </a>
+            </li>
+            <li class='border border-black  p-2 hover:bg-gray-200  transition-colors sm:p-4  '>
+              <a href="facebook.com" class=' '>
+                <img src="./src/assets/icons/instagram.svg" alt="" width="20">
+              </a>
+            </li>
+            <li class='border border-black  p-2 hover:bg-gray-200  transition-colors sm:p-4  '>
+              <a href="facebook.com" class=' '>
+                <img src="./src/assets/icons/pintrest.svg" alt="" width="20">
+              </a>
+            </li>
+            <li class='border border-black  p-2 hover:bg-gray-200  transition-colors sm:p-4  '>
+              <a href="facebook.com" class=' '>
+                <img src="./src/assets/icons/gmail.svg" alt="" width="20">
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- image section  -->
+        <figure class=" first-sblog-image-container w-[95%] h-[60%] relative">
+        </figure>
+
+      </section>
+
+      <!-- singe blog description section  -->
+      <div class="w-[80%] m-auto mt-14 flex flex-col">
+        Here will be short description
+        <a href='/blog?id=${res.blog_id}' class="">
+          <button
+            class=" read-more border-none   bg-red-300 uppercase p-4 mt-7 text-xl font-semibold w-[150px]   text-center text-white">
+            Read more
+          </button>
+        </a>
       </div>
     </section>
 
+    <!-- you may like section  -->
+    <!-- you may also like section  -->
+    <section class="mt-16 pb-10 border-b border-gray-300  w-[70%] m-auto">
+      <h2 class="font-bold text-4xl uppercase m-auto w-[85%]">
+        You may like
+      </h2>
+
+      <!-- you may like blog container  -->
+      <div class="blog-card-container  gap-6 pb-10 mt-10 flex w-[85%] m-auto ">
+
+        <div class="w-[33%]">
+          <figure class="">
+            <img src='./src/assets/image/ladywithcamera.jpg' alt=""
+              class="h-[100%] w-[100%] object-fill opacity-70 hover:opacity-100">
+          </figure>
+          <h2 class="font-bold text-2xl mt-7 ">Title is here </h2>
+          <div class="flex flex-row gap-7 mt-2 text-xs uppercase ">
+            <span class="text-gray-500 uppercase">date </span>
+            <span class="text-black">comment</span>
+          </div>
+        </div>
+        <div class="w-[33%]">
+          <figure class="">
+            <img src='./src/assets/image/ladywithcamera.jpg' alt=""
+              class="h-[80%] w-[100%] object-fill opacity-70 hover:opacity-100">
+          </figure>
+          <h2 class="font-bold text-2xl mt-7 ">Title is here </h2>
+          <div class="flex flex-row gap-7 mt-2 text-xs uppercase ">
+            <span class="text-gray-500 uppercase">date </span>
+            <span class="text-black">comment</span>
+          </div>
+        </div>
+        <div class="w-[33%]">
+          <figure class="">
+            <img src='./src/assets/image/ladywithcamera.jpg' alt=""
+              class="h-[80%] w-[100%] object-fill opacity-70 hover:opacity-100">
+          </figure>
+          <h2 class="font-bold text-2xl mt-7 ">Title is here </h2>
+          <div class="flex flex-row gap-7 mt-2 text-xs uppercase ">
+            <span class="text-gray-500 uppercase">date </span>
+            <span class="text-black">comment</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- second part  -->
+
+    <!--====== single blog section ====-->
+    <!--single blog heading section  -->
+    <section class="mt-20 w-[70%] m-auto">
+
+      <div class="w-[85%] m-auto">
+        <h2 class="heading text-5xl font-semibold sm:7xl ">Heading will be here </h2>
+        <div class="author-info flex gap-10 uppercase font-semibold mt-5">
+          <p>
+            <span class="text-gray-400 ">By</span>
+            <span class="author-name-container">Boboca</span>
+          </p>
+          <p class="date-container text-gray-400">
+          </p>
+
+          <p class="flex flex-col sm:flex-row gap-2">
+            <span class="total-comment-container">7</span>
+            <span class="text-gray-400">Comments</span>
+          </p>
+        </div>
+      </div>
+
+      <section class="mt-10 flex flex-col-reverse justify-between gap-5 sm:flex-row">
+        <!-- social media  -->
+        <div class=" ">
+          <ul class="flex flex-row   justify-center items-center sm:flex-col">
+            <li class='border border-black  p-2 hover:bg-gray-200  transition-colors sm:p-4  '>
+              <a href="facebook.com" class=' '>
+                <img src="./src/assets/icons/twitter.svg" alt="" width="20">
+              </a>
+            </li>
+            <li class='border border-black  p-2 hover:bg-gray-200  transition-colors sm:p-4  '>
+              <a href="facebook.com" class=' '>
+                <img src="./src/assets/icons/facebook.svg" alt="" width="20">
+              </a>
+            </li>
+            <li class='border border-black  p-2 hover:bg-gray-200  transition-colors sm:p-4  '>
+              <a href="facebook.com" class=' '>
+                <img src="./src/assets/icons/instagram.svg" alt="" width="20">
+              </a>
+            </li>
+            <li class='border border-black  p-2 hover:bg-gray-200  transition-colors sm:p-4  '>
+              <a href="facebook.com" class=' '>
+                <img src="./src/assets/icons/pintrest.svg" alt="" width="20">
+              </a>
+            </li>
+            <li class='border border-black  p-2 hover:bg-gray-200  transition-colors sm:p-4  '>
+              <a href="facebook.com" class=' '>
+                <img src="./src/assets/icons/gmail.svg" alt="" width="20">
+              </a>
+            </li>
+          </ul>
+        </div>
+
+
+        <!-- image section  -->
+        <figure class=" blog-image-container w-[95%] h-[60%] ">
+          <img src="./src/assets/image/ladywithcamera.jpg" alt="" class=" w-[100%] h-[450px]">
+        </figure>
+
+      </section>
+
+      <!-- singe blog description section  -->
+      <div class="w-[80%] m-auto mt-14 flex flex-col">
+        Here will be short description
+        <a href='/blog?id=${res.blog_id}' class="">
+          <button
+            class="border-none   bg-red-300 uppercase p-4 mt-7 text-xl font-semibold w-[150px]   text-center text-white">
+            Read more
+          </button>
+        </a>
+      </div>
+    </section>
+
+    <!-- you may like section  -->
+    <!-- you may also like section  -->
+    <section class="mt-16 pb-10 border-b border-gray-300  w-[70%] m-auto">
+      <h2 class="font-bold text-4xl uppercase m-auto w-[85%]">
+        You may like
+      </h2>
+
+      <!-- you may like blog container  -->
+      <div class="blog-card-container  gap-6 pb-10 mt-10 flex w-[85%] m-auto ">
+
+        <div class="w-[33%]">
+          <figure class="">
+            <img src='./src/assets/image/ladywithcamera.jpg' alt=""
+              class="h-[100%] w-[100%] object-fill opacity-70 hover:opacity-100">
+          </figure>
+          <h2 class="font-bold text-2xl mt-7 ">Title is here </h2>
+          <div class="flex flex-row gap-7 mt-2 text-xs uppercase ">
+            <span class="text-gray-500 uppercase">date </span>
+            <span class="text-black">comment</span>
+          </div>
+        </div>
+        <div class="w-[33%]">
+          <figure class="">
+            <img src='./src/assets/image/ladywithcamera.jpg' alt=""
+              class="h-[80%] w-[100%] object-fill opacity-70 hover:opacity-100">
+          </figure>
+          <h2 class="font-bold text-2xl mt-7 ">Title is here </h2>
+          <div class="flex flex-row gap-7 mt-2 text-xs uppercase ">
+            <span class="text-gray-500 uppercase">date </span>
+            <span class="text-black">comment</span>
+          </div>
+        </div>
+        <div class="w-[33%]">
+          <figure class="">
+            <img src='./src/assets/image/ladywithcamera.jpg' alt=""
+              class="h-[80%] w-[100%] object-fill opacity-70 hover:opacity-100">
+          </figure>
+          <h2 class="font-bold text-2xl mt-7 ">Title is here </h2>
+          <div class="flex flex-row gap-7 mt-2 text-xs uppercase ">
+            <span class="text-gray-500 uppercase">date </span>
+            <span class="text-black">comment</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
+  <!--=============== footer section ====================-->
+  <footer class="mt-14 sm:mt-20">
+    <h2 class="custom-container text-center text-2xl font-semibold tracking-wider">FOLLOW @BOBOCA</h2>
 
-  <footer class="custom-container pr-14">
-    <ul class="flex gap-5  p-3 justify-end">
-      <li>
-        <img src="src/assets/icons/facebook.svg" width="20" alt="">
-      </li>
-      <li>
-        <img src="src/assets/icons/instagram.svg" width="20" alt="">
-      </li>
-      <li>
-        <img src="src/assets/icons/twitter.svg" width="20" alt="">
-      </li>
-    </ul>
-    <p class="text-center capitalize text-xs font-light">&copy; 2024 Rapier. All rights reserved.</p>
-
+    <div class="bg-black mt-10 pb-7">
+      <ul class="flex gap-7 p-10 justify-center">
+        <li class=''>
+          <a href="https://www.facebook.com/" class=' '>
+            <i class="fa-brands fa-facebook text-gray-400 text-2xl hover:text-white"></i>
+          </a>
+        </li>
+        <li class=''>
+          <a href="https://www.instagram.com/" class=' '>
+            <i class="fa-brands fa-instagram text-gray-400 text-2xl hover:text-white"></i>
+          </a>
+        </li>
+        <li class=''>
+          <a href="https://www.twitter.com/" class=' '>
+            <i class="fa-brands fa-twitter text-gray-400 text-2xl hover:text-white"></i>
+          </a>
+        </li>
+        <li class=''>
+          <a href="https://www.pintrest.com/" class=' '>
+            <i class="fa-brands fa-pinterest text-gray-400 text-2xl hover:text-white"></i>
+          </a>
+        </li>
+        <li class=''>
+          <a href="https://www.gmail.com/" class=' '>
+            <i class="fa-regular fa-envelope text-gray-400 text-2xl hover:text-white"></i>
+          </a>
+        </li>
+      </ul>
+      <p class="text-center text-gray-300 text-[7px] font-thin sm:text-sm">&copy; 2024 — Rapier. All Rights
+        Reserved. Designed &
+        Developed by
+        BishalKhanal.</p>
+    </div>
   </footer>
 
+  <script type="module" src="./src/header.ts"></script>
   <script type="module" src="./src/main.ts"></script>
 </body>
 

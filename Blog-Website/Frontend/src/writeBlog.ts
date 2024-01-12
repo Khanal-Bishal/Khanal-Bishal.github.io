@@ -47,29 +47,13 @@ postButton.addEventListener('click', async (event)=>
    
     
     event.preventDefault()
-    const inputTitle = titleInput.value
-    const inputText = textContainer.value
     const formData = new FormData(form);
     
-    console.log(fileInput);
-    
-    //@ts-ignore
-    // formData.append('image',fileInput?.files[0])
-    // formData.append('image',fileInput?.files[0])
-    // formData.append('image',fileInput?.files[0])
-   
     try 
     {  
         console.log(formData);
         
-        const result = await  HTTP.post('/blog',
-            // {
-            //     // title: inputTitle,
-            //     // description: inputText,
-            //     // image: formData
-            // },
-              formData
-        )
+        await  HTTP.post('/blog', formData)
         
         
         textContainer.value = "" 

@@ -1,82 +1,96 @@
 import HTTP from './urlConfig'
 import IBlog from './interface/IBlog'
+import { convertIsoToFormattedData } from './utils'
+import { getRandomBlogs, getSingleRandomBlog } from './reusedFunction'
 
-//constants and variables
-const blogsContainer = document.querySelector('.blogs-container') as HTMLElement
-const randomBlogContainer = document.querySelector('.random-blog-container') as HTMLElement
-const userNameContainer = document.querySelector('.username-container') as HTMLParagraphElement
-const loginContainer = document.querySelector('.login-container') as HTMLParagraphElement
-const logoutContainer =document.querySelector('.logout-container') as HTMLParagraphElement
-const signupContainer  = document.querySelector('.signup-container') as HTMLParagraphElement
+//constants and variablesconst blogsContainer = document.querySelector('.blogs-container') as HTMLElement
+const blogImageContainer = document.querySelector('.blog-image-container') as HTMLElement
+const heading = document.querySelector('.heading') as HTMLElement
+const commentContainer = document.querySelector('.total-comment-container') as HTMLSpanElement
+const randomBlogsContainer = document.querySelector('.random-blog-container') as HTMLSpanElement
+const firstSblogImgContainer = document.querySelector('.first-sblog-image-container') as HTMLSpanElement
+const readMore = document.querySelector('.read-more') as HTMLElement
+
 //fetching data for all the blogs 
 window.addEventListener('load', async ()=>
 {   
-    const result = await HTTP.get( '/blog?page=1' )
-    const totalPage = result.data.totalPage
-    const blogs = (result.data.data) as IBlog[]
-    const storedUserInfo = localStorage.getItem('userInfo') as string
-    const userInfo = JSON.parse(storedUserInfo)
+  const result = await HTTP.get( '/blog?page=1' )
+  const totalPage = result.data.totalPage
+  const randomBlogs = await getRandomBlogs(totalPage)
+  let randomBlog = await getSingleRandomBlog(totalPage)
+  console.log(randomBlogs);
+  blogImageContainer.innerHTML =
+    `
+      <div class=" relative cursor mb-3 w-[60%] mx-1  ">
+        <figure class="relative ">
+          <img src=${encodeURI(randomBlogs[0].image)} alt="blogImage " class="w-[100%]  h-[408px] aspect-square object-cover  ">
+          <div class="absolute inset-0 bg-black opacity-65 hover:opacity-45"></div>
+        </figure>
 
-    if(userInfo?.userName) userNameContainer.innerText = userInfo.userName
-    if(userInfo)  logoutContainer.innerHTML = `<img src="./src/assets/icons/logout.svg" alt="logout" width="25">`
-  if(!userInfo) loginContainer.innerText = "Login"
-    if(!userInfo) signupContainer.innerText = "Register"
-    blogs.forEach( res =>
-    {   
-        blogsContainer.innerHTML += `
-            <div class=" relative cursor mb-3 w-[48%] mx-1 ">
-                 <figure class="relative ">
-                    <img src= ${res.image} alt="blogImage "
-                    class="w-[100%] opacity-50 h-[500px] aspect-square ">
-                    <div class="absolute inset-0 bg-black opacity-55 hover:opacity-40"></div>
-                </figure>
+        <div class="absolute top-[50%] left-[30%] translate-y-[-50%] translate-x-[-30%] text-white ">
+          <h2 class="font-bold text-4xl capitalize w-[85%]"> ${randomBlogs[0].title} </h2>
+          <div class="flex gap-4 mt-5">
+            <span>By Boboca</span>
+            <span>${convertIsoToFormattedData(randomBlogs[0].createdAt)}</span>
+            <span>${randomBlogs[0].Comments.length} Comments</span>
+          </div>
+          <button class="border-none bg-red-300 uppercase p-4 mt-7 text-xl font-semibold w-[150px]   text-center "> 
+            Read more 
+            </a>
+            </button> 
+        </div>
+      </div>
 
-                <div class="absolute top-[50%] left-10 translate-y-[-50%] text-white ">
-                    <h2 class="font-bold text-4xl capitalize w-[45%]"> ${res.title} </h2>
-                    <p class="w-[45%] mt-5 text-2xl"> ${res.description} </p>
-                <a href='/blog?id=${res.blog_id}'>
-                <button
-                class="border rounded-xl p-4 mt-7 text-xl font-semibold w-[150px] hover:bg-[#7ca9aa] hover:border-none transition-all "> Read
-                more</button> </a>
-                </div>
-            </div>
-             `
-    })   
-
-    const randomBlogResult = await HTTP.get(`/blog?page=${ Math.floor(Math.random() * totalPage ) }`)
-    const randomBlog = randomBlogResult.data.data as IBlog[]
-    randomBlogContainer.innerHTML = `
-    <div class=" relative cursor mb-3 w-[66%] mx-1  ">
-          <figure class="relative rounded-lg">
-            <img src=${randomBlog[0].image} alt="blogImage " class="w-[100%] opacity-50 h-[500px] aspect-square ">
-            <div class="absolute inset-0 bg-black opacity-55 hover:opacity-40"></div>
+      <div class="w-[40%]">
+        <div class=" relative cursor mb-3 w-[100%] mx-1  ">
+          <figure class="relative ">
+          <img src=${encodeURI(randomBlogs[1].image)} alt="blogImage " class="w-[100%]  h-[200px] aspect-square object-cover  ">
+          <div class="absolute inset-0 bg-black opacity-65 hover:opacity-45"></div>
           </figure>
 
-          <div class="absolute top-[50%] left-10 translate-y-[-50%] text-white ">
-            <h2 class="font-bold text-4xl capitalize w-[45%]"> ${ randomBlog[0].title } </h2>
-            <p class="w-[45%] mt-5 text-2xl"> ${ randomBlog[0].description }</p>
-            <button
-              class="border rounded-xl p-4 mt-7 text-xl font-semibold w-[150px] hover:bg-[#7ca9aa] hover:border-none transition-all ">Read
-              more pls</button>
+          <div class="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-white ">
+            <h2 class="font-bold text-4xl capitalize  text-center">${randomBlogs[1].title}</h2>
+            <div class="flex justify-center font-semibold gap-10 uppercase mt-5">
+              <p class=" mt-5 text-sm text-gray-200"> In Blog </p>
+              <p class=" mt-5 text-sm"> ${convertIsoToFormattedData(randomBlogs[1].createdAt)} </p>
+            </div>
           </div>
         </div>
 
-        <div class=" relative cursor mb-3 w-[30%] mx-1 ">
+        <div class=" relative cursor mb-3 w-[100%] mx-1  ">
           <figure class="relative ">
-            <img src=${randomBlog[1].image} alt="blogImage " class="w-[100%] opacity-50 h-[500px] aspect-square ">
-            <div class="absolute inset-0 bg-black opacity-55 hover:opacity-40"></div>
+          <img src=${encodeURI(randomBlogs[1].image)} alt="blogImage " class="w-[100%]  h-[200px] aspect-square object-cover  ">
+          <div class="absolute inset-0 bg-black opacity-65 hover:opacity-45"></div>
           </figure>
 
-          <div class="absolute top-[50%] left-10 translate-y-[-50%] text-white ">
-            <h2 class="font-bold text-4xl capitalize w-[45%]"> ${randomBlog[1].title} </h2>
-            <p class="w-[45%] mt-5 text-2xl"> ${randomBlog[1].description} </p>
-            <button
-              class="border rounded-xl p-4 mt-7 text-xl font-semibold w-[150px] hover:bg-[#7ca9aa] hover:border-none transition-all ">Read
-              more</button>
+          <div class="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-white ">
+            <h2 class="font-bold text-4xl capitalize  text-center"> Here will be title</h2>
+            <div class="flex justify-center font-semibold gap-10 uppercase mt-5">
+              <p class=" mt-5 text-sm text-gray-200"> In Blog </p>
+              <p class=" mt-5 text-sm"> ${convertIsoToFormattedData(randomBlogs[1].createdAt)} </p>
+            </div>
           </div>
         </div>
       </div>
     `
+  heading.innerText = randomBlog.title
+  commentContainer.innerText = randomBlog.Comments.length
+
+  firstSblogImgContainer.innerHTML =
+  `
+    <img src=${encodeURI(randomBlog.image)} alt="blogImage " class="w-[100%]  h-[450px] aspect-square object-cover  ">
+    <a href='/singleblog?blog_id=${randomBlog.blog_id}' class="absolute inset-0 bg-black opacity-35 hover:opacity-75"></a>
+
+  `
+
+  readMore.innerHTML = `
+  <a href='/singleblog?blog_id=${randomBlog.blog_id}'>Read more </a>
+  `
+
+
+
+    
+
 })
 
 

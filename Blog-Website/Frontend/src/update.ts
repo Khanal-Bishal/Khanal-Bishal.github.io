@@ -55,33 +55,12 @@ fileInput.addEventListener('change', (event: any)=>
 updateButton.addEventListener('click', async (event)=>
 {
     event.preventDefault()
-    const inputTitle = titleInput.value
-    const inputText = textContainer.value
-    // let fileName
+   
     const formData = new FormData(form)
-    // if (fileInput.files && fileInput.files.length > 0) 
-    // {
-    //     const fileName = fileInput.files[0].name;
-    //     addFile.innerText = fileName;
-    // } 
-    // else
-    // {
-    //     addFile.innerText = "No file selected";
-    // }   
-
-
+ 
     try 
-    { 
-        console.log(formData);
-
-        const result = await  HTTP.put(`/blog/${blogId.blog_id}`,
-            
-                // title: inputTitle,
-                // description: inputText,
-                // image: fileName
-                formData
-                     
-        )
+    {         
+        await  HTTP.put(`/blog/${blogId.blog_id}`,formData)
         textContainer.value = "" 
         titleInput.value = " "
         addFile.innerText = "ADD IMAGE"
