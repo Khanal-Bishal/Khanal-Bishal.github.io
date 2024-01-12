@@ -7,6 +7,7 @@ const textContainer = document.querySelector('.text-container') as HTMLTextAreaE
 const fileInput = document.querySelector('#fileInput') as HTMLInputElement
 const addFile = document.querySelector('.add-file') as HTMLInputElement
 
+const form = document.querySelector('.form') as HTMLFormElement
 const titleInput = document.querySelector('.title-input') as HTMLInputElement
 const updateButton= document.querySelector('.update-button') as HTMLButtonElement
 const toastContainer = document.querySelector('.toast-container') as HTMLElement
@@ -29,9 +30,9 @@ window.addEventListener('load', async () =>
     const result = await HTTP.get(`/blog/${blogId.blog_id}`)
     const blogInfo = result.data.data
     console.log(blogInfo);
+    idContainer.innerText = blogInfo.blog_id
     titleInput.value = blogInfo.title
     textContainer.value = blogInfo.description
-    idContainer.innerText = blogInfo.blog_id
     
 })
 
@@ -50,31 +51,36 @@ fileInput.addEventListener('change', (event: any)=>
 }
 )
 
-//event when admin post the blog
+//event when admin updates  the blog
 updateButton.addEventListener('click', async (event)=>
 {
     event.preventDefault()
     const inputTitle = titleInput.value
     const inputText = textContainer.value
-    let fileName
-    if (fileInput.files && fileInput.files.length > 0) 
-    {
-        const fileName = fileInput.files[0].name;
-        addFile.innerText = fileName;
-    } 
-    else
-    {
-        addFile.innerText = "No file selected";
-    }
+    // let fileName
+    const formData = new FormData(form)
+    // if (fileInput.files && fileInput.files.length > 0) 
+    // {
+    //     const fileName = fileInput.files[0].name;
+    //     addFile.innerText = fileName;
+    // } 
+    // else
+    // {
+    //     addFile.innerText = "No file selected";
+    // }   
+
 
     try 
     { 
+        console.log(formData);
+
         const result = await  HTTP.put(`/blog/${blogId.blog_id}`,
-            {
-                title: inputTitle,
-                description: inputText,
-                image: fileName
-            }         
+            
+                // title: inputTitle,
+                // description: inputText,
+                // image: fileName
+                formData
+                     
         )
         textContainer.value = "" 
         titleInput.value = " "

@@ -81,20 +81,19 @@
 
     <!-- write blog section  -->
     <main>
-        <form class="mt-20 custom-container">
-            <input type="text"
+        <form class=" form mt-20 custom-container">
+            <input type="text" name="title"
                 class=" title-input outline-none border-b w-full font-bold text-5xl pb-1 text-gray-700 placeholder-gray-200 focus:pb-5"
                 placeholder="Title">
-            <textarea type=""
+            <textarea type="" name="description"
                 class="text-container  overflow-y-hidden resize-none outline-none mt-20 border-b w-full font-thin text-2xl  text-gray-700 placeholder-gray-200 focus:pb-5"
                 placeholder="Tell your story..."></textarea>
 
             <div class="mt-10">
-                <input type="file" id="fileInput" name="fileInput" accept=".jpg, .jpeg, .png, .gif"
-                    class=" hidden mt-20">
+                <input type="file" id="fileInput" name="image" accept=".jpg, .jpeg, .png, .gif" class=" hidden mt-20">
                 <label for="fileInput" class="custom-file-input-label cursor-pointer inline text-gray-400">
                     <img src="./src/assets/icons/addImage.svg" alt="File Icon" class="mb-2 inline" width="50">
-                    <p class="add-file inline ml-5 font-semibold text-xl uppercase ">Add image</p>
+                    <p class="add-file inline ml-5 font-semibold text-xl uppercase">Add image</p>
                 </label>
             </div>
             <div class="toast-container relative top-[1%] translate-y-[-10%] right-0 p-5"></div>
