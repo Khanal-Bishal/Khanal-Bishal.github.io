@@ -4,17 +4,15 @@ const blogSchema = Joi.object(
     {
         title : Joi.string().required().messages(
             {
-                'string.base':  'title must be a string',
-                'any.required' : "title is required"
+                'string.base':  'Title must be a string',
+                'any.required' : "Title cannot be empty"
             }
         ),
         description : Joi.string().required().messages(
             {
-                'string.base' : 'description must be a string',
-                'any.required' : 'description is required'
-            },
-        ),
-           
+                'string.base' : 'Description must be a string',
+                'any.required' : 'Description cannot be empty'
+            },),
     }
 )
 

@@ -6,7 +6,7 @@ const customErrorHandler = (error: any,req: Request,res:Response,next: NextFunct
     let message = "Internal server error"
     if(error.name === "SequelizeValidationError" || error.name ==="SequelizeUniqueConstraintError") 
     {
-        status = 401
+        status = 400
         let errArr: any[] = []
         //@ts-ignore
         error?.errors.forEach( err =>
