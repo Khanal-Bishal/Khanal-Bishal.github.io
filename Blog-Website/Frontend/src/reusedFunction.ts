@@ -1,8 +1,14 @@
 import HTTP from "./urlConfig"
+import { LIMIT } from "./constants"
 
 export const getRandomBlogs = async (totalPage: number) =>
 {
-    const randomBlogs = await HTTP.get(`./blog?page=${Math.ceil(Math.random()*totalPage)}`)
+    if(totalPage <= 1)
+    {
+    const randomBlogs = await HTTP.get(`./blog?page=1`)
+    return randomBlogs.data.data
+    }
+    const randomBlogs = await HTTP.get(`./blog?page=${Math.ceil(Math.random()*( totalPage -1 ))}`)
     return randomBlogs.data.data
 }
 
@@ -12,8 +18,31 @@ export const getBlog = async (page?: number ) =>
     return blogs.data.data
 }
 
-export const getSingleRandomBlog = async (totalPage: number) =>
+// export const getSingleRandomBlog = async (totalPage: number) =>
+// {
+//     if(totalPage===1)
+//     {
+//         const randomBlogs = await HTTP.get(`./blog?page=${Math.ceil(Math.random()*totalPage)}`)
+//         return randomBlogs.data.data[Math.ceil(Math.random()* LIMIT)]
+//     }
+//     const randomBlogs = await HTTP.get(`./blog?page=${Math.ceil(Math.random()*totalPage-1)}`)
+//     return randomBlogs.data.data[Math.ceil(Math.random()* LIMIT)]
+// }
+
+export const getSingleRandomBlog = async (totalPage: number) => 
 {
-    const randomBlogs = await HTTP.get(`./blog?page=${Math.ceil(Math.random()*totalPage)}`)
-    return randomBlogs.data.data[Math.ceil(Math.random()*4)]
-}
+    const randomPage = Math.ceil(Math.random() * (totalPage - 1))
+    const randomBlogs = await HTTP.get(`./blog/?page=${randomPage}`)
+    
+
+   
+    
+        const randomBlogIndex = Math.ceil(Math.random() * LIMIT) - 1;
+        const randomBlog = randomBlogs.data.data[randomBlogIndex]
+        return randomBlog
+    
+};
+
+
+
+

@@ -26,11 +26,11 @@ window.addEventListener('load', async(event)=>
                 </figure>
 
                 <div class="text-left mt-5 p-5">
-                    <h2 class="font-bold text-4xl capitalize "> ${res.title} </h2>
-                    <p class=" mt-5 text-xl text-gray-400 "> ${res.description} </p>
+                    <h2 class="font-bold text-4xl capitalize  text-gray-800"> ${res.title} </h2>
+                    <p class=" mt-5 text-xl text-gray-400 line-clamp-5"> ${res.description} </p>
                     <a href='/singleblog?blog_id=${res.blog_id}'>
                         <button
-                            class="border bg-black text-white  rounded-xl p-4 mt-7 text-xl font-semibold w-[150px] hover:bg-gray-600 hover:border-none hover:text-white transition-all ">
+                            class="border uppercase bg-red-300 text-white  rounded-sm p-4 mt-7 text-xl font-semibold w-[150px] hover:bg-black hover:border-none hover:text-white transition-all ">
                             Read more
                         </button> </a>
                 </div>

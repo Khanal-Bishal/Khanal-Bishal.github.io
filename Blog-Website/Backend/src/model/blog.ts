@@ -14,12 +14,12 @@ const Blog = sequelize.define('Blog', {
         allowNull: false,
     },
     description: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(5000),
         allowNull: false
     },
     image: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     }
 }, {
     timestamps: true

@@ -17,7 +17,7 @@ const connectDb= async() =>
     try 
     {
         await sequelize.authenticate()
-        await sequelize.sync( { force: false } )   //synchornizes model with db, without forcing to drop the table 
+        await sequelize.sync( { force: false} )   //synchornizes model with db, without forcing to drop the table 
         console.log(colors.rainbow("Connected to Database"))
     }
     catch (error)

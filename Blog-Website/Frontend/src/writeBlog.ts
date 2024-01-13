@@ -54,8 +54,7 @@ postButton.addEventListener('click', async (event)=>
         console.log(formData);
         
         await  HTTP.post('/blog', formData)
-        
-        
+        console.log("clicked");
         textContainer.value = "" 
         titleInput.value = " "
         addFile.innerText = "ADD IMAGE"
@@ -71,6 +70,7 @@ postButton.addEventListener('click', async (event)=>
 
     }catch (error: any)
     {
+        console.log(error);
         const errorData = error.response.data.error
         
          //@ts-ignore
