@@ -10,6 +10,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800&display=swap"
         rel="stylesheet">
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 
 <body>
@@ -68,14 +69,14 @@
             <nav class="lg:w-[70%] m-auto">
                 <ul class=" hidden sm:flex gap-20 text-2xl text-gray-400 font-semibold capitalize ">
                     <li class="hover:text-[#F09892] "><a href="./index">home</a></li>
-                    <li class="hover:text-[#F09892]"><a href="./blogs">blog</a></li>
+                    <li class="hover:text-[#F09892]"><a href="./blogs">blogs</a></li>
                     <li class="hover:text-[#F09892]"><a href="./about">about</a></li>
                 </ul>
             </nav>
 
 
-            <div class="hidden sm:block">
-                <img src="./src/assets/icons/search.svg" alt="" class="w-[30px]">
+            <div class=" m-5">
+                <img src="./src/assets/icons/search.svg" alt="" class="search-btn w-[30px]">
             </div>
             <div class=" sm:hidden">
                 <i class=" menu-icon fa-solid fa-bars text-4xl text-black"></i>
@@ -94,20 +95,27 @@
                 <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a
                         href="./index">home</a>
                 </li>
-                <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a href="./blog">blog</a>
+                <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a
+                        href="./blog">blogs</a>
                 </li>
                 <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a
                         href="./about">about</a>
                 </li>
                 <li class="mobile-login hover:text-[#F09892] border-b border-white w-full text-center pb-7">
                 </li>
-
-
             </ul>
         </div>
+        <!--========= search form section ===========-->
+        <form
+            class="search-form hidden fixed inset-0 bg-white w-[100%] h-[100%] z-50 overflow-y-hidden  justify-center items-center   ">
+            <i class="search-close-btn fa-solid fa-xmark text-3xl absolute top-8 right-8 text-gray-500"></i>
+            <input type="text" placeholder="Search this blog"
+                class="search-input relative p-10 w-[60%] text-center text-5xl outline-none text-gray-400">
+        </form>
+
     </header>
 
-    <main class="custom-container mt-20 text-center">
+    <main class="main-section-container custom-container mt-20 text-center">
         <h2 class="text-7xl font-extrabold ">Blogs</h2>
 
         <div class=" blogs-container mt-20">

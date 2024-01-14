@@ -74,7 +74,7 @@
 
 
             <div class="hidden sm:block">
-                <img src="./src/assets/icons/search.svg" alt="" class="w-[30px]">
+                <img src="./src/assets/icons/search.svg" alt="" class="search-btn w-[30px]">
             </div>
             <div class=" sm:hidden">
                 <i class=" menu-icon fa-solid fa-bars text-4xl text-black"></i>
@@ -100,12 +100,17 @@
                 </li>
                 <li class="mobile-login hover:text-[#F09892] border-b border-white w-full text-center pb-7">
                 </li>
-
-
             </ul>
         </div>
+        <!--========= search form section ===========-->
+        <form
+            class="search-form hidden fixed inset-0 bg-white w-[100%] h-[100%] z-50 overflow-y-hidden  justify-center items-center   ">
+            <i class="search-close-btn fa-solid fa-xmark text-3xl absolute top-8 right-8 text-gray-500"></i>
+            <input type="text" placeholder="Search this blog"
+                class="search-input relative p-10 w-[60%] text-center text-5xl outline-none text-gray-400">
+        </form>
     </header>
-    <main class="mt-7 flex justify-center">
+    <main class="main-section-container mt-7 flex justify-center">
         <dotlottie-player src="https://lottie.host/d7d0a8a6-c248-44cc-a1ec-ed39d2beda49/zXOluVq7Hg.json"
             background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
     </main>

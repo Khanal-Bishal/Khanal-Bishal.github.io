@@ -9,7 +9,7 @@ import uploadImage from '../middlewares/uploadImage'
 
 import checkAuthentication from '../middlewares/checkAuthentication'
 import { isAdmin, isUser } from '../middlewares/checkRole'
-    
+
 const router = express.Router()
 
 /**
@@ -18,12 +18,12 @@ const router = express.Router()
  * @route  /api/blog
  */
 router.get('/search', blogController.searchBlog)
-router.get('/',  blogController.getAllBlog);
-router.get( '/:id', blogController.getSingleBlog)
+router.get('/', blogController.getAllBlog);
+router.get('/:id', blogController.getSingleBlog)
 
-router.post( '/', checkAuthentication, isAdmin, uploadImage, validateSchema(blogSchema), blogController.createBlog)
-router.put ( '/:id', checkAuthentication, isAdmin, uploadImage, validateSchema(blogSchema), blogController.updateBlog)
-router.delete ( '/:id', checkAuthentication, isAdmin, blogController.deleteBlog)
+router.post('/', checkAuthentication, isAdmin, uploadImage, validateSchema(blogSchema), blogController.createBlog)
+router.put('/:id', checkAuthentication, isAdmin, uploadImage, validateSchema(blogSchema), blogController.updateBlog)
+router.delete('/:id', checkAuthentication, isAdmin, blogController.deleteBlog)
 
 //comment related routes 
 router.get('/:id/comment', commentController.getCommentByBlogId)

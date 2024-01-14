@@ -71,14 +71,14 @@
             <nav class="lg:w-[70%] m-auto">
                 <ul class=" hidden sm:flex gap-20 text-2xl text-gray-400 font-semibold capitalize ">
                     <li class="hover:text-[#F09892] "><a href="./index">home</a></li>
-                    <li class="hover:text-[#F09892]"><a href="./blogs">blog</a></li>
+                    <li class="hover:text-[#F09892]"><a href="./blogs">blogs</a></li>
                     <li class="hover:text-[#F09892]"><a href="./about">about</a></li>
                 </ul>
             </nav>
 
 
             <div class="hidden sm:block">
-                <img src="./src/assets/icons/search.svg" alt="" class="w-[30px]">
+                <img src="./src/assets/icons/search.svg" alt="" class="search-btn w-[30px]">
             </div>
             <div class=" sm:hidden">
                 <i class=" menu-icon fa-solid fa-bars text-4xl text-black"></i>
@@ -98,21 +98,27 @@
                 <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a
                         href="./index">home</a>
                 </li>
-                <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a href="./blog">blog</a>
+                <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a
+                        href="./blog">blogs</a>
                 </li>
                 <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a
                         href="./about">about</a>
                 </li>
                 <li class="mobile-login hover:text-[#F09892] border-b border-white w-full text-center pb-7">
                 </li>
-
-
             </ul>
         </div>
+        <!--========= search form section ===========-->
+        <form
+            class="search-form hidden fixed inset-0 bg-white w-[100%] h-[100%] z-50 overflow-y-hidden  justify-center items-center   ">
+            <i class="search-close-btn fa-solid fa-xmark text-3xl absolute top-8 right-8 text-gray-500"></i>
+            <input type="text" placeholder="Search this blog"
+                class="search-input relative p-10 w-[60%] text-center text-5xl outline-none text-gray-400">
+        </form>
     </header>
 
     <!-- write blog section  -->
-    <main class=" lg:custom-container">
+    <main class="main-section-container lg:custom-container">
 
         <a href="./writeblog" class=" w-[95%] m-auto flex mt-14 justify-end sm:w-[90%] lg:w-[70%]">
             <img src="./src/assets/icons/write.svg" alt="write icon" class=" w-[30px]">

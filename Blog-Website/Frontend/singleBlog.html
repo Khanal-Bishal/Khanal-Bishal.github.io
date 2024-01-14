@@ -70,14 +70,14 @@
             <nav class="lg:w-[70%] m-auto">
                 <ul class=" hidden sm:flex gap-20 text-2xl text-gray-400 font-semibold capitalize ">
                     <li class="hover:text-[#F09892] "><a href="./index">home</a></li>
-                    <li class="hover:text-[#F09892]"><a href="./blogs">blog</a></li>
+                    <li class="hover:text-[#F09892]"><a href="./blogs">blogs</a></li>
                     <li class="hover:text-[#F09892]"><a href="./about">about</a></li>
                 </ul>
             </nav>
 
 
-            <div class="hidden sm:block">
-                <img src="./src/assets/icons/search.svg" alt="" class="w-[30px]">
+            <div class="m-5 ">
+                <img src="./src/assets/icons/search.svg" alt="" class="search-btn w-[30px]">
             </div>
             <div class=" sm:hidden">
                 <i class=" menu-icon fa-solid fa-bars text-4xl text-black"></i>
@@ -85,7 +85,7 @@
         </section>
 
         <!-- mobile navigation section  -->
-        <div class="  menu-opener hidden fixed inset-0 bg-black  justify-center items-start  ">
+        <div class="  menu-opener hidden fixed inset-0 bg-black  justify-center items-start z-50  ">
             <div class=" absolute userinfo flex gap-5 items-center top-7 left-10 ">
                 <i class="person-icon fa-solid fa-user text-3xl text-white"></i>
                 <span class="user-name font-bold  text-white">Name</span>
@@ -97,20 +97,26 @@
                 <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a
                         href="./index">home</a>
                 </li>
-                <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a href="./blog">blog</a>
+                <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a
+                        href="./blog">blogs</a>
                 </li>
                 <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a
                         href="./about">about</a>
                 </li>
                 <li class="mobile-login hover:text-[#F09892] border-b border-white w-full text-center pb-7">
                 </li>
-
-
             </ul>
         </div>
+        <!--========= search form section ===========-->
+        <form
+            class="search-form hidden fixed inset-0 bg-white w-[100%] h-[100%] z-50 overflow-y-hidden  justify-center items-center   ">
+            <i class="search-close-btn fa-solid fa-xmark text-3xl absolute top-8 right-8 text-gray-500"></i>
+            <input type="text" placeholder="Search this blog"
+                class="search-input relative p-10 w-[60%] text-center text-5xl outline-none text-gray-400">
+        </form>
     </header>
 
-    <main class="mt-20 custom-container">
+    <main class=" main-section-container mt-20 custom-container">
 
         <!-- heading section  -->
         <section>
@@ -245,8 +251,11 @@
         </div>
 
         <!-- write comment section  -->
+
         <form class="mt-20 custom-container flex flex-col">
-            <label for="comment" class="text-xl font-bold uppercase "> </label>
+            <div class="toast-container"></div>
+            <label for="comment" class="text-xl font-bold uppercase ">
+            </label>
             <input type="text" minlength="4"
                 class="w-[80%]   border-b-2 border-black p-4 text-xl outline-none focus:border-gray-500 m-auto lg:m-0"
                 id="comment">
@@ -254,6 +263,7 @@
                 class="comment-btn text-center bg-red-300 w-[45%] uppercase tracking-wider font-semibold p-4 text-white rounded-sm mt-5 hover:bg-gray-800 m-auto sm:w-[35%] lg:w-[20%] lg:mx-0">Comment
             </button>
         </form>
+
     </main>
 
     <!--=============== footer section  ====================-->

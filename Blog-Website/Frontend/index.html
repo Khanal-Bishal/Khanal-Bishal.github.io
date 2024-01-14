@@ -53,7 +53,6 @@
             site ----</span>
         </div>
 
-
         <div class=" hidden  gap-4 text-xl items-center sm:flex">
           <i class="fa-solid fa-circle-user text-4xl text-black"></i>
           <span class="username-container font-bold text-sm text-gray-400">Name</span>
@@ -74,7 +73,7 @@
       <nav class="lg:w-[70%] m-auto">
         <ul class=" hidden sm:flex gap-20 text-2xl text-gray-400 font-semibold capitalize ">
           <li class="hover:text-[#F09892] "><a href="./index">home</a></li>
-          <li class="hover:text-[#F09892]"><a href="./blogs">blog</a></li>
+          <li class="hover:text-[#F09892]"><a href="./blogs">blogs</a></li>
           <li class="hover:text-[#F09892]"><a href="./about">about</a></li>
         </ul>
       </nav>
@@ -82,10 +81,10 @@
       <div class="dashboard-container hidden m-7  ">
         <a href="./dashboard" class=" sm:flex sm:flex-col justify-end items-center ">
           <img src="./src/assets/icons/dashboard.svg" alt="" class="w-[30px] text-center">
-          <span>Dashboard</span>
+
         </a>
       </div>
-      <div class="mr-16 m-5 sm:m-5">
+      <div class=' hidden sm:m-5 sm:block'>
         <img src="./src/assets/icons/search.svg" alt="" class="search-btn w-[30px]">
       </div>
 
@@ -106,7 +105,7 @@
         class="  flex flex-col justify-center items-center gap-16 text-2xl text-white font-semibold capitalize w-full h-full  ">
         <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a href="./index">home</a>
         </li>
-        <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a href="./blogs">blog</a>
+        <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a href="./blogs">blogs</a>
         </li>
         <li class="hover:text-[#F09892] border-b border-white w-full text-center pb-7"><a href="./about">about</a>
         </li>
@@ -114,6 +113,15 @@
         </li>
       </ul>
     </div>
+
+    <!--========= search form section ===========-->
+    <form
+      class="search-form hidden fixed inset-0 bg-white w-[100%] h-[100%] z-50 overflow-y-hidden  justify-center items-center   ">
+      <i class="search-close-btn fa-solid fa-xmark text-3xl absolute top-8 right-8 text-gray-500"></i>
+      <input type="text" placeholder="Search this blog"
+        class="search-input relative p-10 w-[60%] text-center text-2xl outline-none text-gray-400 sm:text-4xl lg:text-5xl">
+    </form>
+
 
   </header>
 
@@ -323,12 +331,7 @@
 
   </main>
 
-  <!--========= search form section ===========-->
-  <form class="fixed inset-0 bg-white w-[100%] h-[100%] z-50 overflow-y-hidden flex justify-center items-center ">
-    <i class="search-close-btn fa-solid fa-xmark text-3xl absolute top-8 right-8 text-gray-500"></i>
-    <input type="text" placeholder="Search this blog"
-      class="relative p-10 w-[60%] text-center text-5xl outline-none text-gray-400">
-  </form>
+
 
   <!--=============== footer section ====================-->
   <footer class="mt-14 sm:mt-20">

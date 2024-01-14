@@ -14,6 +14,7 @@ const authorMugshot = document.querySelector(".author-mugshot") as HTMLElement
 const commentBtn = document.querySelector(".comment-btn") as HTMLButtonElement
 const commentInput = document.querySelector("#comment") as HTMLInputElement
 const singleBlogId = queryString.parse(location.search)
+const toastContainer = document.querySelector('.toast-container') as HTMLSpanElement
 
 //event listner
 window.addEventListener("load", async (event) => {
@@ -104,13 +105,21 @@ window.addEventListener("load", async (event) => {
 commentBtn.addEventListener("click", async (event) => {
   event.preventDefault()
   try {
-    const userComment = commentInput.value
-    if (userComment === "") {
-      console.log("cannot comment")
+    const storedUserInfo = localStorage.getItem('userInfo') as string
+    const userInfo = JSON.parse(storedUserInfo)
+    if (!userInfo) {
+      toastContainer.innerHTML = `<p class='w-[10%]   font-bold tracking-wide bg-red-800 text-white p-3 text-center'>Login first</p>`
+      setTimeout(() => {
+        toastContainer.innerHTML = ''
+      }, 1000)
 
       return
     }
-    const result = await HTTP.post(`/blog/${singleBlogId.blog_id}/comment`, {
+    const userComment = commentInput.value
+    if (userComment === "") {
+      return
+    }
+    await HTTP.post(`/blog/${singleBlogId.blog_id}/comment`, {
       comment: userComment,
     })
     window.location.reload()
