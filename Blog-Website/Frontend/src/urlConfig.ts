@@ -25,7 +25,6 @@ HTTP.interceptors.request.use(
 HTTP.interceptors.response.use(
   (response) => {
     // Return the original response for successful requests
-    console.log("This was successful");
 
     return response;
   },

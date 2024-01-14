@@ -23,17 +23,15 @@ window.addEventListener("load", async (event) => {
          <div class=" relative cursor mb-8 mt-10  mx-1 border  shadow-xl m-auto sm:custom-container">
                 <figure class="relative rounded-lg">
                     <img src=${encodeURI(res.image)}
-                        class="w-[100%] opacity-50 h-[200px] aspect-square object-cover sm:h-[400px] ">
+                        class="w-[100%]  h-[200px] aspect-square object-cover sm:h-[400px] ">
                     <div class="absolute inset-0 bg-black opacity-50  rounded-lg hover:opacity-10"></div>
                 </figure>
 
                 <div class="text-left mt-5 p-5">
-                    <h2 class="font-bold text-4xl capitalize  text-gray-800"> ${
-                      res.title
-                    } </h2>
-                    <p class=" mt-5 text-xl text-gray-400 line-clamp-5"> ${
-                      res.description
-                    } </p>
+                    <h2 class="font-bold text-4xl capitalize  text-gray-800"> ${res.title
+      } </h2>
+                    <p class=" mt-5 text-xl text-gray-400 line-clamp-5"> ${res.description
+      } </p>
                     <a href='/singleblog?blog_id=${res.blog_id}'>
                         <button
                             class="border uppercase bg-red-300 text-white  rounded-sm p-4 mt-7 text-xl font-semibold w-[150px] hover:bg-black hover:border-none hover:text-white transition-all ">

@@ -1,21 +1,11 @@
 import HTTP from "./urlConfig";
 
 // variables and constants
-const mugshotContainer = document.querySelector(
-  ".mugshot-container"
-) as HTMLElement;
-const aboutContainer = document.querySelector(
-  ".aboutme-container"
-) as HTMLElement;
-const emailContainer = document.querySelector(
-  ".email-container"
-) as HTMLElement;
-const numberContainer = document.querySelector(
-  ".number-container"
-) as HTMLElement;
-const educationContainer = document.querySelector(
-  ".education-container"
-) as HTMLElement;
+const mugshotContainer = document.querySelector(".mugshot-container") as HTMLElement;
+const aboutContainer = document.querySelector(".aboutme-container") as HTMLElement;
+const emailContainer = document.querySelector(".email-container") as HTMLElement;
+const numberContainer = document.querySelector(".number-container") as HTMLElement;
+const educationContainer = document.querySelector(".education-container") as HTMLElement;
 
 //event listner
 window.addEventListener("load", async (event) => {
@@ -26,8 +16,8 @@ window.addEventListener("load", async (event) => {
 
   mugshotContainer.innerHTML = `
     <img src=http://${encodeURI(
-      aboutMeInfo.image
-    )}  alt = "" class="w-full h-full rounded-full">
+    aboutMeInfo.image
+  )}  alt = "" class="w-full h-full rounded-full">
     `;
   aboutContainer.innerText = aboutMeInfo.aboutme;
   emailContainer.innerText = aboutMeInfo.email;

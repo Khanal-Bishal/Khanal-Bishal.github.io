@@ -27,7 +27,7 @@ const blogId = queryString.parse(location.search);
 
 //onload event
 window.addEventListener("load", async () => {
-
+  if (!userInfo?.accessToken) window.location.href = '../404'
   try {
     const result = await HTTP.get('/user/me')
     const user = result.data.data
@@ -82,7 +82,7 @@ updateButton.addEventListener("click", async (event) => {
 
     setTimeout(() => {
       window.location.href = "../dashboard";
-    }, 2000);
+    }, 1500);
   } catch (error: any) {
     const errorData = error.response.data.error;
 
@@ -97,6 +97,6 @@ updateButton.addEventListener("click", async (event) => {
     });
     setTimeout(() => {
       toastContainer.innerHTML = "";
-    }, 1500);
+    }, 1000);
   }
 });

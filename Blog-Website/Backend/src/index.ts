@@ -4,7 +4,7 @@ import morgan from 'morgan'
 const colors = require('colors')
 import cors from 'cors'
 import helmet from 'helmet'
-import fileUpload from 'express-fileupload' 
+import fileUpload from 'express-fileupload'
 
 import connectDb from './config/database'
 
@@ -20,19 +20,17 @@ import imageRoute from './routes/image'
 import pageNotFound from './middlewares/pageNotFound'
 import customErrorHandler from './middlewares/customErrorHandler'
 
-import {PORT} from './constants/port'
-import {accessLogStream} from './utils/logger'
+import { PORT } from './constants/port'
+import { accessLogStream } from './utils/logger'
 
 const app = express()
 app.use(cors())
-// app.use(helmet({crossOriginResourcePolicy: false}))
-
 
 //application level middlewares
 app.use(express.json())
 app.use(fileUpload())
 app.use(express.static('uploads'))
-app.use(morgan(`:method :url  :status :response-time ms :date[web]`,{ stream: accessLogStream })) //logger for HTTP requests
+app.use(morgan(`:method :url  :status :response-time ms :date[web]`, { stream: accessLogStream })) //logger for HTTP requests
 
 //route level middleware
 app.use('/api/user', authRoute)
@@ -45,9 +43,8 @@ app.use(pageNotFound)
 app.use(customErrorHandler)
 
 //connecting to server 
-app.listen(PORT,()=>
-{
-    console.log(colors.white(`Listening from port number ${ PORT }`))
+app.listen(PORT, () => {
+    console.log(colors.white(`Listening from port number ${PORT}`))
 })
 
 

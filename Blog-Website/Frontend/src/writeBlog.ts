@@ -18,14 +18,13 @@ const userInfo = JSON.parse(unparsedUserInfo)
 // event listener 
 //onload event
 window.addEventListener('load', async () => {
-  console.log(userInfo.accessToken);
+  if (!userInfo?.accessToken) window.location.href = '../404'
   try {
-
     const result = await HTTP.get('/user/me')
     const user = result.data.data
     console.log(user.role);
     if (!checkIsAdmin(user.role)) {
-      window.location.href = '../404.html'
+      window.location.href = '../404'
       return
     }
   } catch (error) {
@@ -66,7 +65,9 @@ postButton.addEventListener('click', async (event) => {
             `
     setTimeout(() => {
       toastContainer.innerHTML = ""
+      window.location.href = '../dashboard.html'
     }, 1000)
+
 
   } catch (error: any) {
     console.log(error);
