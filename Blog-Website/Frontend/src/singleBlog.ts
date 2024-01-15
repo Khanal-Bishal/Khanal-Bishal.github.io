@@ -15,6 +15,8 @@ const commentBtn = document.querySelector(".comment-btn") as HTMLButtonElement
 const commentInput = document.querySelector("#comment") as HTMLInputElement
 const singleBlogId = queryString.parse(location.search)
 const toastContainer = document.querySelector('.toast-container') as HTMLSpanElement
+const starField = document.querySelector('.star-field') as HTMLElement
+let rating: number
 
 //event listner
 window.addEventListener("load", async (event) => {
@@ -80,7 +82,10 @@ window.addEventListener("load", async (event) => {
         </div>
         `
   }
+  console.log(blogInfo);
+
   if (blogInfo.Comments.length > 0) {
+
     for (let index = 0; index < totalComments; index++) {
       commentsContainer.innerHTML += `
           <div class="mt-10">
@@ -93,6 +98,9 @@ window.addEventListener("load", async (event) => {
            </div>
            <div class="mt-3 text-gray-500">
            <p class="text-2xl">${blogInfo.Comments[index].comment}</p>
+            <div class= 'mt-3'>
+               ${Array(blogInfo.Comments[index].rating).fill('<i class="fa-solid fa-star mr-1 text-yellow-400"></i>').join('')}
+            </div>
            </div>
           </div>
            `
@@ -100,12 +108,17 @@ window.addEventListener("load", async (event) => {
   }
 })
 
-//comment on blog
+starField.addEventListener('click', (event) => {
+  const target = event.target as HTMLInputElement
+  rating = parseInt(target.value)
+})
 
+//comment on blog
 commentBtn.addEventListener("click", async (event) => {
   event.preventDefault()
   try {
     const storedUserInfo = localStorage.getItem('userInfo') as string
+    if (rating === undefined) rating = 1
     const userInfo = JSON.parse(storedUserInfo)
     if (!userInfo) {
       toastContainer.innerHTML = `<p class='w-[10%]   font-bold tracking-wide bg-red-800 text-white p-3 text-center'>Login first</p>`
@@ -121,6 +134,7 @@ commentBtn.addEventListener("click", async (event) => {
     }
     await HTTP.post(`/blog/${singleBlogId.blog_id}/comment`, {
       comment: userComment,
+      rating
     })
     window.location.reload()
   } catch (error) {

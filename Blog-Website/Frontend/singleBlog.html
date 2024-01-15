@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./src/star.css">
 
 </head>
 
@@ -243,6 +244,7 @@
         <div class="border-b p-10 pt-3  border-t">
             <div class="mt-10 custom-container ">
                 <h2 class="text-center tracking-wider text-4xl font-bold">COMMENTS</h2>
+
                 <div class="comments-container">
 
                 </div>
@@ -259,8 +261,23 @@
             <input type="text" minlength="4"
                 class="w-[80%]   border-b-2 border-black p-4 text-xl outline-none focus:border-gray-500 m-auto lg:m-0"
                 id="comment">
+            <fieldset class="star-field starability-fade mt-7 " id="fieldset">
+                <legend></legend>
+                <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked
+                    aria-label="No rating." />
+                <input type="radio" id="rate1" name="rating" value="1" />
+                <label for="rate1" title="Terrible"> star</label>
+                <input type="radio" id="rate2" name="rating" value="2" />
+                <label for="rate2" title="Not good">2 stars</label>
+                <input type="radio" id="rate3" name="rating" value="3" />
+                <label for="rate3" title="Average">3 stars</label>
+                <input type="radio" id="rate4" name="rating" value="4" />
+                <label for="rate4" title="Very good">4 stars</label>
+                <input type="radio" id="rate5" name="rating" value="5" />
+                <label for="rate5" title="Amazing">5 stars</label>
+            </fieldset>
             <button
-                class="comment-btn text-center bg-red-300 w-[45%] uppercase tracking-wider font-semibold p-4 text-white rounded-sm mt-5 hover:bg-gray-800 m-auto sm:w-[35%] lg:w-[20%] lg:mx-0">Comment
+                class="comment-btn text-center bg-red-300 w-[45%] uppercase tracking-wider font-semibold p-4 text-white rounded-sm  hover:bg-gray-800 m-auto sm:w-[35%] lg:w-[20%] lg:mx-0">Comment
             </button>
         </form>
 

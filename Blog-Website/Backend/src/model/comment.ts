@@ -6,16 +6,21 @@ import User from './user'
 const Comment = sequelize.define(
     'Comment',
     {
-        comment_id: 
+        comment_id:
         {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true,    
+            autoIncrement: true,
         },
-        comment: 
+        comment:
         {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        rating:
+        {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
 
     },
@@ -25,12 +30,12 @@ const Comment = sequelize.define(
 )
 
 // BLOG-COMMENT association 
-Blog.hasMany(Comment,{ foreignKey: 'blog_id' })
-Comment.belongsTo(Blog,{ foreignKey: 'blog_id' })
+Blog.hasMany(Comment, { foreignKey: 'blog_id' })
+Comment.belongsTo(Blog, { foreignKey: 'blog_id' })
 
 //USER-COMMENT association
-User.hasMany(Comment, { foreignKey: 'user_id'})
-Comment.belongsTo(User, { foreignKey: 'user_id'})
+User.hasMany(Comment, { foreignKey: 'user_id' })
+Comment.belongsTo(User, { foreignKey: 'user_id' })
 
 //Establish many-many relationship between blog and user for reviews
 Blog.belongsToMany(User, { through: 'BlogUserReview', foreignKey: 'blog_id' });

@@ -11,6 +11,6 @@ const router = express.Router()
 
 router.get('/', commentController.getComments)
 router.put('/:id', checkAuthentication, validateSchema(commentSchema), commentController.updateComment)
-router.delete('/:id', checkAuthentication, isAdmin ,commentController.deleteComment)
+router.delete('/:id', checkAuthentication, isAdmin, commentController.deleteComment)
 
 export default router
