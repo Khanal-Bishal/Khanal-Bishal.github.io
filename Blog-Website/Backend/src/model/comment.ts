@@ -1,6 +1,6 @@
-import { DataTypes } from 'sequelize';
-import { sequelize } from '../config/database';
-import Blog from './blog';
+import { DataTypes } from 'sequelize'
+import { sequelize } from '../config/database'
+import Blog from './blog'
 import User from './user'
 
 const Comment = sequelize.define(
@@ -22,7 +22,6 @@ const Comment = sequelize.define(
             type: DataTypes.INTEGER,
             allowNull: false
         }
-
     },
     {
         timestamps: true
@@ -38,7 +37,7 @@ User.hasMany(Comment, { foreignKey: 'user_id' })
 Comment.belongsTo(User, { foreignKey: 'user_id' })
 
 //Establish many-many relationship between blog and user for reviews
-Blog.belongsToMany(User, { through: 'BlogUserReview', foreignKey: 'blog_id' });
-User.belongsToMany(Blog, { through: 'BlogUserReview', foreignKey: 'user_id' });
+Blog.belongsToMany(User, { through: 'BlogUserReview', foreignKey: 'blog_id' })
+User.belongsToMany(Blog, { through: 'BlogUserReview', foreignKey: 'user_id' })
 
 export default Comment 

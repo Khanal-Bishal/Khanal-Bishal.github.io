@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosError } from 'axios'
+import axios from 'axios'
 
 const HTTP = axios.create({
   baseURL: 'http://localhost:5000/api',
@@ -25,7 +25,6 @@ HTTP.interceptors.request.use(
 HTTP.interceptors.response.use(
   (response) => {
     // Return the original response for successful requests
-
     return response
   },
   async (error) => {
@@ -58,10 +57,8 @@ HTTP.interceptors.response.use(
         throw refreshError
       }
     }
-
     // Return the original error response for other cases
     return Promise.reject(error)
   }
 )
-
 export default HTTP

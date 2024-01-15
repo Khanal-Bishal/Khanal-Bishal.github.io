@@ -1,11 +1,11 @@
-import Joi from "joi";
+import Joi from 'joi';
 
 const profileSchema = Joi.object(
     {
         name: Joi.string().required().messages(
             {
                 'string.base': 'name must be a string',
-                'any.required': "name is required"
+                'any.required': 'name is required'
             }
         ),
         aboutme: Joi.string().required().messages(

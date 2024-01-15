@@ -25,11 +25,12 @@ export const getSingleRandomBlog = async (totalPage: number) => {
   const randomBlog = randomBlogs.data.data[randomBlogIndex]
   return randomBlog
 }
-
+/**
+ * @description logs user out from the system
+ */
 export const logout = () => {
   localStorage.removeItem('userInfo')
   setTimeout(() => {
-    // window.location.reload()
     window.location.href = '../login'
   }, 200)
 }

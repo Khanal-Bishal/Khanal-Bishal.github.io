@@ -3,7 +3,6 @@ import IBlog from './interface/IBlog'
 import queryString from 'query-string'
 import { convertIsoToFormattedData } from './utils'
 import { checkIsAdmin } from './utils'
-import axios from 'axios'
 
 // variables and constants
 const blogsContainer = document.querySelector('.blogs-container') as HTMLDivElement
@@ -38,25 +37,19 @@ window.addEventListener('load', async (event) => {
   blogs.forEach((res) => {
     blogsContainer.innerHTML += `
             <div class='mt-3 flex justify-between uppercase font-bold m-auto sm:w-[90%] lg:w-[70%] '>
-                <span class='bg-gray-300 text-white p-5 w-[25%] text-center rounded-sm'>${res.blog_id
-      }</span>
+                <span class='bg-gray-300 text-white p-5 w-[25%] text-center rounded-sm'>${res.blog_id}</span>
                 <span
                     class='bg-gray-300 text-white p-5 w-[25%] text-center rounded-sm text-sm capitalize font-semibold'>
                     ${res.title}
                 </span>
-                <span class='bg-gray-300 text-white p-5 w-[25%] text-center rounded-sm'>${convertIsoToFormattedData(
-        res.createdAt
-      )} </span>
+                <span class='bg-gray-300 text-white p-5 w-[25%] text-center rounded-sm'>${convertIsoToFormattedData(res.createdAt)} </span>
                 <div class='bg-gray-300 text-white p-5 w-[25%] text-center rounded-sm flex justify-center gap-3 sm:gap-10'>
-                    <i class='update-${res.blog_id
-      } update-btn fa-solid fa-pen-nib text-2xl text-black hover:text-green-300'></i>
-                    <i class=' delete-${res.blog_id
-      } delete-btn fa-solid fa-trash text-black text-2xl hover:text-red-300'></i>
+                    <i class='update-${res.blog_id} update-btn fa-solid fa-pen-nib text-2xl text-black hover:text-green-300'></i>
+                    <i class=' delete-${res.blog_id} delete-btn fa-solid fa-trash text-black text-2xl hover:text-red-300'></i>
                 </div>
             </div>
              `
   })
-
   for (let index = 1; index <= totalPage; index++) {
     paginationContainer.innerHTML += `
         <a href='./dashboard?blog_id=${index}'>
@@ -79,7 +72,6 @@ blogsContainer.addEventListener('click', async (event) => {
     const startIndex = target.classList[0].indexOf('-') + 1
     const blogId = target.classList[0].slice(startIndex)
     await HTTP.delete(`/blog/${blogId}`)
-
     window.location.reload()
   }
 })

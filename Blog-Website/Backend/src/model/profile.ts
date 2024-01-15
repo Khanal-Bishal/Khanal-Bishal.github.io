@@ -1,5 +1,5 @@
-import { DataTypes } from "sequelize";
-import { sequelize } from "../config/database";
+import { DataTypes } from 'sequelize'
+import { sequelize } from '../config/database'
 
 
 /**
@@ -47,7 +47,7 @@ const Profile = sequelize.define
             },
             aboutme:
             {
-                type: DataTypes.STRING,
+                type: DataTypes.STRING(1000),
                 allowNull: false
             },
         },

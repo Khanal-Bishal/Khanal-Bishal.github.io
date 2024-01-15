@@ -1,3 +1,10 @@
+/**
+ * @description converts isoDate into formatted date
+ * 
+ * @param {string} isoData
+ *  
+ * @returns string 
+ */
 export const convertIsoToFormattedData = (isoData: string) => {
   const isoDate = isoData
   const dateObject = new Date(isoDate)
@@ -7,9 +14,11 @@ export const convertIsoToFormattedData = (isoData: string) => {
 }
 
 /**
- * checks if the provided role is admin or not
+ *@description checks if the provided role is admin or not
+
  * @param {string} role
- * @returns
+ 
+ * @returns boolean 
  */
 export const checkIsAdmin = (role: string) => {
   if (role === 'admin') return true

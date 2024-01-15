@@ -82,8 +82,8 @@ updateButton.addEventListener('click', async (event) => {
   } catch (error: any) {
     const errorData = error.response.data.error
 
-    //@ts-ignore
-    errorData.forEach((err) => {
+
+    errorData.forEach((err: any) => {
       toastContainer.innerHTML += `
                 <p class='bg-red-800 my-5 text-white p-5  w-[40%] mx-auto text-center text-sm font-semibold m-5'>
                     ${err.message}

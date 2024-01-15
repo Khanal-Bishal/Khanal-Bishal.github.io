@@ -41,9 +41,7 @@ window.addEventListener('load', async () => {
   blogImageContainer.innerHTML = `
       <div class=' relative cursor mb-3 w-[100%] mx-1 sm:w-[60%] '>
         <figure class='relative '>
-          <img src=${encodeURI(
-    randomBlogs[0].image
-  )} alt='blogImage ' class='w-[100%] h-[250px] aspect-square object-cover sm:h-[408px]  '>
+          <img src=${encodeURI(randomBlogs[0].image)} alt='blogImage ' class='w-[100%] h-[250px] aspect-square object-cover sm:h-[408px]  '>
           <div class='absolute inset-0 bg-black opacity-65 hover:opacity-15'></div>
         </figure>
 
@@ -81,7 +79,7 @@ window.addEventListener('load', async () => {
         <div class=' relative cursor mb-3 w-[100%] mx-1 '>
           <figure class='relative'>
             <a href='/singleblog?blog_id=${randomBlogs[2].blog_id}'>
-            <img src=${encodeURI(randomBlogs[2].image)} alt='blogImage ' class='w-[100%]  h-[250px] aspect-square object-cover sm:h-[200px] '>
+            <img src=${encodeURI(randomBlogs[2].image)} alt='blogImage 'class='w-[100%]  h-[250px] aspect-square object-cover sm:h-[200px]'>
             <div class='absolute inset-0 bg-black opacity-65 hover:opacity-15'></div>
           </figure>
 
@@ -116,11 +114,8 @@ window.addEventListener('load', async () => {
   secondDescription.innerText = randomBlog.description
   secondCommentContainer.innerText = randomBlog.Comments.length
   secondBlogImageContainer.innerHTML = `
-        <img src=${encodeURI(
-    randomBlog.image
-  )} alt='blogImage ' class='w-[100%]  h-[250px] aspect-square object-cover sm:h-[450px] '>
-        <a href='/singleblog?blog_id=${randomBlog.blog_id
-    }' class='absolute inset-0 bg-black opacity-35 hover:opacity-75'></a>
+        <img src=${encodeURI(randomBlog.image)} alt='blogImage ' class='w-[100%]  h-[250px] aspect-square object-cover sm:h-[450px] '>
+        <a href='/singleblog?blog_id=${randomBlog.blog_id}' class='absolute inset-0 bg-black opacity-35 hover:opacity-75'></a>
       `
   secondReadMore.innerHTML = `
   <a href='/singleblog?blog_id=${randomBlog.blog_id}'>Read more </a>
@@ -131,20 +126,15 @@ window.addEventListener('load', async () => {
       container.innerHTML += `
       <div class='mt-7 sm:w-[33%] sm:mt-0'>
         <figure class=''>
-        <a href='./singleblog?blog_id=${randomBlogs[index].blog_id}'>
-        <img src=${encodeURI(randomBlogs[index].image)} alt=''
-        class='h-[100%] w-[100%] object-fill opacity-70 hover:opacity-100'>
-        </a>
+          <a href='./singleblog?blog_id=${randomBlogs[index].blog_id}'>
+          <img src=${encodeURI(randomBlogs[index].image)} alt=''class='h-[100%] w-[100%] object-fill opacity-70 hover:opacity-100'>
+          </a>
         </figure>
-        <h2 class='font-bold text-2xl mt-7 cursor'>${randomBlogs[index].title
-        } </h2>
+        <h2 class='font-bold text-2xl mt-7 cursor'>${randomBlogs[index].title} </h2>
         <div class='flex flex-row gap-7 mt-2 text-xs uppercase '>
-        <span class='text-gray-500 uppercase'>${convertIsoToFormattedData(
-          randomBlogs[index].createdAt
-        )} </span>
-        <span class='text-black'>${randomBlogs[index].Comments.length
-        } comment</span>
-      </div>
+          <span class='text-gray-500 uppercase'>${convertIsoToFormattedData(randomBlogs[index].createdAt)} </span>
+          <span class='text-black'>${randomBlogs[index].Comments.length} comment</span>
+        </div>
       </div>
       `
     }

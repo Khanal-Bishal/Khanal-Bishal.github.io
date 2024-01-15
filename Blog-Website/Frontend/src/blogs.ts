@@ -2,7 +2,6 @@ import HTTP from './urlConfig'
 import IBlog from './interface/IBlog'
 import queryString from 'query-string'
 
-
 // variables and constants
 const blogsContainer = document.querySelector('.blogs-container') as HTMLDivElement
 const paginationContainer = document.querySelector('.pagination-container') as HTMLElement
@@ -50,8 +49,7 @@ window.addEventListener('load', async () => {
     if (error.response.status === 404) {
       console.log('blog not found')
       blogsContainer.innerHTML = `<dotlottie-player src = 'https://lottie.host/d7d0a8a6-c248-44cc-a1ec-ed39d2beda49/zXOluVq7Hg.json'
-      background = 'transparent' speed = '1'  loop autoplay class='w-[200px] h-[200px] relative left-[50%] translate-x-[-50%] top-0 m-0' > </dotlottie-player>`
-
+        background = 'transparent' speed = '1'  loop autoplay class='w-[200px] h-[200px] relative left-[50%] translate-x-[-50%] top-0 m-0' > </dotlottie-player>`
     }
 
   }

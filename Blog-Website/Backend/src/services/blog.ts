@@ -1,4 +1,4 @@
-import Blog from '../model/blog';
+import Blog from '../model/blog'
 import User from '../model/user'
 import Comment from '../model/comment'
 import { Op } from 'sequelize'
@@ -39,7 +39,6 @@ export const getSingleBlog = async (blog_id: string) => {
                 }
             ]
     })
-
     return blogInfo
 }
 
@@ -54,8 +53,7 @@ export const updateBlog = async (body: IBlog, blog_id: string, imageName: string
     if (!doesBlogExist) {
         return doesBlogExist
     }
-
-    const [rowCount, [updatedBlog]] = await Blog.update({ ...body, image: imageName }, { where: { blog_id }, returning: true });
+    const [rowCount, [updatedBlog]] = await Blog.update({ ...body, image: imageName }, { where: { blog_id }, returning: true })
     updatedBlog.get()
 
     return updatedBlog
@@ -67,8 +65,7 @@ export const deleteBlog = async (blog_id: string) => {
     if (!doesBlogExist) {
         return doesBlogExist
     }
-
-    return await Blog.destroy({ where: { blog_id } });
+    return await Blog.destroy({ where: { blog_id } })
 }
 
 /**
@@ -89,7 +86,6 @@ export const searchBlog = async (page: number, search_term: string) => {
                 ],
         }, limit: LIMIT, offset
     })
-
     const blogsCount = await Blog.count(
         {
             where:
@@ -102,6 +98,5 @@ export const searchBlog = async (page: number, search_term: string) => {
                     ],
             }
         })
-
     return { blogsInfo, blogsCount }
 }

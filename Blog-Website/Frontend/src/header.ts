@@ -1,8 +1,6 @@
 import { logout } from './reusedFunction'
 
 //constants and variables
-const blogsContainer = document.querySelector('.blogs-container') as HTMLElement
-const randomBlogContainer = document.querySelector('.random-blog-container') as HTMLElement
 const userNameContainer = document.querySelector('.username-container') as HTMLParagraphElement
 const loginContainer = document.querySelector('.login-container') as HTMLParagraphElement
 const logoutContainer = document.querySelector('.logout-container') as HTMLParagraphElement

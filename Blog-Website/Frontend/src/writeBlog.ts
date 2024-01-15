@@ -1,6 +1,5 @@
 import HTTP from './urlConfig'
 import { checkIsAdmin } from './utils'
-import axios from 'axios'
 
 //variables and constants 
 const textContainer = document.querySelector('.text-container') as HTMLTextAreaElement
@@ -30,7 +29,6 @@ window.addEventListener('load', async () => {
   } catch (error) {
     console.log('error is here', error)
   }
-
 })
 
 //function for infinite textarea expansion
@@ -43,8 +41,7 @@ textContainer.addEventListener('input', function () {
 fileInput.addEventListener('change', (event: any) => {
   const fileName = event.target.files[0].name
   addFile.innerText = fileName
-}
-)
+})
 
 //event when admin post the blog
 postButton.addEventListener('click', async (event) => {
@@ -68,13 +65,12 @@ postButton.addEventListener('click', async (event) => {
       window.location.href = '../dashboard.html'
     }, 1000)
 
-
   } catch (error: any) {
     console.log(error)
     const errorData = error.response.data.error
 
-    //@ts-ignore
-    errorData.forEach(err => {
+
+    errorData.forEach((err: any) => {
       toastContainer.innerHTML += `
                 <p class='bg-red-800 my-5 text-white p-5  w-[40%] mx-auto text-center text-sm font-semibold m-5'>
                     ${err.message}
@@ -85,8 +81,6 @@ postButton.addEventListener('click', async (event) => {
     setTimeout(() => {
       toastContainer.innerHTML = ''
     }, 1500)
-
   }
-
 })
 

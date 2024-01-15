@@ -3,6 +3,8 @@ import Blog from '../model/blog'
 import * as blogService from '../services/blog'
 import { LIMIT } from '../constants/blogConstants'
 import DOMAIN from '../constants/domain'
+import AuthenticatedRequest from '../interfaces/AuthenticatedRequest'
+import IBlog from '../interfaces/IBlog'
 
 /**
  * @description get all the existing blog
@@ -21,14 +23,12 @@ export const getAllBlog = async (req: Request, res: Response, next: NextFunction
         if (blogsInfo.length === 0) {
             return res.status(404).json({ success: false, message: "Blogs not found" })
         }
-
         const plainBlogInfo = blogsInfo.map(info => {
             info = info.get({ plain: true })
             //@ts-ignore
-            const imageUrl = `http://${DOMAIN}/image/${info.image}`
+            const imageUrl = `http://${DOMAIN}/image/${info?.image}`
             return { ...info, image: imageUrl }
         })
-
         res.status(200).json({ success: true, blogsCount, totalPage, data: plainBlogInfo })
     }
     catch (error) {
@@ -47,14 +47,12 @@ export const getAllBlog = async (req: Request, res: Response, next: NextFunction
  */
 export const getSingleBlog = async (req: Request, res: Response, next: NextFunction) => {
     try {
-
         const blog_id = req.params.id
-        let blogInfo = await blogService.getSingleBlog(blog_id)
+        let blogInfo = await blogService.getSingleBlog(blog_id) as any
         blogInfo = blogInfo?.toJSON()!
         if (!blogInfo) {
             return res.status(404).json({ success: false, message: "Blog not found" })
         }
-        //@ts-ignore
         blogInfo = { ...blogInfo, image: `http://${DOMAIN}/image/${blogInfo.image}` }
         res.status(200).json({ success: true, data: blogInfo })
     }
@@ -72,15 +70,12 @@ export const getSingleBlog = async (req: Request, res: Response, next: NextFunct
  * 
  * @route POST /api/blog
  */
-export const createBlog = async (req: Request, res: Response, next: NextFunction) => {
-    try {   //@ts-ignore
-        const imageName = req.user.imageName
-        //@ts-ignore
-        const admin_id = req.user.user_id
+export const createBlog = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+        const imageName = req.user?.imageName
+        const admin_id = req.user?.user_id
         let blogInfo = await blogService.createBlog(req.body, imageName, admin_id)
         blogInfo = blogInfo.toJSON()
-
-
         res.status(201).json({ success: true, data: blogInfo })
     }
     catch (error) {
@@ -97,17 +92,16 @@ export const createBlog = async (req: Request, res: Response, next: NextFunction
  * 
  *  @route  PUT /api/blog/:id
  */
-export const updateBlog = async (req: Request, res: Response, next: NextFunction) => {
+export const updateBlog = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-        //@ts-ignore
-        const imageName = req.user.imageName
+
+        const imageName = req.user?.imageName
         const blog_id = req.params.id
         const updatedBlog = await blogService.updateBlog(req.body, blog_id, imageName)
 
         if (!updatedBlog) {
             return res.status(404).json({ success: false, message: "Blog not found" })
         }
-
         res.status(200).json({ success: true, data: updatedBlog })
     }
     catch (error) {
@@ -139,8 +133,14 @@ export const deleteBlog = async (req: Request, res: Response, next: NextFunction
         next(error)
     }
 }
-
-
+/**
+ * @description searches the blog either by title or description
+ * 
+ * @param {Request} req 
+ * @param {Response} res 
+ * @param {Response} next 
+ * @route GET /api/blog/search
+ */
 export const searchBlog = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const page = parseInt(req.query.page as string) || 1
@@ -150,14 +150,12 @@ export const searchBlog = async (req: Request, res: Response, next: NextFunction
         if (blogsInfo.length === 0) {
             return res.status(404).json({ success: false, message: "Blogs not found" })
         }
-
         const plainBlogInfo = blogsInfo.map(info => {
             info = info.get({ plain: true })
             //@ts-ignore
             const imageUrl = `http://${DOMAIN}/image/${info.image}`
             return { ...info, image: imageUrl }
         })
-
         res.status(200).json({ success: true, blogsCount, totalPage, data: plainBlogInfo })
     }
     catch (error) {

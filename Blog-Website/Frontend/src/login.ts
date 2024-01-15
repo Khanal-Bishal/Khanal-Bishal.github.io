@@ -1,17 +1,12 @@
 import HTTP from './urlConfig'
-import axios from 'axios'
 
 //variables and constants
-const registerBtn = document.querySelector(
-  '.register-btn'
-) as HTMLButtonElement
+const registerBtn = document.querySelector('.register-btn') as HTMLButtonElement
 const loginBtn = document.querySelector('.login-btn') as HTMLButtonElement
 
 const email = document.querySelector('#email') as HTMLInputElement
 const password = document.querySelector('#password') as HTMLInputElement
-const toastContainer = document.querySelector(
-  '.toast-container'
-) as HTMLElement
+const toastContainer = document.querySelector('.toast-container') as HTMLElement
 
 //event listners
 registerBtn.addEventListener('click', (event) => {
@@ -32,7 +27,7 @@ loginBtn.addEventListener('click', async (event) => {
     toastContainer.innerHTML = ''
     toastContainer.innerHTML += `
             <p class='bg-green-800 text-white p-5  w-[250px] text-center text-xl font-semibold m-5'>
-            User logged in
+              User logged in
             </p>
             `
     console.log(result.data.data.role)
@@ -67,15 +62,13 @@ loginBtn.addEventListener('click', async (event) => {
       }, 1500)
       return
     }
-    //@ts-ignore
-    errorData.forEach((err) => {
+
+    errorData.forEach((err: any) => {
       toastContainer.innerHTML += `
                 <p class='bg-red-800 text-white p-5  w-[300px] text-center text-xl font-semibold m-5'>
                     ${err.message}
                 </p>
-                `
-    })
-
+                `})
     setTimeout(() => {
       toastContainer.innerHTML = ''
     }, 1500)

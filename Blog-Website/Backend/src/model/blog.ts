@@ -1,25 +1,29 @@
-import { DataTypes } from "sequelize";
-import { sequelize } from "../config/database";
-import User from "./user";
+import { DataTypes } from 'sequelize'
+import { sequelize } from '../config/database'
+import User from './user'
 
 const Blog = sequelize.define(
-  "Blog",
+  'Blog',
   {
-    blog_id: {
+    blog_id:
+    {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true,
     },
-    title: {
+    title:
+    {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    description:
+    {
       type: DataTypes.STRING(10000),
       allowNull: false,
     },
-    image: {
+    image:
+    {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -27,10 +31,10 @@ const Blog = sequelize.define(
   {
     timestamps: true,
   }
-);
+)
 
 // User-BLOG association
-User.hasMany(Blog, { foreignKey: "admin_id" });
-Blog.belongsTo(User, { foreignKey: "admin_id" });
+User.hasMany(Blog, { foreignKey: 'admin_id' })
+Blog.belongsTo(User, { foreignKey: 'admin_id' })
 
-export default Blog;
+export default Blog
