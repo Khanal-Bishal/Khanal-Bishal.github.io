@@ -19,12 +19,12 @@ Clone the repository:
 
       git clone [https://github.com/Khanal-Bishal/Khanal-Bishal.github.io.git](https://github.com/Khanal-Bishal/Khanal-Bishal.github.io.git)
 
-Install backend dependencies:
+Install frontend dependencies:
      
         cd frontend
         npm install
 
-Install frontend dependencies:
+Install backend dependencies:
 
       cd backend
       npm install
@@ -41,9 +41,11 @@ For development:
 
 Frontend
 
-    For development:
+For development:
+    
     cd frontend
     npm run dev
+    
 run locally from:
 
     http://localhost:5173
