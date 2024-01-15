@@ -2,8 +2,7 @@
 Personal blog site
 --------------------------------------------------------------
 
-Personal Blog site is tailored for individual content creators who want to express thoughts, insights, experience and knowledge on peculiar subjects.  
-The site provides intuitive interface for creating, managing and engaging with blog content. 
+Personal Blog site is tailored for individual content creators who want to express thoughts, insights, experience and knowledge on peculiar subjects. The site provides intuitive interface for creating, managing and engaging with blog content. 
 
 --------------------------------------------------------------
 Getting Started
@@ -11,14 +10,14 @@ Getting Started
 Prerequisites
     Node.js and express
     npm (Node Package Manager)
-    TypeScript (for server)
+    TypeScript 
     
 --------------------------------------------------------------
 Installation
 --------------------------------------------------------------
 Clone the repository:
 
-      git clone https://github.com/Satish9047/book-sharing-website](https://github.com/Khanal-Bishal/Khanal-Bishal.github.io.git
+      git clone [https://github.com/Khanal-Bishal/Khanal-Bishal.github.io.git](https://github.com/Khanal-Bishal/Khanal-Bishal.github.io.git)
 
 Install backend dependencies:
      
@@ -45,7 +44,7 @@ Frontend
     For development:
     cd frontend
     npm run dev
-go browser and send the request in:
+run locally from:
 
     http://localhost:5173
 
@@ -78,5 +77,4 @@ Contact
 
 If you have any questions you can email me at @bishaldada777@gmail.com
 
-For any inquiries, please contact Satish Prajapati at satishprajapati930@gmail.com.
-Happy reading and sharing!
+Happy coding :)
