@@ -1,42 +1,37 @@
-import  {DataTypes} from 'sequelize'
-import {sequelize} from '../config/database'
+import { DataTypes } from 'sequelize'
+import { sequelize } from '../config/database'
 
 const Task = sequelize.define(
     "Task",
     {
         taskid:
         {
-            type:DataTypes.INTEGER.UNSIGNED,
-            autoIncrement:true,
-            primaryKey:true,
+            type: DataTypes.INTEGER.UNSIGNED,
+            autoIncrement: true,
+            primaryKey: true,
         },
         name:
         {
-            type:DataTypes.STRING,
-            allowNull:false,
+            type: DataTypes.STRING,
+            allowNull: false,
 
         },
         description:
         {
-            type:DataTypes.TEXT,
-            allowNull:true,
+            type: DataTypes.TEXT,
+            allowNull: true,
         },
         completed:
         {
-            type:DataTypes.BOOLEAN,
-            allowNull:false,
-            defaultValue:false
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
         },
-        // createdBy:
-        // {
-        //     type:DataTypes.UUID,
-        //     // allowNull:false
-        // }
-        
+
     },
-    
+
     {
-        timestamps:true
+        timestamps: true
     }
 )
 
