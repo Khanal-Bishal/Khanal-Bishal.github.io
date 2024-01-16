@@ -4,7 +4,6 @@ import * as blogService from '../services/blog'
 import { LIMIT } from '../constants/blogConstants'
 import DOMAIN from '../constants/domain'
 import AuthenticatedRequest from '../interfaces/AuthenticatedRequest'
-import IBlog from '../interfaces/IBlog'
 
 /**
  * @description get all the existing blog

@@ -151,3 +151,6 @@ GET /api/task?page=1&per_page=5&search_term=when&completed=false  200 5.820 ms F
 GET /api/task  200 168.506 ms Sat, 06 Jan 2024 14:23:49 GMT
 POST /api/task  200 48.130 ms Sat, 06 Jan 2024 14:24:03 GMT
 POST /api/task  401 0.517 ms Sat, 06 Jan 2024 14:24:10 GMT
+POST /api/user/login  200 114.038 ms Tue, 16 Jan 2024 12:14:46 GMT
+GET /api/task  401 0.540 ms Tue, 16 Jan 2024 12:15:02 GMT
+GET /api/task  200 161.947 ms Tue, 16 Jan 2024 12:15:05 GMT

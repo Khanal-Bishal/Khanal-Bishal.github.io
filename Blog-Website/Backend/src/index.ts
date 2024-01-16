@@ -3,9 +3,7 @@ import dotenv from 'dotenv'
 import morgan from 'morgan'
 const colors = require('colors')
 import cors from 'cors'
-import helmet from 'helmet'
 import fileUpload from 'express-fileupload'
-
 import connectDb from './config/database'
 
 connectDb()
